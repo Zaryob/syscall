@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: GPL-2.0-only
+title: Linux System Call Reference
+description: A free, kernel-sourced reference to Linux system calls.
+lang: en
+url: ""
+baseurl: ""
+source: public
+destination: _site
+encoding: utf-8
+timezone: UTC
+markdown: kramdown
+strict_front_matter: true
+liquid:
+  error_mode: strict
+exclude:
+  - .DS_Store
+  - README.md
+
+# Common Zaryob navigation; override suite_url for a combined local preview.
+suite_url: "https://zaryob.github.io"
+suite_section: syscall

@@ -1,0 +1,66 @@
+/* Syscall adapters. Keep data, argument columns and existing UI behavior intact. */
+.console-syscall main, .console-syscall footer { max-width: var(--shell-width); padding-inline: 36px; }
+.console-syscall main { padding-top: 24px; }
+.console-syscall .local-nav { display: flex; gap: 12px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px; font-size: 12px; }
+.console-syscall .local-nav a { color: var(--muted); }
+.console-syscall .introduction { padding: 28px 0; max-width: none; }
+.console-syscall .introduction > p { max-width: 80ch; }
+.console-syscall h1 { margin-bottom: 12px; color: var(--ink); }
+.console-syscall .eyebrow { color: var(--accent); letter-spacing: 0; text-transform: none; font-size: 12px; }
+.console-syscall .lede { color: var(--muted); font-size: 16px; font-style: normal; }
+.console-syscall .introduction > p:not(.eyebrow):not(.lede) { font-size: 13px; }
+.console-syscall h2 { font-size: 21px; font-weight: 500; }
+.console-syscall h3 { font-size: 17px; }
+.console-syscall .section-heading { gap: 16px; }
+.console-syscall .architectures a { color: var(--muted); font-size: 13px; }
+.console-syscall .architectures a[aria-current=true] { color: var(--accent); border-color: var(--accent); font-weight: 500; }
+.console-syscall .controls { font-size: 13px; gap: 16px 24px; }
+.console-syscall .controls > a { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--control-border); color: var(--accent); background: var(--paper); text-decoration: none; }
+.console-syscall .controls > a:hover { border-color: var(--accent); background: var(--surface); }
+.console-syscall .convention-strip { background: var(--surface); border-color: var(--accent); font-size: 12px; }
+.console-syscall #search-form > label { font-size: 13px; font-weight: 500; }
+.console-syscall .search-line input { font: 14px/1.5 var(--font-mono); background: var(--surface); }
+.console-syscall #search-help, .console-syscall .table-toolbar { font-size: 12px; }
+.console-syscall table { font-size: 13px; }
+.console-syscall thead { background: var(--surface); border-color: var(--line); }
+.console-syscall :is(th,td) { border-color: var(--line); padding: 10px 12px; }
+.console-syscall th { font-weight: 500; }
+.console-syscall th button { min-height: 0; padding: 0; border: 0; background: transparent; font-size: inherit; color: var(--ink); }
+.console-syscall .argument-heading { font-size: 12px; }
+.console-syscall .arg-cell { border-color: var(--line); }
+.console-syscall .call-name { font-family: var(--font-mono); color: var(--accent); font-size: 13px; min-height: 0; padding: 0; border: 0; background: transparent; }
+.console-syscall .call-name:hover { background: transparent; color: var(--ink); }
+.console-syscall .call-name[aria-expanded=true] { color: var(--accent); font-weight: 500; }
+.console-syscall tr.syscall-row:hover { background: var(--surface); }
+.console-syscall .detail-row > td { background: var(--surface); color: var(--ink) !important; font: 14px/1.8 var(--font-mono) !important; }
+.console-syscall .detail-content pre { background: var(--paper); font-size: 13px; }
+.console-syscall .detail-content .argument-registers { font-family: var(--font-mono); }
+.console-syscall .argument-table { background: var(--paper); }
+.console-syscall .argument-table tbody th { font-family: var(--font-mono); border-color: var(--line); }
+.console-syscall .documentation h2 { color: var(--ink); }
+.console-syscall .documentation > p { font-size: 14px; max-width: 85ch; }
+.console-syscall .conventions-table td, .console-syscall .conventions-table td:first-child { font: 13px/1.8 var(--font-mono); }
+.console-syscall .badge { font: 11px/1.5 var(--font-mono); }
+.console-syscall .badge.added { color: var(--success); }
+.console-syscall .badge.removed { color: var(--danger); }
+.console-syscall .badge.changed { color: var(--warning); }
+.console-syscall .notice { color: var(--ink); background: var(--surface); border-color: var(--warning); }
+.console-syscall .error { color: var(--danger); border-color: var(--danger); }
+.console-syscall .text-button { border: 0; min-height: 0; padding: 0; color: var(--accent); background: transparent; }
+.console-syscall footer { border-top: 1px solid var(--line); font-size: 12px; }
+.console-syscall footer p:first-child { font-style: normal; }
+.console-syscall footer p { font-size: 12px; }
+.console-syscall .api-list { font-size: 13px; }
+.console-syscall :is(.architectures,.convention-strip,td:first-child) { font-family: var(--font-mono); }
+.console-syscall .console-search :is(h2,p) { margin-bottom: 0; }
+@media (max-width: 760px) {
+  .console-syscall main, .console-syscall footer { padding-inline: 20px; }
+  .console-syscall .controls > a { width: auto; }
+  .console-syscall .local-nav { gap: 10px 18px; }
+}
+@media (max-width: 560px) {
+  .console-syscall main, .console-syscall footer { padding-inline: 16px; }
+  .console-syscall .controls { align-items: flex-start; }
+  .console-syscall .controls label { flex-wrap: wrap; }
+  .console-syscall .introduction { padding-block: 24px; }
+}
