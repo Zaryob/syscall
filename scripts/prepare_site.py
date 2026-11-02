@@ -28,7 +28,8 @@ def prepare():
             # Relative to this API index, so a project-site baseurl also works.
             'manifest': '../../data/manifest.json',
             'architectures': 'architectures.json', 'versions': 'versions.json',
-            'tables': [{'version': version, 'architecture': arch['id'], 'url': '../../data/{}/{}.json'.format(version, arch['id'])} for version in manifest['versions'] for arch in manifest['architectures']],
+            'version_architectures': manifest.get('version_architectures', {}),
+            'tables': [{'version': version, 'architecture': arch['id'], 'url': '../../data/{}/{}.json'.format(version, arch['id'])} for version in manifest['versions'] for arch in manifest['architectures'] if arch['id'] in manifest.get('version_architectures', {}).get(version, [a['id'] for a in manifest['architectures']])],
         },
     }
     for filename, data in indexes.items():

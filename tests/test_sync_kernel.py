@@ -29,11 +29,53 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(result['sys_getpid']['line'], 3)
         self.assertEqual(result['sys_read']['arguments'], ['unsigned int fd', 'char __user *buf', 'size_t count'])
 
+    def test_prototypes_handle_historical_return_types_and_qualifiers(self):
+        text = (
+            "asmlinkage ssize_t sys_read(unsigned int fd, char __user *buf, size_t count);\n"
+            "asmlinkage NORET_TYPE void sys_exit(int error_code);\n"
+            "asmlinkage off_t sys_lseek(unsigned int fd, off_t offset, unsigned int origin);\n"
+        )
+        result = sync.parse_prototypes(text, 'include/linux/syscalls.h')
+        self.assertEqual(result['sys_read']['arguments'], ['unsigned int fd', 'char __user *buf', 'size_t count'])
+        self.assertEqual(result['sys_exit']['arguments'], ['int error_code'])
+        self.assertEqual(result['sys_lseek']['arguments'], ['unsigned int fd', 'off_t offset', 'unsigned int origin'])
+
+    def test_historical_license_and_gpl_plus_are_accepted(self):
+        files = {
+            'COPYING': {'text': 'GNU General Public License version 2 only\n', 'sha256': 'copying_hash'},
+            'arch/arm/tools/syscall.tbl': {'text': '0 common restart_syscall sys_restart_syscall\n', 'sha256': 'arm_hash'},
+            'arch/loongarch/include/asm/unistd.h': {'text': '/* SPDX-License-Identifier: GPL-2.0+ */\n', 'sha256': 'loongarch_hash'},
+        }
+        records = sync.source_licenses(files, ref='v6.6')
+        records_by_path = {r['path']: r for r in records}
+        self.assertEqual(records_by_path['arch/arm/tools/syscall.tbl']['license_identifier'], 'GPL-2.0-only')
+        self.assertEqual(records_by_path['arch/loongarch/include/asm/unistd.h']['spdx_license_identifier'], 'GPL-2.0+')
+
     def test_conflicting_configuration_declarations_stay_unknown(self):
         text = 'asmlinkage long sys_clone(int flags, long stack);\nasmlinkage long sys_clone(long stack, int flags);\nasmlinkage long sys_clone(int flags, long stack);'
         result = sync.parse_prototypes(text, 'syscalls.h')
         self.assertIsNone(result['sys_clone']['arguments'])
         self.assertIn('configuration', result['sys_clone']['note'])
+
+    def test_mainline_filter_distinguishes_major_and_2_6_releases_from_maintenance(self):
+        # 1.0 baseline
+        self.assertTrue(sync.is_mainline('v1.0'))
+        # 2.6.x mainline releases
+        self.assertTrue(sync.is_mainline('v2.6.12'))
+        self.assertTrue(sync.is_mainline('v2.6.16'))
+        self.assertTrue(sync.is_mainline('v2.6.39'))
+        # 3.x+ mainline releases (major.minor)
+        self.assertTrue(sync.is_mainline('v3.0'))
+        self.assertTrue(sync.is_mainline('v5.19'))
+        self.assertTrue(sync.is_mainline('v6.6'))
+        self.assertTrue(sync.is_mainline('v7.3'))
+        # Maintenance releases (patch releases) must be rejected
+        self.assertFalse(sync.is_mainline('v6.6.1'))
+        self.assertFalse(sync.is_mainline('v6.12.3'))
+        self.assertFalse(sync.is_mainline('v2.6.12.1'))
+        # Release candidates must be rejected
+        self.assertFalse(sync.is_mainline('v6.6-rc1'))
+        self.assertFalse(sync.is_mainline('v7.3-rc2'))
 
     def test_extra_abis_follow_arch_makefile(self):
         self.assertEqual(sync.extra_abis('syscall_abis_32 += wrong\nsyscall_abis_64 += renameat rlimit memfd_secret\n'), ['renameat', 'rlimit', 'memfd_secret'])
@@ -69,6 +111,7 @@ class ImportTests(unittest.TestCase):
             sync.update_manifest(output)
             manifest = json.loads((output / 'manifest.json').read_text())
             self.assertEqual(manifest['versions'], ['v7.3'])
+            self.assertEqual(manifest['version_architectures']['v7.3'], list(sync.ARCHES))
             data = json.loads((output / 'v7.3/x64.json').read_text())
             self.assertEqual(data['provenance']['kind'], 'local')
             self.assertEqual(data['license'], 'GPL-2.0-only')

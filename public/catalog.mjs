@@ -1,4 +1,16 @@
 // SPDX-License-Identifier: GPL-2.0-only
+export function availableArchitectures(manifest, version) {
+  return manifest.version_architectures?.[version] ?? manifest.architectures.map(a => a.id);
+}
+
+export function normalizeSelection(manifest, state) {
+  if (!manifest.versions.includes(state.kernel)) state.kernel = manifest.latest;
+  const available = availableArchitectures(manifest, state.kernel);
+  if (!available.includes(state.arch)) state.arch = available.includes('x64') ? 'x64' : available[0];
+  if (!manifest.versions.includes(state.compare) || state.compare === state.kernel || !availableArchitectures(manifest, state.compare).includes(state.arch)) state.compare = '';
+  return state;
+}
+
 export function searchSyscalls(rows, query = '') {
   const q = query.trim().toLowerCase();
   if (!q) return rows;

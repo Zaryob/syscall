@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
-import { searchSyscalls, diffSyscalls } from './catalog.mjs';
+import { searchSyscalls, diffSyscalls, availableArchitectures, normalizeSelection } from './catalog.mjs';
 import { withBase } from './paths.mjs';
 import { buildExample } from './examples.mjs';
 
@@ -18,7 +18,12 @@ const cache = new Map();
 let manifest, snapshot, previous, requestId = 0;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const nr = number => state.hex ? `0x${number.toString(16)}` : String(number);
-const sourceLink = (source, kernel) => `https://github.com/torvalds/linux/blob/${encodeURIComponent(kernel)}/${source.path}#L${source.line}`;
+const sourceLink = (source, kernel) => {
+  const data = kernel === snapshot?.kernel ? snapshot : previous;
+  return data?.provenance.archive
+    ? sitePath(`data/${kernel}/sources/${source.path}`)
+    : `https://github.com/torvalds/linux/blob/${encodeURIComponent(kernel)}/${source.path}#L${source.line}`;
+};
 const key = row => `${row.number}:${row.name}`;
 
 async function getJSON(url) {
@@ -42,11 +47,11 @@ function saveURL() {
   history.replaceState(null, '', `${rootPath}?${p}${hash}`);
 }
 function updateArchitectureNav() {
-  $('architectures').innerHTML = manifest.architectures.map(a => `<a href="${rootPath}?arch=${a.id}&amp;kernel=${state.kernel}" data-arch="${a.id}" ${a.id === state.arch ? 'aria-current="true"' : ''}>${esc(a.id)}</a>`).join('');
+  $('architectures').innerHTML = manifest.architectures.filter(a => availableArchitectures(manifest, state.kernel).includes(a.id)).map(a => `<a href="${rootPath}?arch=${a.id}&amp;kernel=${state.kernel}" data-arch="${a.id}" ${a.id === state.arch ? 'aria-current="true"' : ''}>${esc(a.id)}</a>`).join('');
 }
 function updateSelects() {
   $('kernel').innerHTML = manifest.versions.map(v => `<option value="${v}" ${v === state.kernel ? 'selected' : ''}>${v.slice(1)}${v === manifest.latest ? ' (' + t('Latest snapshot') + ')' : ''}</option>`).join('');
-  $('compare').innerHTML = `<option value="">${t('No comparison')}</option>` + manifest.versions.filter(v => v !== state.kernel).map(v => `<option value="${v}" ${v === state.compare ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
+  $('compare').innerHTML = `<option value="">${t('No comparison')}</option>` + manifest.versions.filter(v => v !== state.kernel && availableArchitectures(manifest, v).includes(state.arch)).map(v => `<option value="${v}" ${v === state.compare ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
   $('kernel').disabled = $('compare').disabled = false;
 }
 function renderMetadata() {
@@ -63,7 +68,7 @@ function renderMetadata() {
   $('download').href = $('bulk-link').href = download;
   $('download').download = `linux-${state.kernel}-${state.arch}.json`;
   $('api-example').textContent = `curl '${location.origin}${download}'`;
-  $('provenance').textContent = t('Current dataset: Linux {version}, {origin}. {count} source files recorded with SHA-256 hashes.', { version: state.kernel.slice(1), origin: t(snapshot.provenance.kind === 'local' ? 'imported from a local source tree' : 'imported from torvalds/linux'), count: snapshot.provenance.files.length });
+  $('provenance').textContent = t('Current dataset: Linux {version}, {origin}. {count} source files recorded with SHA-256 hashes.', { version: state.kernel.slice(1), origin: t(snapshot.provenance.kind === 'local' ? 'imported from a local source tree' : snapshot.provenance.archive ? 'imported from kernel.org archives' : 'imported from torvalds/linux'), count: snapshot.provenance.files.length });
 }
 function detailHTML(row, removed) {
   const kernel = removed ? state.compare : state.kernel;
@@ -115,6 +120,7 @@ function renderRows() {
 }
 
 async function refresh() {
+  normalizeSelection(manifest, state);
   const id = ++requestId;
   $('error').hidden = true;
   $('results').textContent = t("Loading kernel table\u2026");

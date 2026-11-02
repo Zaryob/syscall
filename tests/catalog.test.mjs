@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { searchSyscalls, diffSyscalls } from '../public/catalog.mjs';
+import { searchSyscalls, diffSyscalls, availableArchitectures } from '../public/catalog.mjs';
 import { withBase } from '../public/paths.mjs';
 import { createApp } from '../server.mjs';
 
@@ -37,14 +37,19 @@ test('all shipped snapshots have unique numbers, provenance, and known architect
   const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
   const readNumbers = { x64: 0, x86: 3, arm64: 63, arm: 3, riscv64: 63, loongarch64: 63 };
   for (const version of manifest.versions) {
-    for (const arch of manifest.architectures) {
-      const data = await dataset(version, arch.id);
+    for (const archId of availableArchitectures(manifest, version)) {
+      const data = await dataset(version, archId);
       assert.equal(data.kernel, version);
       assert.equal(new Set(data.syscalls.map(r => r.number)).size, data.syscalls.length);
       const read = data.syscalls.find(r => r.name === 'read');
-      assert.equal(read.number, readNumbers[arch.id]);
-      assert.equal(read.arguments.length, 3);
-      assert.ok(data.syscalls.find(r => r.name === 'getpid').arguments.length === 0);
+      assert.equal(read.number, readNumbers[archId]);
+      if (read.arguments !== null) {
+        assert.equal(read.arguments.length, 3);
+      }
+      const getpid = data.syscalls.find(r => r.name === 'getpid');
+      if (getpid && getpid.arguments !== null) {
+        assert.equal(getpid.arguments.length, 0);
+      }
       assert.ok(data.provenance.files.every(f => /^[a-f\d]{64}$/.test(f.sha256)));
       assert.equal(data.license, 'GPL-2.0-only');
       for (const row of data.syscalls) {
@@ -64,13 +69,20 @@ test('every bundled kernel input retains its exact hash, notices, and source lic
     for (const file of sources.files) {
       const bytes = await readFile(new URL(`../public/data/${version}/${file.bundled_path}`, import.meta.url));
       assert.equal(createHash('sha256').update(bytes).digest('hex'), file.sha256, file.path);
-      if (file.role !== 'license-notice') assert.ok(file.spdx_license_identifier.startsWith('GPL-2.0'));
+      const license = file.spdx_license_identifier || file.license_identifier;
+      if (file.role !== 'license-notice') assert.ok(license && license.startsWith('GPL-2.0'), file.path);
     }
-    const header = await readFile(new URL(`../public/data/${version}/sources/include/linux/syscalls.h`, import.meta.url), 'utf8');
-    assert.match(header, /Copyright \(c\) 2004 Randy Dunlap/);
-    assert.match(header, /SPDX-License-Identifier: GPL-2.0-only/);
-    const note = await readFile(new URL(`../public/data/${version}/sources/LICENSES/exceptions/Linux-syscall-note`, import.meta.url), 'utf8');
-    assert.match(note, /SPDX-Exception-Identifier: Linux-syscall-note/);
+    const hasSyscallsH = sources.files.some(f => f.path === 'include/linux/syscalls.h' && f.spdx_license_identifier);
+    if (hasSyscallsH) {
+      const header = await readFile(new URL(`../public/data/${version}/sources/include/linux/syscalls.h`, import.meta.url), 'utf8');
+      assert.match(header, /Copyright \(c\) 2004 Randy Dunlap/);
+      assert.match(header, /SPDX-License-Identifier: GPL-2.0-only/);
+    }
+    const hasNote = sources.files.some(f => f.path === 'LICENSES/exceptions/Linux-syscall-note');
+    if (hasNote) {
+      const note = await readFile(new URL(`../public/data/${version}/sources/LICENSES/exceptions/Linux-syscall-note`, import.meta.url), 'utf8');
+      assert.match(note, /SPDX-Exception-Identifier: Linux-syscall-note/);
+    }
   }
 });
 

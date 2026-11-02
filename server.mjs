@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { diffSyscalls, searchSyscalls } from './public/catalog.mjs';
+import { diffSyscalls, searchSyscalls, availableArchitectures } from './public/catalog.mjs';
 
 const ROOT = path.resolve(fileURLToPath(new URL('./public/', import.meta.url)));
 const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.txt': 'text/plain; charset=utf-8' };
@@ -12,7 +12,7 @@ const json = (res, status, body) => {
   res.end(JSON.stringify(body, null, 2) + '\n');
 };
 async function load(version, arch, manifest) {
-  if (!manifest.versions.includes(version) || !manifest.architectures.some(a => a.id === arch)) return null;
+  if (!manifest.versions.includes(version) || !availableArchitectures(manifest, version).includes(arch)) return null;
   return JSON.parse(await readFile(path.join(ROOT, 'data', version, arch + '.json'), 'utf8'));
 }
 

@@ -5,6 +5,7 @@
 No third-party packages, kernel compilation, or host headers are needed.
 """
 import argparse
+import ast
 import concurrent.futures
 from datetime import datetime, timezone
 import hashlib
@@ -12,9 +13,11 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
+import tarfile
 import time
 import urllib.error
 import urllib.request
@@ -30,6 +33,45 @@ ARCHES = {
     "loongarch64": dict(label="LoongArch 64", bits=64, kernel="loongarch", table="scripts/syscall.tbl", abis=["common", "64"], instruction="syscall 0", nr="a7", result="a0", registers=["a0", "a1", "a2", "a3", "a4", "a5"]),
 }
 
+# Mainline releases: in 2.6.x the third component was the mainline release;
+# since 3.0 the third component denotes maintenance/patch releases instead.
+def version_key(ref):
+    return tuple(map(int, ref.removeprefix("v").split(".")))
+
+
+def is_mainline(ref):
+    return bool(re.fullmatch(r"v(?:1\.0|2\.6\.\d+|[3-9]\d*\.\d+)", ref))
+
+
+def mainline_refs():
+    proc = subprocess.run(["git", "ls-remote", "--tags", "https://github.com/torvalds/linux.git"], capture_output=True, text=True, check=True, timeout=180)
+    refs = {line.split("refs/tags/", 1)[1].removesuffix("^{}") for line in proc.stdout.splitlines() if "refs/tags/" in line}
+    return sorted({r for r in refs if is_mainline(r)} | {"v1.0"} | {"v2.6." + str(i) for i in range(12)}, key=version_key)
+
+
+LEGACY_PATHS = {
+    "Makefile", "include/linux/syscalls.h", "include/linux/compat.h", "include/linux/sys.h",
+    "include/linux/unistd.h", "include/unistd.h", "include/asm/unistd.h",
+    "include/asm-i386/unistd.h", "include/asm-x86_64/unistd.h", "include/asm-arm/unistd.h",
+    "include/asm-x86/unistd_32.h", "include/asm-x86/unistd_64.h",
+    "arch/x86/include/asm/unistd_32.h", "arch/x86/include/asm/unistd_64.h",
+    "arch/x86/include/asm/unistd.h", "arch/x86/include/asm/syscalls.h",
+    "arch/x86/kernel/syscall_table_32.S", "arch/x86/kernel/syscall_table_64.S",
+    "arch/i386/kernel/syscall_table.S", "arch/i386/kernel/entry.S", "arch/i386/kernel/sys_call.S",
+    "kernel/sys_call.S", "kernel/entry.S", "arch/arm/kernel/calls.S",
+    "kernel/sched.c", "arch/riscv/include/uapi/asm/syscalls.h", "arch/riscv/include/uapi/asm/Kbuild",
+    "arch/arm/include/asm/unistd.h", "arch/arm/include/asm/syscalls.h",
+    "arch/arm64/include/asm/unistd.h", "arch/arm64/include/uapi/asm/unistd.h",
+    "arch/arm64/include/asm/syscalls.h", "include/asm-generic/unistd.h",
+    "include/uapi/asm-generic/unistd.h", "arch/arm/include/uapi/asm/unistd.h",
+    "arch/x86/syscalls/syscall_32.tbl", "arch/x86/syscalls/syscall_64.tbl",
+    "arch/x86/entry/syscalls/syscall_32.tbl", "arch/x86/entry/syscalls/syscall_64.tbl",
+    "arch/arm/tools/syscall.tbl", "arch/riscv/include/asm/unistd.h",
+    "arch/riscv/include/uapi/asm/unistd.h", "arch/riscv/include/asm/syscalls.h",
+    "arch/loongarch/include/asm/unistd.h", "arch/loongarch/include/uapi/asm/unistd.h",
+    "arch/loongarch/include/asm/syscalls.h",
+}
+
 
 def atomic_text(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -42,7 +84,7 @@ def atomic_json(path, value):
     atomic_text(path, json.dumps(value, indent=2, ensure_ascii=False) + "\n")
 
 
-def source_licenses(files):
+def source_licenses(files, ref=None):
     """Keep upstream identifiers verbatim; do not apply a blanket UAPI exception."""
     records = []
     for path, info in sorted(files.items()):
@@ -60,11 +102,20 @@ def source_licenses(files):
                 if not match:
                     raise ValueError("Missing license identifier for scripts/syscall.tbl")
                 record.update(spdx_license_identifier=match[1].split("*/")[0].strip(), symlink_target="scripts/syscall.tbl")
+            elif ref and (version_key(ref) < (6, 12) and path in LEGACY_PATHS) and "COPYING" in files and any(p in files["COPYING"]["text"] for p in ["GNU GENERAL PUBLIC LICENSE", "GNU General Public License", "GPL-2.0"]):
+                # Reviewed historical kernel inputs predate SPDX conversion. The
+                # original file and release COPYING are retained without edits.
+                record.update(license_identifier="GPL-2.0-only", license_basis="COPYING", license_note="Historical kernel input without an SPDX identifier; see the original notices and release COPYING.")
             else:
                 raise ValueError("Missing SPDX license identifier in {}; review the source license before importing".format(path))
-            allowed = {"GPL-2.0", "GPL-2.0-only", "GPL-2.0 WITH Linux-syscall-note", "GPL-2.0-only WITH Linux-syscall-note"}
-            if record["spdx_license_identifier"] not in allowed:
-                raise ValueError("Unreviewed source license in {}: {}".format(path, record["spdx_license_identifier"]))
+            allowed = {
+                "GPL-2.0", "GPL-2.0-only", "GPL-2.0+", "GPL-2.0-or-later",
+                "GPL-2.0 WITH Linux-syscall-note", "GPL-2.0-only WITH Linux-syscall-note",
+                "GPL-2.0+ WITH Linux-syscall-note", "GPL-2.0-or-later WITH Linux-syscall-note",
+            }
+            license_str = record.get("spdx_license_identifier") or record.get("license_identifier")
+            if license_str not in allowed:
+                raise ValueError("Unreviewed source license in {}: {}".format(path, license_str))
         records.append(record)
     return records
 
@@ -74,8 +125,34 @@ class Source:
         self.ref = ref
         self.tree = Path(tree).resolve() if tree else None
         self.files = {}
+        self.missing = set()
+        self.archive_url = None
+
+    def archive(self):
+        """Cache only allowlisted inputs from pre-Git kernel.org archives."""
+        family = ".".join(self.ref[1:].split(".")[:2])
+        self.archive_url = "https://www.kernel.org/pub/linux/kernel/v{}/linux-{}.tar.xz".format(family, self.ref[1:])
+        cache = ROOT / ".cache" / self.ref
+        if (cache / ".archive-complete").is_file():
+            return
+        archive_path = ROOT / ".cache" / ("linux-" + self.ref[1:] + ".tar.xz")
+        if not archive_path.exists():
+            with urllib.request.urlopen(self.archive_url, timeout=120) as response:
+                data = response.read()
+            archive_path.parent.mkdir(parents=True, exist_ok=True)
+            archive_path.write_bytes(data)
+        with tarfile.open(archive_path) as archive:
+            for member in archive:
+                path = member.name.partition("/")[2]
+                if member.isfile() and path in LEGACY_PATHS | {"COPYING"}:
+                    target = cache / path
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(archive.extractfile(member).read())
+        atomic_text(cache / ".archive-complete", self.archive_url)
 
     def read(self, path, optional=False):
+        if optional and path in self.missing:
+            return ""
         if path in self.files:
             return self.files[path]["text"]
         try:
@@ -86,6 +163,10 @@ class Source:
                 text = target.read_bytes().decode("utf-8")
             else:
                 cache = ROOT / ".cache" / self.ref / path
+                if version_key(self.ref) < (2, 6, 12):
+                    self.archive()
+                    if not cache.exists():
+                        raise FileNotFoundError(path)
                 if cache.exists():
                     text = cache.read_bytes().decode("utf-8")
                 else:
@@ -96,6 +177,14 @@ class Source:
                             text = urllib.request.urlopen(request, timeout=45).read().decode()
                             break
                         except urllib.error.HTTPError as e:
+                            if e.code == 429:
+                                mirror = "https://cdn.jsdelivr.net/gh/torvalds/linux@{}/{}".format(self.ref, path)
+                                try:
+                                    text = urllib.request.urlopen(mirror, timeout=45).read().decode()
+                                    break
+                                except urllib.error.HTTPError as mirror_error:
+                                    if mirror_error.code == 404:
+                                        raise
                             if e.code == 404 or attempt == 2:
                                 raise
                             time.sleep(attempt + 1)
@@ -107,6 +196,7 @@ class Source:
                     cache.write_text(text)
         except (FileNotFoundError, urllib.error.HTTPError) as e:
             if optional and (isinstance(e, FileNotFoundError) or e.code == 404):
+                self.missing.add(path)
                 return ""
             raise
         self.files[path] = {"text": text, "sha256": hashlib.sha256(text.encode()).hexdigest()}
@@ -121,7 +211,8 @@ def strip_comments(text):
 def parse_prototypes(text, path):
     result = {}
     clean = strip_comments(text)
-    for m in re.finditer(r"asmlinkage\s+(?:long|int|unsigned\s+long)\s+((?:compat_)?sys_\w+)\s*\((.*?)\)\s*;", clean, re.S):
+    pattern = r"asmlinkage\s+(?:[A-Z_]+\s+)?(?:(?:unsigned\s+)?(?:long|int|short|char)|void|ssize_t|off_t|caddr_t|clock_t|pid_t|\w+_t)\s+((?:compat_)?sys_\w+)\s*\((.*?)\)\s*;"
+    for m in re.finditer(pattern, clean, re.S):
         body = re.sub(r"\s+", " ", m[2]).strip()
         args = [] if body == "void" else [a.strip() for a in body.split(",")]
         # Headers contain CONFIG_* alternatives (notably clone argument order).
@@ -161,32 +252,184 @@ def extra_abis(makefile):
     return values
 
 
+def integer_expression(expression, macros=None, depth=0):
+    """Evaluate only integer arithmetic emitted by the C preprocessor."""
+    if depth > 20:
+        raise ValueError("Recursive syscall number definition")
+    macros = macros or {}
+    expression = re.sub(r"\b(0x[\da-fA-F]+|\d+)[uUlL]+\b", r"\1", expression)
+    operations = {ast.Add: lambda a, b: a + b, ast.Sub: lambda a, b: a - b,
+                  ast.Mult: lambda a, b: a * b, ast.LShift: lambda a, b: a << b,
+                  ast.RShift: lambda a, b: a >> b, ast.BitOr: lambda a, b: a | b,
+                  ast.BitAnd: lambda a, b: a & b}
+    def evaluate(node):
+        if isinstance(node, ast.Constant) and type(node.value) is int:
+            return node.value
+        if isinstance(node, ast.Name) and node.id in macros:
+            return integer_expression(macros[node.id], macros, depth + 1)
+        if isinstance(node, ast.BinOp) and type(node.op) in operations:
+            return operations[type(node.op)](evaluate(node.left), evaluate(node.right))
+        raise ValueError("Unsupported syscall number expression: " + expression)
+    return evaluate(ast.parse(expression.strip(), mode="eval").body)
+
+
+def preprocess(source, path, arch, extra=""):
+    """Use target ABI defines, never the host's headers or predefined macros."""
+    compiler = shutil.which("clang") or shutil.which("gcc") or shutil.which("cc")
+    if not compiler:
+        raise ValueError("Historical header imports require clang or gcc for C preprocessing")
+    kernel = ARCHES[arch]["kernel"]
+    def expand(path, stack=()):
+        if path in stack:
+            raise ValueError("Recursive unistd include: " + path)
+        text = source.read(path)
+        lines = []
+        for line, raw in enumerate(text.splitlines(), 1):
+            match = re.match(r'\s*#\s*include\s*[<"]([^>"]+)[>"]', raw)
+            if match:
+                include = match[1]
+                target = None
+                if include == "asm-generic/unistd.h":
+                    target = "include/" + ("uapi/" if version_key(source.ref) >= (3, 7) else "") + include
+                elif include in {"uapi/asm/unistd.h", "asm/unistd.h"}:
+                    target = "arch/{}/include/uapi/asm/unistd.h".format(kernel)
+                    if arch == "riscv64" and not source.read(target, optional=True):
+                        kbuild = source.read("arch/riscv/include/uapi/asm/Kbuild")
+                        if not re.search(r"generic-y\s*\+=\s*unistd.h", kbuild):
+                            raise ValueError("RISC-V generic unistd mapping not found")
+                        target = "include/uapi/asm-generic/unistd.h"
+                elif include == "linux/sys.h" and path == "kernel/sched.c":
+                    target = "include/linux/sys.h"
+                elif include == "uapi/asm/syscalls.h":
+                    target = "arch/{}/include/uapi/asm/syscalls.h".format(kernel)
+                elif "unistd" in include:
+                    raise ValueError("Unsupported syscall include: " + include)
+                # Type/linkage/bitsperlong headers do not supply syscall rows.
+                raw = expand(target, stack + (path,)) + '\n#line {} "{}"'.format(line + 1, path) if target else ""
+            lines.append(raw)
+        return '#line 1 "{}"\n'.format(path) + "\n".join(lines) + "\n"
+    defines = "#define __BITS_PER_LONG {}\n#define __SYSCALL(n, s, ...) SYSCALL_ROW(n, s, __LINE__, __FILE__)\n".format(ARCHES[arch]["bits"])
+    if arch == "arm":
+        defines += "#define __ARM_EABI__ 1\n#define CONFIG_AEABI 1\n#define __KERNEL__ 1\n#define OBSOLETE(x) sys_ni_syscall\n#define ABI(eabi, oabi) eabi\n"
+    if ARCHES[arch]["bits"] == 64:
+        defines += "#define __LP64__ 1\n#define CONFIG_64BIT 1\n"
+    if arch == "riscv64":
+        defines += "#define __riscv_xlen 64\n"
+    proc = subprocess.run([compiler, "-E", "-dD", "-undef", "-nostdinc", "-x", "c", "-"], input=defines + extra + expand(path), capture_output=True, text=True)
+    if proc.returncode:
+        raise ValueError("Cannot preprocess {}: {}".format(path, proc.stderr))
+    return proc.stdout
+
+
+def header_rows(source, path, arch, assembly=None):
+    processed = preprocess(source, path, arch)
+    macros = dict(re.findall(r"^#define\s+(__NR\w*)\s+(.+)$", processed, re.M))
+    names = {}
+    ignored = {"__NR_syscalls", "__NR_arch_specific_syscall", "__NR_SYSCALL_BASE", "__NR_OABI_SYSCALL_BASE", "__NR_SYSCALL_MASK"}
+    for name in macros:
+        if name in ignored or not name.startswith("__NR_"):
+            continue
+        number = integer_expression(macros[name], macros)
+        if 0 <= number < 4096:
+            names[number] = name[5:]
+    rows = []
+    for match in re.finditer(r'SYSCALL_ROW\(([^,]+),\s*(\w+),\s*(\d+),\s*"([^"]+)"\)', processed):
+        number = integer_expression(match[1])
+        if number not in names:
+            raise ValueError("No syscall name for {} in {}".format(number, path))
+        rows.append(dict(number=number, abi=arch, name=names[number], entry=match[2], line=int(match[3]), path=match[4]))
+    if assembly:
+        table = source.read(assembly)
+        if arch == "arm":
+            table = preprocess(source, assembly, arch, "#define CALL(x) ARM_ROW(x, __LINE__)\n")
+            entries = [(m[1], int(m[2])) for m in re.finditer(r"ARM_ROW\((\w+),\s*(\d+)\)", table)]
+        else:
+            # Embedded old entry.S files contain other vectors before this label.
+            clean = strip_comments(table)
+            start = re.search(r"(?:ENTRY\(sys_call_table\)|^sys_call_table:|^_sys_call_table:)", clean, re.M)
+            start_pos = start.end() if start else 0
+            entries = []
+            for m in re.finditer(r"^\s*\.long\s+([^\n]+)", clean[start_pos:], re.M):
+                for symbol in m[1].split(","):
+                    symbol = symbol.strip().removeprefix("_")
+                    if not re.fullmatch(r"[A-Za-z_]\w*", symbol):
+                        raise ValueError("Unrecognized assembly syscall entry: " + symbol)
+                    entries.append((symbol, clean[:start_pos + m.start()].count("\n") + 1))
+            if assembly == "kernel/sched.c":
+                table = preprocess(source, assembly, arch)
+                match = re.search(r"sys_call_table\[\]\s*=\s*\{([^}]+)\}", table, re.S)
+                if not match:
+                    raise ValueError("Historical C syscall table not found")
+                symbols = [s.strip() for s in match[1].split(",") if s.strip()]
+                original = re.search(r"sys_call_table\[\]\s*=\s*\{([^}]+)\}", clean, re.S)
+                line = clean[:original.start()].count("\n") + 1
+                entries = [(s, line) for s in symbols]
+        for number, name in sorted(names.items()):
+            if number >= len(entries):
+                raise ValueError("Syscall {} exceeds {} table".format(name, assembly))
+            symbol, line = entries[number]
+            rows.append(dict(number=number, abi=arch, name=name, entry=symbol, line=line, path=assembly))
+    if not rows or len({r["number"] for r in rows}) != len(rows):
+        raise ValueError("Empty or overlapping historical syscall table: " + path)
+    return sorted(rows, key=lambda r: r["number"])
+
+
+def architecture_rows(source, arch):
+    config = ARCHES[arch]
+    version = version_key(source.ref)
+    introduced = {"x64": (2, 6, 0), "x86": (1, 0), "arm": (2, 6, 16), "arm64": (3, 7), "riscv64": (4, 15), "loongarch64": (5, 19)}
+    if version < introduced[arch]:
+        return None, None
+    if arch in {"arm64", "riscv64", "loongarch64"} and version < (6, 11):
+        path = "arch/{}/include/asm/unistd.h".format(config["kernel"])
+        return path, header_rows(source, path, arch)
+    if arch in {"x64", "x86"} and version < (4, 2):
+        path = "arch/x86/syscalls/syscall_{}.tbl".format("64" if arch == "x64" else "32")
+        if version >= (3, 3):
+            return path, parse_table(source.read(path), config["abis"])
+        if arch == "x64":
+            path = "arch/x86/include/asm/unistd_64.h" if version >= (2, 6, 27) else "include/asm-x86/unistd_64.h" if version >= (2, 6, 24) else "include/asm-x86_64/unistd.h"
+            return path, header_rows(source, path, arch)
+        path = "arch/x86/include/asm/unistd_32.h" if version >= (2, 6, 27) else "include/asm-x86/unistd_32.h" if version >= (2, 6, 24) else "include/asm-i386/unistd.h" if version >= (1, 2) else "include/linux/unistd.h"
+        assembly = "arch/x86/kernel/syscall_table_32.S" if version >= (2, 6, 24) else "arch/i386/kernel/syscall_table.S" if version >= (2, 6, 12) else "arch/i386/kernel/entry.S" if version >= (1, 2) else "kernel/sched.c"
+        return path, header_rows(source, path, arch, assembly)
+    if arch == "arm" and version < (4, 10):
+        path = "arch/arm/include/uapi/asm/unistd.h" if version >= (3, 7) else "arch/arm/include/asm/unistd.h" if version >= (2, 6, 28) else "include/asm-arm/unistd.h"
+        return path, header_rows(source, path, arch, "arch/arm/kernel/calls.S")
+    abis = list(config["abis"])
+    if config["table"] == "scripts/syscall.tbl":
+        abis += extra_abis(source.read("arch/{}/kernel/Makefile.syscalls".format(config["kernel"])))
+        if arch == "arm64":
+            link = source.read("arch/arm64/tools/syscall_64.tbl").strip()
+            if not (link == "../../../scripts/syscall.tbl" or link.startswith("#")):
+                raise ValueError("arm64 syscall table layout changed")
+    return config["table"], parse_table(source.read(config["table"]), abis)
+
+
 def generate(ref, tree, output):
     source = Source(ref, tree)
     makefile = source.read("Makefile")
     version = ".".join(re.search(r"^{}\s*=\s*(\d+)".format(k), makefile, re.M)[1] for k in ["VERSION", "PATCHLEVEL"])
-    sublevel = re.search(r"^SUBLEVEL\s*=\s*(\d+)", makefile, re.M)[1]
+    sublevel_match = re.search(r"^SUBLEVEL\s*=\s*(\d+)", makefile, re.M)
+    sublevel = sublevel_match[1] if sublevel_match else "0"
     if sublevel != "0":
         version += "." + sublevel
-    if ref != "v" + version:
+    if version_key(ref) + (0,) * (3 - len(version_key(ref))) != version_key("v" + version) + (0,) * (3 - len(version_key("v" + version))):
         raise ValueError("Ref {} does not match kernel Makefile version {}".format(ref, version))
     common = {}
     for path in ["include/linux/syscalls.h", "include/linux/compat.h"]:
-        common.update(parse_prototypes(source.read(path), path))
+        common.update(parse_prototypes(source.read(path, optional=version_key(ref) < (2, 6, 0)), path))
     snapshots = {}
     for arch, config in ARCHES.items():
+        table_path, rows = architecture_rows(source, arch)
+        if rows is None:
+            continue
         prototypes = dict(common)
         path = "arch/{}/include/asm/syscalls.h".format(config["kernel"])
         prototypes.update(parse_prototypes(source.read(path, optional=True), path))
-        abis = list(config["abis"])
-        if config["table"] == "scripts/syscall.tbl":
-            abis += extra_abis(source.read("arch/{}/kernel/Makefile.syscalls".format(config["kernel"])))
-            # Fail on upstream format changes instead of silently using the wrong table.
-            if arch == "arm64":
-                link = source.read("arch/arm64/tools/syscall_64.tbl").strip()
-                if not (link == "../../../scripts/syscall.tbl" or link.startswith("#")):
-                    raise ValueError("arm64 syscall table layout changed")
-        rows = parse_table(source.read(config["table"]), abis)
+        # Early x86-64 headers contain architecture-specific prototypes too.
+        if table_path.endswith(".h"):
+            prototypes.update(parse_prototypes(source.read(table_path), table_path))
         for row in rows:
             symbol = row["entry"] or ""
             # Assembly wrappers have no C prototype; do not substitute another ABI.
@@ -197,16 +440,18 @@ def generate(ref, tree, output):
                 arguments=prototype["arguments"] if prototype and not unavailable else None,
                 signature_source={k: prototype[k] for k in ["path", "line"]} if prototype and not unavailable else None,
                 signature_note=prototype.get("note") if prototype and not unavailable else None,
-                source={"path": config["table"], "line": row.pop("line")},
+                source={"path": row.pop("path", table_path), "line": row.pop("line")},
                 man_url="https://man7.org/linux/man-pages/man2/{}.2.html".format(row["name"]),
             )
-        snapshots[arch] = {"schema_version": 1, "kernel": ref, "architecture": arch, "calling_convention": config, "syscalls": rows}
+        snapshots[arch] = {"schema_version": 1, "kernel": ref, "architecture": arch, "calling_convention": {**config, "table": table_path}, "syscalls": rows}
     # Include the exact input source and upstream license texts with every release.
     for path in LICENSE_FILES:
-        source.read(path)
+        source.read(path, optional=path != "COPYING" and version_key(ref) < (4, 16))
     # Finish parsing and licensing checks before replacing any data.
-    hashes = source_licenses(source.files)
+    hashes = source_licenses(source.files, ref)
     provenance = {"kind": "local" if tree else "upstream", "repository": "https://github.com/torvalds/linux", "ref": ref, "files": hashes}
+    if source.archive_url:
+        provenance.update(repository="https://www.kernel.org/pub/linux/kernel/", archive=source.archive_url)
     if tree:
         proc = subprocess.run(["git", "-C", str(source.tree), "rev-parse", "HEAD"], capture_output=True, text=True)
         provenance["local_commit"] = proc.stdout.strip() if proc.returncode == 0 else None
@@ -214,13 +459,13 @@ def generate(ref, tree, output):
         "generated_file": "GPL-2.0-only",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "upstream_notice": "sources/COPYING",
-        "upstream_license_texts": ["sources/" + p for p in LICENSE_FILES[1:]],
+        "upstream_license_texts": ["sources/" + p for p in LICENSE_FILES[1:] if p in source.files],
         "generator": "scripts/sync_kernel.py",
         "modification_notice": "Generated by syscall-reference from Linux " + ref + "; tables and declarations were parsed, filtered by ABI, and converted to JSON. Bundled input files are unchanged; their original licenses, notices and exceptions remain in effect. The Linux-syscall-note is not applied to all application code or all extracted declarations.",
     }
     for path, info in source.files.items():
         atomic_text(output / ref / "sources" / path, info["text"])
-    atomic_json(output / ref / "sources.json", {"license": "GPL-2.0-only", "kernel": ref, "licensing": licensing, **provenance})
+    atomic_json(output / ref / "sources.json", {"license": "GPL-2.0-only", "kernel": ref, "architectures": list(snapshots), "licensing": licensing, **provenance})
     for arch, snapshot in snapshots.items():
         snapshot["license"] = "GPL-2.0-only"
         snapshot["licensing"] = licensing
@@ -231,29 +476,54 @@ def generate(ref, tree, output):
 
 def update_manifest(output):
     releases = []
+    availability = {}
     for folder in output.iterdir():
-        if folder.is_dir() and re.fullmatch(r"v\d+\.\d+(?:\.\d+)?", folder.name):
-            if all((folder / (a + ".json")).is_file() for a in ARCHES):
+        if folder.is_dir() and is_mainline(folder.name):
+            metadata = folder / "sources.json"
+            if not metadata.is_file():
+                continue
+            architectures = json.loads(metadata.read_text()).get("architectures", list(ARCHES))
+            if architectures and all(a in ARCHES and (folder / (a + ".json")).is_file() for a in architectures):
                 releases.append(folder.name)
+                availability[folder.name] = architectures
     releases.sort(key=lambda v: tuple(map(int, v[1:].split("."))), reverse=True)
-    atomic_json(output / "manifest.json", {"license": "GPL-2.0-only", "schema_version": 1, "versions": releases, "latest": releases[0], "architectures": [{"id": a, **c} for a, c in ARCHES.items()]})
+    if not releases:
+        raise ValueError("No complete kernel snapshots found")
+    atomic_json(output / "manifest.json", {"license": "GPL-2.0-only", "schema_version": 1, "versions": releases, "latest": releases[0], "version_architectures": {v: availability[v] for v in releases}, "architectures": [{"id": a, **c} for a, c in ARCHES.items()]})
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--refs", nargs="+", default=["v6.12", "v6.18", "v7.3"], help="Kernel release tags (v6.12 or newer)")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--refs", nargs="+", help="Explicit kernel release tags")
+    selection.add_argument("--all-mainline", action="store_true", help="Import stable mainline releases since 1.0; exclude release candidates and maintenance releases")
     parser.add_argument("--kernel-tree", type=Path, help="Read one matching release from a local Linux tree, without network")
     parser.add_argument("--output", type=Path, default=ROOT / "public/data")
     args = parser.parse_args()
+    args.refs = mainline_refs() if args.all_mainline else args.refs or ["v6.12", "v6.18", "v7.3"]
     if any(not re.fullmatch(r"v\d+\.\d+(?:\.\d+)?", r) for r in args.refs):
         parser.error("Only explicit release tags are supported")
     if args.kernel_tree and len(args.refs) != 1:
         parser.error("--kernel-tree requires exactly one --refs tag matching its Makefile")
     args.output.mkdir(parents=True, exist_ok=True)
+    errors = []
+    successes = []
     try:
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-            list(pool.map(lambda ref: generate(ref, args.kernel_tree, args.output), args.refs))
-        update_manifest(args.output)
+            future_to_ref = {pool.submit(generate, ref, args.kernel_tree, args.output): ref for ref in args.refs}
+            for future in concurrent.futures.as_completed(future_to_ref):
+                ref = future_to_ref[future]
+                try:
+                    future.result()
+                    successes.append(ref)
+                except Exception as e:
+                    errors.append((ref, e))
+                    print("Error importing {}: {}".format(ref, e), file=sys.stderr)
+        if successes:
+            update_manifest(args.output)
+        if errors:
+            print("Kernel import finished with {} failure(s) out of {} target(s).".format(len(errors), len(args.refs)), file=sys.stderr)
+            return 1
     except Exception as e:
         print("Kernel import failed: {}".format(e), file=sys.stderr)
         return 1

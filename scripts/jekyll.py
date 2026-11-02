@@ -10,9 +10,10 @@ import sys
 
 def main():
     current = shutil.which('ruby')
-    candidates = ([str(Path(current).parent)] if current else []) + [
-        '/opt/homebrew/opt/ruby@3.3/bin', '/opt/homebrew/opt/ruby/bin',
-        '/usr/local/opt/ruby@3.3/bin', '/usr/local/opt/ruby/bin',
+    candidates = [
+        '/opt/homebrew/opt/ruby@3.3/bin', '/usr/local/opt/ruby@3.3/bin',
+    ] + ([str(Path(current).parent)] if current else []) + [
+        '/opt/homebrew/opt/ruby/bin', '/usr/local/opt/ruby/bin',
     ]
     for directory in candidates:
         ruby = shutil.which('ruby', path=directory)
