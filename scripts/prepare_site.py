@@ -12,7 +12,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
 ARCHIVE = PUBLIC / 'downloads/syscall-reference-source.tar.gz'
-ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'THIRD_PARTY_NOTICES.md']
+ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'README.tr.md', 'THIRD_PARTY_NOTICES.md']
 SOURCE_DIRS = ['public', 'scripts', 'tests', 'LICENSES', '.github']
 
 
@@ -35,6 +35,7 @@ def prepare():
         (api / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
     paths = [ROOT / p for p in ROOT_FILES]
+    paths.append(ROOT / 'docs/reference-preview.png')
     for folder in SOURCE_DIRS:
         paths.extend((ROOT / folder).rglob('*'))
     # Deliberate allowlist: never publish .git, .cache, environment files,
