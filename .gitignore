@@ -1,0 +1,17 @@
+.cache/
+node_modules/
+__pycache__/
+.DS_Store
+test-results/
+_site/
+_site-test/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+public/downloads/
+public/api/
+
+# Local agent session state
+.omc/

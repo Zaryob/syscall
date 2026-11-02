@@ -1,0 +1,143 @@
+{
+  "license": "GPL-2.0-only",
+  "schema_version": 1,
+  "versions": [
+    "v7.3",
+    "v6.18",
+    "v6.12"
+  ],
+  "latest": "v7.3",
+  "architectures": [
+    {
+      "id": "x64",
+      "label": "x86-64",
+      "bits": 64,
+      "kernel": "x86",
+      "table": "arch/x86/entry/syscalls/syscall_64.tbl",
+      "abis": [
+        "common",
+        "64"
+      ],
+      "instruction": "syscall",
+      "nr": "rax",
+      "result": "rax",
+      "registers": [
+        "rdi",
+        "rsi",
+        "rdx",
+        "r10",
+        "r8",
+        "r9"
+      ]
+    },
+    {
+      "id": "x86",
+      "label": "i386",
+      "bits": 32,
+      "kernel": "x86",
+      "table": "arch/x86/entry/syscalls/syscall_32.tbl",
+      "abis": [
+        "i386"
+      ],
+      "instruction": "int 0x80",
+      "nr": "eax",
+      "result": "eax",
+      "registers": [
+        "ebx",
+        "ecx",
+        "edx",
+        "esi",
+        "edi",
+        "ebp"
+      ]
+    },
+    {
+      "id": "arm64",
+      "label": "AArch64",
+      "bits": 64,
+      "kernel": "arm64",
+      "table": "scripts/syscall.tbl",
+      "abis": [
+        "common",
+        "64"
+      ],
+      "instruction": "svc #0",
+      "nr": "x8",
+      "result": "x0",
+      "registers": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5"
+      ]
+    },
+    {
+      "id": "arm",
+      "label": "ARM EABI",
+      "bits": 32,
+      "kernel": "arm",
+      "table": "arch/arm/tools/syscall.tbl",
+      "abis": [
+        "common",
+        "eabi"
+      ],
+      "instruction": "svc #0",
+      "nr": "r7",
+      "result": "r0",
+      "registers": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ]
+    },
+    {
+      "id": "riscv64",
+      "label": "RISC-V 64",
+      "bits": 64,
+      "kernel": "riscv",
+      "table": "scripts/syscall.tbl",
+      "abis": [
+        "common",
+        "64"
+      ],
+      "instruction": "ecall",
+      "nr": "a7",
+      "result": "a0",
+      "registers": [
+        "a0",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5"
+      ]
+    },
+    {
+      "id": "loongarch64",
+      "label": "LoongArch 64",
+      "bits": 64,
+      "kernel": "loongarch",
+      "table": "scripts/syscall.tbl",
+      "abis": [
+        "common",
+        "64"
+      ],
+      "instruction": "syscall 0",
+      "nr": "a7",
+      "result": "a0",
+      "registers": [
+        "a0",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5"
+      ]
+    }
+  ]
+}

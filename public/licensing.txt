@@ -1,0 +1,48 @@
+---
+layout: null
+---
+Linux System Call Reference — licensing and source notices
+
+The original application, importer, tests, documentation, and generated JSON
+compilation are licensed under GNU GPL version 2 only (GPL-2.0-only).
+The software is provided without warranty; see the complete license:
+  {{ '/licenses/GPL-2.0-only.txt' | relative_url }}
+
+Imported Linux material retains its original copyright notices, SPDX license
+expressions, and exceptions. Linux internal headers are not all UAPI headers.
+The Linux-syscall-note applies only where granted by upstream; we do not apply
+it to the entire application or to all generated data. Its complete text:
+  {{ '/licenses/Linux-syscall-note.txt' | relative_url }}
+
+Each release includes its exact input source files and original notices:
+  {{ '/data/v6.12/sources.json' | relative_url }}
+  {{ '/data/v6.18/sources.json' | relative_url }}
+  {{ '/data/v7.3/sources.json' | relative_url }}
+
+For a release such as v7.3, read its kernel license notices at:
+  {{ '/data/v7.3/sources/COPYING' | relative_url }}
+  {{ '/data/v7.3/sources/LICENSES/preferred/GPL-2.0' | relative_url }}
+  {{ '/data/v7.3/sources/LICENSES/exceptions/Linux-syscall-note' | relative_url }}
+
+For any new release, use {{ '/data/manifest.json' | relative_url }} and then
+{{ '/data/' | relative_url }}<release>/sources.json. Each architecture JSON includes licensing and
+source provenance. The original input files are under {{ '/data/' | relative_url }}<release>/sources/.
+The raw upstream endpoint represents Git symlinks as target-path text; such
+entries are identified in sources.json.
+
+Data was modified by syscall-reference: tables and C declarations were parsed,
+filtered by architecture/ABI, and converted to JSON. Bundled input text is
+unchanged and its SHA-256 digest is recorded. Copyright notices from the inputs
+remain in those files, including credits to Randy Dunlap, Open Source
+Development Labs, Jaswinder Singh Rajput, and other Linux contributors.
+
+Source for this application and generator is supplied in the project repository
+and in the downloadable source archive:
+  {{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}
+When distributing it or its data, include the source, scripts/sync_kernel.py,
+LICENSE, LICENSING.md, THIRD_PARTY_NOTICES.md, and bundled Linux inputs/notices.
+The source policies and distribution instructions are in LICENSING.md.
+
+No exclusive ownership of syscall facts is claimed. Upstream permissions are
+not revoked or replaced by this project's license. This project is independent
+of GNU, the Free Software Foundation, and Linux maintainers.
