@@ -15,11 +15,11 @@
   <script type="module" src="{{ '/app.js' | relative_url }}"></script>
 </head>
 <body class="console-site console-syscall">
-  <a class="skip-link" href="#reference"><span data-i18n="Skip to the syscall table">Skip to the syscall table</span></a>
+  <a class="skip-link" href="#main"><span data-i18n="Skip to content">Skip to content</span></a>
   {% include console-header.html %}
-  <main>
+  <main id="main" tabindex="-1">
 {{ content }}
   </main>
-  <footer><p><span data-i18n="Free software. Plain HTML. Useful data.">Free software. Plain HTML. Useful data.</span></p><p><a href="{{ '/licensing.txt' | relative_url }}"><span data-i18n="License &amp; source notices">License &amp; source notices</span></a> · <a href="{{ '/licenses/GPL-2.0-only.txt' | relative_url }}"><span data-i18n="GPL version 2">GPL version 2</span></a> · <a href="{{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}"><span data-i18n="Download source">Download source</span></a> · <a href="{{ '/licenses/Linux-syscall-note.txt' | relative_url }}"><span data-i18n="Linux syscall exception">Linux syscall exception</span></a></p><p><span data-i18n="Linux source:">Linux source:</span> <a href="https://www.kernel.org/">kernel.org</a> · <span data-i18n="Manual pages:">Manual pages:</span> <a href="https://www.kernel.org/doc/man-pages/">Linux man-pages project</a> · <a href="#title"><span data-i18n="Back to top ↑">Back to top ↑</span></a></p></footer>
+  <footer><p><span data-i18n="Free software. Plain HTML. Useful data.">Free software. Plain HTML. Useful data.</span></p><p><a href="{{ '/licensing.txt' | relative_url }}"><span data-i18n="License &amp; source notices">License &amp; source notices</span></a> · <a href="{{ '/licenses/GPL-2.0-only.txt' | relative_url }}"><span data-i18n="GPL version 2">GPL version 2</span></a> · <a href="{{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}"><span data-i18n="Download source">Download source</span></a> · <a href="{{ '/licenses/Linux-syscall-note.txt' | relative_url }}"><span data-i18n="Linux syscall exception">Linux syscall exception</span></a></p><p><span data-i18n="Linux source:">Linux source:</span> <a href="https://www.kernel.org/">kernel.org</a> · <span data-i18n="Manual pages:">Manual pages:</span> <a href="https://www.kernel.org/doc/man-pages/">Linux man-pages project</a> · <a href="#main"><span data-i18n="Back to top ↑">Back to top ↑</span></a></p></footer>
 </body>
 </html>

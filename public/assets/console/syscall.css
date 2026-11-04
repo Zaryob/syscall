@@ -4,39 +4,109 @@
 .console-syscall main :is(h1,h2,h3,p) { margin-top: 0; }
 .console-syscall [hidden] { display: none !important; }
 
-.console-syscall .local-nav { display: flex; gap: 12px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px; font-size: 12px; }
-.console-syscall .local-nav a { color: var(--muted); }
 .console-syscall .introduction { padding: 28px 0; }
-.console-syscall h1 { margin-bottom: 12px; }
-.console-syscall .eyebrow { margin-bottom: 15px; color: var(--accent); font-size: 12px; }
-.console-syscall .lede { margin-bottom: 17px; color: var(--muted); font-size: 16px; }
+.console-syscall .introduction > p { max-width: 80ch; }
+.console-syscall .introduction h1 { margin-bottom: 12px; font-size: clamp(25px, 4vw, 32px); }
+.console-syscall .introduction .eyebrow { margin-bottom: 15px; color: var(--accent); font-size: 12px; }
+.console-syscall .introduction .lede { margin-bottom: 17px; color: var(--muted); font-size: 16px; }
+.console-syscall .introduction > p:not(.eyebrow,.lede) { margin-bottom: 16px; font-size: 13px; }
 
-.console-syscall .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 11px; }
-.console-syscall .section-heading h2 { margin-bottom: 0; }
-.console-syscall .section-heading > span { font-size: 13px; color: var(--muted); }
-.console-syscall .architectures { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-.console-syscall .architectures a { padding: 12px 16px 9px; color: var(--muted); font-size: 13px; border-bottom: 3px solid transparent; text-decoration: none; }
-.console-syscall .architectures a[aria-current="true"] { color: var(--accent); border-color: var(--accent); font-weight: 500; }
-.console-syscall .controls { display: flex; align-items: center; gap: 16px 24px; flex-wrap: wrap; margin: 19px 0 15px; font-size: 13px; }
-.console-syscall .controls label { display: flex; align-items: center; gap: 9px; }
-.console-syscall .controls select { min-width: 116px; }
-.console-syscall .controls > a { display: inline-flex; align-items: center; min-height: 38px; margin-left: auto; padding: 7px 12px; border: 1px solid var(--control-border); color: var(--accent); background: var(--paper); text-decoration: none; }
-.console-syscall .controls > a:hover { border-color: var(--accent); background: var(--surface); }
+.console-syscall #architectures { padding-top: 16px; border-top: 1px solid var(--line); }
+.console-syscall #architectures h2 { margin-bottom: 12px; }
+.console-syscall .architecture-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0 20px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.console-syscall .architecture-links a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+.console-syscall .architecture-links a:hover { background: var(--surface); }
+
+.console-syscall #reference { padding-top: 24px; }
+.console-syscall .table-back { margin-bottom: 10px; font-size: 14px; }
+.console-syscall #table-title { margin-bottom: 20px; font-size: clamp(24px, 3vw, 32px); }
+.console-syscall .lookup-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px 16px;
+  margin-bottom: 16px;
+}
+.console-syscall #search-form {
+  flex: 1 1 20rem;
+  max-width: 32rem;
+}
+.console-syscall select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+.console-syscall .release-field { display: grid; gap: 6px; justify-items: start; font-size: 14px; }
+.console-syscall .console-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+.console-syscall .console-select select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 1px solid var(--control-border);
+  background: var(--paper);
+  color: var(--ink);
+  height: 38px;
+  min-height: 38px;
+  padding: 7px 28px 7px 10px;
+  font: 14px/1.5 var(--font-mono);
+  box-shadow: none;
+  cursor: pointer;
+  width: 100%;
+}
+.console-syscall .console-select select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.console-syscall .console-select select:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+.console-syscall .console-select::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translateY(-50%);
+  background: var(--muted);
+  -webkit-mask: url("select-chevron.svg") center / contain no-repeat;
+  mask: url("select-chevron.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+.console-syscall #architecture-picker { min-width: 155px; }
+.console-syscall #kernel { min-width: 100px; }
+.console-syscall #compare { min-width: 110px; }
 .console-syscall .convention-strip { padding: 10px 13px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 12px; margin: 0 0 20px; overflow-wrap: anywhere; }
 .console-syscall .convention-strip strong { color: var(--muted); }
 
-.console-syscall #search-form > label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; }
+.console-syscall #search-form > label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; }
 .console-syscall .search-line { display: flex; gap: 8px; }
-.console-syscall .search-line input { width: 100%; min-width: 0; background: var(--surface); }
+.console-syscall .search-line input { width: 100%; min-width: 0; }
 .console-syscall .search-line button { min-width: 66px; }
 .console-syscall :is(.small,.muted,.normal) { color: var(--muted); }
 .console-syscall .small { font-size: 13px; }
 .console-syscall .normal { font-weight: normal; }
 .console-syscall .table-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 9px; font-size: 12px; }
 .console-syscall .table-toolbar p { margin: 0; }
-.console-syscall .table-toolbar > div { display: flex; gap: 18px; flex-wrap: wrap; }
-.console-syscall .table-toolbar label { display: flex; align-items: center; }
-.console-syscall .table-toolbar input[type="checkbox"] { margin-right: 5px; }
 
 .console-syscall .table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); }
 .console-syscall table { border-collapse: collapse; width: 100%; text-align: left; font-size: 13px; }
@@ -84,7 +154,17 @@
 .console-syscall .empty { text-align: center; padding: 35px 10px; background: var(--wash); margin-bottom: 0; }
 .console-syscall .documentation { padding-top: 32px; margin-top: 34px; border-top: 1px solid var(--line); }
 .console-syscall .documentation > p { font-size: 14px; max-width: 85ch; }
-.console-syscall .documentation h2 { margin-bottom: 15px; }
+.console-syscall .doc-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 15px;
+}
+.console-syscall .doc-heading h2 { margin-bottom: 0; }
+.console-syscall .doc-heading a { font-size: 12px; }
+.console-syscall .conventions-table [aria-current=true] > * { background: var(--surface); }
 .console-syscall .conventions-table { min-width: 630px; }
 .console-syscall .api-list { font-size: 13px; }
 .console-syscall .api-list dt { margin-top: 12px; }
@@ -98,15 +178,7 @@
 
 @media (max-width: 760px) {
   .console-syscall > :is(main,footer) { padding-inline: 20px; }
-  .console-syscall .section-heading { display: block; }
-  .console-syscall .section-heading > span { display: block; margin-top: 7px; }
-  .console-syscall .architectures a { padding: 11px 12px 8px; }
-  .console-syscall .controls label { gap: 6px; }
-  .console-syscall .controls > a { margin-left: 0; }
-  .console-syscall .controls select { min-width: 100px; }
-  .console-syscall .local-nav { gap: 10px 18px; }
   .console-syscall .table-toolbar { align-items: start; gap: 10px; }
-  .console-syscall .table-toolbar > div { gap: 12px; }
   .console-syscall .documentation { padding-top: 25px; margin-top: 28px; }
   .console-syscall .api-list code { font-size: 11px; overflow-wrap: anywhere; }
   .console-syscall .api-list dd { margin-left: 0; }
@@ -115,57 +187,29 @@
 }
 @media (max-width: 560px) {
   .console-syscall > :is(main,footer) { padding-inline: 16px; }
-  .console-syscall .controls { align-items: flex-start; }
-  .console-syscall .controls label { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
 
-/* Reference workspace: put lookup and purpose ahead of the ABI matrix. */
-.console-syscall .introduction {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 32px;
-  padding: 26px 0 22px;
-}
-.console-syscall .intro-copy .eyebrow { margin-bottom: 12px; }
-.console-syscall .intro-copy .eyebrow span[aria-hidden] { margin-inline: 3px; color: var(--muted); }
-.console-syscall .intro-copy h1 { max-width: 19ch; font-size: clamp(32px, 4vw, 52px); }
-.console-syscall .intro-copy .lede { max-width: 52ch; margin-bottom: 0; }
-.console-syscall #search-form {
-  padding: 18px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-top: 2px solid var(--accent);
-}
-.console-syscall .search-line input { background: var(--paper); }
-.console-syscall .search-examples {
+.console-syscall .reference-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 15px; font-size: 13px; }
+.console-syscall :is(.table-actions, .table-filters) {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 6px 8px;
-  margin-top: 11px;
-  color: var(--muted);
-  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 14px;
 }
-.console-syscall .search-examples button {
-  min-height: 30px;
-  padding: 2px 8px;
-  font-size: inherit;
-  color: var(--accent);
-  background: var(--paper);
+.console-syscall .table-actions a { display: inline-flex; align-items: center; min-height: 38px; }
+.console-syscall .table-filters { margin-bottom: 12px; }
+.console-syscall .table-filters label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  cursor: pointer;
 }
-.console-syscall .search-examples button:hover { border-color: var(--accent); }
-.console-syscall .architectures { gap: 4px 6px; padding: 10px 0; margin: 0; }
-.console-syscall .architectures a {
-  padding: 5px 10px;
-  border: 1px solid transparent;
-}
-.console-syscall .architectures a:hover { background: var(--surface); }
-.console-syscall .architectures a[aria-current=true] { background: var(--surface); }
-.console-syscall .controls { margin: 12px 0; gap: 10px 16px; }
+.console-syscall .convention-steps { padding-inline-start: 24px; font-size: 14px; }
 .console-syscall .convention-strip { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 14px; }
 .console-syscall .convention-strip code { font-size: inherit; }
 .console-syscall .convention-strip strong { margin-inline-end: 3px; }
@@ -192,7 +236,19 @@
 #syscall-table > thead > tr > th { border-bottom: 1px solid var(--line); }
 #syscall-table .call-identity { white-space: normal; border-bottom: 1px solid var(--line); }
 #syscall-table .syscall-row:last-child > th { border-bottom: 0; }
-#syscall-table .call-name { min-height: 26px; overflow-wrap: anywhere; }
+#syscall-table .call-name {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 5px;
+  min-height: 28px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+#syscall-table .call-name > [aria-hidden] { color: var(--muted); }
+#syscall-table .call-name:hover span:last-child { text-decoration: underline; }
+#syscall-table .call-name[aria-expanded=true] > [aria-hidden] { color: var(--accent); }
 #syscall-table .call-name:focus-visible { outline-offset: 2px; }
 #syscall-table .row-description, #syscall-table .detail-description { font: 15px/1.5 system-ui, sans-serif; }
 #syscall-table .row-description { vertical-align: middle; }
@@ -224,19 +280,23 @@
   overflow-wrap: anywhere;
 }
 #syscall-table .detail-content h3 { margin-bottom: 7px; }
+#syscall-table .signature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 8px 0 13px;
+  padding: 9px 12px 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+#syscall-table .signature button { min-height: 30px; margin-inline-start: auto; padding: 3px 9px; font-size: 12px; }
+#syscall-table .signature code { flex: 1 0 100%; font-size: 13px; white-space: pre-wrap; }
 #syscall-table .argument-table { table-layout: fixed; }
 #syscall-table .argument-table th { white-space: normal; }
 #syscall-table .argument-table :is(th, td):first-child { width: 74px; }
 #syscall-table .argument-table :is(th, td):last-child { width: 116px; }
 
 @media (max-width: 760px) {
-  .console-syscall .introduction { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 22px 0; }
-  .console-syscall .intro-copy h1 { margin-bottom: 8px; }
-  .console-syscall .intro-copy .lede { font-size: 14px; }
-  .console-syscall #search-form { padding: 12px; }
-  .console-syscall .architectures { gap: 4px; }
-  .console-syscall .architectures a { font-size: 12px; padding: 5px 7px; }
-  .console-syscall .controls > a { min-height: 32px; }
   #syscall-table { --number-width: 62px; --name-width: clamp(110px, 34vw, 170px); }
   #syscall-table[data-view=args] { min-width: calc(var(--number-width) + var(--name-width) + 672px); }
   #syscall-table :is(th, td) { padding: 7px 8px; }
@@ -249,15 +309,25 @@
   #syscall-table .argument-table :is(th, td):last-child { width: 76px; }
 }
 
-.console-syscall .intro-copy h1 { line-height: 1.12; }
-.console-syscall .intro-copy .local-nav { margin-top: 12px; padding: 0; border: 0; gap: 5px 16px; }
-.console-syscall .controls .mobile-architecture { display: none; }
 @media (max-width: 760px) {
-  .console-syscall .introduction { padding-block: 18px; }
-  .console-syscall .intro-copy h1 { max-width: none; font-size: clamp(25px, 7vw, 38px); }
-  .console-syscall #architectures { display: none; }
-  .console-syscall .controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .console-syscall .controls label, .console-syscall .controls .mobile-architecture { display: grid; align-content: start; min-width: 0; }
-  .console-syscall .controls select { width: 100%; min-width: 0; }
-  .console-syscall .controls > a { align-self: end; justify-self: start; }
+  .console-syscall .introduction { padding-block: 22px 16px; }
+  .console-syscall .lookup-bar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+  .console-syscall #search-form {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+  .console-syscall .release-field {
+    width: 100%;
+  }
+  .console-syscall .release-field:first-of-type {
+    grid-column: 1 / -1;
+  }
+  .console-syscall .release-field select {
+    width: 100%;
+    min-width: 0;
+  }
 }

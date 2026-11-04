@@ -9,12 +9,27 @@ const $ = id => document.getElementById(id);
 const rootPath = document.querySelector('meta[name="site-root"]').content;
 const sitePath = path => withBase(rootPath, path);
 const params = new URLSearchParams(location.search);
+const librarySections = ['#title', '#architectures', '#conventions', '#api', '#sources'];
+const tableView = !librarySections.includes(location.hash) &&
+  (location.hash === '#reference' || location.hash.startsWith('#sys-') ||
+    ['arch', 'kernel', 'compare', 'q', 'view', 'hex', 'all', 'full'].some(name => params.has(name)));
+
+function referenceURL(values = {}, hash = '') {
+  const query = new URLSearchParams(values);
+  if (params.has('lang')) query.set('lang', window.ZaryobI18n.language);
+  return rootPath + (query.size ? '?' + query : '') + hash;
+}
+function linkedCall() {
+  if (!location.hash.startsWith('#sys-')) return '';
+  try { return decodeURIComponent(location.hash.slice(5)); }
+  catch { return ''; }
+}
 const state = {
   arch: params.get('arch') || 'x64',
   kernel: params.get('kernel'), compare: params.get('compare') || '',
   query: params.get('q') || '', hex: params.get('hex') === '1', all: params.get('all') === '1',
   view: params.get('view') === 'args' ? 'args' : 'summary',
-  sort: 'number', direction: 1, expanded: location.hash.startsWith('#sys-') ? decodeURIComponent(location.hash.slice(5)) : '',
+  sort: 'number', direction: 1, expanded: linkedCall(),
 };
 const cache = new Map();
 let manifest, snapshot, previous, requestId = 0;
@@ -27,8 +42,12 @@ const sourceLink = (source, kernel) => {
     : `https://github.com/torvalds/linux/blob/${encodeURIComponent(kernel)}/${source.path}#L${source.line}`;
 };
 const noteFor = row => row.status === 'unimplemented' ? undefined : syscallNote(row.name);
-const description = row => noteFor(row)?.[window.ZaryobI18n.language]
-  ?? t(row.status === 'unimplemented' ? 'This slot is unimplemented.' : 'No short explanation yet.');
+const description = (row, kernel) => {
+  const note = noteFor(row);
+  if (note) return esc(note[window.ZaryobI18n.language]);
+  if (row.status === 'unimplemented') return esc(t('This slot is unimplemented.'));
+  return `<a href="${esc(sourceLink(row.source, kernel))}" aria-label="${esc(t('Kernel source for {name}', { name: row.name }))}">${esc(t('View kernel source'))}</a>`;
+};
 const argumentLocations = c => [...c.registers, ...(c.stack_slots ?? []).map(n => `${t('Stack')} (${n})`)];
 const key = row => `${row.number}:${row.name}`;
 
@@ -42,7 +61,7 @@ function getSnapshot(kernel, arch) {
   if (!cache.has(url)) cache.set(url, getJSON(url).catch(error => { cache.delete(url); throw error; }));
   return cache.get(url);
 }
-function saveURL() {
+function saveURL(updateDetail = false) {
   const p = new URLSearchParams({ arch: state.arch, kernel: state.kernel });
   if (new URLSearchParams(location.search).has('lang')) p.set('lang', window.ZaryobI18n.language);
   if (state.compare) p.set('compare', state.compare);
@@ -50,24 +69,10 @@ function saveURL() {
   if (state.view === 'args') p.set('view', 'args');
   if (state.hex) p.set('hex', '1');
   if (state.all) p.set('all', '1');
-  const hash = state.expanded ? `#sys-${encodeURIComponent(state.expanded)}` : location.hash.startsWith('#sys-') ? '' : location.hash;
+  const hash = updateDetail || location.hash.startsWith('#sys-')
+    ? state.expanded ? `#sys-${encodeURIComponent(state.expanded)}` : ''
+    : location.hash;
   history.replaceState(null, '', `${rootPath}?${p}${hash}`);
-  p.delete('compare');
-  for (const link of $('architectures').querySelectorAll('[data-arch]')) {
-    p.set('arch', link.dataset.arch);
-    link.href = `${rootPath}?${p}`;
-  }
-}
-function updateArchitectureNav() {
-  const available = availableArchitectures(manifest, state.kernel);
-  const picker = $('architecture-picker');
-  picker.replaceChildren(...manifest.architectures.filter(a => available.includes(a.id)).map(
-    a => new Option(a.label, a.id, false, a.id === state.arch)
-  ));
-  picker.disabled = false;
-  $('architectures').innerHTML = manifest.architectures.filter(a => available.includes(a.id)).map(a => {
-    return `<a href="${rootPath}?arch=${a.id}&amp;kernel=${state.kernel}" data-arch="${a.id}" title="${esc(a.label)}" ${a.id === state.arch ? 'aria-current="true"' : ''}>${esc(a.id)}</a>`;
-  }).join('');
 }
 function renderView() {
   const args = state.view === 'args';
@@ -88,14 +93,25 @@ function setView(view) {
   renderRows(); saveURL();
 }
 function updateSelects() {
-  $('kernel').innerHTML = manifest.versions.map(v => `<option value="${v}" ${v === state.kernel ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
-  $('compare').innerHTML = `<option value="">${t('None')}</option>` + manifest.versions.filter(v => v !== state.kernel && availableArchitectures(manifest, v).includes(state.arch)).map(v => `<option value="${v}" ${v === state.compare ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
-  $('kernel').disabled = $('compare').disabled = false;
+  const picker = $('architecture-picker');
+  if (picker) {
+    picker.replaceChildren(...manifest.architectures.map(
+      a => new Option(a.label, a.id, false, a.id === state.arch)
+    ));
+    picker.disabled = false;
+  }
+  const releases = manifest.versions.filter(version => availableArchitectures(manifest, version).includes(state.arch));
+  $('kernel').replaceChildren(...releases.map(version => new Option(version.slice(1), version, false, version === state.kernel)));
+  $('compare').replaceChildren(new Option(t('None'), ''), ...releases.filter(version => version !== state.kernel).map(
+    version => new Option(version.slice(1), version, false, version === state.compare)
+  ));
+  $('kernel').disabled = false;
+  $('compare').disabled = releases.length < 2;
 }
 function renderMetadata() {
   const c = snapshot.calling_convention;
+  $('table-title').textContent = t('{arch} system calls', { arch: c.label });
   document.title = `${c.label} · Linux ${state.kernel.slice(1)} · ${t('System Call Reference')}`;
-  $('release-note').textContent = `Linux ${state.kernel.slice(1)} · ${c.label} · ${c.bits}-bit`;
   const conventions = [[t('ENTRY'), c.instruction], ['NR', c.nr], [t('RETURN'), c.result],
     [t('Argument locations'), argumentLocations(c).join(' · ')]];
   if (c.error_flag) conventions.push([t('Error flag'), c.error_flag]);
@@ -105,10 +121,10 @@ function renderMetadata() {
     $(`arg-register-${i}`).textContent = c.bits === 64 ? c.registers[i] : '';
   }
   const download = sitePath(`data/${state.kernel}/${state.arch}.json`);
-  $('download').href = $('bulk-link').href = download;
+  $('download').href = download;
+  $('download').hidden = false;
   $('download').download = `linux-${state.kernel}-${state.arch}.json`;
-  $('api-example').textContent = `curl '${location.origin}${download}'`;
-  $('provenance').textContent = t('Current dataset: Linux {version}, {origin}. {count} source files recorded with SHA-256 hashes.', { version: state.kernel.slice(1), origin: t(snapshot.provenance.kind === 'local' ? 'imported from a local source tree' : snapshot.provenance.archive ? 'imported from kernel.org archives' : 'imported from torvalds/linux'), count: snapshot.provenance.files.length });
+
 }
 function detailHTML(row, removed) {
   const kernel = removed ? state.compare : state.kernel;
@@ -126,9 +142,11 @@ function detailHTML(row, removed) {
   const [manualName, manualSection = '2'] = (noteFor(row)?.manual ?? row.name).split('.');
   const manual = noteFor(row)?.manual
     ? `https://man7.org/linux/man-pages/man${manualSection}/${manualName}.${manualSection}.html` : row.man_url;
+  const signatureHTML = row.arguments === null ? `<p class="muted">${esc(signature)}</p>`
+    : `<div class="signature"><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><code>${esc(signature)}</code><span class="console-sr-only" role="status"></span></div>`;
   const raw = sitePath(`data/${kernel}/${state.arch}.json`);
   const before = row._change === 'changed' ? previous.syscalls.find(r => key(r) === key(row)) : null;
-  return `<tr class="detail-row" id="detail-${row.number}"><td colspan="${state.view === 'args' ? 8 : 3}"><div class="detail-content"><h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3><p class="detail-description">${esc(description(row))}</p><pre><code>${esc(signature)}</code></pre>${regInfo}<p><strong><span data-i18n="Entry point:">Entry point:</span></strong> <code>${esc(row.entry || t("none"))}</code> · <strong><span data-i18n="Number:">Number:</span></strong> ${row.number} / 0x${row.number.toString(16)} · <strong>ABI:</strong> <code>${esc(row.abi)}</code></p>${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}${row.signature_note ? `<p>${esc(t(row.signature_note))}</p>` : ''}${before ? `<p><strong>${esc(t('In Linux {version}:', { version: state.compare.slice(1) }))}</strong> <code>${esc(before.entry)}</code>, ${esc(before.arguments === null ? t("signature unresolved") : before.arguments.join(', ') || 'void')}</p>` : ''}<p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p><p><a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a> · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button> · <a href="${raw}"><span data-i18n="Table JSON">Table JSON</span></a> · <a href="${rootPath}?arch=${state.arch}&amp;kernel=${kernel}${row.status === 'unimplemented' ? '&amp;all=1' : ''}#sys-${encodeURIComponent(row.name)}"><span data-i18n="Permanent link">Permanent link</span></a></p>${exampleHTML}</div></td></tr>`;
+  return `<tr class="detail-row" id="detail-${row.number}"><td colspan="${state.view === 'args' ? 8 : 3}"><div class="detail-content"><h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3><p class="detail-description">${description(row, kernel)}</p>${signatureHTML}${regInfo}<p><strong><span data-i18n="Entry point:">Entry point:</span></strong> <code>${esc(row.entry || t("none"))}</code> · <strong><span data-i18n="Number:">Number:</span></strong> ${row.number} / 0x${row.number.toString(16)} · <strong>ABI:</strong> <code>${esc(row.abi)}</code></p>${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}${row.signature_note ? `<p>${esc(t(row.signature_note))}</p>` : ''}${before ? `<p><strong>${esc(t('In Linux {version}:', { version: state.compare.slice(1) }))}</strong> <code>${esc(before.entry)}</code>, ${esc(before.arguments === null ? t("signature unresolved") : before.arguments.join(', ') || 'void')}</p>` : ''}<p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p><p><a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a> · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button> · <a href="${raw}"><span data-i18n="Table JSON">Table JSON</span></a> · <a href="${rootPath}?arch=${state.arch}&amp;kernel=${kernel}${row.status === 'unimplemented' ? '&amp;all=1' : ''}#sys-${encodeURIComponent(row.name)}"><span data-i18n="Permanent link">Permanent link</span></a></p>${exampleHTML}</div></td></tr>`;
 }
 function renderRows() {
   renderView();
@@ -152,11 +170,11 @@ function renderRows() {
     const badge = row._change ? `<span class="badge ${row._change}">${esc(t(row._change))}</span>` : row.status === 'unimplemented' ? '<span class="badge unimplemented"><span data-i18n="unimplemented">unimplemented</span></span>' : '';
     const trailing = state.view === 'args'
       ? args
-      : `<td class="row-description${noteFor(row) ? '' : ' muted'}">${esc(description(row))}</td>`;
-    return `<tr class="syscall-row" id="sys-${esc(row.name)}"><td class="call-number">${nr(row.number)}</td><th scope="row" class="call-identity"><button class="call-name" data-name="${esc(row.name)}" aria-expanded="${expanded}" ${expanded ? `aria-controls="detail-${row.number}"` : ''}>${esc(row.name)}</button>${badge}</th>${trailing}</tr>${expanded ? detailHTML(row, row._change === 'removed') : ''}`;
+      : `<td class="row-description${noteFor(row) ? '' : ' muted'}">${description(row, row._change === 'removed' ? state.compare : state.kernel)}</td>`;
+    return `<tr class="syscall-row" id="sys-${esc(row.name)}"><td class="call-number">${nr(row.number)}</td><th scope="row" class="call-identity"><button class="call-name" data-name="${esc(row.name)}" aria-expanded="${expanded}" ${expanded ? `aria-controls="detail-${row.number}"` : ''}><span aria-hidden="true">${expanded ? "▾" : "▸"}</span><span>${esc(row.name)}</span></button>${badge}</th>${trailing}</tr>${expanded ? detailHTML(row, row._change === 'removed') : ''}`;
 
   }).join('');
-  $('results').textContent = t('{count} of {total} entries · {arch} / Linux {version}', { count: rows.length, total: eligible.length, arch: state.arch, version: state.kernel.slice(1) });
+  $('results').textContent = t('{count} of {total} entries', { count: rows.length, total: eligible.length });
   applyLanguage($('rows'));
   $('empty').hidden = rows.length > 0;
   for (const sort of ['number', 'name']) {
@@ -179,8 +197,10 @@ async function refresh() {
   $('rows').replaceChildren();
   $('empty').hidden = true;
   $('diff-note').hidden = true;
-  updateArchitectureNav();
+  $('download').hidden = true;
   updateSelects();
+  const arch = manifest.architectures.find(a => a.id === state.arch);
+  $('table-title').textContent = t('{arch} system calls', { arch: arch.label });
   saveURL();
   try {
     const [next, old] = await Promise.all([getSnapshot(state.kernel, state.arch), state.compare ? getSnapshot(state.compare, state.arch) : null]);
@@ -198,8 +218,8 @@ async function refresh() {
 }
 
 function resetSearch() {
-  state.query = ''; state.all = false;
-  $('search').value = ''; $('show-unimplemented').checked = false;
+  state.query = ''; state.expanded = '';
+  $('search').value = '';
   renderRows(); saveURL(); $('search').focus();
 }
 function downloadFile(text, type, filename) {
@@ -209,14 +229,16 @@ function downloadFile(text, type, filename) {
   document.body.append(anchor); anchor.click(); anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-$('architectures').addEventListener('click', event => {
-  const link = event.target.closest('[data-arch]');
-  if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault(); state.arch = link.dataset.arch; state.expanded = ''; refresh();
-  $('architectures').querySelector('[aria-current="true"]')?.focus({ preventScroll: true });
-});
-$('architecture-picker').addEventListener('change', () => {
-  state.arch = $('architecture-picker').value; state.expanded = ''; refresh();
+$('architecture-picker')?.addEventListener('change', () => {
+  state.arch = $('architecture-picker').value;
+  const availableVersions = manifest.versions.filter(v => availableArchitectures(manifest, v).includes(state.arch));
+  if (!availableVersions.includes(state.kernel)) {
+    state.kernel = availableVersions[0] || manifest.latest;
+  }
+  if (state.compare && (!availableVersions.includes(state.compare) || state.compare === state.kernel)) {
+    state.compare = '';
+  }
+  state.expanded = ''; refresh();
 });
 $('kernel').addEventListener('change', () => {
   state.kernel = $('kernel').value;
@@ -226,22 +248,15 @@ $('kernel').addEventListener('change', () => {
 $('compare').addEventListener('change', () => { state.compare = $('compare').value; refresh(); });
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
-  $('reference').scrollIntoView();
-});
-$('search-form').addEventListener('click', event => {
-  const button = event.target.closest('[data-query]');
-  if (!button) return;
-  state.query = $('search').value = button.dataset.query;
-  state.expanded = '';
-  if (state.view === 'summary') { renderRows(); saveURL(); }
-  else setView('summary');
-  $('reference').scrollIntoView();
 });
 $('table-views').addEventListener('click', event => {
   const button = event.target.closest('[data-view]');
   if (button) setView(button.dataset.view);
 });
-$('search').addEventListener('input', () => { state.query = $('search').value; renderRows(); saveURL(); });
+$('search').addEventListener('input', () => {
+  state.query = $('search').value; state.expanded = '';
+  renderRows(); saveURL();
+});
 $('clear').addEventListener('click', resetSearch);
 $('reset-search').addEventListener('click', resetSearch);
 $('hex').addEventListener('change', () => { state.hex = $('hex').checked; renderRows(); saveURL(); });
@@ -272,36 +287,82 @@ $('rows').addEventListener('click', event => {
   if (!button) return;
   const name = button.dataset.name;
   state.expanded = state.expanded === name ? '' : name;
-  renderRows(); saveURL();
+  renderRows(); saveURL(true);
   // Re-rendering replaces the button; restore keyboard focus on the new node.
   $('rows').querySelector(`[data-name="${CSS.escape(name)}"]`)?.focus({ preventScroll: true });
 });
-function renderConventions() {
-  $('convention-rows').innerHTML = manifest.architectures.map(a => `<tr><td><a href="${rootPath}?arch=${a.id}">${esc(a.label)}</a></td><td>${esc(a.instruction)}</td><td>${esc(a.nr)}</td><td>${esc(a.result)}</td><td>${esc(argumentLocations(a).join(', '))}</td><td>${esc(a.error_flag ?? '—')}</td></tr>`).join('');
+$('rows').addEventListener('click', async event => {
+  const button = event.target.closest('[data-copy-signature]');
+  if (!button) return;
+  const signature = button.parentElement;
+  const code = signature.querySelector('code');
+  let result;
+  try {
+    await navigator.clipboard.writeText(code.textContent);
+    result = t('Copied');
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(code);
+    window.getSelection()?.removeAllRanges();
+    window.getSelection()?.addRange(range);
+    result = t('Select code to copy');
+  }
+  button.textContent = result;
+  signature.querySelector('[role="status"]').textContent = result;
+});
+function renderLibrary() {
+  const links = new Map(manifest.architectures.map(arch => {
+    const kernel = manifest.versions.find(version => availableArchitectures(manifest, version).includes(arch.id));
+    return [arch.id, esc(referenceURL({ arch: arch.id, kernel }))];
+  }));
+  $('architecture-links').innerHTML = manifest.architectures.map(arch =>
+    `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a></li>`
+  ).join('');
+  $('convention-rows').innerHTML = manifest.architectures.map(a =>
+    `<tr><th scope="row"><a href="${links.get(a.id)}">${esc(a.label)}</a></th><td>${esc(a.instruction)}</td><td>${esc(a.nr)}</td><td>${esc(a.result)}</td><td>${esc(argumentLocations(a).join(', '))}</td><td>${esc(a.error_flag ?? '—')}</td></tr>`
+  ).join('');
+  const download = sitePath(`data/${manifest.latest}/x64.json`);
+  $('bulk-link').href = download;
+  $('api-example').textContent = `curl '${location.origin}${download}'`;
+  $('snapshot-sources').href = sitePath(`data/${manifest.latest}/sources.json`);
 }
 window.addEventListener('zaryob:language', () => {
   if (!manifest) return;
-  updateSelects(); renderConventions(); saveURL();
+  if (!tableView) {
+    renderLibrary();
+    return;
+  }
+  $('back-to-architectures').href = referenceURL({}, '#architectures');
+  updateSelects(); saveURL();
   if (snapshot) { renderMetadata(); renderRows(); }
-  else $('results').textContent = t('Loading kernel table…');
 });
 window.addEventListener('hashchange', () => {
-  if (!location.hash.startsWith('#sys-')) return;
-  state.expanded = decodeURIComponent(location.hash.slice(5)); renderRows();
+  if (!tableView) return;
+  const name = linkedCall();
+  if (!name) return;
+  state.expanded = name; renderRows();
   document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
 });
 
+$('library').hidden = tableView;
+$('reference').hidden = !tableView;
 try {
   manifest = await getJSON(sitePath('data/manifest.json'));
-  if (!manifest.architectures.some(a => a.id === state.arch)) state.arch = 'x64';
-  if (!manifest.versions.includes(state.kernel)) state.kernel = manifest.latest;
-  if (!manifest.versions.includes(state.compare) || state.compare === state.kernel) state.compare = '';
-  $('search').value = state.query;
-  $('hex').checked = state.hex; $('show-unimplemented').checked = state.all;
-  renderConventions();
-  await refresh();
-  if (state.expanded) document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
+  if (tableView) {
+    $('back-to-architectures').href = referenceURL({}, '#architectures');
+    $('search').value = state.query;
+    $('hex').checked = state.hex;
+    $('show-unimplemented').checked = state.all;
+    await refresh();
+    if (state.expanded) document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
+    else if (location.hash === '#reference') $('reference').scrollIntoView({ behavior: 'instant' });
+  } else {
+    renderLibrary();
+    if (librarySections.includes(location.hash)) $(location.hash.slice(1)).scrollIntoView({ behavior: 'instant' });
+  }
 } catch (error) {
-  $('error').textContent = `${error.message} ${t('Check the site deployment and data/manifest.json, then reload to retry.')}`;
-  $('error').hidden = false; $('results').textContent = t("Dataset unavailable");
+  const alert = $(tableView ? 'error' : 'library-error');
+  alert.textContent = `${error.message} ${t('Check the site deployment and data/manifest.json, then reload to retry.')}`;
+  alert.hidden = false;
+  if (tableView) $('results').textContent = t('Dataset unavailable');
 }
