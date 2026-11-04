@@ -1,66 +1,135 @@
-/* Syscall adapters. Keep data, argument columns and existing UI behavior intact. */
-.console-syscall main, .console-syscall footer { max-width: var(--shell-width); padding-inline: 36px; }
-.console-syscall main { padding-top: 24px; }
+/* SPDX-License-Identifier: GPL-2.0-only */
+/* Syscall layout and catalogue. Shared controls and colours live in theme.css. */
+.console-syscall > :is(main,footer) { max-width: var(--shell-width); margin-inline: auto; padding-inline: 36px; }
+.console-syscall > main { padding-top: 24px; }
+.console-syscall main :is(h1,h2,h3,p) { margin-top: 0; }
+.console-syscall [hidden] { display: none !important; }
+
 .console-syscall .local-nav { display: flex; gap: 12px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px; font-size: 12px; }
 .console-syscall .local-nav a { color: var(--muted); }
-.console-syscall .introduction { padding: 28px 0; max-width: none; }
+.console-syscall .introduction { padding: 28px 0; }
 .console-syscall .introduction > p { max-width: 80ch; }
-.console-syscall h1 { margin-bottom: 12px; color: var(--ink); }
-.console-syscall .eyebrow { color: var(--accent); letter-spacing: 0; text-transform: none; font-size: 12px; }
-.console-syscall .lede { color: var(--muted); font-size: 16px; font-style: normal; }
-.console-syscall .introduction > p:not(.eyebrow):not(.lede) { font-size: 13px; }
-.console-syscall h2 { font-size: 21px; font-weight: 500; }
-.console-syscall h3 { font-size: 17px; }
-.console-syscall .section-heading { gap: 16px; }
-.console-syscall .architectures a { color: var(--muted); font-size: 13px; }
-.console-syscall .architectures a[aria-current=true] { color: var(--accent); border-color: var(--accent); font-weight: 500; }
-.console-syscall .controls { font-size: 13px; gap: 16px 24px; }
-.console-syscall .controls > a { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 12px; border: 1px solid var(--control-border); color: var(--accent); background: var(--paper); text-decoration: none; }
+.console-syscall h1 { margin-bottom: 12px; }
+.console-syscall .eyebrow { margin-bottom: 15px; color: var(--accent); font-size: 12px; }
+.console-syscall .lede { margin-bottom: 17px; color: var(--muted); font-size: 16px; }
+.console-syscall .introduction > p:not(.eyebrow,.lede) { margin-bottom: 16px; font-size: 13px; }
+
+.console-syscall .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 11px; }
+.console-syscall .section-heading h2 { margin-bottom: 0; }
+.console-syscall .section-heading > span { font-size: 13px; color: var(--muted); }
+.console-syscall .architectures { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.console-syscall .architectures a { padding: 12px 16px 9px; color: var(--muted); font-size: 13px; border-bottom: 3px solid transparent; text-decoration: none; }
+.console-syscall .architectures a:first-child { padding-left: 0; padding-right: 21px; }
+.console-syscall .architectures a[aria-current="true"] { color: var(--accent); border-color: var(--accent); font-weight: 500; }
+.console-syscall .controls { display: flex; align-items: center; gap: 16px 24px; flex-wrap: wrap; margin: 19px 0 15px; font-size: 13px; }
+.console-syscall .controls label { display: flex; align-items: center; gap: 9px; }
+.console-syscall .controls select { min-width: 116px; }
+.console-syscall .controls > a { display: inline-flex; align-items: center; min-height: 38px; margin-left: auto; padding: 7px 12px; border: 1px solid var(--control-border); color: var(--accent); background: var(--paper); text-decoration: none; }
 .console-syscall .controls > a:hover { border-color: var(--accent); background: var(--surface); }
-.console-syscall .convention-strip { background: var(--surface); border-color: var(--accent); font-size: 12px; }
-.console-syscall #search-form > label { font-size: 13px; font-weight: 500; }
-.console-syscall .search-line input { font: 14px/1.5 var(--font-mono); background: var(--surface); }
-.console-syscall #search-help, .console-syscall .table-toolbar { font-size: 12px; }
-.console-syscall table { font-size: 13px; }
-.console-syscall thead { background: var(--surface); border-color: var(--line); }
-.console-syscall :is(th,td) { border-color: var(--line); padding: 10px 12px; }
-.console-syscall th { font-weight: 500; }
-.console-syscall th button { min-height: 0; padding: 0; border: 0; background: transparent; font-size: inherit; color: var(--ink); }
-.console-syscall .argument-heading { font-size: 12px; }
-.console-syscall .arg-cell { border-color: var(--line); }
-.console-syscall .call-name { font-family: var(--font-mono); color: var(--accent); font-size: 13px; min-height: 0; padding: 0; border: 0; background: transparent; }
+.console-syscall .convention-strip { padding: 10px 13px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 12px; margin: 0 0 20px; overflow-wrap: anywhere; }
+.console-syscall .convention-strip strong { color: var(--muted); }
+
+.console-syscall #search-form > label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; }
+.console-syscall .search-line { display: flex; gap: 8px; }
+.console-syscall .search-line input { width: 100%; min-width: 0; background: var(--surface); }
+.console-syscall .search-line button { min-width: 66px; }
+.console-syscall :is(.small,.muted,.normal) { color: var(--muted); }
+.console-syscall .small { font-size: 13px; }
+.console-syscall .normal { font-weight: normal; }
+.console-syscall #search-help { margin: 6px 0 16px; font-size: 12px; }
+.console-syscall .table-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 9px; font-size: 12px; }
+.console-syscall .table-toolbar p { margin: 0; }
+.console-syscall .table-toolbar > div { display: flex; gap: 18px; flex-wrap: wrap; }
+.console-syscall .table-toolbar label { display: flex; align-items: center; }
+.console-syscall .table-toolbar input[type="checkbox"] { margin-right: 5px; }
+
+.console-syscall .table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); }
+.console-syscall table { border-collapse: collapse; width: 100%; text-align: left; font-size: 13px; }
+.console-syscall thead { background: var(--surface); border-bottom: 1px solid var(--line); }
+.console-syscall :is(th,td) { padding: 10px 12px; }
+.console-syscall th { font-weight: 500; white-space: nowrap; }
+.console-syscall td { border-bottom: 1px solid var(--line); vertical-align: top; }
+.console-syscall tbody tr:last-child > td { border-bottom: 0; }
+.console-syscall th button { min-height: 0; padding: 0; border: 0; background: transparent; font-size: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.console-syscall th button:hover { background: transparent; color: var(--accent); }
+#syscall-table { min-width: 1120px; }
+#syscall-table > thead > tr > th:first-child { width: 66px; }
+#syscall-table > thead > tr > th:nth-child(2) { width: 165px; }
+#syscall-table > thead > tr > th:last-child { width: 87px; }
+#syscall-table .syscall-row > td:first-child { font-size: 12px; color: var(--muted); }
+.console-syscall .argument-heading { min-width: 130px; font-size: 12px; }
+.console-syscall .argument-heading code { display: block; margin-top: 2px; color: var(--muted); font-weight: normal; font-size: 11px; }
+.console-syscall .arg-cell { min-width: 125px; max-width: 185px; border-left: 1px solid var(--line); }
+.console-syscall .arg-cell code { font-size: 11px; overflow-wrap: anywhere; white-space: normal; }
+.console-syscall .call-name { min-height: 0; padding: 0; border: 0; background: transparent; color: var(--accent); font-size: 13px; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
 .console-syscall .call-name:hover { background: transparent; color: var(--ink); }
-.console-syscall .call-name[aria-expanded=true] { color: var(--accent); font-weight: 500; }
-.console-syscall tr.syscall-row:hover { background: var(--surface); }
-.console-syscall .detail-row > td { background: var(--surface); color: var(--ink) !important; font: 14px/1.8 var(--font-mono) !important; }
-.console-syscall .detail-content pre { background: var(--paper); font-size: 13px; }
-.console-syscall .detail-content .argument-registers { font-family: var(--font-mono); }
-.console-syscall .argument-table { background: var(--paper); }
-.console-syscall .argument-table tbody th { font-family: var(--font-mono); border-color: var(--line); }
-.console-syscall .documentation h2 { color: var(--ink); }
-.console-syscall .documentation > p { font-size: 14px; max-width: 85ch; }
-.console-syscall .conventions-table td, .console-syscall .conventions-table td:first-child { font: 13px/1.8 var(--font-mono); }
-.console-syscall .badge { font: 11px/1.5 var(--font-mono); }
+.console-syscall .call-name[aria-expanded="true"] { font-weight: 500; }
+.console-syscall .syscall-row:hover { background: var(--surface); }
+.console-syscall .badge { display: inline-block; margin-left: 7px; padding: 2px 4px; border: 1px solid currentColor; font-size: 11px; line-height: 1.5; }
 .console-syscall .badge.added { color: var(--success); }
 .console-syscall .badge.removed { color: var(--danger); }
 .console-syscall .badge.changed { color: var(--warning); }
-.console-syscall .notice { color: var(--ink); background: var(--surface); border-color: var(--warning); }
-.console-syscall .error { color: var(--danger); border-color: var(--danger); }
-.console-syscall .text-button { border: 0; min-height: 0; padding: 0; color: var(--accent); background: transparent; }
-.console-syscall footer { border-top: 1px solid var(--line); font-size: 12px; }
-.console-syscall footer p:first-child { font-style: normal; }
-.console-syscall footer p { font-size: 12px; }
+.console-syscall .badge.unimplemented { color: var(--muted); }
+
+.console-syscall .detail-row > td { padding: 17px 22px; background: var(--surface); }
+.console-syscall .detail-content { max-width: 950px; font-size: 14px; }
+.console-syscall .detail-content pre { margin: 8px 0 13px; padding: 12px; background: var(--paper); white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; }
+.console-syscall .detail-content p { margin-bottom: 8px; }
+.console-syscall .detail-content a { overflow-wrap: anywhere; }
+.console-syscall .detail-content .argument-registers { font-size: 12px; }
+.console-syscall .argument-table { max-width: 850px; margin: 15px 0 18px; border: 1px solid var(--line); background: var(--paper); }
+.console-syscall .argument-table caption { text-align: left; font-size: 15px; font-weight: bold; margin-bottom: 7px; }
+.console-syscall .argument-table tbody th { font-size: 12px; border-bottom: 1px solid var(--line); }
+.console-syscall .argument-table td code { font-size: 12px; }
+.console-syscall .example-panel { margin: 20px 0 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.console-syscall .example-panel pre { max-height: 440px; overflow: auto; }
+.console-syscall .example-unavailable { padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); }
+.console-syscall .text-button { min-height: 0; padding: 0; border: 0; background: transparent; color: var(--accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.console-syscall .text-button:hover { background: transparent; }
+
+.console-syscall .notice { padding: 10px 13px; margin-bottom: 12px; border-left: 3px solid var(--warning); background: var(--surface); font-size: 14px; }
+.console-syscall .error { padding: 15px; margin: 10px 0; border: 1px solid var(--danger); color: var(--danger); }
+.console-syscall .table-footnote { font-size: 12px; color: var(--muted); margin: 9px 0 0; }
+.console-syscall .empty { text-align: center; padding: 35px 10px; background: var(--wash); margin-bottom: 0; }
+.console-syscall .documentation { padding-top: 32px; margin-top: 34px; border-top: 1px solid var(--line); }
+.console-syscall .documentation > p { font-size: 14px; max-width: 85ch; }
+.console-syscall .documentation h2 { margin-bottom: 15px; }
+.console-syscall .conventions-table { min-width: 630px; }
 .console-syscall .api-list { font-size: 13px; }
-.console-syscall :is(.architectures,.convention-strip,td:first-child) { font-family: var(--font-mono); }
-.console-syscall .console-search :is(h2,p) { margin-bottom: 0; }
+.console-syscall .api-list dt { margin-top: 12px; }
+.console-syscall .api-list dd { margin: 3px 0 0 20px; color: var(--muted); }
+.console-syscall .documentation details { margin: 23px 0; font-size: 15px; }
+.console-syscall .documentation summary { cursor: pointer; color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+.console-syscall .documentation details[open] > summary { margin-bottom: 12px; }
+.console-syscall > footer { margin-top: 40px; padding-block: 20px 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.console-syscall > footer p { margin: 0 0 6px; }
+.console-syscall .console-search :is(h2,p) { margin-block: 0; }
+
 @media (max-width: 760px) {
-  .console-syscall main, .console-syscall footer { padding-inline: 20px; }
-  .console-syscall .controls > a { width: auto; }
+  .console-syscall > :is(main,footer) { padding-inline: 20px; }
+  .console-syscall .wide-only { display: none; }
+  .console-syscall .section-heading { display: block; }
+  .console-syscall .section-heading > span { display: block; margin-top: 7px; }
+  .console-syscall .architectures a { padding: 11px 12px 8px; }
+  .console-syscall .architectures a:first-child { padding-right: 15px; }
+  .console-syscall .controls label { gap: 6px; }
+  .console-syscall .controls > a { margin-left: 0; }
+  .console-syscall .controls select { min-width: 100px; }
   .console-syscall .local-nav { gap: 10px 18px; }
+  .console-syscall .table-toolbar { align-items: start; gap: 10px; }
+  .console-syscall .table-toolbar > div { gap: 12px; }
+  .console-syscall .documentation { padding-top: 25px; margin-top: 28px; }
+  .console-syscall .api-list code { font-size: 11px; overflow-wrap: anywhere; }
+  .console-syscall .api-list dd { margin-left: 0; }
+  .console-syscall > footer { margin-top: 30px; }
+  .console-syscall .detail-row > td { padding: 13px; }
 }
 @media (max-width: 560px) {
-  .console-syscall main, .console-syscall footer { padding-inline: 16px; }
+  .console-syscall > :is(main,footer) { padding-inline: 16px; }
   .console-syscall .controls { align-items: flex-start; }
   .console-syscall .controls label { flex-wrap: wrap; }
   .console-syscall .introduction { padding-block: 24px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
