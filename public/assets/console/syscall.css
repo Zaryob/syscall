@@ -108,7 +108,7 @@
 .console-syscall .table-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 9px; font-size: 12px; }
 .console-syscall .table-toolbar p { margin: 0; }
 
-.console-syscall .table-scroll { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); }
+.console-syscall .table-scroll { overflow: auto; max-width: 100%; max-height: calc(100dvh - 120px); border: 1px solid var(--line); }
 .console-syscall table { border-collapse: collapse; width: 100%; text-align: left; font-size: 13px; }
 .console-syscall thead { background: var(--surface); border-bottom: 1px solid var(--line); }
 .console-syscall :is(th,td) { padding: 10px 12px; }
@@ -255,13 +255,23 @@
 #syscall-table .call-identity { vertical-align: middle; }
 #syscall-table .syscall-row .call-number { vertical-align: middle; font-variant-numeric: tabular-nums; }
 #syscall-table .call-identity .badge { margin: 0 0 0 6px; max-width: 100%; overflow-wrap: anywhere; }
+#syscall-table > thead > tr > th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--surface);
+}
 #syscall-table[data-view=args] > thead > tr > th:nth-child(-n+2),
 #syscall-table[data-view=args] :is(.call-number, .call-identity) {
   position: sticky;
-  z-index: 1;
+  z-index: 3;
   background: var(--paper);
 }
-#syscall-table[data-view=args] > thead > tr > th:nth-child(-n+2) { background: var(--surface); }
+#syscall-table[data-view=args] > thead > tr > th:nth-child(-n+2) {
+  z-index: 4;
+  top: 0;
+  background: var(--surface);
+}
 #syscall-table[data-view=args] .syscall-row:hover :is(.call-number, .call-identity) { background: var(--surface); }
 #syscall-table[data-view=args] > thead > tr > th:first-child,
 #syscall-table[data-view=args] .call-number { inset-inline-start: 0; }

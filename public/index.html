@@ -119,6 +119,6 @@ python3 scripts/sync_kernel.py --refs v7.3 --kernel-tree /path/to/linux</code></
           <tbody id="rows"></tbody>
         </table>
       </div>
-      <p id="empty" class="empty" hidden><span data-i18n="No system calls match this search.">No system calls match this search.</span> <button type="button" id="reset-search"><span data-i18n="Clear search">Clear search</span></button></p>
+      <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No system calls match this search.">No system calls match this search.</span> <button type="button" id="reset-search"><span data-i18n="Clear search">Clear search</span></button></p>
       <p id="args-footnote" class="table-footnote" hidden><span data-i18n="ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.">ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.</span></p>
     </section>
