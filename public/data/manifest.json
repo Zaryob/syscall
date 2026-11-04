@@ -23,7 +23,13 @@
       "arm64",
       "arm",
       "riscv64",
-      "loongarch64"
+      "loongarch64",
+      "ppc64",
+      "ppc",
+      "s390x",
+      "mips-o32",
+      "mips-n32",
+      "mips-n64"
     ],
     "v6.18": [
       "x64",
@@ -31,7 +37,13 @@
       "arm64",
       "arm",
       "riscv64",
-      "loongarch64"
+      "loongarch64",
+      "ppc64",
+      "ppc",
+      "s390x",
+      "mips-o32",
+      "mips-n32",
+      "mips-n64"
     ],
     "v6.12": [
       "x64",
@@ -39,7 +51,13 @@
       "arm64",
       "arm",
       "riscv64",
-      "loongarch64"
+      "loongarch64",
+      "ppc64",
+      "ppc",
+      "s390x",
+      "mips-o32",
+      "mips-n32",
+      "mips-n64"
     ],
     "v6.6": [
       "x64",
@@ -47,7 +65,13 @@
       "arm64",
       "arm",
       "riscv64",
-      "loongarch64"
+      "loongarch64",
+      "ppc64",
+      "ppc",
+      "s390x",
+      "mips-o32",
+      "mips-n32",
+      "mips-n64"
     ],
     "v5.19": [
       "x64",
@@ -55,7 +79,13 @@
       "arm64",
       "arm",
       "riscv64",
-      "loongarch64"
+      "loongarch64",
+      "ppc64",
+      "ppc",
+      "s390x",
+      "mips-o32",
+      "mips-n32",
+      "mips-n64"
     ],
     "v4.15": [
       "x64",
@@ -224,6 +254,144 @@
         "a4",
         "a5"
       ]
+    },
+    {
+      "id": "ppc64",
+      "label": "PowerPC 64",
+      "bits": 64,
+      "kernel": "powerpc",
+      "table": "arch/powerpc/kernel/syscalls/syscall.tbl",
+      "abis": [
+        "common",
+        "nospu",
+        "64"
+      ],
+      "instruction": "sc",
+      "nr": "r0",
+      "result": "r3",
+      "registers": [
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ],
+      "error_flag": "cr0.SO"
+    },
+    {
+      "id": "ppc",
+      "label": "PowerPC 32",
+      "bits": 32,
+      "kernel": "powerpc",
+      "table": "arch/powerpc/kernel/syscalls/syscall.tbl",
+      "abis": [
+        "common",
+        "nospu",
+        "32"
+      ],
+      "instruction": "sc",
+      "nr": "r0",
+      "result": "r3",
+      "registers": [
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ],
+      "error_flag": "cr0.SO"
+    },
+    {
+      "id": "s390x",
+      "label": "IBM Z (s390x)",
+      "bits": 64,
+      "kernel": "s390",
+      "table": "arch/s390/kernel/syscalls/syscall.tbl",
+      "abis": [
+        "common",
+        "64"
+      ],
+      "instruction": "svc 0",
+      "nr": "r1",
+      "result": "r2",
+      "registers": [
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7"
+      ]
+    },
+    {
+      "id": "mips-o32",
+      "label": "MIPS o32",
+      "bits": 32,
+      "kernel": "mips",
+      "table": "arch/mips/kernel/syscalls/syscall_o32.tbl",
+      "abis": [
+        "o32"
+      ],
+      "instruction": "syscall",
+      "nr": "v0",
+      "result": "v0",
+      "registers": [
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "stack_slots": [
+        5,
+        6
+      ],
+      "error_flag": "a3"
+    },
+    {
+      "id": "mips-n32",
+      "label": "MIPS n32",
+      "bits": 32,
+      "kernel": "mips",
+      "table": "arch/mips/kernel/syscalls/syscall_n32.tbl",
+      "abis": [
+        "n32"
+      ],
+      "instruction": "syscall",
+      "nr": "v0",
+      "result": "v0",
+      "registers": [
+        "a0",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5"
+      ],
+      "error_flag": "a3"
+    },
+    {
+      "id": "mips-n64",
+      "label": "MIPS n64",
+      "bits": 64,
+      "kernel": "mips",
+      "table": "arch/mips/kernel/syscalls/syscall_n64.tbl",
+      "abis": [
+        "n64"
+      ],
+      "instruction": "syscall",
+      "nr": "v0",
+      "result": "v0",
+      "registers": [
+        "a0",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5"
+      ],
+      "error_flag": "a3"
     }
   ]
 }

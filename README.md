@@ -5,11 +5,11 @@
 
 **The small interface between your program and the kernel.**
 
-Search Linux syscall numbers, inspect C signatures, and follow every entry back to its source.
+Find what a Linux syscall does, inspect its C arguments, and follow the entry back to the kernel.
 
 [![Build](https://github.com/Zaryob/syscall/actions/workflows/pages.yml/badge.svg)](https://github.com/Zaryob/syscall/actions/workflows/pages.yml)
 [![License: GPL-2.0-only](https://img.shields.io/badge/license-GPL--2.0--only-d6b879)](LICENSE)
-[![Architectures: 6](https://img.shields.io/badge/architectures-6-d6b879)](public/data/manifest.json)
+[![Linux ABIs: 12](https://img.shields.io/badge/Linux_ABIs-12-d6b879)](public/data/manifest.json)
 [![Static site: Jekyll](https://img.shields.io/badge/static_site-Jekyll-d6b879)](_config.yml)
 
 [Get started](#get-started) · [JSON API](#json-api) · [Data provenance](#data-provenance) · [Türkçe](README.tr.md)
@@ -20,14 +20,13 @@ Search Linux syscall numbers, inspect C signatures, and follow every entry back 
 
 ## Explore the kernel interface
 
-- **Six architectures:** x86-64, i386, AArch64, ARM EABI, RISC-V 64, and LoongArch 64.
-- **Three bundled snapshots:** Linux `v6.12`, `v6.18`, and `v7.3`. Browse without fetching kernel sources at build time.
-- **Fast lookup:** search by name, entry point, C argument, decimal number, or hexadecimal number. Sort by name or number.
+- **Twelve Linux ABIs:** x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 32/64, IBM Z (s390x), and MIPS o32/n32/n64. PowerPC, s390x, and MIPS are available in bundled snapshots from `v5.19` onward.
+- **Bilingual lookup:** search by purpose in English or Turkish, or by name, entry point, C argument, decimal number, or hexadecimal number. The short explanations live separately from the kernel data in [notes.mjs](public/notes.mjs).
 - **Details with context:** C declarations, ARG1–ARG6, argument registers, kernel source lines, manual links, and JSON downloads.
 - **Release comparisons:** highlight added, removed, and changed entries between the bundled snapshots.
-- **Shareable views:** architecture, release, comparison, search, and open syscall details stay in the URL.
+- **Shareable views:** architecture, release, comparison, search, table view, and open syscall details stay in the URL.
 - **C downloads:** hand-written `getpid` and `write` examples, plus review-required skeletons for other supported 64-bit signatures.
-- **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and horizontally scrollable tables on small screens.
+- **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and an overview that fits small screens. The argument view keeps the syscall number and name visible as you scroll to ARG5 and ARG6.
 
 The published site runs entirely in the browser. Jekyll builds the pages; a Node server is available separately for local API use.
 
@@ -102,7 +101,7 @@ Set `HOST` and `PORT` to override the listener. This process serves JSON and dat
 
 ## Data provenance
 
-Numbers and entry points come from Linux syscall tables. C declarations come from kernel headers; ABI selection follows the kernel's `Makefile.syscalls`. Each snapshot includes original source files, SPDX identifiers, and SHA-256 hashes in its source manifest.
+Numbers and entry points come from Linux syscall tables. MIPS table indices are relative; the importer adds the ABI base from the kernel’s UAPI `unistd.h`. C declarations come from kernel headers. The table follows the Linux userspace ABI rather than the CPU model: both Intel Core and AMD Ryzen running x86-64 Linux use `x64`. Each snapshot includes original source files, SPDX identifiers, and SHA-256 hashes in its source manifest.
 
 Regenerate data with the Python standard library; no kernel build is required:
 
@@ -117,9 +116,9 @@ python3 scripts/sync_kernel.py --refs v7.3 --kernel-tree /path/to/linux
 python3 scripts/sync_kernel.py --refs v7.3 --output /tmp/syscall-data
 ```
 
-The importer supports the table layout used by Linux v6.12 and later. Downloads are cached in `.cache/`. Run the importer and tests before adding another release to the defaults; do not run concurrent imports into the same output directory.
+The importer supports the bundled historical layouts and the current kernel tables. Downloads are cached in `.cache/`. Run the importer and tests before adding another release to the defaults; do not run concurrent imports into the same output directory.
 
-**Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; configuration-dependent declarations are marked ambiguous. A table entry does not guarantee availability in every kernel configuration. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
+**Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; configuration-dependent declarations are marked ambiguous. A table entry does not guarantee availability in every kernel configuration. PowerPC 32 and MIPS o32 show native table entry points; a 64-bit kernel may dispatch the same number through a compatibility entry point. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
 
 C skeletons require review of pointers, flags, object lifetimes, and error handling. They include a blocking `#error` until reviewed; unresolved signatures, unimplemented slots, and 32-bit ABIs do not get speculative code.
 

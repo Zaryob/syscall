@@ -9358,7 +9358,7 @@
   "license": "GPL-2.0-only",
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-02T20:56:14.243205+00:00",
+    "generated_at": "2026-11-04T14:14:11.358193+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [
       "sources/LICENSES/preferred/GPL-2.0",
@@ -9435,6 +9435,42 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/mips/include/uapi/asm/unistd.h",
+        "sha256": "3ddb054ab3643d8b4003ce7802ca887d13920897007c432af875aaf357f43e7a",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/unistd.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/kernel/syscalls/syscall_n32.tbl",
+        "sha256": "43628bdb0c37eac8d73392186f28a173237a0c1a5a00862e8207efb1b0faf760",
+        "bundled_path": "sources/arch/mips/kernel/syscalls/syscall_n32.tbl",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/kernel/syscalls/syscall_n64.tbl",
+        "sha256": "7e0b379a88db2f33ccb145e6e053d51a884aaa0afe84316cebfb40222decceb3",
+        "bundled_path": "sources/arch/mips/kernel/syscalls/syscall_n64.tbl",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/kernel/syscalls/syscall_o32.tbl",
+        "sha256": "12f2ef0062820fce6e8e1fbc5648c7e4e49fd548063473b82079cbabfb314fde",
+        "bundled_path": "sources/arch/mips/kernel/syscalls/syscall_o32.tbl",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "sha256": "8adde1d66cf77a2b1fd5741b162bfb204e618c818804c659e7e6ff09e8927682",
+        "bundled_path": "sources/arch/powerpc/include/asm/syscalls.h",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
+        "sha256": "1398cb3e33725aec213608c0f6f9cfd8bd4bbbe8d07b593c5ebe3d45cd0e0431",
+        "bundled_path": "sources/arch/powerpc/kernel/syscalls/syscall.tbl",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
         "path": "arch/riscv/include/asm/unistd.h",
         "sha256": "695e2514e66407d6e7949e21baa6622c100dff6707c82fed6b3069583257883e",
         "bundled_path": "sources/arch/riscv/include/asm/unistd.h",
@@ -9444,6 +9480,12 @@
         "path": "arch/riscv/include/uapi/asm/unistd.h",
         "sha256": "a90d59d89a5b9e91a064767ac1054587806ec5519c4c1177caeea4577fb058cd",
         "bundled_path": "sources/arch/riscv/include/uapi/asm/unistd.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/s390/kernel/syscalls/syscall.tbl",
+        "sha256": "7a181dee81d20939179daec0f1c8de0fdbbec22e9e2c40b8a611363b0f598f9b",
+        "bundled_path": "sources/arch/s390/kernel/syscalls/syscall.tbl",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {

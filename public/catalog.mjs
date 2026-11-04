@@ -1,4 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only
+import { syscallNote } from './notes.mjs';
+
 export function availableArchitectures(manifest, version) {
   return manifest.version_architectures?.[version] ?? manifest.architectures.map(a => a.id);
 }
@@ -12,13 +14,18 @@ export function normalizeSelection(manifest, state) {
 }
 
 export function searchSyscalls(rows, query = '') {
-  const q = query.trim().toLowerCase();
+  const normalize = text => text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '').replace(/ı/g, 'i');
+  const q = normalize(query.trim());
   if (!q) return rows;
   if (/^(?:0x[\da-f]+|\d+)$/.test(q)) {
     const nr = q.startsWith('0x') ? Number.parseInt(q.slice(2), 16) : Number(q);
     return rows.filter(row => row.number === nr);
   }
-  return rows.filter(row => [row.name, row.entry, ...(row.arguments ?? [])].join(' ').toLowerCase().includes(q));
+  return rows.filter(row => {
+    const note = row.status === 'unimplemented' ? undefined : syscallNote(row.name);
+    return [row.name, row.entry, ...(row.arguments ?? []), note?.en, note?.tr]
+      .some(text => text && normalize(text).includes(q));
+  });
 }
 
 export function diffSyscalls(before, after) {

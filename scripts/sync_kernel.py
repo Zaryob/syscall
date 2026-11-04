@@ -31,7 +31,17 @@ ARCHES = {
     "arm": dict(label="ARM EABI", bits=32, kernel="arm", table="arch/arm/tools/syscall.tbl", abis=["common", "eabi"], instruction="svc #0", nr="r7", result="r0", registers=["r0", "r1", "r2", "r3", "r4", "r5"]),
     "riscv64": dict(label="RISC-V 64", bits=64, kernel="riscv", table="scripts/syscall.tbl", abis=["common", "64"], instruction="ecall", nr="a7", result="a0", registers=["a0", "a1", "a2", "a3", "a4", "a5"]),
     "loongarch64": dict(label="LoongArch 64", bits=64, kernel="loongarch", table="scripts/syscall.tbl", abis=["common", "64"], instruction="syscall 0", nr="a7", result="a0", registers=["a0", "a1", "a2", "a3", "a4", "a5"]),
+    "ppc64": dict(label="PowerPC 64", bits=64, kernel="powerpc", table="arch/powerpc/kernel/syscalls/syscall.tbl", abis=["common", "nospu", "64"], instruction="sc", nr="r0", result="r3", registers=["r3", "r4", "r5", "r6", "r7", "r8"], error_flag="cr0.SO"),
+    "ppc": dict(label="PowerPC 32", bits=32, kernel="powerpc", table="arch/powerpc/kernel/syscalls/syscall.tbl", abis=["common", "nospu", "32"], instruction="sc", nr="r0", result="r3", registers=["r3", "r4", "r5", "r6", "r7", "r8"], error_flag="cr0.SO"),
+    "s390x": dict(label="IBM Z (s390x)", bits=64, kernel="s390", table="arch/s390/kernel/syscalls/syscall.tbl", abis=["common", "64"], instruction="svc 0", nr="r1", result="r2", registers=["r2", "r3", "r4", "r5", "r6", "r7"]),
+    "mips-o32": dict(label="MIPS o32", bits=32, kernel="mips", table="arch/mips/kernel/syscalls/syscall_o32.tbl", abis=["o32"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3"], stack_slots=[5, 6], error_flag="a3"),
+    "mips-n32": dict(label="MIPS n32", bits=32, kernel="mips", table="arch/mips/kernel/syscalls/syscall_n32.tbl", abis=["n32"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3", "a4", "a5"], error_flag="a3"),
+    "mips-n64": dict(label="MIPS n64", bits=64, kernel="mips", table="arch/mips/kernel/syscalls/syscall_n64.tbl", abis=["n64"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3", "a4", "a5"], error_flag="a3"),
 }
+# Import floor for the additional ABI tables; not the ABI's debut in Linux.
+EXTENDED_TABLES_FROM = (5, 19)
+MIPS_HEADER = "arch/mips/include/uapi/asm/unistd.h"
+MIPS_SIM = {"o32": "_MIPS_SIM_ABI32", "n32": "_MIPS_SIM_NABI32", "n64": "_MIPS_SIM_ABI64"}
 
 # Mainline releases: in 2.6.x the third component was the mainline release;
 # since 3.0 the third component denotes maintenance/patch releases instead.
@@ -225,20 +235,29 @@ def parse_prototypes(text, path):
     return result
 
 
-def parse_table(text, abis):
+def parse_table(text, abis, offset=0):
     rows = []
     for line, raw in enumerate(text.splitlines(), 1):
         fields = raw.split("#", 1)[0].split()
         if len(fields) < 3 or not fields[0].isdigit() or fields[1] not in abis:
             continue
         entry = fields[3] if len(fields) > 3 else None
-        rows.append(dict(number=int(fields[0]), abi=fields[1], name=fields[2], entry=entry, line=line))
+        rows.append(dict(number=offset + int(fields[0]), abi=fields[1], name=fields[2], entry=entry, line=line))
     numbers = [r["number"] for r in rows]
     if len(numbers) != len(set(numbers)):
         raise ValueError("Overlapping ABI entries in syscall table")
     if not rows:
         raise ValueError("No syscalls found; unsupported kernel table format")
     return sorted(rows, key=lambda r: r["number"])
+
+
+def mips_offset(header, abi):
+    condition = r"^\s*#if\s+_MIPS_SIM\s*==\s*" + MIPS_SIM[abi] + r"\s*$"
+    block = re.search(condition + r"(.*?)^\s*#endif\b", header, re.M | re.S)
+    base = re.search(r"^\s*#define\s+__NR_Linux\s+(\d+)\s*$", block[1], re.M) if block else None
+    if not base or f"<asm/unistd_{abi}.h>" not in block[1]:
+        raise ValueError("Unrecognized MIPS syscall numbering for " + abi)
+    return int(base[1])
 
 
 def extra_abis(makefile):
@@ -378,7 +397,7 @@ def architecture_rows(source, arch):
     config = ARCHES[arch]
     version = version_key(source.ref)
     introduced = {"x64": (2, 6, 0), "x86": (1, 0), "arm": (2, 6, 16), "arm64": (3, 7), "riscv64": (4, 15), "loongarch64": (5, 19)}
-    if version < introduced[arch]:
+    if version < introduced.get(arch, EXTENDED_TABLES_FROM):
         return None, None
     if arch in {"arm64", "riscv64", "loongarch64"} and version < (6, 11):
         path = "arch/{}/include/asm/unistd.h".format(config["kernel"])
@@ -403,7 +422,8 @@ def architecture_rows(source, arch):
             link = source.read("arch/arm64/tools/syscall_64.tbl").strip()
             if not (link == "../../../scripts/syscall.tbl" or link.startswith("#")):
                 raise ValueError("arm64 syscall table layout changed")
-    return config["table"], parse_table(source.read(config["table"]), abis)
+    offset = mips_offset(source.read(MIPS_HEADER), abis[0]) if config["kernel"] == "mips" else 0
+    return config["table"], parse_table(source.read(config["table"]), abis, offset)
 
 
 def generate(ref, tree, output):

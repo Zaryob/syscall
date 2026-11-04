@@ -2,6 +2,7 @@
 import { searchSyscalls, diffSyscalls, availableArchitectures, normalizeSelection } from './catalog.mjs';
 import { withBase } from './paths.mjs';
 import { buildExample } from './examples.mjs';
+import { syscallNote } from './notes.mjs';
 
 const { t, apply: applyLanguage } = window.ZaryobI18n;
 const $ = id => document.getElementById(id);
@@ -12,6 +13,7 @@ const state = {
   arch: params.get('arch') || 'x64',
   kernel: params.get('kernel'), compare: params.get('compare') || '',
   query: params.get('q') || '', hex: params.get('hex') === '1', all: params.get('all') === '1',
+  view: params.get('view') === 'args' ? 'args' : 'summary',
   sort: 'number', direction: 1, expanded: location.hash.startsWith('#sys-') ? decodeURIComponent(location.hash.slice(5)) : '',
 };
 const cache = new Map();
@@ -24,6 +26,10 @@ const sourceLink = (source, kernel) => {
     ? sitePath(`data/${kernel}/sources/${source.path}`)
     : `https://github.com/torvalds/linux/blob/${encodeURIComponent(kernel)}/${source.path}#L${source.line}`;
 };
+const noteFor = row => row.status === 'unimplemented' ? undefined : syscallNote(row.name);
+const description = row => noteFor(row)?.[window.ZaryobI18n.language]
+  ?? t(row.status === 'unimplemented' ? 'This slot is unimplemented.' : 'No short explanation yet.');
+const argumentLocations = c => [...c.registers, ...(c.stack_slots ?? []).map(n => `${t('Stack')} (${n})`)];
 const key = row => `${row.number}:${row.name}`;
 
 async function getJSON(url) {
@@ -41,26 +47,60 @@ function saveURL() {
   if (new URLSearchParams(location.search).has('lang')) p.set('lang', window.ZaryobI18n.language);
   if (state.compare) p.set('compare', state.compare);
   if (state.query) p.set('q', state.query);
+  if (state.view === 'args') p.set('view', 'args');
   if (state.hex) p.set('hex', '1');
   if (state.all) p.set('all', '1');
   const hash = state.expanded ? `#sys-${encodeURIComponent(state.expanded)}` : location.hash.startsWith('#sys-') ? '' : location.hash;
   history.replaceState(null, '', `${rootPath}?${p}${hash}`);
+  p.delete('compare');
+  for (const link of $('architectures').querySelectorAll('[data-arch]')) {
+    p.set('arch', link.dataset.arch);
+    link.href = `${rootPath}?${p}`;
+  }
 }
 function updateArchitectureNav() {
-  $('architectures').innerHTML = manifest.architectures.filter(a => availableArchitectures(manifest, state.kernel).includes(a.id)).map(a => `<a href="${rootPath}?arch=${a.id}&amp;kernel=${state.kernel}" data-arch="${a.id}" ${a.id === state.arch ? 'aria-current="true"' : ''}>${esc(a.id)}</a>`).join('');
+  const available = availableArchitectures(manifest, state.kernel);
+  const picker = $('architecture-picker');
+  picker.replaceChildren(...manifest.architectures.filter(a => available.includes(a.id)).map(
+    a => new Option(a.label, a.id, false, a.id === state.arch)
+  ));
+  picker.disabled = false;
+  $('architectures').innerHTML = manifest.architectures.filter(a => available.includes(a.id)).map(a => {
+    return `<a href="${rootPath}?arch=${a.id}&amp;kernel=${state.kernel}" data-arch="${a.id}" title="${esc(a.label)}" ${a.id === state.arch ? 'aria-current="true"' : ''}>${esc(a.id)}</a>`;
+  }).join('');
+}
+function renderView() {
+  const args = state.view === 'args';
+  $('syscall-table').dataset.view = state.view;
+  $('syscall-table').querySelectorAll('.argument-heading').forEach(th => { th.hidden = !args; });
+  $('syscall-table').querySelector('.summary-heading').hidden = args;
+  $('table-views').querySelectorAll('button').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.view === state.view));
+  });
+  $('scroll-hint').hidden = $('args-footnote').hidden = !args;
+  $('convention-strip').hidden = !args || !snapshot;
+  $('abi-note').hidden = !args || snapshot?.calling_convention.bits !== 32;
+}
+function setView(view) {
+  if (state.view === view) return;
+  state.view = view;
+  $('table-scroll').scrollLeft = 0;
+  renderRows(); saveURL();
 }
 function updateSelects() {
-  $('kernel').innerHTML = manifest.versions.map(v => `<option value="${v}" ${v === state.kernel ? 'selected' : ''}>${v.slice(1)}${v === manifest.latest ? ' (' + t('Latest snapshot') + ')' : ''}</option>`).join('');
-  $('compare').innerHTML = `<option value="">${t('No comparison')}</option>` + manifest.versions.filter(v => v !== state.kernel && availableArchitectures(manifest, v).includes(state.arch)).map(v => `<option value="${v}" ${v === state.compare ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
+  $('kernel').innerHTML = manifest.versions.map(v => `<option value="${v}" ${v === state.kernel ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
+  $('compare').innerHTML = `<option value="">${t('None')}</option>` + manifest.versions.filter(v => v !== state.kernel && availableArchitectures(manifest, v).includes(state.arch)).map(v => `<option value="${v}" ${v === state.compare ? 'selected' : ''}>${v.slice(1)}</option>`).join('');
   $('kernel').disabled = $('compare').disabled = false;
 }
 function renderMetadata() {
   const c = snapshot.calling_convention;
   document.title = `${c.label} · Linux ${state.kernel.slice(1)} · ${t('System Call Reference')}`;
   $('release-note').textContent = `Linux ${state.kernel.slice(1)} · ${c.label} · ${c.bits}-bit`;
-  $('convention-strip').innerHTML = `<strong><span data-i18n="ENTRY">ENTRY</span></strong> ${esc(c.instruction)} &nbsp; | &nbsp; <strong>NR</strong> ${c.nr} &nbsp; | &nbsp; <strong><span data-i18n="RETURN">RETURN</span></strong> ${c.result} &nbsp; | &nbsp; <strong><span data-i18n="ARGUMENT REGISTERS">ARGUMENT REGISTERS</span></strong> ${c.registers.join(' → ')}`;
-  applyLanguage($('convention-strip'));
-  $('abi-note').hidden = c.bits !== 32;
+  const conventions = [[t('ENTRY'), c.instruction], ['NR', c.nr], [t('RETURN'), c.result],
+    [t('Argument locations'), argumentLocations(c).join(' · ')]];
+  if (c.error_flag) conventions.push([t('Error flag'), c.error_flag]);
+  $('convention-strip').innerHTML = conventions.map(([label, value]) =>
+    `<span><strong>${esc(label)}</strong> <code>${esc(value)}</code></span>`).join('');
   for (let i = 0; i < 6; i++) {
     $(`arg-register-${i}`).textContent = c.bits === 64 ? c.registers[i] : '';
   }
@@ -76,18 +116,22 @@ function detailHTML(row, removed) {
   const data = removed ? previous : snapshot;
   const c = data.calling_convention;
   const regInfo = row.arguments === null ? '<p class="muted"><span data-i18n="Argument details are not resolved in the imported headers.">Argument details are not resolved in the imported headers.</span></p>' : row.arguments.length
-    ? `<table class="argument-table"><caption>${esc(t('Arguments to {name}', { name: row.name }))}</caption><thead><tr><th scope="col"><span data-i18n="Position">Position</span></th><th scope="col"><span data-i18n="Kernel C declaration">Kernel C declaration</span></th><th scope="col"><span data-i18n="Register">Register</span></th></tr></thead><tbody>${row.arguments.map((arg, i) => `<tr><th scope="row">ARG${i + 1}</th><td><code>${esc(arg)}</code></td><td><code>${c.bits === 64 ? c.registers[i] : t("ABI-dependent")}</code></td></tr>`).join('')}</tbody></table>${c.bits === 32 ? '<p class="small"><span data-i18n="These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.">These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.</span></p>' : ''}` : '<p class="muted"><span data-i18n="This syscall has no C arguments.">This syscall has no C arguments.</span></p>';
+    ? `<table class="argument-table"><caption>${esc(t('Arguments to {name}', { name: row.name }))}</caption><thead><tr><th scope="col"><span data-i18n="Position">Position</span></th><th scope="col"><span data-i18n="Kernel C declaration">Kernel C declaration</span></th><th scope="col"><span data-i18n="Register">Register</span></th></tr></thead><tbody>${row.arguments.map((arg, i) => `<tr><th scope="row">ARG${i + 1}</th><td><code>${esc(arg)}</code></td><td><code>${c.bits === 64 ? esc(c.registers[i]) : t("ABI-dependent")}</code></td></tr>`).join('')}</tbody></table>${c.bits === 32 ? '<p class="small"><span data-i18n="These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.">These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.</span></p>' : ''}` : '<p class="muted"><span data-i18n="This syscall has no C arguments.">This syscall has no C arguments.</span></p>';
   const example = buildExample(row, data);
   const exampleHTML = example.code
     ? `<details class="example-panel"><summary>${example.kind === 'example' ? t("C usage example") : t("Generate a C skeleton")}</summary><p>${esc(t(example.reason))}</p><pre><code>${esc(example.code)}</code></pre><p><button class="text-button" data-example="${row.number}" data-kernel="${kernel}">${esc(t('Download C {kind}', { kind: t(example.kind === 'example' ? 'example' : 'skeleton') }))}</button> · <a href="https://man7.org/linux/man-pages/man2/syscall.2.html"><span data-i18n="About the libc syscall() interface">About the libc syscall() interface</span></a></p></details>`
     : `<p class="example-unavailable"><strong><span data-i18n="C example:">C example:</span></strong> ${esc(t(example.reason))}</p>`;
   const source = `<a href="${sourceLink(row.source, kernel)}">${esc(row.source.path)}:${row.source.line}</a>`;
   const declaration = row.signature_source ? ` · ${esc(t('Declaration:'))} <a href="${sourceLink(row.signature_source, kernel)}">${esc(row.signature_source.path)}:${row.signature_source.line}</a>` : '';
+  const [manualName, manualSection = '2'] = (noteFor(row)?.manual ?? row.name).split('.');
+  const manual = noteFor(row)?.manual
+    ? `https://man7.org/linux/man-pages/man${manualSection}/${manualName}.${manualSection}.html` : row.man_url;
   const raw = sitePath(`data/${kernel}/${state.arch}.json`);
   const before = row._change === 'changed' ? previous.syscalls.find(r => key(r) === key(row)) : null;
-  return `<tr class="detail-row" id="detail-${row.number}"><td colspan="9"><div class="detail-content"><h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3><pre><code>${esc(signature)}</code></pre>${regInfo}<p><strong><span data-i18n="Entry point:">Entry point:</span></strong> <code>${esc(row.entry || t("none"))}</code> · <strong><span data-i18n="Number:">Number:</span></strong> ${row.number} / 0x${row.number.toString(16)} · <strong>ABI:</strong> <code>${esc(row.abi)}</code></p>${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}${row.signature_note ? `<p>${esc(t(row.signature_note))}</p>` : ''}${before ? `<p><strong>${esc(t('In Linux {version}:', { version: state.compare.slice(1) }))}</strong> <code>${esc(before.entry)}</code>, ${esc(before.arguments === null ? t("signature unresolved") : before.arguments.join(', ') || 'void')}</p>` : ''}<p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p><p><a href="${esc(row.man_url)}">${esc(t('Look up {name}(2)', { name: row.name }))}</a> · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button> · <a href="${raw}"><span data-i18n="Table JSON">Table JSON</span></a> · <a href="${rootPath}?arch=${state.arch}&amp;kernel=${kernel}${row.status === 'unimplemented' ? '&amp;all=1' : ''}#sys-${encodeURIComponent(row.name)}"><span data-i18n="Permanent link">Permanent link</span></a></p>${exampleHTML}</div></td></tr>`;
+  return `<tr class="detail-row" id="detail-${row.number}"><td colspan="${state.view === 'args' ? 8 : 3}"><div class="detail-content"><h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3><p class="detail-description">${esc(description(row))}</p><pre><code>${esc(signature)}</code></pre>${regInfo}<p><strong><span data-i18n="Entry point:">Entry point:</span></strong> <code>${esc(row.entry || t("none"))}</code> · <strong><span data-i18n="Number:">Number:</span></strong> ${row.number} / 0x${row.number.toString(16)} · <strong>ABI:</strong> <code>${esc(row.abi)}</code></p>${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}${row.signature_note ? `<p>${esc(t(row.signature_note))}</p>` : ''}${before ? `<p><strong>${esc(t('In Linux {version}:', { version: state.compare.slice(1) }))}</strong> <code>${esc(before.entry)}</code>, ${esc(before.arguments === null ? t("signature unresolved") : before.arguments.join(', ') || 'void')}</p>` : ''}<p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p><p><a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a> · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button> · <a href="${raw}"><span data-i18n="Table JSON">Table JSON</span></a> · <a href="${rootPath}?arch=${state.arch}&amp;kernel=${kernel}${row.status === 'unimplemented' ? '&amp;all=1' : ''}#sys-${encodeURIComponent(row.name)}"><span data-i18n="Permanent link">Permanent link</span></a></p>${exampleHTML}</div></td></tr>`;
 }
 function renderRows() {
+  renderView();
   if (!snapshot) return;
   const changes = new Map();
   let allRows = snapshot.syscalls;
@@ -104,9 +148,13 @@ function renderRows() {
   rows.sort((a, b) => state.direction * (state.sort === 'number' ? a.number - b.number : a.name.localeCompare(b.name)));
   $('rows').innerHTML = rows.map(row => {
     const expanded = state.expanded === row.name;
-    const args = row.arguments === null ? '<td colspan="6" class="muted"><span data-i18n="not resolved">not resolved</span></td>' : Array.from({ length: 6 }, (_, i) => `<td class="arg-cell">${row.arguments[i] ? `<code>${esc(row.arguments[i])}</code>` : '<span class="muted" aria-label="no argument" data-i18n-aria-label="no argument">—</span>'}</td>`).join('');
+    const args = state.view === 'summary' ? '' : row.arguments === null ? '<td colspan="6" class="muted"><span data-i18n="not resolved">not resolved</span></td>' : Array.from({ length: 6 }, (_, i) => `<td class="arg-cell">${row.arguments[i] ? `<code>${esc(row.arguments[i])}</code>` : '<span class="muted" aria-label="no argument" data-i18n-aria-label="no argument">—</span>'}</td>`).join('');
     const badge = row._change ? `<span class="badge ${row._change}">${esc(t(row._change))}</span>` : row.status === 'unimplemented' ? '<span class="badge unimplemented"><span data-i18n="unimplemented">unimplemented</span></span>' : '';
-    return `<tr class="syscall-row" id="sys-${esc(row.name)}"><td>${nr(row.number)}</td><td><button class="call-name" data-name="${esc(row.name)}" aria-expanded="${expanded}" ${expanded ? `aria-controls="detail-${row.number}"` : ''}>${esc(row.name)}</button>${badge}</td>${args}<td class="man"><a href="${esc(row.man_url)}" aria-label="${esc(t('Look up {name} in Linux man-pages', { name: row.name }))}">man(2)</a></td></tr>${expanded ? detailHTML(row, row._change === 'removed') : ''}`;
+    const trailing = state.view === 'args'
+      ? args
+      : `<td class="row-description${noteFor(row) ? '' : ' muted'}">${esc(description(row))}</td>`;
+    return `<tr class="syscall-row" id="sys-${esc(row.name)}"><td class="call-number">${nr(row.number)}</td><th scope="row" class="call-identity"><button class="call-name" data-name="${esc(row.name)}" aria-expanded="${expanded}" ${expanded ? `aria-controls="detail-${row.number}"` : ''}>${esc(row.name)}</button>${badge}</th>${trailing}</tr>${expanded ? detailHTML(row, row._change === 'removed') : ''}`;
+
   }).join('');
   $('results').textContent = t('{count} of {total} entries · {arch} / Linux {version}', { count: rows.length, total: eligible.length, arch: state.arch, version: state.kernel.slice(1) });
   applyLanguage($('rows'));
@@ -127,6 +175,7 @@ async function refresh() {
   $('syscall-table').setAttribute('aria-busy', 'true');
   // Remove the previous table immediately so a failed load cannot masquerade as the selected release.
   snapshot = previous = null;
+  renderView();
   $('rows').replaceChildren();
   $('empty').hidden = true;
   $('diff-note').hidden = true;
@@ -164,6 +213,10 @@ $('architectures').addEventListener('click', event => {
   const link = event.target.closest('[data-arch]');
   if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   event.preventDefault(); state.arch = link.dataset.arch; state.expanded = ''; refresh();
+  $('architectures').querySelector('[aria-current="true"]')?.focus({ preventScroll: true });
+});
+$('architecture-picker').addEventListener('change', () => {
+  state.arch = $('architecture-picker').value; state.expanded = ''; refresh();
 });
 $('kernel').addEventListener('change', () => {
   state.kernel = $('kernel').value;
@@ -171,7 +224,23 @@ $('kernel').addEventListener('change', () => {
   state.expanded = ''; refresh();
 });
 $('compare').addEventListener('change', () => { state.compare = $('compare').value; refresh(); });
-$('search-form').addEventListener('submit', event => event.preventDefault());
+$('search-form').addEventListener('submit', event => {
+  event.preventDefault();
+  $('reference').scrollIntoView();
+});
+$('search-form').addEventListener('click', event => {
+  const button = event.target.closest('[data-query]');
+  if (!button) return;
+  state.query = $('search').value = button.dataset.query;
+  state.expanded = '';
+  if (state.view === 'summary') { renderRows(); saveURL(); }
+  else setView('summary');
+  $('reference').scrollIntoView();
+});
+$('table-views').addEventListener('click', event => {
+  const button = event.target.closest('[data-view]');
+  if (button) setView(button.dataset.view);
+});
 $('search').addEventListener('input', () => { state.query = $('search').value; renderRows(); saveURL(); });
 $('clear').addEventListener('click', resetSearch);
 $('reset-search').addEventListener('click', resetSearch);
@@ -207,9 +276,12 @@ $('rows').addEventListener('click', event => {
   // Re-rendering replaces the button; restore keyboard focus on the new node.
   $('rows').querySelector(`[data-name="${CSS.escape(name)}"]`)?.focus({ preventScroll: true });
 });
+function renderConventions() {
+  $('convention-rows').innerHTML = manifest.architectures.map(a => `<tr><td><a href="${rootPath}?arch=${a.id}">${esc(a.label)}</a></td><td>${esc(a.instruction)}</td><td>${esc(a.nr)}</td><td>${esc(a.result)}</td><td>${esc(argumentLocations(a).join(', '))}</td><td>${esc(a.error_flag ?? '—')}</td></tr>`).join('');
+}
 window.addEventListener('zaryob:language', () => {
   if (!manifest) return;
-  updateSelects();
+  updateSelects(); renderConventions(); saveURL();
   if (snapshot) { renderMetadata(); renderRows(); }
   else $('results').textContent = t('Loading kernel table…');
 });
@@ -226,7 +298,7 @@ try {
   if (!manifest.versions.includes(state.compare) || state.compare === state.kernel) state.compare = '';
   $('search').value = state.query;
   $('hex').checked = state.hex; $('show-unimplemented').checked = state.all;
-  $('convention-rows').innerHTML = manifest.architectures.map(a => `<tr><td><a href="${rootPath}?arch=${a.id}">${esc(a.label)}</a></td><td>${esc(a.instruction)}</td><td>${a.nr}</td><td>${a.result}</td><td>${a.registers.join(', ')}</td></tr>`).join('');
+  renderConventions();
   await refresh();
   if (state.expanded) document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
 } catch (error) {

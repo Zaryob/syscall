@@ -75,16 +75,15 @@ dosyalarını kaynak arşivine almaz.
 
 ## Özellikler
 
-- x64, x86, arm64, ARM EABI, riscv64 ve loongarch64.
-- Linux v6.12, v6.18 ve v7.3 snapshot’ları repoya dahildir.
-- İsim, kernel giriş noktası, C argümanı, ondalık veya hexadecimal numarayla arama.
+- 12 Linux ABI’si: x64, x86, arm64, ARM EABI, riscv64, loongarch64, PowerPC 32/64, s390x ve MIPS o32/n32/n64. PowerPC, s390x ve MIPS tabloları repodaki `v5.19` ve sonrası veri kümelerinde bulunur.
+- Türkçe ve İngilizce kısa açıklamalar; ne işe yaradığına, adına, çekirdek giriş noktasına, C argümanına veya numarasına göre arama. Açıklamalar [notes.mjs](public/notes.mjs) dosyasında tutulur.
 - Artan/azalan isim ve numara sıralaması; hexadecimal gösterim.
 - Syscall detayında C bildirimi, kernel kaynak satırı, man-page bağlantısı ve JSON.
-- Ana tabloda ARG1–ARG6 sütunları; detayda sıra, tam C bildirimi ve register tablosu.
+- İlk görünümde çağrının amacı; Argümanlar görünümünde ARG1–ARG6 sütunları. Yatay kaydırırken çağrı numarası ve adı sabit kalır.
 - Seçilen kernel numarası ve ABI ile indirilebilir C örneği/iskeleti üretimi.
 - 64-bit mimarilerde argüman register’ları; 32-bit ABI’ler için açık hizalama notları.
 - Sürümler arası eklenen, kaldırılan ve imzası değişen kayıtlar.
-- URL’de korunan mimari, sürüm, karşılaştırma, arama ve açık syscall detayı.
+- URL’de korunan mimari, sürüm, karşılaştırma, arama, tablo görünümü ve açık syscall detayı.
 - JSON indirme, statik JSON API ve isteğe bağlı yerel HTTP API.
 - Dar ekranlarda yatay kaydırılabilen tablo ve klavyeyle kullanılabilir kontroller.
 
@@ -110,7 +109,8 @@ okuyucusu gerekir. Yeni bir sürümü varsayılanlara eklemeden önce importer v
 çalıştırın. Desteklenmeyen biçimlerde hata verir.
 
 Numaralar ve ABI’ler `arch/*/.../syscall*.tbl` ve `scripts/syscall.tbl` dosyalarından
-gelir. Ortak tabloyu kullanan mimarilerde `Makefile.syscalls` içindeki
+gelir. MIPS’te tablo indeksi, UAPI `unistd.h` dosyasındaki ABI tabanına eklenerek
+gerçek çağrı numarası bulunur. Ortak tabloyu kullanan mimarilerde `Makefile.syscalls` içindeki
 `syscall_abis_64` ekleri okunur. C argümanları `include/linux/syscalls.h`,
 `include/linux/compat.h` ve mimariye ait `asm/syscalls.h` dosyalarından alınır.
 Giriş sembolüyle tam eşleşme aranır; farklı bir ABI’den benzer isimli imza seçilmez.
@@ -182,8 +182,9 @@ mimarisi için derlenmelidir; üretilen dosya buna ilişkin bir derleme kontrol�
 
 ## Doğruluk sınırları
 
-- Bu sürüm altı mimari ve üç snapshot sunar. “İlk eklendiği kernel” gibi
-  çıkarılamayan bilgiler üretilmez.
+- Kapsam işlemci modeline değil Linux kullanıcı alanı ABI’sine göre ayrılır.
+  x86-64 Linux çalıştıran Intel Core ve AMD Ryzen aynı tabloyu kullanır.
+  Karşılaştırma, çağrının ilk eklendiği sürümü göstermez.
 - İmzalar kernel C bildirimleridir, libc wrapper prototipleri değildir. Bildirimde
   argüman adı yoksa sadece tipi gösterilir. Birden fazla CONFIG dalı farklı bir
   imza veriyorsa (ör. `clone`) imza belirsiz olarak işaretlenir.
@@ -191,13 +192,15 @@ mimarisi için derlenmelidir; üretilen dosya buna ilişkin bir derleme kontrol�
   imzalar `arguments: null` olur; sıfır argüman ise `arguments: []` olarak ayrılır.
 - `sys_ni_syscall` ve giriş noktası olmayan slotlar `unimplemented` olarak
   saklanır ve varsayılan görünümden çıkarılır. Bir tablodaki tanım, her CONFIG
-  kombinasyonunda çağrının kullanılabilir olacağı anlamına gelmez.
+  kombinasyonunda çağrının kullanılabilir olacağı anlamına gelmez. PowerPC 32 ve MIPS o32
+  tabloları yerel giriş noktalarını gösterir; 64 bit çekirdekler aynı numara için
+  uyumluluk giriş noktası kullanabilir.
 - ARM özel `__ARM_NR_*` çağrıları, OABI ve x32 bu sürümün kapsamı dışındadır.
 - Sürüm karşılaştırması numara+isim kimliği, giriş sembolü, durum ve argümanları
   karşılaştırır; kaynak satır numarasının değişmesi tek başına değişiklik değildir.
 - Register kuralları [syscall(2)](https://man7.org/linux/man-pages/man2/syscall.2.html)
   kaynağından elle tanımlanmıştır. 32-bit argümanları otomatik register’lara bölmeyiz.
-- Man-page bağlantıları isimden üretilir; her çağrı için ayrı bir sayfa bulunmayabilir.
+- İlişkili çağrılar aynı kılavuz sayfasını paylaşabilir; bazı çağrıların kılavuz sayfası yoktur.
 
 ## Kaynaklar ve lisans
 

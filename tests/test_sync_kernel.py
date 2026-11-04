@@ -96,11 +96,16 @@ class ImportTests(unittest.TestCase):
                 'include/linux/syscalls.h': '/* SPDX-License-Identifier: GPL-2.0-only */\nasmlinkage long sys_read(unsigned int fd, char *buf, size_t count);',
                 'include/linux/compat.h': '/* SPDX-License-Identifier: GPL-2.0 */\n',
                 'arch/arm64/tools/syscall_64.tbl': '../../../scripts/syscall.tbl',
+                sync.MIPS_HEADER: '/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */\n' + '\n'.join(
+                    f'#if _MIPS_SIM == {sim}\n#define __NR_Linux {base}\n#include <asm/unistd_{abi}.h>\n#endif'
+                    for (abi, sim), base in zip(sync.MIPS_SIM.items(), [4000, 6000, 5000])
+                ),
             }
             for path in sync.LICENSE_FILES:
                 files[path] = 'Fixture for upstream license notice: ' + path
             for config in sync.ARCHES.values():
-                files[config['table']] = '# SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note\n' + ('0 common read sys_read\n1 common unused sys_ni_syscall\n' if config['table'] != 'arch/x86/entry/syscalls/syscall_32.tbl' else '3 i386 read sys_read\n')
+                abi = config['abis'][0]
+                files[config['table']] = f'# SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note\n0 {abi} read sys_read\n1 {abi} unused sys_ni_syscall\n'
                 if config['table'] == 'scripts/syscall.tbl':
                     files['arch/{}/kernel/Makefile.syscalls'.format(config['kernel'])] = '# SPDX-License-Identifier: GPL-2.0\nsyscall_abis_64 +=\n'
             for path, text in files.items():

@@ -33,9 +33,19 @@ test('diff detects number reuse, removed entries, and ABI signature changes', ()
   assert.deepEqual(diffSyscalls(next, next), { added: [], removed: [], changed: [] });
 });
 
+test('purpose search matches original English and Turkish summaries', () => {
+  const rows = ['splice', 'futex', 'io_uring_enter'].map(name => ({ name, status: 'defined' }));
+  assert.deepEqual(searchSyscalls(rows, 'wait for completions'), [rows[2]]);
+  assert.deepEqual(searchSyscalls(rows, 'is PARCACIGINI UYUTUR'), [rows[1]]);
+  assert.deepEqual(searchSyscalls([{ ...rows[0], status: 'unimplemented' }], 'userspace'), []);
+});
+
 test('all shipped snapshots have unique numbers, provenance, and known architecture-specific read numbers', async () => {
   const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
-  const readNumbers = { x64: 0, x86: 3, arm64: 63, arm: 3, riscv64: 63, loongarch64: 63 };
+  const readNumbers = {
+    x64: 0, x86: 3, arm64: 63, arm: 3, riscv64: 63, loongarch64: 63,
+    ppc64: 3, ppc: 3, s390x: 3, 'mips-o32': 4003, 'mips-n32': 6000, 'mips-n64': 5000,
+  };
   for (const version of manifest.versions) {
     for (const archId of availableArchitectures(manifest, version)) {
       const data = await dataset(version, archId);
