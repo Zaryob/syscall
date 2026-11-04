@@ -4,10 +4,12 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { searchSyscalls, diffSyscalls, availableArchitectures } from '../public/catalog.mjs';
-import { withBase } from '../public/paths.mjs';
+import { snapshotPath, withBase } from '../public/paths.mjs';
 import { createApp } from '../server.mjs';
 
-const dataset = async (version, arch) => JSON.parse(await readFile(new URL(`../public/data/${version}/${arch}.json`, import.meta.url), 'utf8'));
+const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
+const snapshotFile = (version, file) => new URL('../public/' + snapshotPath(manifest, version, file), import.meta.url);
+const dataset = async (version, arch) => JSON.parse(await readFile(snapshotFile(version, arch + '.json'), 'utf8'));
 
 test('search finds exact decimal/hex numbers and matches declaration text', () => {
   const rows = [
@@ -29,8 +31,47 @@ test('diff detects number reuse, removed entries, and ABI signature changes', ()
   const diff = diffSyscalls(old, next);
   assert.deepEqual(diff.added, [next[0]]);
   assert.deepEqual(diff.removed, [old[0]]);
-  assert.deepEqual(diff.changed, [{ before: old[1], after: next[1] }]);
+  assert.deepEqual(diff.changed, [{ before: old[1], after: next[1], reasons: ['argument_types'] }]);
   assert.deepEqual(diffSyscalls(next, next), { added: [], removed: [], changed: [] });
+  const before = { ...next[1], declaration: 'asmlinkage int sys_stable(long x);' };
+  const after = { ...next[1], declaration: 'asmlinkage long sys_stable(long x);' };
+  assert.deepEqual(diffSyscalls([before], [after]).changed, [{ before, after, reasons: ['declaration'] }]);
+  assert.deepEqual(diffSyscalls([next[1]], [after]).changed, []);
+});
+
+test('diff distinguishes parameter names, implementation changes and table flags', async () => {
+  const old = await dataset('v4.15', 'x86');
+  const next = await dataset('v5.19', 'x86');
+  const { reasons } = diffSyscalls(old.syscalls, next.syscalls).changed.find(change => change.after.name === 'sigpending');
+  assert.deepEqual(reasons, ['argument_names']);
+  const slot = { name: 'readdir', number: 89, status: 'unimplemented', arguments: null };
+  assert.deepEqual(diffSyscalls([{ ...slot, entry: '-' }], [{ ...slot, entry: 'sys_ni_syscall' }]).changed, []);
+  const call = { name: 'example', number: 1, entry: 'sys_example', status: 'defined', arguments: ['int fd'] };
+  const updated = { ...call, compat_entry: 'compat_sys_example', noreturn: true, arguments: ['int fd', 'int count'] };
+  assert.deepEqual(diffSyscalls([call], [updated]).changed[0].reasons, ['compat_entry', 'noreturn', 'argument_count']);
+});
+
+test('published snapshots retain availability, table flags, and reviewed mmap sources', async () => {
+  for (const version of ['v5.19', 'v6.6', 'v6.12', 'v6.18', 'v7.3']) {
+    const s390x = await dataset(version, 's390x');
+    assert.equal(s390x.syscalls.find(row => row.name === 'readdir').status, 'unimplemented');
+    assert.ok(s390x.syscalls.every(row => row.status !== 'defined' || row.entry !== '-'));
+    const x64 = await dataset(version, 'x64');
+    const mmap = x64.syscalls.find(row => row.name === 'mmap');
+    assert.equal(mmap.arguments.length, 6);
+    assert.equal(mmap.signature_source.kind, 'syscall_macro');
+    const source = await readFile(snapshotFile(version, 'sources/' + mmap.signature_source.path), 'utf8');
+    assert.match(source.split('\n')[mmap.signature_source.line - 1], /^SYSCALL_DEFINE6\(mmap,/);
+  }
+  const x86 = await dataset('v7.3', 'x86');
+  assert.equal(x86.syscalls.find(row => row.name === 'open').compat_entry, 'compat_sys_open');
+  assert.equal(x86.syscalls.find(row => row.name === 'exit').noreturn, true);
+  const historical = await dataset('v1.0', 'x86');
+  const table = await readFile(snapshotFile('v1.0', 'sources/kernel/sched.c'), 'utf8');
+  for (const [name, symbol] of [['read', 'sys_read'], ['write', 'sys_write'], ['bdflush', 'sys_bdflush']]) {
+    const row = historical.syscalls.find(row => row.name === name);
+    assert.match(table.split('\n')[row.source.line - 1], new RegExp(`\\b${symbol}\\b`));
+  }
 });
 
 test('purpose search matches original English and Turkish summaries', () => {
@@ -41,7 +82,6 @@ test('purpose search matches original English and Turkish summaries', () => {
 });
 
 test('all shipped snapshots have unique numbers, provenance, and known architecture-specific read numbers', async () => {
-  const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
   const readNumbers = {
     x64: 0, x86: 3, arm64: 63, arm: 3, riscv64: 63, loongarch64: 63,
     ppc64: 3, ppc: 3, s390x: 3, 'mips-o32': 4003, 'mips-n32': 6000, 'mips-n64': 5000,
@@ -66,31 +106,32 @@ test('all shipped snapshots have unique numbers, provenance, and known architect
         assert.ok(row.arguments === null || row.arguments.length <= 6);
         assert.ok(row.source.line > 0);
         if (row.status === 'unimplemented') assert.equal(row.arguments, null);
+        if (row.arguments === null) assert.equal(row.declaration, null);
+        else assert.match(row.declaration, new RegExp(`\\b${row.entry}\\s*\\(`));
       }
     }
   }
 });
 
 test('every bundled kernel input retains its exact hash, notices, and source license', async () => {
-  const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
   for (const version of manifest.versions) {
-    const sources = JSON.parse(await readFile(new URL(`../public/data/${version}/sources.json`, import.meta.url)));
+    const sources = JSON.parse(await readFile(snapshotFile(version, 'sources.json')));
     assert.equal(sources.license, 'GPL-2.0-only');
     for (const file of sources.files) {
-      const bytes = await readFile(new URL(`../public/data/${version}/${file.bundled_path}`, import.meta.url));
+      const bytes = await readFile(snapshotFile(version, file.bundled_path));
       assert.equal(createHash('sha256').update(bytes).digest('hex'), file.sha256, file.path);
       const license = file.spdx_license_identifier || file.license_identifier;
       if (file.role !== 'license-notice') assert.ok(license && license.startsWith('GPL-2.0'), file.path);
     }
     const hasSyscallsH = sources.files.some(f => f.path === 'include/linux/syscalls.h' && f.spdx_license_identifier);
     if (hasSyscallsH) {
-      const header = await readFile(new URL(`../public/data/${version}/sources/include/linux/syscalls.h`, import.meta.url), 'utf8');
+      const header = await readFile(snapshotFile(version, 'sources/include/linux/syscalls.h'), 'utf8');
       assert.match(header, /Copyright \(c\) 2004 Randy Dunlap/);
       assert.match(header, /SPDX-License-Identifier: GPL-2.0-only/);
     }
     const hasNote = sources.files.some(f => f.path === 'LICENSES/exceptions/Linux-syscall-note');
     if (hasNote) {
-      const note = await readFile(new URL(`../public/data/${version}/sources/LICENSES/exceptions/Linux-syscall-note`, import.meta.url), 'utf8');
+      const note = await readFile(snapshotFile(version, 'sources/LICENSES/exceptions/Linux-syscall-note'), 'utf8');
       assert.match(note, /SPDX-Exception-Identifier: Linux-syscall-note/);
     }
   }
@@ -102,6 +143,8 @@ test('site paths keep assets, searches and downloads under the Jekyll baseurl', 
     assert.equal(withBase(base, ''), base);
   }
   assert.equal(withBase('/syscall', 'api/v1/index.json'), '/syscall/api/v1/index.json');
+  assert.equal(snapshotPath({}, 'v6.12', 'x64.json'), 'data/v6.12/x64.json');
+  assert.equal(snapshotPath({ version_paths: { 'v6.12': 'revisions/v6.12/abc' } }, 'v6.12', 'x64.json'), 'data/revisions/v6.12/abc/x64.json');
 });
 
 test('optional HTTP API serves snapshots, exact lookups, search, diff, and errors', async t => {
@@ -122,6 +165,24 @@ test('optional HTTP API serves snapshots, exact lookups, search, diff, and error
   assert.ok(read.provenance.files.length > 0);
   const hex = await (await get('/api/v1/syscalls/x64/0x3b')).json();
   assert.equal(hex.name, 'execve');
+  for (const key of ['0X003B', '059']) {
+    assert.equal((await (await get(`/api/v1/syscalls/x64/${key}`)).json()).name, 'execve');
+    assert.equal((await (await get(`/api/v1/syscalls/x64?q=${key}`)).json()).syscalls[0].name, 'execve');
+  }
+  const index = await (await get('/api/v1')).json();
+  const docs = await get(index.documentation);
+  assert.equal(docs.status, 200);
+  assert.ok((await docs.json()).endpoints.some(({ path }) => path.endsWith('/diff')));
+  const notes = await get('/notes.mjs');
+  assert.equal(notes.status, 200);
+  const asModule = text => 'data:text/javascript;base64,' + Buffer.from(text).toString('base64');
+  const catalog = (await (await get('/catalog.mjs')).text()).replace('./notes.mjs', asModule(await notes.text()));
+  assert.equal(typeof (await import(asModule(catalog))).searchSyscalls, 'function');
+  for (const [version, name, number] of [['v2.6.12', 'keyctl', 250], ['v2.6.16', 'unshare', 272]]) {
+    const row = await (await get(`/api/v1/syscalls/x64/${name}?version=${version}`)).json();
+    assert.equal(row.number, number);
+    assert.equal((await (await get(`/api/v1/syscalls/x64/${number}?version=${version}`)).json()).name, name);
+  }
   const search = await (await get('/api/v1/syscalls/x64?q=59')).json();
   assert.deepEqual(search.syscalls.map(r => r.name), ['execve']);
   const diff = await (await get('/api/v1/syscalls/x64/diff?from=v6.12&version=v7.3')).json();

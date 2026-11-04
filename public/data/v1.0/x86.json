@@ -30,13 +30,15 @@
       "entry": "sys_setup",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
         "line": 121
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setup.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 1,
@@ -45,13 +47,15 @@
       "entry": "sys_exit",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
         "line": 121
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/exit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/exit.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 2,
@@ -60,13 +64,15 @@
       "entry": "sys_fork",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
         "line": 121
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fork.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fork.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 3,
@@ -75,13 +81,15 @@
       "entry": "sys_read",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
         "line": 121
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/read.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/read.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 4,
@@ -90,13 +98,15 @@
       "entry": "sys_write",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/write.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/write.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 5,
@@ -105,13 +115,15 @@
       "entry": "sys_open",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/open.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/open.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 6,
@@ -120,13 +132,15 @@
       "entry": "sys_close",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/close.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/close.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 7,
@@ -135,13 +149,15 @@
       "entry": "sys_waitpid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/waitpid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/waitpid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 8,
@@ -150,13 +166,15 @@
       "entry": "sys_creat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/creat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/creat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 9,
@@ -165,13 +183,15 @@
       "entry": "sys_link",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/link.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/link.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 10,
@@ -180,13 +200,15 @@
       "entry": "sys_unlink",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/unlink.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/unlink.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 11,
@@ -195,13 +217,15 @@
       "entry": "sys_execve",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/execve.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/execve.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 12,
@@ -210,13 +234,15 @@
       "entry": "sys_chdir",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 13,
@@ -225,13 +251,15 @@
       "entry": "sys_time",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/time.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/time.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 14,
@@ -240,13 +268,15 @@
       "entry": "sys_mknod",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mknod.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mknod.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 15,
@@ -255,13 +285,15 @@
       "entry": "sys_chmod",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 123
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 16,
@@ -270,13 +302,15 @@
       "entry": "sys_chown",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 17,
@@ -285,13 +319,15 @@
       "entry": "sys_break",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/break.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/break.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 18,
@@ -300,13 +336,15 @@
       "entry": "sys_stat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/oldstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/oldstat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 19,
@@ -315,13 +353,15 @@
       "entry": "sys_lseek",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lseek.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/lseek.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 20,
@@ -330,13 +370,15 @@
       "entry": "sys_getpid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 21,
@@ -345,13 +387,15 @@
       "entry": "sys_mount",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 124
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mount.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mount.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 22,
@@ -360,13 +404,15 @@
       "entry": "sys_umount",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/umount.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/umount.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 23,
@@ -375,13 +421,15 @@
       "entry": "sys_setuid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 24,
@@ -390,13 +438,15 @@
       "entry": "sys_getuid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 25,
@@ -405,13 +455,15 @@
       "entry": "sys_stime",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/stime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stime.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 26,
@@ -420,13 +472,15 @@
       "entry": "sys_ptrace",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ptrace.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ptrace.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 27,
@@ -435,13 +489,15 @@
       "entry": "sys_alarm",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 125
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/alarm.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/alarm.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 28,
@@ -450,13 +506,15 @@
       "entry": "sys_fstat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/oldfstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/oldfstat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 29,
@@ -465,13 +523,15 @@
       "entry": "sys_pause",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pause.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pause.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 30,
@@ -480,13 +540,15 @@
       "entry": "sys_utime",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/utime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/utime.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 31,
@@ -495,13 +557,15 @@
       "entry": "sys_stty",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/stty.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stty.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 32,
@@ -510,13 +574,15 @@
       "entry": "sys_gtty",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/gtty.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/gtty.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 33,
@@ -525,13 +591,15 @@
       "entry": "sys_access",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/access.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/access.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 34,
@@ -540,13 +608,15 @@
       "entry": "sys_nice",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/nice.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/nice.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 35,
@@ -555,13 +625,15 @@
       "entry": "sys_ftime",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ftime.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 36,
@@ -570,13 +642,15 @@
       "entry": "sys_sync",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sync.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 37,
@@ -585,13 +659,15 @@
       "entry": "sys_kill",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kill.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kill.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 38,
@@ -600,13 +676,15 @@
       "entry": "sys_rename",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 39,
@@ -615,13 +693,15 @@
       "entry": "sys_mkdir",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mkdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mkdir.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 40,
@@ -630,13 +710,15 @@
       "entry": "sys_rmdir",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rmdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rmdir.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 41,
@@ -645,13 +727,15 @@
       "entry": "sys_dup",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 42,
@@ -660,13 +744,15 @@
       "entry": "sys_pipe",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pipe.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pipe.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 43,
@@ -675,13 +761,15 @@
       "entry": "sys_times",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/times.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/times.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 44,
@@ -690,13 +778,15 @@
       "entry": "sys_prof",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/prof.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/prof.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 45,
@@ -705,13 +795,15 @@
       "entry": "sys_brk",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/brk.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/brk.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 46,
@@ -720,13 +812,15 @@
       "entry": "sys_setgid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 47,
@@ -735,13 +829,15 @@
       "entry": "sys_getgid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 48,
@@ -750,13 +846,15 @@
       "entry": "sys_signal",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/signal.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/signal.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 49,
@@ -765,13 +863,15 @@
       "entry": "sys_geteuid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/geteuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/geteuid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 50,
@@ -780,13 +880,15 @@
       "entry": "sys_getegid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getegid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getegid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 51,
@@ -795,13 +897,15 @@
       "entry": "sys_acct",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 52,
@@ -810,13 +914,15 @@
       "entry": "sys_phys",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/phys.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/phys.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 53,
@@ -825,13 +931,15 @@
       "entry": "sys_lock",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/lock.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 54,
@@ -840,13 +948,15 @@
       "entry": "sys_ioctl",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioctl.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 55,
@@ -855,13 +965,15 @@
       "entry": "sys_fcntl",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fcntl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fcntl.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 56,
@@ -870,13 +982,15 @@
       "entry": "sys_mpx",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mpx.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mpx.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 57,
@@ -885,13 +999,15 @@
       "entry": "sys_setpgid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 58,
@@ -900,13 +1016,15 @@
       "entry": "sys_ulimit",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ulimit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ulimit.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 59,
@@ -915,13 +1033,15 @@
       "entry": "sys_olduname",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/oldolduname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/oldolduname.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 60,
@@ -930,13 +1050,15 @@
       "entry": "sys_umask",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/umask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/umask.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 61,
@@ -945,13 +1067,15 @@
       "entry": "sys_chroot",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/chroot.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chroot.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 62,
@@ -960,13 +1084,15 @@
       "entry": "sys_ustat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ustat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ustat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 63,
@@ -975,13 +1101,15 @@
       "entry": "sys_dup2",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/dup2.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 64,
@@ -990,13 +1118,15 @@
       "entry": "sys_getppid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getppid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getppid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 65,
@@ -1005,13 +1135,15 @@
       "entry": "sys_getpgrp",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpgrp.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpgrp.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 66,
@@ -1020,13 +1152,15 @@
       "entry": "sys_setsid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setsid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setsid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 67,
@@ -1035,13 +1169,15 @@
       "entry": "sys_sigaction",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigaction.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigaction.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 68,
@@ -1050,13 +1186,15 @@
       "entry": "sys_sgetmask",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sgetmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sgetmask.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 69,
@@ -1065,13 +1203,15 @@
       "entry": "sys_ssetmask",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ssetmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ssetmask.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 70,
@@ -1080,13 +1220,15 @@
       "entry": "sys_setreuid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 133
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 71,
@@ -1095,13 +1237,15 @@
       "entry": "sys_setregid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 133
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 72,
@@ -1110,13 +1254,15 @@
       "entry": "sys_sigsuspend",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 133
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 73,
@@ -1125,13 +1271,15 @@
       "entry": "sys_sigpending",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 133
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigpending.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigpending.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 74,
@@ -1140,13 +1288,15 @@
       "entry": "sys_sethostname",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 134
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sethostname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sethostname.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 75,
@@ -1155,13 +1305,15 @@
       "entry": "sys_setrlimit",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 134
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setrlimit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setrlimit.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 76,
@@ -1170,13 +1322,15 @@
       "entry": "sys_getrlimit",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 134
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 77,
@@ -1185,13 +1339,15 @@
       "entry": "sys_getrusage",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 134
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getrusage.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrusage.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 78,
@@ -1200,13 +1356,15 @@
       "entry": "sys_gettimeofday",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/gettimeofday.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/gettimeofday.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 79,
@@ -1215,13 +1373,15 @@
       "entry": "sys_settimeofday",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/settimeofday.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/settimeofday.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 80,
@@ -1230,13 +1390,15 @@
       "entry": "sys_getgroups",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 81,
@@ -1245,13 +1407,15 @@
       "entry": "sys_setgroups",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setgroups.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 82,
@@ -1260,13 +1424,15 @@
       "entry": "sys_select",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 136
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 83,
@@ -1275,13 +1441,15 @@
       "entry": "sys_symlink",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 136
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/symlink.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/symlink.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 84,
@@ -1290,13 +1458,15 @@
       "entry": "sys_lstat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 136
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/oldlstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/oldlstat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 85,
@@ -1305,13 +1475,15 @@
       "entry": "sys_readlink",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 136
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/readlink.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readlink.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 86,
@@ -1320,13 +1492,15 @@
       "entry": "sys_uselib",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 136
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/uselib.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/uselib.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 87,
@@ -1335,13 +1509,15 @@
       "entry": "sys_swapon",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 88,
@@ -1350,13 +1526,15 @@
       "entry": "sys_reboot",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/reboot.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/reboot.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 89,
@@ -1365,13 +1543,15 @@
       "entry": "sys_readdir",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/readdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readdir.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 90,
@@ -1380,13 +1560,15 @@
       "entry": "sys_mmap",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 91,
@@ -1395,13 +1577,15 @@
       "entry": "sys_munmap",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munmap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/munmap.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 92,
@@ -1410,13 +1594,15 @@
       "entry": "sys_truncate",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 93,
@@ -1425,13 +1611,15 @@
       "entry": "sys_ftruncate",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 94,
@@ -1440,13 +1628,15 @@
       "entry": "sys_fchmod",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchmod.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fchmod.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 95,
@@ -1455,13 +1645,15 @@
       "entry": "sys_fchown",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fchown.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 96,
@@ -1470,13 +1662,15 @@
       "entry": "sys_getpriority",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpriority.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpriority.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 97,
@@ -1485,13 +1679,15 @@
       "entry": "sys_setpriority",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setpriority.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setpriority.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 98,
@@ -1500,13 +1696,15 @@
       "entry": "sys_profil",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/profil.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/profil.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 99,
@@ -1515,13 +1713,15 @@
       "entry": "sys_statfs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/statfs.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/statfs.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 100,
@@ -1530,13 +1730,15 @@
       "entry": "sys_fstatfs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fstatfs.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fstatfs.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 101,
@@ -1545,13 +1747,15 @@
       "entry": "sys_ioperm",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioperm.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioperm.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 102,
@@ -1560,13 +1764,15 @@
       "entry": "sys_socketcall",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socketcall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socketcall.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 103,
@@ -1575,13 +1781,15 @@
       "entry": "sys_syslog",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 104,
@@ -1590,13 +1798,15 @@
       "entry": "sys_setitimer",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setitimer.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setitimer.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 105,
@@ -1605,13 +1815,15 @@
       "entry": "sys_getitimer",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 106,
@@ -1620,13 +1832,15 @@
       "entry": "sys_newstat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 107,
@@ -1635,13 +1849,15 @@
       "entry": "sys_newlstat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/lstat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 108,
@@ -1650,13 +1866,15 @@
       "entry": "sys_newfstat",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fstat.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 109,
@@ -1665,13 +1883,15 @@
       "entry": "sys_uname",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/olduname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/olduname.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 110,
@@ -1680,13 +1900,15 @@
       "entry": "sys_iopl",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 111,
@@ -1695,13 +1917,15 @@
       "entry": "sys_vhangup",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/vhangup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/vhangup.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 112,
@@ -1710,13 +1934,15 @@
       "entry": "sys_idle",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/idle.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/idle.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 113,
@@ -1725,13 +1951,15 @@
       "entry": "sys_vm86",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/vm86.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/vm86.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 114,
@@ -1740,13 +1968,15 @@
       "entry": "sys_wait4",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/wait4.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/wait4.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 115,
@@ -1755,13 +1985,15 @@
       "entry": "sys_swapoff",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 116,
@@ -1770,13 +2002,15 @@
       "entry": "sys_sysinfo",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sysinfo.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sysinfo.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 117,
@@ -1785,13 +2019,15 @@
       "entry": "sys_ipc",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ipc.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ipc.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 118,
@@ -1800,13 +2036,15 @@
       "entry": "sys_fsync",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fsync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fsync.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 119,
@@ -1815,13 +2053,15 @@
       "entry": "sys_sigreturn",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 142
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 120,
@@ -1830,13 +2070,15 @@
       "entry": "sys_fork",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 143
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 121,
@@ -1845,13 +2087,15 @@
       "entry": "sys_setdomainname",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 143
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setdomainname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setdomainname.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 122,
@@ -1860,13 +2104,15 @@
       "entry": "sys_newuname",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 143
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/uname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/uname.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 123,
@@ -1875,13 +2121,15 @@
       "entry": "sys_modify_ldt",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 143
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/modify_ldt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/modify_ldt.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 124,
@@ -1890,13 +2138,15 @@
       "entry": "sys_adjtimex",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 144
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/adjtimex.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/adjtimex.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 125,
@@ -1905,13 +2155,15 @@
       "entry": "sys_mprotect",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 144
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 126,
@@ -1920,13 +2172,15 @@
       "entry": "sys_sigprocmask",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 144
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigprocmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigprocmask.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 127,
@@ -1935,13 +2189,15 @@
       "entry": "sys_create_module",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 144
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/create_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/create_module.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 128,
@@ -1950,13 +2206,15 @@
       "entry": "sys_init_module",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 145
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 129,
@@ -1965,13 +2223,15 @@
       "entry": "sys_delete_module",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 145
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 130,
@@ -1980,13 +2240,15 @@
       "entry": "sys_get_kernel_syms",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 145
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_kernel_syms.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_kernel_syms.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 131,
@@ -1995,11 +2257,12 @@
       "entry": "sys_ni_syscall",
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 145
       },
       "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html"
     },
@@ -2010,13 +2273,15 @@
       "entry": "sys_getpgid",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 146
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpgid.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 133,
@@ -2025,13 +2290,15 @@
       "entry": "sys_fchdir",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 146
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fchdir.2.html",
+      "signature_status": "not_found"
     },
     {
       "number": 134,
@@ -2040,11 +2307,12 @@
       "entry": "sys_ni_syscall",
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "kernel/sched.c",
-        "line": 121
+        "line": 146
       },
       "man_url": "https://man7.org/linux/man-pages/man2/bdflush.2.html"
     }

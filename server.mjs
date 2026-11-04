@@ -3,9 +3,12 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { diffSyscalls, searchSyscalls, availableArchitectures } from './public/catalog.mjs';
+import { diffSyscalls, searchSyscalls, availableArchitectures, parseSyscallNumber } from './public/catalog.mjs';
+import { snapshotPath } from './public/paths.mjs';
 
 const ROOT = path.resolve(fileURLToPath(new URL('./public/', import.meta.url)));
+const modules = new Set(['/catalog.mjs', '/notes.mjs']);
+const documentation = '/api/v1/docs';
 const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.txt': 'text/plain; charset=utf-8' };
 const json = (res, status, body) => {
   res.writeHead(status, { 'Content-Type': mime['.json'] });
@@ -13,7 +16,7 @@ const json = (res, status, body) => {
 };
 async function load(version, arch, manifest) {
   if (!manifest.versions.includes(version) || !availableArchitectures(manifest, version).includes(arch)) return null;
-  return JSON.parse(await readFile(path.join(ROOT, 'data', version, arch + '.json'), 'utf8'));
+  return JSON.parse(await readFile(path.join(ROOT, snapshotPath(manifest, version, arch + '.json')), 'utf8'));
 }
 
 export function createApp() {
@@ -27,9 +30,22 @@ export function createApp() {
       const url = new URL(req.url, 'http://localhost');
       const pathname = decodeURIComponent(url.pathname);
       if (pathname.startsWith('/api/')) {
+        if (pathname === documentation) {
+          return json(res, 200, {
+            index: '/api/v1',
+            methods: ['GET', 'HEAD'],
+            endpoints: [
+              { path: '/api/v1/architectures', description: 'List available ABIs and calling conventions.' },
+              { path: '/api/v1/versions', description: 'List bundled kernel releases.' },
+              { path: '/api/v1/syscalls/{arch}', query: ['version', 'q'], description: 'Search a release table. The default version is the latest release.' },
+              { path: '/api/v1/syscalls/{arch}/{nameOrNumber}', query: ['version'], description: 'Look up a syscall by name, decimal number or hexadecimal number.' },
+              { path: '/api/v1/syscalls/{arch}/diff', query: ['from (required)', 'version'], description: 'Compare two releases for one ABI. Changed entries include a list of reasons.' },
+            ],
+          });
+        }
         const manifest = JSON.parse(await readFile(path.join(ROOT, 'data/manifest.json'), 'utf8'));
         const parts = pathname.split('/').filter(Boolean);
-        if (pathname === '/api/v1') return json(res, 200, { documentation: '/#api', ...manifest });
+        if (pathname === '/api/v1') return json(res, 200, { ...manifest, documentation });
         if (pathname === '/api/v1/architectures') return json(res, 200, manifest.architectures);
         if (pathname === '/api/v1/versions') return json(res, 200, manifest.versions);
         if (parts[0] !== 'api' || parts[1] !== 'v1' || parts[2] !== 'syscalls' || parts.length < 4 || parts.length > 5) return json(res, 404, { error: 'Unknown endpoint' });
@@ -45,15 +61,16 @@ export function createApp() {
         }
         if (parts.length === 5) {
           const key = parts[4];
-          const row = snapshot.syscalls.find(r => r.name === key || String(r.number) === key || `0x${r.number.toString(16)}` === key.toLowerCase());
+          const number = parseSyscallNumber(key);
+          const row = snapshot.syscalls.find(r => number === null ? r.name === key : r.number === number);
           return row ? json(res, 200, { license: snapshot.license, licensing: snapshot.licensing, provenance: snapshot.provenance, kernel: version, architecture: parts[3], calling_convention: snapshot.calling_convention, ...row }) : json(res, 404, { error: 'Syscall not found' });
         }
         return json(res, 200, { ...snapshot, syscalls: searchSyscalls(snapshot.syscalls, url.searchParams.get('q') || '') });
       }
       // Optional dynamic API only. The published frontend is built by Jekyll.
-      if (!pathname.startsWith('/data/') && !pathname.startsWith('/licenses/') && pathname !== '/catalog.mjs') return json(res, 404, { error: 'Use Jekyll on port 5173 for the website; this process serves the optional JSON API.' });
-      let file = path.resolve(ROOT, '.' + pathname);
-      if (!file.startsWith(ROOT + path.sep) && file !== ROOT && pathname !== '/catalog.mjs') return json(res, 403, { error: 'Forbidden' });
+      if (!pathname.startsWith('/data/') && !pathname.startsWith('/licenses/') && !modules.has(pathname)) return json(res, 404, { error: 'Use Jekyll on port 5173 for the website; this process serves the optional JSON API.' });
+      const file = path.resolve(ROOT, '.' + pathname);
+      if (!file.startsWith(ROOT + path.sep) && file !== ROOT) return json(res, 403, { error: 'Forbidden' });
       const body = await readFile(file);
       res.writeHead(200, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
       res.end(req.method === 'HEAD' ? undefined : body);

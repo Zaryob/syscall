@@ -3,3 +3,7 @@
 export function withBase(root, path = '') {
   return `${root.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
 }
+
+export function snapshotPath(manifest, version, file) {
+  return `data/${manifest.version_paths?.[version] ?? version}/${file}`;
+}

@@ -35,6 +35,7 @@
         "char __user *buf",
         "size_t count"
       ],
+      "declaration": "asmlinkage long sys_read(unsigned int fd, char __user *buf, size_t count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 598
@@ -57,6 +58,7 @@
         "const char __user *buf",
         "size_t count"
       ],
+      "declaration": "asmlinkage long sys_write(unsigned int fd, const char __user *buf, size_t count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 603
@@ -79,6 +81,7 @@
         "int flags",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_open(const char __user *filename, int flags, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 553
@@ -99,6 +102,7 @@
       "arguments": [
         "unsigned int fd"
       ],
+      "declaration": "asmlinkage long sys_close(unsigned int fd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 555
@@ -120,6 +124,7 @@
         "const char __user *filename",
         "struct stat __user *statbuf"
       ],
+      "declaration": "asmlinkage long sys_newstat(const char __user *filename, struct stat __user *statbuf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 443
@@ -141,6 +146,7 @@
         "unsigned int fd",
         "struct stat __user *statbuf"
       ],
+      "declaration": "asmlinkage long sys_newfstat(unsigned int fd, struct stat __user *statbuf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 447
@@ -162,6 +168,7 @@
         "const char __user *filename",
         "struct stat __user *statbuf"
       ],
+      "declaration": "asmlinkage long sys_newlstat(const char __user *filename, struct stat __user *statbuf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 445
@@ -184,6 +191,7 @@
         "unsigned int nfds",
         "int timeout"
       ],
+      "declaration": "asmlinkage long sys_poll(struct pollfd __user *ufds, unsigned int nfds, int timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 664
@@ -206,6 +214,7 @@
         "off_t offset",
         "unsigned int whence"
       ],
+      "declaration": "asmlinkage long sys_lseek(unsigned int fd, off_t offset, unsigned int whence);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 593
@@ -231,6 +240,7 @@
         "unsigned long",
         "unsigned long"
       ],
+      "declaration": "asmlinkage long sys_mmap(unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long);",
       "signature_source": {
         "path": "arch/x86/include/asm/syscalls.h",
         "line": 51
@@ -253,6 +263,7 @@
         "size_t len",
         "unsigned long prot"
       ],
+      "declaration": "asmlinkage long sys_mprotect(unsigned long start, size_t len, unsigned long prot);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 487
@@ -274,6 +285,7 @@
         "unsigned long addr",
         "size_t len"
       ],
+      "declaration": "asmlinkage long sys_munmap(unsigned long addr, size_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 498
@@ -294,6 +306,7 @@
       "arguments": [
         "unsigned long brk"
       ],
+      "declaration": "asmlinkage long sys_brk(unsigned long brk);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 486
@@ -317,6 +330,7 @@
         "struct sigaction __user *",
         "size_t"
       ],
+      "declaration": "asmlinkage long sys_rt_sigaction(int, const struct sigaction __user *, struct sigaction __user *, size_t);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 396
@@ -340,6 +354,7 @@
         "sigset_t __user *oset",
         "size_t sigsetsize"
       ],
+      "declaration": "asmlinkage long sys_rt_sigprocmask(int how, sigset_t __user *set, sigset_t __user *oset, size_t sigsetsize);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 401
@@ -358,13 +373,15 @@
       "entry": "sys_rt_sigreturn/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 24
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigreturn.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigreturn.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 16,
@@ -377,6 +394,7 @@
         "unsigned int cmd",
         "unsigned long arg"
       ],
+      "declaration": "asmlinkage long sys_ioctl(unsigned int fd, unsigned int cmd, unsigned long arg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 532
@@ -400,6 +418,7 @@
         "size_t count",
         "loff_t pos"
       ],
+      "declaration": "asmlinkage long sys_pread64(unsigned int fd, char __user *buf, size_t count, loff_t pos);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 608
@@ -423,6 +442,7 @@
         "size_t count",
         "loff_t pos"
       ],
+      "declaration": "asmlinkage long sys_pwrite64(unsigned int fd, const char __user *buf, size_t count, loff_t pos);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 610
@@ -445,6 +465,7 @@
         "const struct iovec __user *vec",
         "unsigned long vlen"
       ],
+      "declaration": "asmlinkage long sys_readv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 600
@@ -467,6 +488,7 @@
         "const struct iovec __user *vec",
         "unsigned long vlen"
       ],
+      "declaration": "asmlinkage long sys_writev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 605
@@ -488,6 +510,7 @@
         "const char __user *filename",
         "int mode"
       ],
+      "declaration": "asmlinkage long sys_access(const char __user *filename, int mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 556
@@ -508,6 +531,7 @@
       "arguments": [
         "int __user *fildes"
       ],
+      "declaration": "asmlinkage long sys_pipe(int __user *fildes);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 526
@@ -532,6 +556,7 @@
         "fd_set __user *exp",
         "struct timeval __user *tvp"
       ],
+      "declaration": "asmlinkage long sys_select(int n, fd_set __user *inp, fd_set __user *outp, fd_set __user *exp, struct timeval __user *tvp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 666
@@ -550,6 +575,7 @@
       "entry": "sys_sched_yield",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_sched_yield(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 342
@@ -574,6 +600,7 @@
         "unsigned long flags",
         "unsigned long new_addr"
       ],
+      "declaration": "asmlinkage long sys_mremap(unsigned long addr, unsigned long old_len, unsigned long new_len, unsigned long flags, unsigned long new_addr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 489
@@ -596,6 +623,7 @@
         "size_t len",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_msync(unsigned long start, size_t len, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 495
@@ -618,6 +646,7 @@
         "size_t len",
         "unsigned char __user * vec"
       ],
+      "declaration": "asmlinkage long sys_mincore(unsigned long start, size_t len, unsigned char __user * vec);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 504
@@ -640,6 +669,7 @@
         "size_t len",
         "int behavior"
       ],
+      "declaration": "asmlinkage long sys_madvise(unsigned long start, size_t len, int behavior);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 503
@@ -662,6 +692,7 @@
         "size_t size",
         "int flag"
       ],
+      "declaration": "asmlinkage long sys_shmget(key_t key, size_t size, int flag);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 714
@@ -684,6 +715,7 @@
         "char __user *shmaddr",
         "int shmflg"
       ],
+      "declaration": "asmlinkage long sys_shmat(int shmid, char __user *shmaddr, int shmflg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 713
@@ -706,6 +738,7 @@
         "int cmd",
         "struct shmid_ds __user *buf"
       ],
+      "declaration": "asmlinkage long sys_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 716
@@ -726,6 +759,7 @@
       "arguments": [
         "unsigned int fildes"
       ],
+      "declaration": "asmlinkage long sys_dup(unsigned int fildes);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 528
@@ -747,6 +781,7 @@
         "unsigned int oldfd",
         "unsigned int newfd"
       ],
+      "declaration": "asmlinkage long sys_dup2(unsigned int oldfd, unsigned int newfd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 529
@@ -765,6 +800,7 @@
       "entry": "sys_pause",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_pause(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 417
@@ -786,6 +822,7 @@
         "struct timespec __user *rqtp",
         "struct timespec __user *rmtp"
       ],
+      "declaration": "asmlinkage long sys_nanosleep(struct timespec __user *rqtp, struct timespec __user *rmtp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 257
@@ -807,6 +844,7 @@
         "int which",
         "struct itimerval __user *value"
       ],
+      "declaration": "asmlinkage long sys_getitimer(int which, struct itimerval __user *value);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 297
@@ -827,6 +865,7 @@
       "arguments": [
         "unsigned int seconds"
       ],
+      "declaration": "asmlinkage long sys_alarm(unsigned int seconds);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 258
@@ -849,6 +888,7 @@
         "struct itimerval __user *value",
         "struct itimerval __user *ovalue"
       ],
+      "declaration": "asmlinkage long sys_setitimer(int which, struct itimerval __user *value, struct itimerval __user *ovalue);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 298
@@ -867,6 +907,7 @@
       "entry": "sys_getpid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getpid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 259
@@ -890,6 +931,7 @@
         "loff_t __user *offset",
         "size_t count"
       ],
+      "declaration": "asmlinkage long sys_sendfile64(int out_fd, int in_fd, loff_t __user *offset, size_t count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 548
@@ -912,6 +954,7 @@
         "int",
         "int"
       ],
+      "declaration": "asmlinkage long sys_socket(int, int, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 660
@@ -934,6 +977,7 @@
         "struct sockaddr __user *",
         "int"
       ],
+      "declaration": "asmlinkage long sys_connect(int, struct sockaddr __user *, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 642
@@ -956,6 +1000,7 @@
         "struct sockaddr __user *",
         "int __user *"
       ],
+      "declaration": "asmlinkage long sys_accept(int, struct sockaddr __user *, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 643
@@ -981,6 +1026,7 @@
         "struct sockaddr __user *",
         "int"
       ],
+      "declaration": "asmlinkage long sys_sendto(int, void __user *, size_t, unsigned, struct sockaddr __user *, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 648
@@ -1006,6 +1052,7 @@
         "struct sockaddr __user *",
         "int __user *"
       ],
+      "declaration": "asmlinkage long sys_recvfrom(int, void __user *, size_t, unsigned, struct sockaddr __user *, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 654
@@ -1028,6 +1075,7 @@
         "struct user_msghdr __user *msg",
         "unsigned flags"
       ],
+      "declaration": "asmlinkage long sys_sendmsg(int fd, struct user_msghdr __user *msg, unsigned flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 650
@@ -1050,6 +1098,7 @@
         "struct user_msghdr __user *msg",
         "unsigned flags"
       ],
+      "declaration": "asmlinkage long sys_recvmsg(int fd, struct user_msghdr __user *msg, unsigned flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 656
@@ -1071,6 +1120,7 @@
         "int",
         "int"
       ],
+      "declaration": "asmlinkage long sys_shutdown(int, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 350
@@ -1093,6 +1143,7 @@
         "struct sockaddr __user *",
         "int"
       ],
+      "declaration": "asmlinkage long sys_bind(int, struct sockaddr __user *, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 641
@@ -1114,6 +1165,7 @@
         "int",
         "int"
       ],
+      "declaration": "asmlinkage long sys_listen(int, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 663
@@ -1136,6 +1188,7 @@
         "struct sockaddr __user *",
         "int __user *"
       ],
+      "declaration": "asmlinkage long sys_getsockname(int, struct sockaddr __user *, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 645
@@ -1158,6 +1211,7 @@
         "struct sockaddr __user *",
         "int __user *"
       ],
+      "declaration": "asmlinkage long sys_getpeername(int, struct sockaddr __user *, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 646
@@ -1181,6 +1235,7 @@
         "int",
         "int __user *"
       ],
+      "declaration": "asmlinkage long sys_socketpair(int, int, int, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 661
@@ -1205,6 +1260,7 @@
         "char __user *optval",
         "int optlen"
       ],
+      "declaration": "asmlinkage long sys_setsockopt(int fd, int level, int optname, char __user *optval, int optlen);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 637
@@ -1229,6 +1285,7 @@
         "char __user *optval",
         "int __user *optlen"
       ],
+      "declaration": "asmlinkage long sys_getsockopt(int fd, int level, int optname, char __user *optval, int __user *optlen);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 639
@@ -1247,13 +1304,15 @@
       "entry": "sys_clone/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 65
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 57,
@@ -1262,13 +1321,15 @@
       "entry": "sys_fork/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 66
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fork.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fork.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 58,
@@ -1277,13 +1338,15 @@
       "entry": "sys_vfork/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 67
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/vfork.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/vfork.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 59,
@@ -1292,13 +1355,15 @@
       "entry": "sys_execve/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 68
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/execve.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/execve.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 60,
@@ -1309,6 +1374,7 @@
       "arguments": [
         "int error_code"
       ],
+      "declaration": "asmlinkage long sys_exit(int error_code);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 362
@@ -1332,6 +1398,7 @@
         "int options",
         "struct rusage __user *ru"
       ],
+      "declaration": "asmlinkage long sys_wait4(pid_t pid, int __user *stat_addr, int options, struct rusage __user *ru);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 364
@@ -1353,6 +1420,7 @@
         "pid_t pid",
         "int sig"
       ],
+      "declaration": "asmlinkage long sys_kill(pid_t pid, int sig);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 410
@@ -1373,6 +1441,7 @@
       "arguments": [
         "struct new_utsname __user *name"
       ],
+      "declaration": "asmlinkage long sys_newuname(struct new_utsname __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 682
@@ -1395,6 +1464,7 @@
         "int nsems",
         "int semflg"
       ],
+      "declaration": "asmlinkage long sys_semget(key_t key, int nsems, int semflg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 706
@@ -1417,6 +1487,7 @@
         "struct sembuf __user *sops",
         "unsigned nsops"
       ],
+      "declaration": "asmlinkage long sys_semop(int semid, struct sembuf __user *sops, unsigned nsops);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 707
@@ -1440,6 +1511,7 @@
         "int cmd",
         "unsigned long arg"
       ],
+      "declaration": "asmlinkage long sys_semctl(int semid, int semnum, int cmd, unsigned long arg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 709
@@ -1460,6 +1532,7 @@
       "arguments": [
         "char __user *shmaddr"
       ],
+      "declaration": "asmlinkage long sys_shmdt(char __user *shmaddr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 715
@@ -1481,6 +1554,7 @@
         "key_t key",
         "int msgflg"
       ],
+      "declaration": "asmlinkage long sys_msgget(key_t key, int msgflg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 699
@@ -1504,6 +1578,7 @@
         "size_t msgsz",
         "int msgflg"
       ],
+      "declaration": "asmlinkage long sys_msgsnd(int msqid, struct msgbuf __user *msgp, size_t msgsz, int msgflg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 700
@@ -1528,6 +1603,7 @@
         "long msgtyp",
         "int msgflg"
       ],
+      "declaration": "asmlinkage long sys_msgrcv(int msqid, struct msgbuf __user *msgp, size_t msgsz, long msgtyp, int msgflg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 702
@@ -1550,6 +1626,7 @@
         "int cmd",
         "struct msqid_ds __user *buf"
       ],
+      "declaration": "asmlinkage long sys_msgctl(int msqid, int cmd, struct msqid_ds __user *buf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 704
@@ -1572,6 +1649,7 @@
         "unsigned int cmd",
         "unsigned long arg"
       ],
+      "declaration": "asmlinkage long sys_fcntl(unsigned int fd, unsigned int cmd, unsigned long arg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 521
@@ -1593,6 +1671,7 @@
         "unsigned int fd",
         "unsigned int cmd"
       ],
+      "declaration": "asmlinkage long sys_flock(unsigned int fd, unsigned int cmd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 534
@@ -1613,6 +1692,7 @@
       "arguments": [
         "unsigned int fd"
       ],
+      "declaration": "asmlinkage long sys_fsync(unsigned int fd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 420
@@ -1633,6 +1713,7 @@
       "arguments": [
         "unsigned int fd"
       ],
+      "declaration": "asmlinkage long sys_fdatasync(unsigned int fd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 421
@@ -1654,6 +1735,7 @@
         "const char __user *path",
         "long length"
       ],
+      "declaration": "asmlinkage long sys_truncate(const char __user *path, long length);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 428
@@ -1675,6 +1757,7 @@
         "unsigned int fd",
         "unsigned long length"
       ],
+      "declaration": "asmlinkage long sys_ftruncate(unsigned int fd, unsigned long length);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 429
@@ -1697,6 +1780,7 @@
         "struct linux_dirent __user *dirent",
         "unsigned int count"
       ],
+      "declaration": "asmlinkage long sys_getdents(unsigned int fd, struct linux_dirent __user *dirent, unsigned int count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 630
@@ -1718,6 +1802,7 @@
         "char __user *buf",
         "unsigned long size"
       ],
+      "declaration": "asmlinkage long sys_getcwd(char __user *buf, unsigned long size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 622
@@ -1738,6 +1823,7 @@
       "arguments": [
         "const char __user *filename"
       ],
+      "declaration": "asmlinkage long sys_chdir(const char __user *filename);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 624
@@ -1758,6 +1844,7 @@
       "arguments": [
         "unsigned int fd"
       ],
+      "declaration": "asmlinkage long sys_fchdir(unsigned int fd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 625
@@ -1779,6 +1866,7 @@
         "const char __user *oldname",
         "const char __user *newname"
       ],
+      "declaration": "asmlinkage long sys_rename(const char __user *oldname, const char __user *newname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 516
@@ -1800,6 +1888,7 @@
         "const char __user *pathname",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_mkdir(const char __user *pathname, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 623
@@ -1820,6 +1909,7 @@
       "arguments": [
         "const char __user *pathname"
       ],
+      "declaration": "asmlinkage long sys_rmdir(const char __user *pathname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 626
@@ -1841,6 +1931,7 @@
         "const char __user *pathname",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_creat(const char __user *pathname, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 552
@@ -1862,6 +1953,7 @@
         "const char __user *oldname",
         "const char __user *newname"
       ],
+      "declaration": "asmlinkage long sys_link(const char __user *oldname, const char __user *newname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 512
@@ -1882,6 +1974,7 @@
       "arguments": [
         "const char __user *pathname"
       ],
+      "declaration": "asmlinkage long sys_unlink(const char __user *pathname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 515
@@ -1903,6 +1996,7 @@
         "const char __user *old",
         "const char __user *new"
       ],
+      "declaration": "asmlinkage long sys_symlink(const char __user *old, const char __user *new);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 514
@@ -1925,6 +2019,7 @@
         "char __user *buf",
         "int bufsiz"
       ],
+      "declaration": "asmlinkage long sys_readlink(const char __user *path, char __user *buf, int bufsiz);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 550
@@ -1946,6 +2041,7 @@
         "const char __user *filename",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_chmod(const char __user *filename, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 518
@@ -1967,6 +2063,7 @@
         "unsigned int fd",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_fchmod(unsigned int fd, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 519
@@ -1989,6 +2086,7 @@
         "uid_t user",
         "gid_t group"
       ],
+      "declaration": "asmlinkage long sys_chown(const char __user *filename, uid_t user, gid_t group);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 558
@@ -2011,6 +2109,7 @@
         "uid_t user",
         "gid_t group"
       ],
+      "declaration": "asmlinkage long sys_fchown(unsigned int fd, uid_t user, gid_t group);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 562
@@ -2033,6 +2132,7 @@
         "uid_t user",
         "gid_t group"
       ],
+      "declaration": "asmlinkage long sys_lchown(const char __user *filename, uid_t user, gid_t group);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 560
@@ -2053,6 +2153,7 @@
       "arguments": [
         "int mask"
       ],
+      "declaration": "asmlinkage long sys_umask(int mask);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 697
@@ -2074,6 +2175,7 @@
         "struct timeval __user *tv",
         "struct timezone __user *tz"
       ],
+      "declaration": "asmlinkage long sys_gettimeofday(struct timeval __user *tv, struct timezone __user *tz);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 248
@@ -2095,6 +2197,7 @@
         "unsigned int resource",
         "struct rlimit __user *rlim"
       ],
+      "declaration": "asmlinkage long sys_getrlimit(unsigned int resource, struct rlimit __user *rlim);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 686
@@ -2116,6 +2219,7 @@
         "int who",
         "struct rusage __user *ru"
       ],
+      "declaration": "asmlinkage long sys_getrusage(int who, struct rusage __user *ru);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 696
@@ -2136,6 +2240,7 @@
       "arguments": [
         "struct sysinfo __user *info"
       ],
+      "declaration": "asmlinkage long sys_sysinfo(struct sysinfo __user *info);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 740
@@ -2156,6 +2261,7 @@
       "arguments": [
         "struct tms __user *tbuf"
       ],
+      "declaration": "asmlinkage long sys_times(struct tms __user *tbuf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 254
@@ -2179,6 +2285,7 @@
         "unsigned long addr",
         "unsigned long data"
       ],
+      "declaration": "asmlinkage long sys_ptrace(long request, long pid, unsigned long addr, unsigned long data);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 746
@@ -2197,6 +2304,7 @@
       "entry": "sys_getuid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getuid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 261
@@ -2219,6 +2327,7 @@
         "char __user *buf",
         "int len"
       ],
+      "declaration": "asmlinkage long sys_syslog(int type, char __user *buf, int len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 743
@@ -2237,6 +2346,7 @@
       "entry": "sys_getgid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getgid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 263
@@ -2257,6 +2367,7 @@
       "arguments": [
         "uid_t uid"
       ],
+      "declaration": "asmlinkage long sys_setuid(uid_t uid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 275
@@ -2277,6 +2388,7 @@
       "arguments": [
         "gid_t gid"
       ],
+      "declaration": "asmlinkage long sys_setgid(gid_t gid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 273
@@ -2295,6 +2407,7 @@
       "entry": "sys_geteuid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_geteuid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 262
@@ -2313,6 +2426,7 @@
       "entry": "sys_getegid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getegid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 264
@@ -2334,6 +2448,7 @@
         "pid_t pid",
         "pid_t pgid"
       ],
+      "declaration": "asmlinkage long sys_setpgid(pid_t pid, pid_t pgid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 280
@@ -2352,6 +2467,7 @@
       "entry": "sys_getppid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getppid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 260
@@ -2370,6 +2486,7 @@
       "entry": "sys_getpgrp",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_getpgrp(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 268
@@ -2388,6 +2505,7 @@
       "entry": "sys_setsid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_setsid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 281
@@ -2409,6 +2527,7 @@
         "uid_t ruid",
         "uid_t euid"
       ],
+      "declaration": "asmlinkage long sys_setreuid(uid_t ruid, uid_t euid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 274
@@ -2430,6 +2549,7 @@
         "gid_t rgid",
         "gid_t egid"
       ],
+      "declaration": "asmlinkage long sys_setregid(gid_t rgid, gid_t egid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 272
@@ -2451,6 +2571,7 @@
         "int gidsetsize",
         "gid_t __user *grouplist"
       ],
+      "declaration": "asmlinkage long sys_getgroups(int gidsetsize, gid_t __user *grouplist);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 270
@@ -2472,6 +2593,7 @@
         "int gidsetsize",
         "gid_t __user *grouplist"
       ],
+      "declaration": "asmlinkage long sys_setgroups(int gidsetsize, gid_t __user *grouplist);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 282
@@ -2494,6 +2616,7 @@
         "uid_t euid",
         "uid_t suid"
       ],
+      "declaration": "asmlinkage long sys_setresuid(uid_t ruid, uid_t euid, uid_t suid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 276
@@ -2516,6 +2639,7 @@
         "uid_t __user *euid",
         "uid_t __user *suid"
       ],
+      "declaration": "asmlinkage long sys_getresuid(uid_t __user *ruid, uid_t __user *euid, uid_t __user *suid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 265
@@ -2538,6 +2662,7 @@
         "gid_t egid",
         "gid_t sgid"
       ],
+      "declaration": "asmlinkage long sys_setresgid(gid_t rgid, gid_t egid, gid_t sgid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 277
@@ -2560,6 +2685,7 @@
         "gid_t __user *egid",
         "gid_t __user *sgid"
       ],
+      "declaration": "asmlinkage long sys_getresgid(gid_t __user *rgid, gid_t __user *egid, gid_t __user *sgid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 266
@@ -2580,6 +2706,7 @@
       "arguments": [
         "pid_t pid"
       ],
+      "declaration": "asmlinkage long sys_getpgid(pid_t pid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 267
@@ -2600,6 +2727,7 @@
       "arguments": [
         "uid_t uid"
       ],
+      "declaration": "asmlinkage long sys_setfsuid(uid_t uid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 278
@@ -2620,6 +2748,7 @@
       "arguments": [
         "gid_t gid"
       ],
+      "declaration": "asmlinkage long sys_setfsgid(gid_t gid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 279
@@ -2640,6 +2769,7 @@
       "arguments": [
         "pid_t pid"
       ],
+      "declaration": "asmlinkage long sys_getsid(pid_t pid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 269
@@ -2661,6 +2791,7 @@
         "cap_user_header_t header",
         "cap_user_data_t dataptr"
       ],
+      "declaration": "asmlinkage long sys_capget(cap_user_header_t header, cap_user_data_t dataptr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 285
@@ -2682,6 +2813,7 @@
         "cap_user_header_t header",
         "const cap_user_data_t data"
       ],
+      "declaration": "asmlinkage long sys_capset(cap_user_header_t header, const cap_user_data_t data);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 287
@@ -2703,6 +2835,7 @@
         "sigset_t __user *set",
         "size_t sigsetsize"
       ],
+      "declaration": "asmlinkage long sys_rt_sigpending(sigset_t __user *set, size_t sigsetsize);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 403
@@ -2726,6 +2859,7 @@
         "const struct timespec __user *uts",
         "size_t sigsetsize"
       ],
+      "declaration": "asmlinkage long sys_rt_sigtimedwait(const sigset_t __user *uthese, siginfo_t __user *uinfo, const struct timespec __user *uts, size_t sigsetsize);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 404
@@ -2748,6 +2882,7 @@
         "int sig",
         "siginfo_t __user *uinfo"
       ],
+      "declaration": "asmlinkage long sys_rt_sigqueueinfo(pid_t pid, int sig, siginfo_t __user *uinfo);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 413
@@ -2769,6 +2904,7 @@
         "sigset_t __user *unewset",
         "size_t sigsetsize"
       ],
+      "declaration": "asmlinkage long sys_rt_sigsuspend(sigset_t __user *unewset, size_t sigsetsize);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 388
@@ -2790,6 +2926,7 @@
         "const struct sigaltstack __user *uss",
         "struct sigaltstack __user *uoss"
       ],
+      "declaration": "asmlinkage long sys_sigaltstack(const struct sigaltstack __user *uss, struct sigaltstack __user *uoss);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 294
@@ -2811,6 +2948,7 @@
         "char __user *filename",
         "struct utimbuf __user *times"
       ],
+      "declaration": "asmlinkage long sys_utime(char __user *filename, struct utimbuf __user *times);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 589
@@ -2833,6 +2971,7 @@
         "umode_t mode",
         "unsigned dev"
       ],
+      "declaration": "asmlinkage long sys_mknod(const char __user *filename, umode_t mode, unsigned dev);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 510
@@ -2851,6 +2990,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -2868,6 +3008,7 @@
       "arguments": [
         "unsigned int personality"
       ],
+      "declaration": "asmlinkage long sys_personality(unsigned int personality);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 289
@@ -2889,6 +3030,7 @@
         "unsigned dev",
         "struct ustat __user *ubuf"
       ],
+      "declaration": "asmlinkage long sys_ustat(unsigned dev, struct ustat __user *ubuf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 448
@@ -2910,6 +3052,7 @@
         "const char __user * path",
         "struct statfs __user *buf"
       ],
+      "declaration": "asmlinkage long sys_statfs(const char __user * path, struct statfs __user *buf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 432
@@ -2931,6 +3074,7 @@
         "unsigned int fd",
         "struct statfs __user *buf"
       ],
+      "declaration": "asmlinkage long sys_fstatfs(unsigned int fd, struct statfs __user *buf);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 436
@@ -2953,6 +3097,7 @@
         "unsigned long arg1",
         "unsigned long arg2"
       ],
+      "declaration": "asmlinkage long sys_sysfs(int option, unsigned long arg1, unsigned long arg2);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 741
@@ -2974,6 +3119,7 @@
         "int which",
         "int who"
       ],
+      "declaration": "asmlinkage long sys_getpriority(int which, int who);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 348
@@ -2996,6 +3142,7 @@
         "int who",
         "int niceval"
       ],
+      "declaration": "asmlinkage long sys_setpriority(int which, int who, int niceval);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 347
@@ -3017,6 +3164,7 @@
         "pid_t pid",
         "struct sched_param __user *param"
       ],
+      "declaration": "asmlinkage long sys_sched_setparam(pid_t pid, struct sched_param __user *param);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 326
@@ -3038,6 +3186,7 @@
         "pid_t pid",
         "struct sched_param __user *param"
       ],
+      "declaration": "asmlinkage long sys_sched_getparam(pid_t pid, struct sched_param __user *param);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 332
@@ -3060,6 +3209,7 @@
         "int policy",
         "struct sched_param __user *param"
       ],
+      "declaration": "asmlinkage long sys_sched_setscheduler(pid_t pid, int policy, struct sched_param __user *param);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 324
@@ -3080,6 +3230,7 @@
       "arguments": [
         "pid_t pid"
       ],
+      "declaration": "asmlinkage long sys_sched_getscheduler(pid_t pid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 331
@@ -3100,6 +3251,7 @@
       "arguments": [
         "int policy"
       ],
+      "declaration": "asmlinkage long sys_sched_get_priority_max(int policy);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 343
@@ -3120,6 +3272,7 @@
       "arguments": [
         "int policy"
       ],
+      "declaration": "asmlinkage long sys_sched_get_priority_min(int policy);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 344
@@ -3141,6 +3294,7 @@
         "pid_t pid",
         "struct timespec __user *interval"
       ],
+      "declaration": "asmlinkage long sys_sched_rr_get_interval(pid_t pid, struct timespec __user *interval);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 345
@@ -3162,6 +3316,7 @@
         "unsigned long start",
         "size_t len"
       ],
+      "declaration": "asmlinkage long sys_mlock(unsigned long start, size_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 499
@@ -3183,6 +3338,7 @@
         "unsigned long start",
         "size_t len"
       ],
+      "declaration": "asmlinkage long sys_munlock(unsigned long start, size_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 500
@@ -3203,6 +3359,7 @@
       "arguments": [
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_mlockall(int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 501
@@ -3221,6 +3378,7 @@
       "entry": "sys_munlockall",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_munlockall(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 502
@@ -3239,6 +3397,7 @@
       "entry": "sys_vhangup",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_vhangup(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 557
@@ -3261,6 +3420,7 @@
         "void __user *",
         "unsigned long"
       ],
+      "declaration": "asmlinkage long sys_modify_ldt(int, void __user *, unsigned long);",
       "signature_source": {
         "path": "arch/x86/include/asm/syscalls.h",
         "line": 24
@@ -3282,6 +3442,7 @@
         "const char __user *new_root",
         "const char __user *put_old"
       ],
+      "declaration": "asmlinkage long sys_pivot_root(const char __user *new_root, const char __user *put_old);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 507
@@ -3302,6 +3463,7 @@
       "arguments": [
         "struct __sysctl_args __user *args"
       ],
+      "declaration": "asmlinkage long sys_sysctl(struct __sysctl_args __user *args);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 739
@@ -3326,6 +3488,7 @@
         "unsigned long arg4",
         "unsigned long arg5"
       ],
+      "declaration": "asmlinkage long sys_prctl(int option, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 735
@@ -3347,6 +3510,7 @@
         "int",
         "unsigned long"
       ],
+      "declaration": "asmlinkage long sys_arch_prctl(int, unsigned long);",
       "signature_source": {
         "path": "arch/x86/include/asm/syscalls.h",
         "line": 48
@@ -3367,6 +3531,7 @@
       "arguments": [
         "struct timex __user *txc_p"
       ],
+      "declaration": "asmlinkage long sys_adjtimex(struct timex __user *txc_p);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 252
@@ -3388,6 +3553,7 @@
         "unsigned int resource",
         "struct rlimit __user *rlim"
       ],
+      "declaration": "asmlinkage long sys_setrlimit(unsigned int resource, struct rlimit __user *rlim);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 691
@@ -3408,6 +3574,7 @@
       "arguments": [
         "const char __user *filename"
       ],
+      "declaration": "asmlinkage long sys_chroot(const char __user *filename);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 509
@@ -3426,6 +3593,7 @@
       "entry": "sys_sync",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_sync(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 419
@@ -3446,6 +3614,7 @@
       "arguments": [
         "const char __user *name"
       ],
+      "declaration": "asmlinkage long sys_acct(const char __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 284
@@ -3467,6 +3636,7 @@
         "struct timeval __user *tv",
         "struct timezone __user *tz"
       ],
+      "declaration": "asmlinkage long sys_settimeofday(struct timeval __user *tv, struct timezone __user *tz);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 250
@@ -3491,6 +3661,7 @@
         "unsigned long flags",
         "void __user *data"
       ],
+      "declaration": "asmlinkage long sys_mount(char __user *dev_name, char __user *dir_name, char __user *type, unsigned long flags, void __user *data);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 423
@@ -3512,6 +3683,7 @@
         "char __user *name",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_umount(char __user *name, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 426
@@ -3533,6 +3705,7 @@
         "const char __user *specialfile",
         "int swap_flags"
       ],
+      "declaration": "asmlinkage long sys_swapon(const char __user *specialfile, int swap_flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 737
@@ -3553,6 +3726,7 @@
       "arguments": [
         "const char __user *specialfile"
       ],
+      "declaration": "asmlinkage long sys_swapoff(const char __user *specialfile);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 738
@@ -3576,6 +3750,7 @@
         "unsigned int cmd",
         "void __user *arg"
       ],
+      "declaration": "asmlinkage long sys_reboot(int magic1, int magic2, unsigned int cmd, void __user *arg);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 351
@@ -3597,6 +3772,7 @@
         "char __user *name",
         "int len"
       ],
+      "declaration": "asmlinkage long sys_sethostname(char __user *name, int len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 680
@@ -3618,6 +3794,7 @@
         "char __user *name",
         "int len"
       ],
+      "declaration": "asmlinkage long sys_setdomainname(char __user *name, int len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 681
@@ -3636,13 +3813,15 @@
       "entry": "sys_iopl/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 181
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 173,
@@ -3655,6 +3834,7 @@
         "unsigned long",
         "int"
       ],
+      "declaration": "asmlinkage long sys_ioperm(unsigned long, unsigned long, int);",
       "signature_source": {
         "path": "arch/x86/include/asm/syscalls.h",
         "line": 20
@@ -3673,6 +3853,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3692,6 +3873,7 @@
         "unsigned long len",
         "const char __user *uargs"
       ],
+      "declaration": "asmlinkage long sys_init_module(void __user *umod, unsigned long len, const char __user *uargs);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 375
@@ -3713,6 +3895,7 @@
         "const char __user *name_user",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_delete_module(const char __user *name_user, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 377
@@ -3731,6 +3914,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3746,6 +3930,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3766,6 +3951,7 @@
         "qid_t id",
         "void __user *addr"
       ],
+      "declaration": "asmlinkage long sys_quotactl(unsigned int cmd, const char __user *special, qid_t id, void __user *addr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 628
@@ -3784,6 +3970,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3799,6 +3986,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3814,6 +4002,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3829,6 +4018,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3844,6 +4034,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3859,6 +4050,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -3874,6 +4066,7 @@
       "entry": "sys_gettid",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_gettid(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 256
@@ -3896,6 +4089,7 @@
         "loff_t offset",
         "size_t count"
       ],
+      "declaration": "asmlinkage long sys_readahead(int fd, loff_t offset, size_t count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 599
@@ -3920,6 +4114,7 @@
         "size_t size",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_setxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 463
@@ -3944,6 +4139,7 @@
         "size_t size",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_lsetxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 465
@@ -3968,6 +4164,7 @@
         "size_t size",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_fsetxattr(int fd, const char __user *name, const void __user *value, size_t size, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 467
@@ -3991,6 +4188,7 @@
         "void __user *value",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_getxattr(const char __user *path, const char __user *name, void __user *value, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 469
@@ -4014,6 +4212,7 @@
         "void __user *value",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_lgetxattr(const char __user *path, const char __user *name, void __user *value, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 471
@@ -4037,6 +4236,7 @@
         "void __user *value",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_fgetxattr(int fd, const char __user *name, void __user *value, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 473
@@ -4059,6 +4259,7 @@
         "char __user *list",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_listxattr(const char __user *path, char __user *list, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 475
@@ -4081,6 +4282,7 @@
         "char __user *list",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_llistxattr(const char __user *path, char __user *list, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 477
@@ -4103,6 +4305,7 @@
         "char __user *list",
         "size_t size"
       ],
+      "declaration": "asmlinkage long sys_flistxattr(int fd, char __user *list, size_t size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 479
@@ -4124,6 +4327,7 @@
         "const char __user *path",
         "const char __user *name"
       ],
+      "declaration": "asmlinkage long sys_removexattr(const char __user *path, const char __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 480
@@ -4145,6 +4349,7 @@
         "const char __user *path",
         "const char __user *name"
       ],
+      "declaration": "asmlinkage long sys_lremovexattr(const char __user *path, const char __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 482
@@ -4166,6 +4371,7 @@
         "int fd",
         "const char __user *name"
       ],
+      "declaration": "asmlinkage long sys_fremovexattr(int fd, const char __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 484
@@ -4187,6 +4393,7 @@
         "pid_t pid",
         "int sig"
       ],
+      "declaration": "asmlinkage long sys_tkill(pid_t pid, int sig);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 412
@@ -4207,6 +4414,7 @@
       "arguments": [
         "time_t __user *tloc"
       ],
+      "declaration": "asmlinkage long sys_time(time_t __user *tloc);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 246
@@ -4232,6 +4440,7 @@
         "u32 __user *uaddr2",
         "u32 val3"
       ],
+      "declaration": "asmlinkage long sys_futex(u32 __user *uaddr, int op, u32 val, struct timespec __user *utime, u32 __user *uaddr2, u32 val3);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 371
@@ -4254,6 +4463,7 @@
         "unsigned int len",
         "unsigned long __user *user_mask_ptr"
       ],
+      "declaration": "asmlinkage long sys_sched_setaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 338
@@ -4276,6 +4486,7 @@
         "unsigned int len",
         "unsigned long __user *user_mask_ptr"
       ],
+      "declaration": "asmlinkage long sys_sched_getaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 340
@@ -4294,6 +4505,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -4312,6 +4524,7 @@
         "unsigned nr_reqs",
         "aio_context_t __user *ctx"
       ],
+      "declaration": "asmlinkage long sys_io_setup(unsigned nr_reqs, aio_context_t __user *ctx);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 535
@@ -4332,6 +4545,7 @@
       "arguments": [
         "aio_context_t ctx"
       ],
+      "declaration": "asmlinkage long sys_io_destroy(aio_context_t ctx);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 536
@@ -4356,6 +4570,7 @@
         "struct io_event __user *events",
         "struct timespec __user *timeout"
       ],
+      "declaration": "asmlinkage long sys_io_getevents(aio_context_t ctx_id, long min_nr, long nr, struct io_event __user *events, struct timespec __user *timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 537
@@ -4378,6 +4593,7 @@
         "long",
         "struct iocb __user * __user *"
       ],
+      "declaration": "asmlinkage long sys_io_submit(aio_context_t, long, struct iocb __user * __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 542
@@ -4400,6 +4616,7 @@
         "struct iocb __user *iocb",
         "struct io_event __user *result"
       ],
+      "declaration": "asmlinkage long sys_io_cancel(aio_context_t ctx_id, struct iocb __user *iocb, struct io_event __user *result);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 544
@@ -4418,6 +4635,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -4437,6 +4655,7 @@
         "char __user *buf",
         "size_t len"
       ],
+      "declaration": "asmlinkage long sys_lookup_dcookie(u64 cookie64, char __user *buf, size_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 627
@@ -4457,6 +4676,7 @@
       "arguments": [
         "int size"
       ],
+      "declaration": "asmlinkage long sys_epoll_create(int size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 669
@@ -4475,6 +4695,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -4490,6 +4711,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -4511,6 +4733,7 @@
         "unsigned long pgoff",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_remap_file_pages(unsigned long start, unsigned long size, unsigned long prot, unsigned long pgoff, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 492
@@ -4533,6 +4756,7 @@
         "struct linux_dirent64 __user *dirent",
         "unsigned int count"
       ],
+      "declaration": "asmlinkage long sys_getdents64(unsigned int fd, struct linux_dirent64 __user *dirent, unsigned int count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 633
@@ -4553,6 +4777,7 @@
       "arguments": [
         "int __user *tidptr"
       ],
+      "declaration": "asmlinkage long sys_set_tid_address(int __user *tidptr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 370
@@ -4571,6 +4796,7 @@
       "entry": "sys_restart_syscall",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_restart_syscall(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 353
@@ -4594,6 +4820,7 @@
         "unsigned nsops",
         "const struct timespec __user *timeout"
       ],
+      "declaration": "asmlinkage long sys_semtimedop(int semid, struct sembuf __user *sops, unsigned nsops, const struct timespec __user *timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 710
@@ -4617,6 +4844,7 @@
         "size_t len",
         "int advice"
       ],
+      "declaration": "asmlinkage long sys_fadvise64(int fd, loff_t offset, size_t len, int advice);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 496
@@ -4639,6 +4867,7 @@
         "struct sigevent __user *timer_event_spec",
         "timer_t __user * created_timer_id"
       ],
+      "declaration": "asmlinkage long sys_timer_create(clockid_t which_clock, struct sigevent __user *timer_event_spec, timer_t __user * created_timer_id);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 301
@@ -4662,6 +4891,7 @@
         "const struct itimerspec __user *new_setting",
         "struct itimerspec __user *old_setting"
       ],
+      "declaration": "asmlinkage long sys_timer_settime(timer_t timer_id, int flags, const struct itimerspec __user *new_setting, struct itimerspec __user *old_setting);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 307
@@ -4683,6 +4913,7 @@
         "timer_t timer_id",
         "struct itimerspec __user *setting"
       ],
+      "declaration": "asmlinkage long sys_timer_gettime(timer_t timer_id, struct itimerspec __user *setting);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 304
@@ -4703,6 +4934,7 @@
       "arguments": [
         "timer_t timer_id"
       ],
+      "declaration": "asmlinkage long sys_timer_getoverrun(timer_t timer_id);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 306
@@ -4723,6 +4955,7 @@
       "arguments": [
         "timer_t timer_id"
       ],
+      "declaration": "asmlinkage long sys_timer_delete(timer_t timer_id);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 310
@@ -4744,6 +4977,7 @@
         "clockid_t which_clock",
         "const struct timespec __user *tp"
       ],
+      "declaration": "asmlinkage long sys_clock_settime(clockid_t which_clock, const struct timespec __user *tp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 311
@@ -4765,6 +4999,7 @@
         "clockid_t which_clock",
         "struct timespec __user *tp"
       ],
+      "declaration": "asmlinkage long sys_clock_gettime(clockid_t which_clock, struct timespec __user *tp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 313
@@ -4786,6 +5021,7 @@
         "clockid_t which_clock",
         "struct timespec __user *tp"
       ],
+      "declaration": "asmlinkage long sys_clock_getres(clockid_t which_clock, struct timespec __user *tp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 317
@@ -4809,6 +5045,7 @@
         "const struct timespec __user *rqtp",
         "struct timespec __user *rmtp"
       ],
+      "declaration": "asmlinkage long sys_clock_nanosleep(clockid_t which_clock, int flags, const struct timespec __user *rqtp, struct timespec __user *rmtp);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 319
@@ -4829,6 +5066,7 @@
       "arguments": [
         "int error_code"
       ],
+      "declaration": "asmlinkage long sys_exit_group(int error_code);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 363
@@ -4852,6 +5090,7 @@
         "int maxevents",
         "int timeout"
       ],
+      "declaration": "asmlinkage long sys_epoll_wait(int epfd, struct epoll_event __user *events, int maxevents, int timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 673
@@ -4875,6 +5114,7 @@
         "int fd",
         "struct epoll_event __user *event"
       ],
+      "declaration": "asmlinkage long sys_epoll_ctl(int epfd, int op, int fd, struct epoll_event __user *event);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 671
@@ -4897,6 +5137,7 @@
         "pid_t pid",
         "int sig"
       ],
+      "declaration": "asmlinkage long sys_tgkill(pid_t tgid, pid_t pid, int sig);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 411
@@ -4918,6 +5159,7 @@
         "char __user *filename",
         "struct timeval __user *utimes"
       ],
+      "declaration": "asmlinkage long sys_utimes(char __user *filename, struct timeval __user *utimes);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 591
@@ -4936,6 +5178,7 @@
       "entry": null,
       "status": "unimplemented",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
@@ -4958,6 +5201,7 @@
         "unsigned long maxnode",
         "unsigned flags"
       ],
+      "declaration": "asmlinkage long sys_mbind(unsigned long start, unsigned long len, unsigned long mode, const unsigned long __user *nmask, unsigned long maxnode, unsigned flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 775
@@ -4980,6 +5224,7 @@
         "const unsigned long __user *nmask",
         "unsigned long maxnode"
       ],
+      "declaration": "asmlinkage long sys_set_mempolicy(int mode, const unsigned long __user *nmask, unsigned long maxnode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 765
@@ -5004,6 +5249,7 @@
         "unsigned long addr",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_get_mempolicy(int __user *policy, unsigned long __user *nmask, unsigned long maxnode, unsigned long addr, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 780
@@ -5027,6 +5273,7 @@
         "umode_t mode",
         "struct mq_attr __user *attr"
       ],
+      "declaration": "asmlinkage long sys_mq_open(const char __user *name, int oflag, umode_t mode, struct mq_attr __user *attr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 720
@@ -5047,6 +5294,7 @@
       "arguments": [
         "const char __user *name"
       ],
+      "declaration": "asmlinkage long sys_mq_unlink(const char __user *name);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 721
@@ -5071,6 +5319,7 @@
         "unsigned int msg_prio",
         "const struct timespec __user *abs_timeout"
       ],
+      "declaration": "asmlinkage long sys_mq_timedsend(mqd_t mqdes, const char __user *msg_ptr, size_t msg_len, unsigned int msg_prio, const struct timespec __user *abs_timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 722
@@ -5095,6 +5344,7 @@
         "unsigned int __user *msg_prio",
         "const struct timespec __user *abs_timeout"
       ],
+      "declaration": "asmlinkage long sys_mq_timedreceive(mqd_t mqdes, char __user *msg_ptr, size_t msg_len, unsigned int __user *msg_prio, const struct timespec __user *abs_timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 723
@@ -5116,6 +5366,7 @@
         "mqd_t mqdes",
         "const struct sigevent __user *notification"
       ],
+      "declaration": "asmlinkage long sys_mq_notify(mqd_t mqdes, const struct sigevent __user *notification);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 724
@@ -5138,6 +5389,7 @@
         "const struct mq_attr __user *mqstat",
         "struct mq_attr __user *omqstat"
       ],
+      "declaration": "asmlinkage long sys_mq_getsetattr(mqd_t mqdes, const struct mq_attr __user *mqstat, struct mq_attr __user *omqstat);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 725
@@ -5161,6 +5413,7 @@
         "struct kexec_segment __user *segments",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_kexec_load(unsigned long entry, unsigned long nr_segments, struct kexec_segment __user *segments, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 354
@@ -5185,6 +5438,7 @@
         "int options",
         "struct rusage __user *ru"
       ],
+      "declaration": "asmlinkage long sys_waitid(int which, pid_t pid, struct siginfo __user *infop, int options, struct rusage __user *ru);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 366
@@ -5209,6 +5463,7 @@
         "size_t plen",
         "key_serial_t destringid"
       ],
+      "declaration": "asmlinkage long sys_add_key(const char __user *_type, const char __user *_description, const void __user *_payload, size_t plen, key_serial_t destringid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 749
@@ -5232,6 +5487,7 @@
         "const char __user *_callout_info",
         "key_serial_t destringid"
       ],
+      "declaration": "asmlinkage long sys_request_key(const char __user *_type, const char __user *_description, const char __user *_callout_info, key_serial_t destringid);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 755
@@ -5256,6 +5512,7 @@
         "unsigned long arg4",
         "unsigned long arg5"
       ],
+      "declaration": "asmlinkage long sys_keyctl(int cmd, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 760
@@ -5278,6 +5535,7 @@
         "int who",
         "int ioprio"
       ],
+      "declaration": "asmlinkage long sys_ioprio_set(int which, int who, int ioprio);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 763
@@ -5299,6 +5557,7 @@
         "int which",
         "int who"
       ],
+      "declaration": "asmlinkage long sys_ioprio_get(int which, int who);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 764
@@ -5317,6 +5576,7 @@
       "entry": "sys_inotify_init",
       "status": "defined",
       "arguments": [],
+      "declaration": "asmlinkage long sys_inotify_init(void);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 785
@@ -5339,6 +5599,7 @@
         "const char __user *path",
         "u32 mask"
       ],
+      "declaration": "asmlinkage long sys_inotify_add_watch(int fd, const char __user *path, u32 mask);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 787
@@ -5360,6 +5621,7 @@
         "int fd",
         "__s32 wd"
       ],
+      "declaration": "asmlinkage long sys_inotify_rm_watch(int fd, __s32 wd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 789
@@ -5383,6 +5645,7 @@
         "const unsigned long __user *from",
         "const unsigned long __user *to"
       ],
+      "declaration": "asmlinkage long sys_migrate_pages(pid_t pid, unsigned long maxnode, const unsigned long __user *from, const unsigned long __user *to);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 767
@@ -5406,6 +5669,7 @@
         "int flags",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_openat(int dfd, const char __user *filename, int flags, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 816
@@ -5428,6 +5692,7 @@
         "const char __user * pathname",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_mkdirat(int dfd, const char __user * pathname, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 798
@@ -5451,6 +5716,7 @@
         "umode_t mode",
         "unsigned dev"
       ],
+      "declaration": "asmlinkage long sys_mknodat(int dfd, const char __user * filename, umode_t mode, unsigned dev);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 796
@@ -5475,6 +5741,7 @@
         "gid_t group",
         "int flag"
       ],
+      "declaration": "asmlinkage long sys_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group, int flag);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 814
@@ -5497,6 +5764,7 @@
         "const char __user *filename",
         "struct timeval __user *utimes"
       ],
+      "declaration": "asmlinkage long sys_futimesat(int dfd, const char __user *filename, struct timeval __user *utimes);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 809
@@ -5520,6 +5788,7 @@
         "struct stat __user *statbuf",
         "int flag"
       ],
+      "declaration": "asmlinkage long sys_newfstatat(int dfd, const char __user *filename, struct stat __user *statbuf, int flag);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 818
@@ -5542,6 +5811,7 @@
         "const char __user * pathname",
         "int flag"
       ],
+      "declaration": "asmlinkage long sys_unlinkat(int dfd, const char __user * pathname, int flag);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 799
@@ -5565,6 +5835,7 @@
         "int newdfd",
         "const char __user * newname"
       ],
+      "declaration": "asmlinkage long sys_renameat(int olddfd, const char __user * oldname, int newdfd, const char __user * newname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 804
@@ -5589,6 +5860,7 @@
         "const char __user *newname",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_linkat(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 802
@@ -5611,6 +5883,7 @@
         "int newdfd",
         "const char __user * newname"
       ],
+      "declaration": "asmlinkage long sys_symlinkat(const char __user * oldname, int newdfd, const char __user * newname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 800
@@ -5634,6 +5907,7 @@
         "char __user *buf",
         "int bufsiz"
       ],
+      "declaration": "asmlinkage long sys_readlinkat(int dfd, const char __user *path, char __user *buf, int bufsiz);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 820
@@ -5656,6 +5930,7 @@
         "const char __user * filename",
         "umode_t mode"
       ],
+      "declaration": "asmlinkage long sys_fchmodat(int dfd, const char __user * filename, umode_t mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 812
@@ -5678,6 +5953,7 @@
         "const char __user *filename",
         "int mode"
       ],
+      "declaration": "asmlinkage long sys_faccessat(int dfd, const char __user *filename, int mode);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 811
@@ -5703,6 +5979,7 @@
         "struct timespec __user *",
         "void __user *"
       ],
+      "declaration": "asmlinkage long sys_pselect6(int, fd_set __user *, fd_set __user *, fd_set __user *, struct timespec __user *, void __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 858
@@ -5727,6 +6004,7 @@
         "const sigset_t __user *",
         "size_t"
       ],
+      "declaration": "asmlinkage long sys_ppoll(struct pollfd __user *, unsigned int, struct timespec __user *, const sigset_t __user *, size_t);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 861
@@ -5747,6 +6025,7 @@
       "arguments": [
         "unsigned long unshare_flags"
       ],
+      "declaration": "asmlinkage long sys_unshare(unsigned long unshare_flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 824
@@ -5768,6 +6047,7 @@
         "struct robust_list_head __user *head",
         "size_t len"
       ],
+      "declaration": "asmlinkage long sys_set_robust_list(struct robust_list_head __user *head, size_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 842
@@ -5790,6 +6070,7 @@
         "struct robust_list_head __user * __user *head_ptr",
         "size_t __user *len_ptr"
       ],
+      "declaration": "asmlinkage long sys_get_robust_list(int pid, struct robust_list_head __user * __user *head_ptr, size_t __user *len_ptr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 839
@@ -5815,6 +6096,7 @@
         "size_t len",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_splice(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 826
@@ -5838,6 +6120,7 @@
         "size_t len",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_tee(int fdin, int fdout, size_t len, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 833
@@ -5861,6 +6144,7 @@
         "loff_t nbytes",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_sync_file_range(int fd, loff_t offset, loff_t nbytes, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 835
@@ -5884,6 +6168,7 @@
         "unsigned long nr_segs",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_vmsplice(int fd, const struct iovec __user *iov, unsigned long nr_segs, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 830
@@ -5909,6 +6194,7 @@
         "int __user *status",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_move_pages(pid_t pid, unsigned long nr_pages, const void __user * __user *pages, const int __user *nodes, int __user *status, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 770
@@ -5932,6 +6218,7 @@
         "struct timespec __user *utimes",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_utimensat(int dfd, const char __user *filename, struct timespec __user *utimes, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 822
@@ -5957,6 +6244,7 @@
         "const sigset_t __user *sigmask",
         "size_t sigsetsize"
       ],
+      "declaration": "asmlinkage long sys_epoll_pwait(int epfd, struct epoll_event __user *events, int maxevents, int timeout, const sigset_t __user *sigmask, size_t sigsetsize);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 675
@@ -5979,6 +6267,7 @@
         "sigset_t __user *user_mask",
         "size_t sizemask"
       ],
+      "declaration": "asmlinkage long sys_signalfd(int ufd, sigset_t __user *user_mask, size_t sizemask);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 845
@@ -6000,6 +6289,7 @@
         "int clockid",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_timerfd_create(int clockid, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 847
@@ -6020,6 +6310,7 @@
       "arguments": [
         "unsigned int count"
       ],
+      "declaration": "asmlinkage long sys_eventfd(unsigned int count);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 852
@@ -6043,6 +6334,7 @@
         "loff_t offset",
         "loff_t len"
       ],
+      "declaration": "asmlinkage long sys_fallocate(int fd, int mode, loff_t offset, loff_t len);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 856
@@ -6066,6 +6358,7 @@
         "const struct itimerspec __user *utmr",
         "struct itimerspec __user *otmr"
       ],
+      "declaration": "asmlinkage long sys_timerfd_settime(int ufd, int flags, const struct itimerspec __user *utmr, struct itimerspec __user *otmr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 848
@@ -6087,6 +6380,7 @@
         "int ufd",
         "struct itimerspec __user *otmr"
       ],
+      "declaration": "asmlinkage long sys_timerfd_gettime(int ufd, struct itimerspec __user *otmr);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 851
@@ -6110,6 +6404,7 @@
         "int __user *",
         "int"
       ],
+      "declaration": "asmlinkage long sys_accept4(int, struct sockaddr __user *, int __user *, int);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 644
@@ -6133,6 +6428,7 @@
         "size_t sizemask",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_signalfd4(int ufd, sigset_t __user *user_mask, size_t sizemask, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 846
@@ -6154,6 +6450,7 @@
         "unsigned int count",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_eventfd2(unsigned int count, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 853
@@ -6174,6 +6471,7 @@
       "arguments": [
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_epoll_create1(int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 670
@@ -6196,6 +6494,7 @@
         "unsigned int newfd",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_dup3(unsigned int oldfd, unsigned int newfd, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 530
@@ -6217,6 +6516,7 @@
         "int __user *fildes",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_pipe2(int __user *fildes, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 527
@@ -6237,6 +6537,7 @@
       "arguments": [
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_inotify_init1(int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 786
@@ -6261,6 +6562,7 @@
         "unsigned long pos_l",
         "unsigned long pos_h"
       ],
+      "declaration": "asmlinkage long sys_preadv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 612
@@ -6285,6 +6587,7 @@
         "unsigned long pos_l",
         "unsigned long pos_h"
       ],
+      "declaration": "asmlinkage long sys_pwritev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 617
@@ -6308,6 +6611,7 @@
         "int sig",
         "siginfo_t __user *uinfo"
       ],
+      "declaration": "asmlinkage long sys_rt_tgsigqueueinfo(pid_t tgid, pid_t pid, int sig, siginfo_t __user *uinfo);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 408
@@ -6332,6 +6636,7 @@
         "int group_fd",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_perf_event_open(struct perf_event_attr __user *attr_uptr, pid_t pid, int cpu, int group_fd, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 889
@@ -6356,6 +6661,7 @@
         "unsigned flags",
         "struct timespec __user *timeout"
       ],
+      "declaration": "asmlinkage long sys_recvmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags, struct timespec __user *timeout);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 657
@@ -6377,6 +6683,7 @@
         "unsigned int flags",
         "unsigned int event_f_flags"
       ],
+      "declaration": "asmlinkage long sys_fanotify_init(unsigned int flags, unsigned int event_f_flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 864
@@ -6401,6 +6708,7 @@
         "int fd",
         "const char __user *pathname"
       ],
+      "declaration": "asmlinkage long sys_fanotify_mark(int fanotify_fd, unsigned int flags, u64 mask, int fd, const char __user *pathname);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 865
@@ -6424,6 +6732,7 @@
         "const struct rlimit64 __user *new_rlim",
         "struct rlimit64 __user *old_rlim"
       ],
+      "declaration": "asmlinkage long sys_prlimit64(pid_t pid, unsigned int resource, const struct rlimit64 __user *new_rlim, struct rlimit64 __user *old_rlim);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 693
@@ -6448,6 +6757,7 @@
         "int __user *mnt_id",
         "int flag"
       ],
+      "declaration": "asmlinkage long sys_name_to_handle_at(int dfd, const char __user *name, struct file_handle __user *handle, int __user *mnt_id, int flag);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 897
@@ -6470,6 +6780,7 @@
         "struct file_handle __user *handle",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_open_by_handle_at(int mountdirfd, struct file_handle __user *handle, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 900
@@ -6491,6 +6802,7 @@
         "clockid_t which_clock",
         "struct timex __user *tx"
       ],
+      "declaration": "asmlinkage long sys_clock_adjtime(clockid_t which_clock, struct timex __user *tx);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 315
@@ -6511,6 +6823,7 @@
       "arguments": [
         "int fd"
       ],
+      "declaration": "asmlinkage long sys_syncfs(int fd);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 868
@@ -6534,6 +6847,7 @@
         "unsigned int vlen",
         "unsigned flags"
       ],
+      "declaration": "asmlinkage long sys_sendmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 651
@@ -6555,6 +6869,7 @@
         "int fd",
         "int nstype"
       ],
+      "declaration": "asmlinkage long sys_setns(int fd, int nstype);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 903
@@ -6577,6 +6892,7 @@
         "unsigned __user *node",
         "struct getcpu_cache __user *cache"
       ],
+      "declaration": "asmlinkage long sys_getcpu(unsigned __user *cpu, unsigned __user *node, struct getcpu_cache __user *cache);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 844
@@ -6602,6 +6918,7 @@
         "unsigned long riovcnt",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_process_vm_readv(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 904
@@ -6627,6 +6944,7 @@
         "unsigned long riovcnt",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_process_vm_writev(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 910
@@ -6651,6 +6969,7 @@
         "unsigned long idx1",
         "unsigned long idx2"
       ],
+      "declaration": "asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type, unsigned long idx1, unsigned long idx2);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 917
@@ -6673,6 +6992,7 @@
         "const char __user *uargs",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_finit_module(int fd, const char __user *uargs, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 919
@@ -6695,6 +7015,7 @@
         "struct sched_attr __user *attr",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_sched_setattr(pid_t pid, struct sched_attr __user *attr, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 328
@@ -6718,6 +7039,7 @@
         "unsigned int size",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_sched_getattr(pid_t pid, struct sched_attr __user *attr, unsigned int size, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 334
@@ -6742,6 +7064,7 @@
         "const char __user *newname",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_renameat2(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 806
@@ -6764,6 +7087,7 @@
         "unsigned int flags",
         "const char __user *uargs"
       ],
+      "declaration": "asmlinkage long sys_seccomp(unsigned int op, unsigned int flags, const char __user *uargs);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 920
@@ -6786,6 +7110,7 @@
         "size_t count",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_getrandom(char __user *buf, size_t count, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 922
@@ -6807,6 +7132,7 @@
         "const char __user *uname_ptr",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_memfd_create(const char __user *uname_ptr, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 854
@@ -6831,6 +7157,7 @@
         "const char __user *cmdline_ptr",
         "unsigned long flags"
       ],
+      "declaration": "asmlinkage long sys_kexec_file_load(int kernel_fd, int initrd_fd, unsigned long cmdline_len, const char __user *cmdline_ptr, unsigned long flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 357
@@ -6853,6 +7180,7 @@
         "union bpf_attr *attr",
         "unsigned int size"
       ],
+      "declaration": "asmlinkage long sys_bpf(int cmd, union bpf_attr *attr, unsigned int size);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 924
@@ -6871,13 +7199,15 @@
       "entry": "sys_execveat/ptregs",
       "status": "defined",
       "arguments": null,
+      "declaration": null,
       "signature_source": null,
       "signature_note": null,
       "source": {
         "path": "arch/x86/entry/syscalls/syscall_64.tbl",
         "line": 331
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html",
+      "signature_status": "wrapper_entry"
     },
     {
       "number": 323,
@@ -6888,6 +7218,7 @@
       "arguments": [
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_userfaultfd(int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 855
@@ -6909,6 +7240,7 @@
         "int cmd",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_membarrier(int cmd, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 930
@@ -6931,6 +7263,7 @@
         "size_t len",
         "int flags"
       ],
+      "declaration": "asmlinkage long sys_mlock2(unsigned long start, size_t len, int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 935
@@ -6956,6 +7289,7 @@
         "size_t len",
         "unsigned int flags"
       ],
+      "declaration": "asmlinkage long sys_copy_file_range(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 931
@@ -6981,6 +7315,7 @@
         "unsigned long pos_h",
         "rwf_t flags"
       ],
+      "declaration": "asmlinkage long sys_preadv2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 614
@@ -7006,6 +7341,7 @@
         "unsigned long pos_h",
         "rwf_t flags"
       ],
+      "declaration": "asmlinkage long sys_pwritev2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 619
@@ -7029,6 +7365,7 @@
         "unsigned long prot",
         "int pkey"
       ],
+      "declaration": "asmlinkage long sys_pkey_mprotect(unsigned long start, size_t len, unsigned long prot, int pkey);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 937
@@ -7050,6 +7387,7 @@
         "unsigned long flags",
         "unsigned long init_val"
       ],
+      "declaration": "asmlinkage long sys_pkey_alloc(unsigned long flags, unsigned long init_val);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 939
@@ -7070,6 +7408,7 @@
       "arguments": [
         "int pkey"
       ],
+      "declaration": "asmlinkage long sys_pkey_free(int pkey);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 940
@@ -7094,6 +7433,7 @@
         "unsigned mask",
         "struct statx __user *buffer"
       ],
+      "declaration": "asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags, unsigned mask, struct statx __user *buffer);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
         "line": 941

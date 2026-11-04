@@ -12,6 +12,9 @@ _site-test/
 vendor/
 public/downloads/
 public/api/
+/public/data/.import-*/
+/public/data/.sync.lock
+/public/data/.tmp-*
 
 # Local agent session state
 .omc/

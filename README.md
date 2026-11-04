@@ -41,7 +41,7 @@ python3 scripts/jekyll.py install
 npm start
 ```
 
-Open **http://127.0.0.1:5173**. No npm dependencies need to be installed.
+Open **http://127.0.0.1:5173**. Local preview does not require `npm install`.
 
 ```sh
 npm run dev    # Serve with live reload
@@ -49,20 +49,16 @@ npm run build  # Prepare API/source archive, build Jekyll, verify output
 npm test       # Validate datasets, importer, examples, paths, and optional API
 ```
 
-The Ruby helper selects a suitable Ruby from `PATH` or an existing Homebrew installation and installs gems in `vendor/bundle/`. It leaves your system Ruby and shell configuration alone.
-
 <details>
 <summary>Run without Node.js</summary>
-
-With Ruby 3.3+ and Bundler on `PATH`:
 
 ```sh
 python3 scripts/jekyll.py install
 python3 scripts/prepare_site.py
-bundle exec jekyll serve --port 5173
+python3 scripts/jekyll.py serve --port 5173
 ```
 
-For a production build, replace the serve command with `bundle exec jekyll build`, then run `python3 scripts/check_site.py`.
+The helper selects Ruby 3.3+ from `PATH` or Homebrew and installs gems in `vendor/bundle/`.
 
 </details>
 
@@ -116,7 +112,9 @@ python3 scripts/sync_kernel.py --refs v7.3 --kernel-tree /path/to/linux
 python3 scripts/sync_kernel.py --refs v7.3 --output /tmp/syscall-data
 ```
 
-The importer supports the bundled historical layouts and the current kernel tables. Downloads are cached in `.cache/`. Run the importer and tests before adding another release to the defaults; do not run concurrent imports into the same output directory.
+The importer supports the bundled historical layouts and the current kernel tables. Historical layouts use the Clang or GCC preprocessor. Downloads are cached in `.cache/`. The importer validates the tables and source hashes for all requested releases before publishing them with one manifest update.
+
+Reimporting a published release creates a new snapshot under `data/revisions/`. The manifest's `version_paths` and the static API index point to the active revision. Earlier download URLs continue to serve their original snapshots.
 
 **Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; configuration-dependent declarations are marked ambiguous. A table entry does not guarantee availability in every kernel configuration. PowerPC 32 and MIPS o32 show native table entry points; a 64-bit kernel may dispatch the same number through a compatibility entry point. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
 
@@ -124,7 +122,7 @@ C skeletons require review of pointers, flags, object lifetimes, and error handl
 
 ## Deploy
 
-For GitHub Pages, select **Settings → Pages → Build and deployment → Source → GitHub Actions**, then push to `main` or run **Build and deploy Jekyll** manually. Pages must be available and enabled for the repository. The [workflow](.github/workflows/pages.yml) runs tests, checks a project-path build, prepares the source archive, and deploys the verified site. Pull requests are built without deployment.
+For GitHub Pages, select **Settings → Pages → Build and deployment → Source → GitHub Actions**, then push to `main` or run **Build and deploy Jekyll** manually. Pages must be available and enabled for the repository. The workflow runs tests, checks a project-path build in Chromium, prepares the source archive, and deploys the verified site. Pull requests are built without deployment. [Pages workflow](.github/workflows/pages.yml)
 
 For other static hosts, publish `_site/` after `npm run build`. To build for a subpath:
 

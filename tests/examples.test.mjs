@@ -6,8 +6,10 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { buildExample } from '../public/examples.mjs';
+import { snapshotPath } from '../public/paths.mjs';
 
-const load = async arch => JSON.parse(await readFile(new URL(`../public/data/v7.3/${arch}.json`, import.meta.url), 'utf8'));
+const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json', import.meta.url)));
+const load = async arch => JSON.parse(await readFile(new URL('../public/' + snapshotPath(manifest, 'v7.3', arch + '.json'), import.meta.url), 'utf8'));
 
 test('examples use selected architecture numbers and distinguish reviewed templates from incomplete skeletons', async () => {
   for (const arch of ['x64', 'arm64', 'riscv64', 'loongarch64']) {

@@ -163,6 +163,12 @@
       "spdx_license_identifier": "GPL-2.0-only"
     },
     {
+      "path": "arch/x86/kernel/sys_x86_64.c",
+      "sha256": "8b9187e92c5bb6d584233f799c202aab3ff30033e32393ec9804906ea862cc0a",
+      "bundled_path": "sources/arch/x86/kernel/sys_x86_64.c",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "include/linux/compat.h",
       "sha256": "2f8a83a2a69fe8f6e43011f73f2384813e53dcfac40c91da73bf8886c24fa1b5",
       "bundled_path": "sources/include/linux/compat.h",

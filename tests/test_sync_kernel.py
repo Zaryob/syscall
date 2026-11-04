@@ -2,8 +2,10 @@
 import importlib.util
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
+from unittest.mock import patch
 
 spec = importlib.util.spec_from_file_location("sync_kernel", Path(__file__).resolve().parents[1] / "scripts/sync_kernel.py")
 sync = importlib.util.module_from_spec(spec)
@@ -39,6 +41,15 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(result['sys_read']['arguments'], ['unsigned int fd', 'char __user *buf', 'size_t count'])
         self.assertEqual(result['sys_exit']['arguments'], ['int error_code'])
         self.assertEqual(result['sys_lseek']['arguments'], ['unsigned int fd', 'off_t offset', 'unsigned int origin'])
+        self.assertEqual(result['sys_exit']['declaration'], 'asmlinkage NORET_TYPE void sys_exit(int error_code);')
+        self.assertEqual(result['sys_lseek']['declaration'], 'asmlinkage off_t sys_lseek(unsigned int fd, off_t offset, unsigned int origin);')
+
+    def test_historical_table_names_take_precedence_over_number_aliases(self):
+        for ref, number, name in [('v2.6.12', 250, 'keyctl'), ('v2.6.16', 272, 'unshare')]:
+            with self.subTest(ref=ref):
+                tree = sync.ROOT / 'public' / 'data' / ref / 'sources'
+                _, rows = sync.architecture_rows(sync.Source(ref, tree), 'x64')
+                self.assertEqual(next(row['name'] for row in rows if row['number'] == number), name)
 
     def test_historical_license_and_gpl_plus_are_accepted(self):
         files = {
@@ -55,6 +66,7 @@ class ImportTests(unittest.TestCase):
         text = 'asmlinkage long sys_clone(int flags, long stack);\nasmlinkage long sys_clone(long stack, int flags);\nasmlinkage long sys_clone(int flags, long stack);'
         result = sync.parse_prototypes(text, 'syscalls.h')
         self.assertIsNone(result['sys_clone']['arguments'])
+        self.assertIsNone(result['sys_clone']['declaration'])
         self.assertIn('configuration', result['sys_clone']['note'])
 
     def test_mainline_filter_distinguishes_major_and_2_6_releases_from_maintenance(self):
@@ -112,8 +124,9 @@ class ImportTests(unittest.TestCase):
                 target = tree / path
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(text)
-            sync.generate('v7.3', tree, output)
-            sync.update_manifest(output)
+            argv = ['sync_kernel.py', '--refs', 'v7.3', '--kernel-tree', str(tree), '--output', str(output)]
+            with patch.object(sync.sys, 'argv', argv):
+                self.assertEqual(sync.main(), 0)
             manifest = json.loads((output / 'manifest.json').read_text())
             self.assertEqual(manifest['versions'], ['v7.3'])
             self.assertEqual(manifest['version_architectures']['v7.3'], list(sync.ARCHES))
@@ -126,6 +139,51 @@ class ImportTests(unittest.TestCase):
             self.assertIsNone(data['syscalls'][1]['arguments'])
             with self.assertRaises(ValueError):
                 sync.generate('v6.12', tree, output)
+
+            old_manifest = (output / 'manifest.json').read_bytes()
+            old_sources = (output / 'v7.3/sources.json').read_bytes()
+            old_table = (output / 'v7.3/x64.json').read_bytes()
+            header = tree / 'include/linux/syscalls.h'
+            header.write_text(header.read_text().replace('long sys_read', 'ssize_t sys_read'))
+            write_json = sync.atomic_json
+
+            for failed_file in ['x64.json', 'manifest.json']:
+                def fail_write(path, value):
+                    if path.name == failed_file:
+                        raise OSError('simulated failure writing ' + failed_file)
+                    write_json(path, value)
+
+                with self.subTest(failed_file=failed_file), patch.object(sync.sys, 'argv', argv), patch.object(sync, 'atomic_json', fail_write):
+                    self.assertEqual(sync.main(), 1)
+                    self.assertEqual((output / 'manifest.json').read_bytes(), old_manifest)
+                    self.assertEqual((output / 'v7.3/sources.json').read_bytes(), old_sources)
+                    self.assertEqual((output / 'v7.3/x64.json').read_bytes(), old_table)
+                    self.assertFalse(list(output.glob('revisions/v7.3/*')))
+
+            with patch.object(sync.sys, 'argv', argv):
+                self.assertEqual(sync.main(), 0)
+            revised = json.loads((output / 'manifest.json').read_text())
+            folder = output / revised['version_paths']['v7.3']
+            active = json.loads((folder / 'x64.json').read_text())
+            self.assertIn('ssize_t sys_read(', active['syscalls'][0]['declaration'])
+            self.assertEqual((output / 'v7.3/x64.json').read_bytes(), old_table)
+            self.assertEqual((output / 'v7.3/sources.json').read_bytes(), old_sources)
+
+    def test_batch_failure_does_not_publish_a_successful_release(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            good = 'v2.6.12'
+            broken = 'v2.6.16'
+            argv = ['sync_kernel.py', '--refs', good, broken, '--output', directory]
+
+            def generate(ref, tree, staged):
+                if ref == broken:
+                    raise OSError('simulated source failure')
+                shutil.copytree(sync.ROOT / 'public' / 'data' / ref, staged / ref)
+
+            with patch.object(sync.sys, 'argv', argv), patch.object(sync, 'generate', generate):
+                self.assertEqual(sync.main(), 1)
+            self.assertEqual(list(output.iterdir()), [])
 
 
 if __name__ == '__main__':

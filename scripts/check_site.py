@@ -54,14 +54,24 @@ def check(site, baseurl):
             assert imported.startswith('./'), 'Module import must be relative: ' + imported
             assert (site / imported).is_file(), 'Missing module: ' + imported
     assert '/api/v1/syscalls/' not in (site / 'app.js').read_text(), 'Frontend still depends on the Node API'
+    manifest = json.loads((site / 'data/manifest.json').read_text())
+    paths = manifest.get('version_paths', {})
+    availability = manifest.get('version_architectures', {})
+    architectures = [arch['id'] for arch in manifest['architectures']]
     api_index = json.loads((site / 'api/v1/index.json').read_text())
+    expected_tables = {
+        (version, arch): '../../data/{}/{}.json'.format(paths.get(version, version), arch)
+        for version in manifest['versions']
+        for arch in availability.get(version, architectures)
+    }
+    assert {(item['version'], item['architecture']): item['url'] for item in api_index['tables']} == expected_tables, 'Static API index differs from the built manifest'
     for item in api_index['tables']:
         assert (site / 'api/v1' / item['url']).is_file(), 'Missing static API table'
-    manifest = json.loads((site / 'data/manifest.json').read_text())
     for version in manifest['versions']:
-        sources = json.loads((site / 'data' / version / 'sources.json').read_text())
+        folder = site / 'data' / paths.get(version, version)
+        sources = json.loads((folder / 'sources.json').read_text())
         for source in sources['files']:
-            data = (site / 'data' / version / source['bundled_path']).read_bytes()
+            data = (folder / source['bundled_path']).read_bytes()
             assert hashlib.sha256(data).hexdigest() == source['sha256'], 'Modified kernel source: ' + source['path']
     notice = (site / 'licensing.txt').read_text()
     assert '{{' not in notice and not notice.startswith('---'), 'Unprocessed license notices'

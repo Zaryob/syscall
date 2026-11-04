@@ -12,12 +12,17 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
 ARCHIVE = PUBLIC / 'downloads/syscall-reference-source.tar.gz'
-ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'README.tr.md', 'THIRD_PARTY_NOTICES.md']
+ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'package-lock.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'README.tr.md', 'THIRD_PARTY_NOTICES.md']
 SOURCE_DIRS = ['public', 'scripts', 'tests', 'LICENSES', '.github']
 
 
 def prepare():
-    manifest = json.loads((PUBLIC / 'data/manifest.json').read_text())
+    manifest_path = PUBLIC / 'data/manifest.json'
+    manifest_bytes = manifest_path.read_bytes()
+    manifest = json.loads(manifest_bytes)
+    paths = manifest.get('version_paths', {})
+    availability = manifest.get('version_architectures', {})
+    architectures = [arch['id'] for arch in manifest['architectures']]
     api = PUBLIC / 'api/v1'
     api.mkdir(parents=True, exist_ok=True)
     indexes = {
@@ -28,8 +33,12 @@ def prepare():
             # Relative to this API index, so a project-site baseurl also works.
             'manifest': '../../data/manifest.json',
             'architectures': 'architectures.json', 'versions': 'versions.json',
-            'version_architectures': manifest.get('version_architectures', {}),
-            'tables': [{'version': version, 'architecture': arch['id'], 'url': '../../data/{}/{}.json'.format(version, arch['id'])} for version in manifest['versions'] for arch in manifest['architectures'] if arch['id'] in manifest.get('version_architectures', {}).get(version, [a['id'] for a in manifest['architectures']])],
+            'version_architectures': availability,
+            'tables': [
+                {'version': version, 'architecture': arch, 'url': '../../data/{}/{}.json'.format(paths.get(version, version), arch)}
+                for version in manifest['versions']
+                for arch in availability.get(version, architectures)
+            ],
         },
     }
     for filename, data in indexes.items():
@@ -61,7 +70,7 @@ def prepare():
             with tarfile.open(fileobj=compressed, mode='w') as archive:
                 for path in selected:
                     name = 'syscall-reference/' + path.relative_to(ROOT).as_posix()
-                    body = path.read_bytes()
+                    body = manifest_bytes if path == manifest_path else path.read_bytes()
                     info = tarfile.TarInfo(name)
                     info.size = len(body)
                     info.mode = 0o644

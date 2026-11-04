@@ -7,11 +7,10 @@ Linux kaynaklarından üretilen, aranabilir sistem çağrısı tabloları: C imz
 register kuralları ve sürüm karşılaştırmaları. Arayüz Türkçe/İngilizce dil seçimi
 ve açık/koyu tema sunar.
 
-## Jekyll ile çalıştırma
+## Yerelde çalıştırma
 
-Gereksinimler: Ruby 3.3+, Bundler ve Python 3.9+. Node.js 22+ yalnızca npm
-kısayolları, testler ve isteğe bağlı yerel API için gerekir. Site ziyaretçisinin
-Ruby, Node veya Python çalıştırması gerekmez; yayımlanan çıktı tamamen statiktir.
+Ruby 3.3+, Bundler ve Python 3.9+ gerekir. npm kısayolları, testler ve yerel API
+için Node.js 22+ kullanılır. Yayımlanan site statiktir.
 
 ```sh
 python3 scripts/jekyll.py install
@@ -23,41 +22,23 @@ npm run build # Statik API/kaynak arşivi, Jekyll build ve çıktı kontrolü
 npm test      # Veri, baseurl, opsiyonel API ve importer testleri
 ```
 
-`jekyll.py`, PATH'teki uygun Ruby'yi veya mevcut Homebrew Ruby kurulumunu
-kullanır; sistem Ruby'sini ve shell ayarlarınızı değiştirmez. Gem'ler yerel
-`vendor/bundle/` dizinine kurulur. macOS sistem Ruby 2.6 tek başına yeterli değildir.
-
-Node olmadan da Jekyll kullanılabilir:
+Node olmadan çalıştırmak için:
 
 ```sh
 python3 scripts/prepare_site.py
-bundle exec jekyll serve --port 5173
-# Üretim çıktısı:
-bundle exec jekyll build
-python3 scripts/check_site.py
+python3 scripts/jekyll.py serve --port 5173
 ```
 
-Doğrudan Bundler kullanırken Ruby 3.3+ PATH'te bulunmalıdır. `_config.yml` site
-kaynağını `public/`, çıktıyı `_site/` olarak belirler. Hazır kernel snapshot'ları
-repoda bulunduğu için derleme yerel çekirdek verilerini kullanır.
-İlk gem kurulumu tamamlandıktan sonra build yerel girdilerle çalışır.
+`jekyll.py`, PATH veya Homebrew üzerinden Ruby 3.3+ seçer ve gem’leri
+`vendor/bundle/` dizinine kurar. Derleme repodaki kernel verilerini kullanır.
 
 ## GitHub Pages'te yayımlama
 
-1. Bu repoyu GitHub'a aktarın; varsayılan yayımlama dalı `main`dir.
-2. Repo **Settings → Pages → Build and deployment → Source** ayarını
-   **GitHub Actions** yapın.
-3. `main` dalına push edin veya **Build and deploy Jekyll** iş akışını elle başlatın.
-
-`.github/workflows/pages.yml` Ruby/gem ve Node testlerini çalıştırır, statik API ve
-GPL kaynak arşivini üretir, Jekyll çıktısını doğrular ve Pages'e yükler. Pull
-request'ler build edilir ve doğrulanır; deployment yapılmaz. Repo alt yolu
-`actions/configure-pages` çıktısından alınır; özel alan adı veya kullanıcı sitesi
-kökünde de aynı kaynaklar kullanılabilir. Dalınız farklıysa workflow'daki
-`branches: [main]` satırını değiştirin.
-
-Bu hazırlık herhangi bir uzak repo oluşturmaz veya kendiliğinden yayımlamaz.
-GitHub'a aktarılıp Pages etkinleştirildiğinde workflow devreye girer.
+Repo **Settings → Pages → Build and deployment → Source** ayarını
+**GitHub Actions** yapın. `main` dalına push edin veya **Build and deploy Jekyll**
+iş akışını elle başlatın. İş akışı testleri çalıştırır, Chromium’da alt yol
+derlemesini kontrol eder ve doğrulanan siteyi yayımlar. Pull request’lerde
+yalnızca derleme ve doğrulama çalışır. [Yayın iş akışı](.github/workflows/pages.yml)
 
 GitHub Pages dışındaki statik hosting'ler için `npm run build` sonrasında
 `_site/` içeriğini yayımlayın. Alt yolda yayımlamak için:
@@ -68,10 +49,8 @@ python3 scripts/jekyll.py build --baseurl /syscall
 python3 scripts/check_site.py --baseurl /syscall
 ```
 
-`url` ve `baseurl` değerleri `_config.yml` içinden de düzenlenebilir. Kaynak
-arşivini, lisans metinlerini ve `data/` altındaki kernel girdilerini çıktıdan
-çıkarmayın. Hazırlık, yerel `.git`, `.cache`, `.bundle`, `vendor` ve ortam
-dosyalarını kaynak arşivine almaz.
+Kaynak arşivini, lisans metinlerini ve `data/` altındaki kernel girdilerini
+yayımlanan çıktıyla birlikte tutun.
 
 ## Özellikler
 
@@ -89,7 +68,8 @@ dosyalarını kaynak arşivine almaz.
 
 ## Veriyi doğrudan kernel’den üretme
 
-Python 3.9+; yalnızca standart kütüphane kullanılır. Kernel derlemek gerekmez.
+Python 3.9+ gerekir. Tarihsel başlıkları okumak için Clang veya GCC
+önişlemcisi kullanılır.
 
 ```sh
 npm run sync
@@ -103,9 +83,8 @@ python3 scripts/sync_kernel.py --refs v7.3 --kernel-tree /path/to/linux
 python3 scripts/sync_kernel.py --refs v7.3 --output /tmp/syscall-data
 ```
 
-Importer yalnızca açık sürüm etiketlerini kabul eder. v6.12 ve sonrasındaki `.tbl`
-yerleşimini destekler; eski kernel serileri için ek bir `asm-generic/unistd.h`
-okuyucusu gerekir. Yeni bir sürümü varsayılanlara eklemeden önce importer ve testleri
+Importer, repoda bulunan tarihsel başlık düzenlerini ve güncel `.tbl` tablolarını
+destekler. Yeni bir sürümü varsayılanlara eklemeden önce importer ve testleri
 çalıştırın. Desteklenmeyen biçimlerde hata verir.
 
 Numaralar ve ABI’ler `arch/*/.../syscall*.tbl` ve `scripts/syscall.tbl` dosyalarından
@@ -123,9 +102,11 @@ kernel lisans metinleriyle birlikte `public/data/<tag>/sources/` altında bulunu
 listesi aynı dizinin yanındaki `sources.json` dosyasındadır. Yeni bir kaynak
 dosyasının lisansı tanınmıyorsa importer veri yayımlamadan durur.
 Yerel ağaçtan üretilen veride varsa Git commit’i de kaydedilir; özetler yerel
-değişiklikleri kapsar. Dosyalar geçici dosya + atomik replace ile yazılır;
-manifest yalnızca tüm istenen sürümler başarıyla tamamlandıktan sonra güncellenir.
-Importer’ı aynı çıktı dizini üzerinde eşzamanlı çalıştırmayın.
+değişiklikleri kapsar. İstenen tüm sürümlerin tabloları ve kaynak hash’leri
+doğrulandıktan sonra manifest tek işlemde güncellenir. Yayımlanmış bir sürümü
+yeniden içe aktarmak `data/revisions/` altında yeni bir veri kümesi oluşturur.
+Manifestteki `version_paths` ve statik API dizini etkin revizyonu gösterir.
+Önceki indirme adresleri kendi veri kümelerini sunmaya devam eder.
 
 ## Statik JSON API
 
