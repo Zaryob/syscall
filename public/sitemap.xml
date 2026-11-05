@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://zaryob.github.io/syscall/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?lang=tr" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
