@@ -44,6 +44,25 @@ def prepare():
     for filename, data in indexes.items():
         (api / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
+    x64_path = PUBLIC / 'data/v7.3/x64.json'
+    if x64_path.is_file():
+        x64_data = json.loads(x64_path.read_bytes())
+        search_entries = []
+        for s in x64_data.get('syscalls', []):
+            if not s.get('name') or s.get('status') == 'unimplemented':
+                continue
+            name = s['name']
+            decl = s.get('declaration') or ', '.join(s.get('arguments') or [])
+            for lang in ['tr', 'en']:
+                search_entries.append({
+                    'lang': lang,
+                    'title': f'sys_{name}',
+                    'url': f'/syscall/?q={name}&highlight={name}#sys-{name}',
+                    'type': 'syscall/',
+                    'description': decl,
+                })
+        (PUBLIC / 'search.json').write_text(json.dumps(search_entries, indent=2, ensure_ascii=False) + '\n')
+
     paths = [ROOT / p for p in ROOT_FILES]
     paths.append(ROOT / 'docs/reference-preview.png')
     for folder in SOURCE_DIRS:

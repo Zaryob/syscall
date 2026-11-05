@@ -1,0 +1,5168 @@
+[
+  {
+    "lang": "tr",
+    "title": "sys_read",
+    "url": "/syscall/?q=read&highlight=read#sys-read",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_read(unsigned int fd, char __user *buf, size_t count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_read",
+    "url": "/syscall/?q=read&highlight=read#sys-read",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_read(unsigned int fd, char __user *buf, size_t count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_write",
+    "url": "/syscall/?q=write&highlight=write#sys-write",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_write(unsigned int fd, const char __user *buf, size_t count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_write",
+    "url": "/syscall/?q=write&highlight=write#sys-write",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_write(unsigned int fd, const char __user *buf, size_t count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_open",
+    "url": "/syscall/?q=open&highlight=open#sys-open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open(const char __user *filename, int flags, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_open",
+    "url": "/syscall/?q=open&highlight=open#sys-open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open(const char __user *filename, int flags, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_close",
+    "url": "/syscall/?q=close&highlight=close#sys-close",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_close(unsigned int fd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_close",
+    "url": "/syscall/?q=close&highlight=close#sys-close",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_close(unsigned int fd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_stat",
+    "url": "/syscall/?q=stat&highlight=stat#sys-stat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newstat(const char __user *filename, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_stat",
+    "url": "/syscall/?q=stat&highlight=stat#sys-stat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newstat(const char __user *filename, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fstat",
+    "url": "/syscall/?q=fstat&highlight=fstat#sys-fstat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newfstat(unsigned int fd, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fstat",
+    "url": "/syscall/?q=fstat&highlight=fstat#sys-fstat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newfstat(unsigned int fd, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lstat",
+    "url": "/syscall/?q=lstat&highlight=lstat#sys-lstat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newlstat(const char __user *filename, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lstat",
+    "url": "/syscall/?q=lstat&highlight=lstat#sys-lstat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newlstat(const char __user *filename, struct stat __user *statbuf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_poll",
+    "url": "/syscall/?q=poll&highlight=poll#sys-poll",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_poll(struct pollfd __user *ufds, unsigned int nfds, int timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_poll",
+    "url": "/syscall/?q=poll&highlight=poll#sys-poll",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_poll(struct pollfd __user *ufds, unsigned int nfds, int timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lseek",
+    "url": "/syscall/?q=lseek&highlight=lseek#sys-lseek",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lseek(unsigned int fd, off_t offset, unsigned int whence);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lseek",
+    "url": "/syscall/?q=lseek&highlight=lseek#sys-lseek",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lseek(unsigned int fd, off_t offset, unsigned int whence);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mmap",
+    "url": "/syscall/?q=mmap&highlight=mmap#sys-mmap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mmap(unsigned long addr, unsigned long len, unsigned long prot, unsigned long flags, unsigned long fd, unsigned long off);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mmap",
+    "url": "/syscall/?q=mmap&highlight=mmap#sys-mmap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mmap(unsigned long addr, unsigned long len, unsigned long prot, unsigned long flags, unsigned long fd, unsigned long off);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mprotect",
+    "url": "/syscall/?q=mprotect&highlight=mprotect#sys-mprotect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mprotect(unsigned long start, size_t len, unsigned long prot);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mprotect",
+    "url": "/syscall/?q=mprotect&highlight=mprotect#sys-mprotect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mprotect(unsigned long start, size_t len, unsigned long prot);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_munmap",
+    "url": "/syscall/?q=munmap&highlight=munmap#sys-munmap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munmap(unsigned long addr, size_t len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_munmap",
+    "url": "/syscall/?q=munmap&highlight=munmap#sys-munmap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munmap(unsigned long addr, size_t len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_brk",
+    "url": "/syscall/?q=brk&highlight=brk#sys-brk",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_brk(unsigned long brk);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_brk",
+    "url": "/syscall/?q=brk&highlight=brk#sys-brk",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_brk(unsigned long brk);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigaction",
+    "url": "/syscall/?q=rt_sigaction&highlight=rt_sigaction#sys-rt_sigaction",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigaction(int, const struct sigaction __user *, struct sigaction __user *, size_t);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigaction",
+    "url": "/syscall/?q=rt_sigaction&highlight=rt_sigaction#sys-rt_sigaction",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigaction(int, const struct sigaction __user *, struct sigaction __user *, size_t);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigprocmask",
+    "url": "/syscall/?q=rt_sigprocmask&highlight=rt_sigprocmask#sys-rt_sigprocmask",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigprocmask(int how, sigset_t __user *set, sigset_t __user *oset, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigprocmask",
+    "url": "/syscall/?q=rt_sigprocmask&highlight=rt_sigprocmask#sys-rt_sigprocmask",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigprocmask(int how, sigset_t __user *set, sigset_t __user *oset, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigreturn",
+    "url": "/syscall/?q=rt_sigreturn&highlight=rt_sigreturn#sys-rt_sigreturn",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigreturn",
+    "url": "/syscall/?q=rt_sigreturn&highlight=rt_sigreturn#sys-rt_sigreturn",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ioctl",
+    "url": "/syscall/?q=ioctl&highlight=ioctl#sys-ioctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioctl(unsigned int fd, unsigned int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ioctl",
+    "url": "/syscall/?q=ioctl&highlight=ioctl#sys-ioctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioctl(unsigned int fd, unsigned int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pread64",
+    "url": "/syscall/?q=pread64&highlight=pread64#sys-pread64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pread64(unsigned int fd, char __user *buf, size_t count, loff_t pos);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pread64",
+    "url": "/syscall/?q=pread64&highlight=pread64#sys-pread64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pread64(unsigned int fd, char __user *buf, size_t count, loff_t pos);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pwrite64",
+    "url": "/syscall/?q=pwrite64&highlight=pwrite64#sys-pwrite64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwrite64(unsigned int fd, const char __user *buf, size_t count, loff_t pos);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pwrite64",
+    "url": "/syscall/?q=pwrite64&highlight=pwrite64#sys-pwrite64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwrite64(unsigned int fd, const char __user *buf, size_t count, loff_t pos);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_readv",
+    "url": "/syscall/?q=readv&highlight=readv#sys-readv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_readv",
+    "url": "/syscall/?q=readv&highlight=readv#sys-readv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_writev",
+    "url": "/syscall/?q=writev&highlight=writev#sys-writev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_writev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_writev",
+    "url": "/syscall/?q=writev&highlight=writev#sys-writev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_writev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_access",
+    "url": "/syscall/?q=access&highlight=access#sys-access",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_access(const char __user *filename, int mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_access",
+    "url": "/syscall/?q=access&highlight=access#sys-access",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_access(const char __user *filename, int mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pipe",
+    "url": "/syscall/?q=pipe&highlight=pipe#sys-pipe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pipe(int __user *fildes);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pipe",
+    "url": "/syscall/?q=pipe&highlight=pipe#sys-pipe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pipe(int __user *fildes);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_select",
+    "url": "/syscall/?q=select&highlight=select#sys-select",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_select(int n, fd_set __user *inp, fd_set __user *outp, fd_set __user *exp, struct __kernel_old_timeval __user *tvp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_select",
+    "url": "/syscall/?q=select&highlight=select#sys-select",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_select(int n, fd_set __user *inp, fd_set __user *outp, fd_set __user *exp, struct __kernel_old_timeval __user *tvp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_yield",
+    "url": "/syscall/?q=sched_yield&highlight=sched_yield#sys-sched_yield",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_yield(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_yield",
+    "url": "/syscall/?q=sched_yield&highlight=sched_yield#sys-sched_yield",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_yield(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mremap",
+    "url": "/syscall/?q=mremap&highlight=mremap#sys-mremap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mremap(unsigned long addr, unsigned long old_len, unsigned long new_len, unsigned long flags, unsigned long new_addr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mremap",
+    "url": "/syscall/?q=mremap&highlight=mremap#sys-mremap",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mremap(unsigned long addr, unsigned long old_len, unsigned long new_len, unsigned long flags, unsigned long new_addr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_msync",
+    "url": "/syscall/?q=msync&highlight=msync#sys-msync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msync(unsigned long start, size_t len, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_msync",
+    "url": "/syscall/?q=msync&highlight=msync#sys-msync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msync(unsigned long start, size_t len, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mincore",
+    "url": "/syscall/?q=mincore&highlight=mincore#sys-mincore",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mincore(unsigned long start, size_t len, unsigned char __user * vec);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mincore",
+    "url": "/syscall/?q=mincore&highlight=mincore#sys-mincore",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mincore(unsigned long start, size_t len, unsigned char __user * vec);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_madvise",
+    "url": "/syscall/?q=madvise&highlight=madvise#sys-madvise",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_madvise(unsigned long start, size_t len, int behavior);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_madvise",
+    "url": "/syscall/?q=madvise&highlight=madvise#sys-madvise",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_madvise(unsigned long start, size_t len, int behavior);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_shmget",
+    "url": "/syscall/?q=shmget&highlight=shmget#sys-shmget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmget(key_t key, size_t size, int flag);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_shmget",
+    "url": "/syscall/?q=shmget&highlight=shmget#sys-shmget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmget(key_t key, size_t size, int flag);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_shmat",
+    "url": "/syscall/?q=shmat&highlight=shmat#sys-shmat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmat(int shmid, char __user *shmaddr, int shmflg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_shmat",
+    "url": "/syscall/?q=shmat&highlight=shmat#sys-shmat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmat(int shmid, char __user *shmaddr, int shmflg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_shmctl",
+    "url": "/syscall/?q=shmctl&highlight=shmctl#sys-shmctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_shmctl",
+    "url": "/syscall/?q=shmctl&highlight=shmctl#sys-shmctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_dup",
+    "url": "/syscall/?q=dup&highlight=dup#sys-dup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup(unsigned int fildes);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_dup",
+    "url": "/syscall/?q=dup&highlight=dup#sys-dup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup(unsigned int fildes);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_dup2",
+    "url": "/syscall/?q=dup2&highlight=dup2#sys-dup2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup2(unsigned int oldfd, unsigned int newfd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_dup2",
+    "url": "/syscall/?q=dup2&highlight=dup2#sys-dup2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup2(unsigned int oldfd, unsigned int newfd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pause",
+    "url": "/syscall/?q=pause&highlight=pause#sys-pause",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pause(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pause",
+    "url": "/syscall/?q=pause&highlight=pause#sys-pause",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pause(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_nanosleep",
+    "url": "/syscall/?q=nanosleep&highlight=nanosleep#sys-nanosleep",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_nanosleep(struct __kernel_timespec __user *rqtp, struct __kernel_timespec __user *rmtp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_nanosleep",
+    "url": "/syscall/?q=nanosleep&highlight=nanosleep#sys-nanosleep",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_nanosleep(struct __kernel_timespec __user *rqtp, struct __kernel_timespec __user *rmtp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getitimer",
+    "url": "/syscall/?q=getitimer&highlight=getitimer#sys-getitimer",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getitimer(int which, struct __kernel_old_itimerval __user *value);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getitimer",
+    "url": "/syscall/?q=getitimer&highlight=getitimer#sys-getitimer",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getitimer(int which, struct __kernel_old_itimerval __user *value);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_alarm",
+    "url": "/syscall/?q=alarm&highlight=alarm#sys-alarm",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_alarm(unsigned int seconds);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_alarm",
+    "url": "/syscall/?q=alarm&highlight=alarm#sys-alarm",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_alarm(unsigned int seconds);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setitimer",
+    "url": "/syscall/?q=setitimer&highlight=setitimer#sys-setitimer",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setitimer(int which, struct __kernel_old_itimerval __user *value, struct __kernel_old_itimerval __user *ovalue);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setitimer",
+    "url": "/syscall/?q=setitimer&highlight=setitimer#sys-setitimer",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setitimer(int which, struct __kernel_old_itimerval __user *value, struct __kernel_old_itimerval __user *ovalue);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getpid",
+    "url": "/syscall/?q=getpid&highlight=getpid#sys-getpid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getpid",
+    "url": "/syscall/?q=getpid&highlight=getpid#sys-getpid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sendfile",
+    "url": "/syscall/?q=sendfile&highlight=sendfile#sys-sendfile",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendfile64(int out_fd, int in_fd, loff_t __user *offset, size_t count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sendfile",
+    "url": "/syscall/?q=sendfile&highlight=sendfile#sys-sendfile",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendfile64(int out_fd, int in_fd, loff_t __user *offset, size_t count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_socket",
+    "url": "/syscall/?q=socket&highlight=socket#sys-socket",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_socket(int, int, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_socket",
+    "url": "/syscall/?q=socket&highlight=socket#sys-socket",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_socket(int, int, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_connect",
+    "url": "/syscall/?q=connect&highlight=connect#sys-connect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_connect(int, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_connect",
+    "url": "/syscall/?q=connect&highlight=connect#sys-connect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_connect(int, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_accept",
+    "url": "/syscall/?q=accept&highlight=accept#sys-accept",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_accept(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_accept",
+    "url": "/syscall/?q=accept&highlight=accept#sys-accept",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_accept(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sendto",
+    "url": "/syscall/?q=sendto&highlight=sendto#sys-sendto",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendto(int, void __user *, size_t, unsigned, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sendto",
+    "url": "/syscall/?q=sendto&highlight=sendto#sys-sendto",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendto(int, void __user *, size_t, unsigned, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_recvfrom",
+    "url": "/syscall/?q=recvfrom&highlight=recvfrom#sys-recvfrom",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvfrom(int, void __user *, size_t, unsigned, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_recvfrom",
+    "url": "/syscall/?q=recvfrom&highlight=recvfrom#sys-recvfrom",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvfrom(int, void __user *, size_t, unsigned, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sendmsg",
+    "url": "/syscall/?q=sendmsg&highlight=sendmsg#sys-sendmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendmsg(int fd, struct user_msghdr __user *msg, unsigned flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sendmsg",
+    "url": "/syscall/?q=sendmsg&highlight=sendmsg#sys-sendmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendmsg(int fd, struct user_msghdr __user *msg, unsigned flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_recvmsg",
+    "url": "/syscall/?q=recvmsg&highlight=recvmsg#sys-recvmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvmsg(int fd, struct user_msghdr __user *msg, unsigned flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_recvmsg",
+    "url": "/syscall/?q=recvmsg&highlight=recvmsg#sys-recvmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvmsg(int fd, struct user_msghdr __user *msg, unsigned flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_shutdown",
+    "url": "/syscall/?q=shutdown&highlight=shutdown#sys-shutdown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shutdown(int, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_shutdown",
+    "url": "/syscall/?q=shutdown&highlight=shutdown#sys-shutdown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shutdown(int, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_bind",
+    "url": "/syscall/?q=bind&highlight=bind#sys-bind",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_bind(int, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_bind",
+    "url": "/syscall/?q=bind&highlight=bind#sys-bind",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_bind(int, struct sockaddr __user *, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_listen",
+    "url": "/syscall/?q=listen&highlight=listen#sys-listen",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listen(int, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_listen",
+    "url": "/syscall/?q=listen&highlight=listen#sys-listen",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listen(int, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getsockname",
+    "url": "/syscall/?q=getsockname&highlight=getsockname#sys-getsockname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsockname(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getsockname",
+    "url": "/syscall/?q=getsockname&highlight=getsockname#sys-getsockname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsockname(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getpeername",
+    "url": "/syscall/?q=getpeername&highlight=getpeername#sys-getpeername",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpeername(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getpeername",
+    "url": "/syscall/?q=getpeername&highlight=getpeername#sys-getpeername",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpeername(int, struct sockaddr __user *, int __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_socketpair",
+    "url": "/syscall/?q=socketpair&highlight=socketpair#sys-socketpair",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_socketpair(int, int, int, int __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_socketpair",
+    "url": "/syscall/?q=socketpair&highlight=socketpair#sys-socketpair",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_socketpair(int, int, int, int __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setsockopt",
+    "url": "/syscall/?q=setsockopt&highlight=setsockopt#sys-setsockopt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setsockopt(int fd, int level, int optname, char __user *optval, int optlen);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setsockopt",
+    "url": "/syscall/?q=setsockopt&highlight=setsockopt#sys-setsockopt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setsockopt(int fd, int level, int optname, char __user *optval, int optlen);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getsockopt",
+    "url": "/syscall/?q=getsockopt&highlight=getsockopt#sys-getsockopt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsockopt(int fd, int level, int optname, char __user *optval, int __user *optlen);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getsockopt",
+    "url": "/syscall/?q=getsockopt&highlight=getsockopt#sys-getsockopt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsockopt(int fd, int level, int optname, char __user *optval, int __user *optlen);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clone",
+    "url": "/syscall/?q=clone&highlight=clone#sys-clone",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_clone",
+    "url": "/syscall/?q=clone&highlight=clone#sys-clone",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fork",
+    "url": "/syscall/?q=fork&highlight=fork#sys-fork",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fork(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fork",
+    "url": "/syscall/?q=fork&highlight=fork#sys-fork",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fork(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_vfork",
+    "url": "/syscall/?q=vfork&highlight=vfork#sys-vfork",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vfork(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_vfork",
+    "url": "/syscall/?q=vfork&highlight=vfork#sys-vfork",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vfork(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_execve",
+    "url": "/syscall/?q=execve&highlight=execve#sys-execve",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_execve(const char __user *filename, const char __user *const __user *argv, const char __user *const __user *envp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_execve",
+    "url": "/syscall/?q=execve&highlight=execve#sys-execve",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_execve(const char __user *filename, const char __user *const __user *argv, const char __user *const __user *envp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_exit",
+    "url": "/syscall/?q=exit&highlight=exit#sys-exit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_exit(int error_code);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_exit",
+    "url": "/syscall/?q=exit&highlight=exit#sys-exit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_exit(int error_code);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_wait4",
+    "url": "/syscall/?q=wait4&highlight=wait4#sys-wait4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_wait4(pid_t pid, int __user *stat_addr, int options, struct rusage __user *ru);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_wait4",
+    "url": "/syscall/?q=wait4&highlight=wait4#sys-wait4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_wait4(pid_t pid, int __user *stat_addr, int options, struct rusage __user *ru);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_kill",
+    "url": "/syscall/?q=kill&highlight=kill#sys-kill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kill(pid_t pid, int sig);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_kill",
+    "url": "/syscall/?q=kill&highlight=kill#sys-kill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kill(pid_t pid, int sig);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_uname",
+    "url": "/syscall/?q=uname&highlight=uname#sys-uname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newuname(struct new_utsname __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_uname",
+    "url": "/syscall/?q=uname&highlight=uname#sys-uname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newuname(struct new_utsname __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_semget",
+    "url": "/syscall/?q=semget&highlight=semget#sys-semget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semget(key_t key, int nsems, int semflg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_semget",
+    "url": "/syscall/?q=semget&highlight=semget#sys-semget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semget(key_t key, int nsems, int semflg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_semop",
+    "url": "/syscall/?q=semop&highlight=semop#sys-semop",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semop(int semid, struct sembuf __user *sops, unsigned nsops);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_semop",
+    "url": "/syscall/?q=semop&highlight=semop#sys-semop",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semop(int semid, struct sembuf __user *sops, unsigned nsops);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_semctl",
+    "url": "/syscall/?q=semctl&highlight=semctl#sys-semctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semctl(int semid, int semnum, int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_semctl",
+    "url": "/syscall/?q=semctl&highlight=semctl#sys-semctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semctl(int semid, int semnum, int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_shmdt",
+    "url": "/syscall/?q=shmdt&highlight=shmdt#sys-shmdt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmdt(char __user *shmaddr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_shmdt",
+    "url": "/syscall/?q=shmdt&highlight=shmdt#sys-shmdt",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_shmdt(char __user *shmaddr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_msgget",
+    "url": "/syscall/?q=msgget&highlight=msgget#sys-msgget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgget(key_t key, int msgflg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_msgget",
+    "url": "/syscall/?q=msgget&highlight=msgget#sys-msgget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgget(key_t key, int msgflg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_msgsnd",
+    "url": "/syscall/?q=msgsnd&highlight=msgsnd#sys-msgsnd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgsnd(int msqid, struct msgbuf __user *msgp, size_t msgsz, int msgflg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_msgsnd",
+    "url": "/syscall/?q=msgsnd&highlight=msgsnd#sys-msgsnd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgsnd(int msqid, struct msgbuf __user *msgp, size_t msgsz, int msgflg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_msgrcv",
+    "url": "/syscall/?q=msgrcv&highlight=msgrcv#sys-msgrcv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgrcv(int msqid, struct msgbuf __user *msgp, size_t msgsz, long msgtyp, int msgflg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_msgrcv",
+    "url": "/syscall/?q=msgrcv&highlight=msgrcv#sys-msgrcv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgrcv(int msqid, struct msgbuf __user *msgp, size_t msgsz, long msgtyp, int msgflg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_msgctl",
+    "url": "/syscall/?q=msgctl&highlight=msgctl#sys-msgctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgctl(int msqid, int cmd, struct msqid_ds __user *buf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_msgctl",
+    "url": "/syscall/?q=msgctl&highlight=msgctl#sys-msgctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_msgctl(int msqid, int cmd, struct msqid_ds __user *buf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fcntl",
+    "url": "/syscall/?q=fcntl&highlight=fcntl#sys-fcntl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fcntl(unsigned int fd, unsigned int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fcntl",
+    "url": "/syscall/?q=fcntl&highlight=fcntl#sys-fcntl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fcntl(unsigned int fd, unsigned int cmd, unsigned long arg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_flock",
+    "url": "/syscall/?q=flock&highlight=flock#sys-flock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_flock(unsigned int fd, unsigned int cmd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_flock",
+    "url": "/syscall/?q=flock&highlight=flock#sys-flock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_flock(unsigned int fd, unsigned int cmd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fsync",
+    "url": "/syscall/?q=fsync&highlight=fsync#sys-fsync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsync(unsigned int fd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fsync",
+    "url": "/syscall/?q=fsync&highlight=fsync#sys-fsync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsync(unsigned int fd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fdatasync",
+    "url": "/syscall/?q=fdatasync&highlight=fdatasync#sys-fdatasync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fdatasync(unsigned int fd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fdatasync",
+    "url": "/syscall/?q=fdatasync&highlight=fdatasync#sys-fdatasync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fdatasync(unsigned int fd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_truncate",
+    "url": "/syscall/?q=truncate&highlight=truncate#sys-truncate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_truncate(const char __user *path, long length);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_truncate",
+    "url": "/syscall/?q=truncate&highlight=truncate#sys-truncate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_truncate(const char __user *path, long length);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ftruncate",
+    "url": "/syscall/?q=ftruncate&highlight=ftruncate#sys-ftruncate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ftruncate(unsigned int fd, off_t length);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ftruncate",
+    "url": "/syscall/?q=ftruncate&highlight=ftruncate#sys-ftruncate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ftruncate(unsigned int fd, off_t length);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getdents",
+    "url": "/syscall/?q=getdents&highlight=getdents#sys-getdents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getdents(unsigned int fd, struct linux_dirent __user *dirent, unsigned int count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getdents",
+    "url": "/syscall/?q=getdents&highlight=getdents#sys-getdents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getdents(unsigned int fd, struct linux_dirent __user *dirent, unsigned int count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getcwd",
+    "url": "/syscall/?q=getcwd&highlight=getcwd#sys-getcwd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getcwd(char __user *buf, unsigned long size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getcwd",
+    "url": "/syscall/?q=getcwd&highlight=getcwd#sys-getcwd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getcwd(char __user *buf, unsigned long size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_chdir",
+    "url": "/syscall/?q=chdir&highlight=chdir#sys-chdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chdir(const char __user *filename);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_chdir",
+    "url": "/syscall/?q=chdir&highlight=chdir#sys-chdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chdir(const char __user *filename);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchdir",
+    "url": "/syscall/?q=fchdir&highlight=fchdir#sys-fchdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchdir(unsigned int fd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchdir",
+    "url": "/syscall/?q=fchdir&highlight=fchdir#sys-fchdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchdir(unsigned int fd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rename",
+    "url": "/syscall/?q=rename&highlight=rename#sys-rename",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rename(const char __user *oldname, const char __user *newname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rename",
+    "url": "/syscall/?q=rename&highlight=rename#sys-rename",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rename(const char __user *oldname, const char __user *newname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mkdir",
+    "url": "/syscall/?q=mkdir&highlight=mkdir#sys-mkdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mkdir(const char __user *pathname, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mkdir",
+    "url": "/syscall/?q=mkdir&highlight=mkdir#sys-mkdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mkdir(const char __user *pathname, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rmdir",
+    "url": "/syscall/?q=rmdir&highlight=rmdir#sys-rmdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rmdir(const char __user *pathname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rmdir",
+    "url": "/syscall/?q=rmdir&highlight=rmdir#sys-rmdir",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rmdir(const char __user *pathname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_creat",
+    "url": "/syscall/?q=creat&highlight=creat#sys-creat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_creat(const char __user *pathname, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_creat",
+    "url": "/syscall/?q=creat&highlight=creat#sys-creat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_creat(const char __user *pathname, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_link",
+    "url": "/syscall/?q=link&highlight=link#sys-link",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_link(const char __user *oldname, const char __user *newname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_link",
+    "url": "/syscall/?q=link&highlight=link#sys-link",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_link(const char __user *oldname, const char __user *newname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_unlink",
+    "url": "/syscall/?q=unlink&highlight=unlink#sys-unlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unlink(const char __user *pathname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_unlink",
+    "url": "/syscall/?q=unlink&highlight=unlink#sys-unlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unlink(const char __user *pathname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_symlink",
+    "url": "/syscall/?q=symlink&highlight=symlink#sys-symlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_symlink(const char __user *old, const char __user *new);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_symlink",
+    "url": "/syscall/?q=symlink&highlight=symlink#sys-symlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_symlink(const char __user *old, const char __user *new);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_readlink",
+    "url": "/syscall/?q=readlink&highlight=readlink#sys-readlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readlink(const char __user *path, char __user *buf, int bufsiz);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_readlink",
+    "url": "/syscall/?q=readlink&highlight=readlink#sys-readlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readlink(const char __user *path, char __user *buf, int bufsiz);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_chmod",
+    "url": "/syscall/?q=chmod&highlight=chmod#sys-chmod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chmod(const char __user *filename, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_chmod",
+    "url": "/syscall/?q=chmod&highlight=chmod#sys-chmod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chmod(const char __user *filename, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchmod",
+    "url": "/syscall/?q=fchmod&highlight=fchmod#sys-fchmod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmod(unsigned int fd, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchmod",
+    "url": "/syscall/?q=fchmod&highlight=fchmod#sys-fchmod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmod(unsigned int fd, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_chown",
+    "url": "/syscall/?q=chown&highlight=chown#sys-chown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chown(const char __user *filename, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_chown",
+    "url": "/syscall/?q=chown&highlight=chown#sys-chown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chown(const char __user *filename, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchown",
+    "url": "/syscall/?q=fchown&highlight=fchown#sys-fchown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchown(unsigned int fd, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchown",
+    "url": "/syscall/?q=fchown&highlight=fchown#sys-fchown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchown(unsigned int fd, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lchown",
+    "url": "/syscall/?q=lchown&highlight=lchown#sys-lchown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lchown(const char __user *filename, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lchown",
+    "url": "/syscall/?q=lchown&highlight=lchown#sys-lchown",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lchown(const char __user *filename, uid_t user, gid_t group);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_umask",
+    "url": "/syscall/?q=umask&highlight=umask#sys-umask",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_umask(int mask);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_umask",
+    "url": "/syscall/?q=umask&highlight=umask#sys-umask",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_umask(int mask);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_gettimeofday",
+    "url": "/syscall/?q=gettimeofday&highlight=gettimeofday#sys-gettimeofday",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_gettimeofday(struct __kernel_old_timeval __user *tv, struct timezone __user *tz);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_gettimeofday",
+    "url": "/syscall/?q=gettimeofday&highlight=gettimeofday#sys-gettimeofday",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_gettimeofday(struct __kernel_old_timeval __user *tv, struct timezone __user *tz);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getrlimit",
+    "url": "/syscall/?q=getrlimit&highlight=getrlimit#sys-getrlimit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrlimit(unsigned int resource, struct rlimit __user *rlim);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getrlimit",
+    "url": "/syscall/?q=getrlimit&highlight=getrlimit#sys-getrlimit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrlimit(unsigned int resource, struct rlimit __user *rlim);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getrusage",
+    "url": "/syscall/?q=getrusage&highlight=getrusage#sys-getrusage",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrusage(int who, struct rusage __user *ru);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getrusage",
+    "url": "/syscall/?q=getrusage&highlight=getrusage#sys-getrusage",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrusage(int who, struct rusage __user *ru);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sysinfo",
+    "url": "/syscall/?q=sysinfo&highlight=sysinfo#sys-sysinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sysinfo(struct sysinfo __user *info);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sysinfo",
+    "url": "/syscall/?q=sysinfo&highlight=sysinfo#sys-sysinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sysinfo(struct sysinfo __user *info);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_times",
+    "url": "/syscall/?q=times&highlight=times#sys-times",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_times(struct tms __user *tbuf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_times",
+    "url": "/syscall/?q=times&highlight=times#sys-times",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_times(struct tms __user *tbuf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ptrace",
+    "url": "/syscall/?q=ptrace&highlight=ptrace#sys-ptrace",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ptrace(long request, long pid, unsigned long addr, unsigned long data);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ptrace",
+    "url": "/syscall/?q=ptrace&highlight=ptrace#sys-ptrace",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ptrace(long request, long pid, unsigned long addr, unsigned long data);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getuid",
+    "url": "/syscall/?q=getuid&highlight=getuid#sys-getuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getuid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getuid",
+    "url": "/syscall/?q=getuid&highlight=getuid#sys-getuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getuid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_syslog",
+    "url": "/syscall/?q=syslog&highlight=syslog#sys-syslog",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_syslog(int type, char __user *buf, int len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_syslog",
+    "url": "/syscall/?q=syslog&highlight=syslog#sys-syslog",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_syslog(int type, char __user *buf, int len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getgid",
+    "url": "/syscall/?q=getgid&highlight=getgid#sys-getgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getgid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getgid",
+    "url": "/syscall/?q=getgid&highlight=getgid#sys-getgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getgid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setuid",
+    "url": "/syscall/?q=setuid&highlight=setuid#sys-setuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setuid(uid_t uid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setuid",
+    "url": "/syscall/?q=setuid&highlight=setuid#sys-setuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setuid(uid_t uid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setgid",
+    "url": "/syscall/?q=setgid&highlight=setgid#sys-setgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setgid(gid_t gid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setgid",
+    "url": "/syscall/?q=setgid&highlight=setgid#sys-setgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setgid(gid_t gid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_geteuid",
+    "url": "/syscall/?q=geteuid&highlight=geteuid#sys-geteuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_geteuid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_geteuid",
+    "url": "/syscall/?q=geteuid&highlight=geteuid#sys-geteuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_geteuid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getegid",
+    "url": "/syscall/?q=getegid&highlight=getegid#sys-getegid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getegid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getegid",
+    "url": "/syscall/?q=getegid&highlight=getegid#sys-getegid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getegid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setpgid",
+    "url": "/syscall/?q=setpgid&highlight=setpgid#sys-setpgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setpgid(pid_t pid, pid_t pgid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setpgid",
+    "url": "/syscall/?q=setpgid&highlight=setpgid#sys-setpgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setpgid(pid_t pid, pid_t pgid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getppid",
+    "url": "/syscall/?q=getppid&highlight=getppid#sys-getppid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getppid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getppid",
+    "url": "/syscall/?q=getppid&highlight=getppid#sys-getppid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getppid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getpgrp",
+    "url": "/syscall/?q=getpgrp&highlight=getpgrp#sys-getpgrp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpgrp(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getpgrp",
+    "url": "/syscall/?q=getpgrp&highlight=getpgrp#sys-getpgrp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpgrp(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setsid",
+    "url": "/syscall/?q=setsid&highlight=setsid#sys-setsid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setsid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setsid",
+    "url": "/syscall/?q=setsid&highlight=setsid#sys-setsid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setsid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setreuid",
+    "url": "/syscall/?q=setreuid&highlight=setreuid#sys-setreuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setreuid(uid_t ruid, uid_t euid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setreuid",
+    "url": "/syscall/?q=setreuid&highlight=setreuid#sys-setreuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setreuid(uid_t ruid, uid_t euid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setregid",
+    "url": "/syscall/?q=setregid&highlight=setregid#sys-setregid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setregid(gid_t rgid, gid_t egid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setregid",
+    "url": "/syscall/?q=setregid&highlight=setregid#sys-setregid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setregid(gid_t rgid, gid_t egid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getgroups",
+    "url": "/syscall/?q=getgroups&highlight=getgroups#sys-getgroups",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getgroups(int gidsetsize, gid_t __user *grouplist);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getgroups",
+    "url": "/syscall/?q=getgroups&highlight=getgroups#sys-getgroups",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getgroups(int gidsetsize, gid_t __user *grouplist);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setgroups",
+    "url": "/syscall/?q=setgroups&highlight=setgroups#sys-setgroups",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setgroups(int gidsetsize, gid_t __user *grouplist);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setgroups",
+    "url": "/syscall/?q=setgroups&highlight=setgroups#sys-setgroups",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setgroups(int gidsetsize, gid_t __user *grouplist);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setresuid",
+    "url": "/syscall/?q=setresuid&highlight=setresuid#sys-setresuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setresuid(uid_t ruid, uid_t euid, uid_t suid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setresuid",
+    "url": "/syscall/?q=setresuid&highlight=setresuid#sys-setresuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setresuid(uid_t ruid, uid_t euid, uid_t suid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getresuid",
+    "url": "/syscall/?q=getresuid&highlight=getresuid#sys-getresuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getresuid(uid_t __user *ruid, uid_t __user *euid, uid_t __user *suid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getresuid",
+    "url": "/syscall/?q=getresuid&highlight=getresuid#sys-getresuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getresuid(uid_t __user *ruid, uid_t __user *euid, uid_t __user *suid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setresgid",
+    "url": "/syscall/?q=setresgid&highlight=setresgid#sys-setresgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setresgid(gid_t rgid, gid_t egid, gid_t sgid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setresgid",
+    "url": "/syscall/?q=setresgid&highlight=setresgid#sys-setresgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setresgid(gid_t rgid, gid_t egid, gid_t sgid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getresgid",
+    "url": "/syscall/?q=getresgid&highlight=getresgid#sys-getresgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getresgid(gid_t __user *rgid, gid_t __user *egid, gid_t __user *sgid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getresgid",
+    "url": "/syscall/?q=getresgid&highlight=getresgid#sys-getresgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getresgid(gid_t __user *rgid, gid_t __user *egid, gid_t __user *sgid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getpgid",
+    "url": "/syscall/?q=getpgid&highlight=getpgid#sys-getpgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpgid(pid_t pid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getpgid",
+    "url": "/syscall/?q=getpgid&highlight=getpgid#sys-getpgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpgid(pid_t pid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setfsuid",
+    "url": "/syscall/?q=setfsuid&highlight=setfsuid#sys-setfsuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setfsuid(uid_t uid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setfsuid",
+    "url": "/syscall/?q=setfsuid&highlight=setfsuid#sys-setfsuid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setfsuid(uid_t uid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setfsgid",
+    "url": "/syscall/?q=setfsgid&highlight=setfsgid#sys-setfsgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setfsgid(gid_t gid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setfsgid",
+    "url": "/syscall/?q=setfsgid&highlight=setfsgid#sys-setfsgid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setfsgid(gid_t gid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getsid",
+    "url": "/syscall/?q=getsid&highlight=getsid#sys-getsid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsid(pid_t pid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getsid",
+    "url": "/syscall/?q=getsid&highlight=getsid#sys-getsid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getsid(pid_t pid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_capget",
+    "url": "/syscall/?q=capget&highlight=capget#sys-capget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_capget(cap_user_header_t header, cap_user_data_t dataptr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_capget",
+    "url": "/syscall/?q=capget&highlight=capget#sys-capget",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_capget(cap_user_header_t header, cap_user_data_t dataptr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_capset",
+    "url": "/syscall/?q=capset&highlight=capset#sys-capset",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_capset(cap_user_header_t header, const cap_user_data_t data);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_capset",
+    "url": "/syscall/?q=capset&highlight=capset#sys-capset",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_capset(cap_user_header_t header, const cap_user_data_t data);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigpending",
+    "url": "/syscall/?q=rt_sigpending&highlight=rt_sigpending#sys-rt_sigpending",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigpending(sigset_t __user *set, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigpending",
+    "url": "/syscall/?q=rt_sigpending&highlight=rt_sigpending#sys-rt_sigpending",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigpending(sigset_t __user *set, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigtimedwait",
+    "url": "/syscall/?q=rt_sigtimedwait&highlight=rt_sigtimedwait#sys-rt_sigtimedwait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigtimedwait(const sigset_t __user *uthese, siginfo_t __user *uinfo, const struct __kernel_timespec __user *uts, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigtimedwait",
+    "url": "/syscall/?q=rt_sigtimedwait&highlight=rt_sigtimedwait#sys-rt_sigtimedwait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigtimedwait(const sigset_t __user *uthese, siginfo_t __user *uinfo, const struct __kernel_timespec __user *uts, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigqueueinfo",
+    "url": "/syscall/?q=rt_sigqueueinfo&highlight=rt_sigqueueinfo#sys-rt_sigqueueinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigqueueinfo(pid_t pid, int sig, siginfo_t __user *uinfo);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigqueueinfo",
+    "url": "/syscall/?q=rt_sigqueueinfo&highlight=rt_sigqueueinfo#sys-rt_sigqueueinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigqueueinfo(pid_t pid, int sig, siginfo_t __user *uinfo);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_sigsuspend",
+    "url": "/syscall/?q=rt_sigsuspend&highlight=rt_sigsuspend#sys-rt_sigsuspend",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigsuspend(sigset_t __user *unewset, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_sigsuspend",
+    "url": "/syscall/?q=rt_sigsuspend&highlight=rt_sigsuspend#sys-rt_sigsuspend",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_sigsuspend(sigset_t __user *unewset, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sigaltstack",
+    "url": "/syscall/?q=sigaltstack&highlight=sigaltstack#sys-sigaltstack",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sigaltstack(const struct sigaltstack __user *uss, struct sigaltstack __user *uoss);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sigaltstack",
+    "url": "/syscall/?q=sigaltstack&highlight=sigaltstack#sys-sigaltstack",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sigaltstack(const struct sigaltstack __user *uss, struct sigaltstack __user *uoss);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_utime",
+    "url": "/syscall/?q=utime&highlight=utime#sys-utime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utime(char __user *filename, struct utimbuf __user *times);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_utime",
+    "url": "/syscall/?q=utime&highlight=utime#sys-utime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utime(char __user *filename, struct utimbuf __user *times);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mknod",
+    "url": "/syscall/?q=mknod&highlight=mknod#sys-mknod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mknod(const char __user *filename, umode_t mode, unsigned dev);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mknod",
+    "url": "/syscall/?q=mknod&highlight=mknod#sys-mknod",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mknod(const char __user *filename, umode_t mode, unsigned dev);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_personality",
+    "url": "/syscall/?q=personality&highlight=personality#sys-personality",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_personality(unsigned int personality);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_personality",
+    "url": "/syscall/?q=personality&highlight=personality#sys-personality",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_personality(unsigned int personality);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ustat",
+    "url": "/syscall/?q=ustat&highlight=ustat#sys-ustat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ustat(unsigned dev, struct ustat __user *ubuf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ustat",
+    "url": "/syscall/?q=ustat&highlight=ustat#sys-ustat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ustat(unsigned dev, struct ustat __user *ubuf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_statfs",
+    "url": "/syscall/?q=statfs&highlight=statfs#sys-statfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statfs(const char __user * path, struct statfs __user *buf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_statfs",
+    "url": "/syscall/?q=statfs&highlight=statfs#sys-statfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statfs(const char __user * path, struct statfs __user *buf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fstatfs",
+    "url": "/syscall/?q=fstatfs&highlight=fstatfs#sys-fstatfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fstatfs(unsigned int fd, struct statfs __user *buf);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fstatfs",
+    "url": "/syscall/?q=fstatfs&highlight=fstatfs#sys-fstatfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fstatfs(unsigned int fd, struct statfs __user *buf);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sysfs",
+    "url": "/syscall/?q=sysfs&highlight=sysfs#sys-sysfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sysfs(int option, unsigned long arg1, unsigned long arg2);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sysfs",
+    "url": "/syscall/?q=sysfs&highlight=sysfs#sys-sysfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sysfs(int option, unsigned long arg1, unsigned long arg2);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getpriority",
+    "url": "/syscall/?q=getpriority&highlight=getpriority#sys-getpriority",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpriority(int which, int who);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getpriority",
+    "url": "/syscall/?q=getpriority&highlight=getpriority#sys-getpriority",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getpriority(int which, int who);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setpriority",
+    "url": "/syscall/?q=setpriority&highlight=setpriority#sys-setpriority",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setpriority(int which, int who, int niceval);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setpriority",
+    "url": "/syscall/?q=setpriority&highlight=setpriority#sys-setpriority",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setpriority(int which, int who, int niceval);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_setparam",
+    "url": "/syscall/?q=sched_setparam&highlight=sched_setparam#sys-sched_setparam",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setparam(pid_t pid, struct sched_param __user *param);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_setparam",
+    "url": "/syscall/?q=sched_setparam&highlight=sched_setparam#sys-sched_setparam",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setparam(pid_t pid, struct sched_param __user *param);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_getparam",
+    "url": "/syscall/?q=sched_getparam&highlight=sched_getparam#sys-sched_getparam",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getparam(pid_t pid, struct sched_param __user *param);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_getparam",
+    "url": "/syscall/?q=sched_getparam&highlight=sched_getparam#sys-sched_getparam",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getparam(pid_t pid, struct sched_param __user *param);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_setscheduler",
+    "url": "/syscall/?q=sched_setscheduler&highlight=sched_setscheduler#sys-sched_setscheduler",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setscheduler(pid_t pid, int policy, struct sched_param __user *param);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_setscheduler",
+    "url": "/syscall/?q=sched_setscheduler&highlight=sched_setscheduler#sys-sched_setscheduler",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setscheduler(pid_t pid, int policy, struct sched_param __user *param);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_getscheduler",
+    "url": "/syscall/?q=sched_getscheduler&highlight=sched_getscheduler#sys-sched_getscheduler",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getscheduler(pid_t pid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_getscheduler",
+    "url": "/syscall/?q=sched_getscheduler&highlight=sched_getscheduler#sys-sched_getscheduler",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getscheduler(pid_t pid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_get_priority_max",
+    "url": "/syscall/?q=sched_get_priority_max&highlight=sched_get_priority_max#sys-sched_get_priority_max",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_get_priority_max(int policy);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_get_priority_max",
+    "url": "/syscall/?q=sched_get_priority_max&highlight=sched_get_priority_max#sys-sched_get_priority_max",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_get_priority_max(int policy);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_get_priority_min",
+    "url": "/syscall/?q=sched_get_priority_min&highlight=sched_get_priority_min#sys-sched_get_priority_min",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_get_priority_min(int policy);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_get_priority_min",
+    "url": "/syscall/?q=sched_get_priority_min&highlight=sched_get_priority_min#sys-sched_get_priority_min",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_get_priority_min(int policy);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_rr_get_interval",
+    "url": "/syscall/?q=sched_rr_get_interval&highlight=sched_rr_get_interval#sys-sched_rr_get_interval",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_rr_get_interval(pid_t pid, struct __kernel_timespec __user *interval);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_rr_get_interval",
+    "url": "/syscall/?q=sched_rr_get_interval&highlight=sched_rr_get_interval#sys-sched_rr_get_interval",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_rr_get_interval(pid_t pid, struct __kernel_timespec __user *interval);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mlock",
+    "url": "/syscall/?q=mlock&highlight=mlock#sys-mlock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlock(unsigned long start, size_t len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mlock",
+    "url": "/syscall/?q=mlock&highlight=mlock#sys-mlock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlock(unsigned long start, size_t len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_munlock",
+    "url": "/syscall/?q=munlock&highlight=munlock#sys-munlock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munlock(unsigned long start, size_t len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_munlock",
+    "url": "/syscall/?q=munlock&highlight=munlock#sys-munlock",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munlock(unsigned long start, size_t len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mlockall",
+    "url": "/syscall/?q=mlockall&highlight=mlockall#sys-mlockall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlockall(int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mlockall",
+    "url": "/syscall/?q=mlockall&highlight=mlockall#sys-mlockall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlockall(int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_munlockall",
+    "url": "/syscall/?q=munlockall&highlight=munlockall#sys-munlockall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munlockall(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_munlockall",
+    "url": "/syscall/?q=munlockall&highlight=munlockall#sys-munlockall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_munlockall(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_vhangup",
+    "url": "/syscall/?q=vhangup&highlight=vhangup#sys-vhangup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vhangup(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_vhangup",
+    "url": "/syscall/?q=vhangup&highlight=vhangup#sys-vhangup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vhangup(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_modify_ldt",
+    "url": "/syscall/?q=modify_ldt&highlight=modify_ldt#sys-modify_ldt",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_modify_ldt",
+    "url": "/syscall/?q=modify_ldt&highlight=modify_ldt#sys-modify_ldt",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pivot_root",
+    "url": "/syscall/?q=pivot_root&highlight=pivot_root#sys-pivot_root",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pivot_root(const char __user *new_root, const char __user *put_old);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pivot_root",
+    "url": "/syscall/?q=pivot_root&highlight=pivot_root#sys-pivot_root",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pivot_root(const char __user *new_root, const char __user *put_old);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_prctl",
+    "url": "/syscall/?q=prctl&highlight=prctl#sys-prctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_prctl(int option, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_prctl",
+    "url": "/syscall/?q=prctl&highlight=prctl#sys-prctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_prctl(int option, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_arch_prctl",
+    "url": "/syscall/?q=arch_prctl&highlight=arch_prctl#sys-arch_prctl",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_arch_prctl",
+    "url": "/syscall/?q=arch_prctl&highlight=arch_prctl#sys-arch_prctl",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_adjtimex",
+    "url": "/syscall/?q=adjtimex&highlight=adjtimex#sys-adjtimex",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_adjtimex(struct __kernel_timex __user *txc_p);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_adjtimex",
+    "url": "/syscall/?q=adjtimex&highlight=adjtimex#sys-adjtimex",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_adjtimex(struct __kernel_timex __user *txc_p);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setrlimit",
+    "url": "/syscall/?q=setrlimit&highlight=setrlimit#sys-setrlimit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setrlimit(unsigned int resource, struct rlimit __user *rlim);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setrlimit",
+    "url": "/syscall/?q=setrlimit&highlight=setrlimit#sys-setrlimit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setrlimit(unsigned int resource, struct rlimit __user *rlim);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_chroot",
+    "url": "/syscall/?q=chroot&highlight=chroot#sys-chroot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chroot(const char __user *filename);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_chroot",
+    "url": "/syscall/?q=chroot&highlight=chroot#sys-chroot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_chroot(const char __user *filename);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sync",
+    "url": "/syscall/?q=sync&highlight=sync#sys-sync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sync(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sync",
+    "url": "/syscall/?q=sync&highlight=sync#sys-sync",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sync(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_acct",
+    "url": "/syscall/?q=acct&highlight=acct#sys-acct",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_acct(const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_acct",
+    "url": "/syscall/?q=acct&highlight=acct#sys-acct",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_acct(const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_settimeofday",
+    "url": "/syscall/?q=settimeofday&highlight=settimeofday#sys-settimeofday",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_settimeofday(struct __kernel_old_timeval __user *tv, struct timezone __user *tz);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_settimeofday",
+    "url": "/syscall/?q=settimeofday&highlight=settimeofday#sys-settimeofday",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_settimeofday(struct __kernel_old_timeval __user *tv, struct timezone __user *tz);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mount",
+    "url": "/syscall/?q=mount&highlight=mount#sys-mount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mount(char __user *dev_name, char __user *dir_name, char __user *type, unsigned long flags, void __user *data);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mount",
+    "url": "/syscall/?q=mount&highlight=mount#sys-mount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mount(char __user *dev_name, char __user *dir_name, char __user *type, unsigned long flags, void __user *data);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_umount2",
+    "url": "/syscall/?q=umount2&highlight=umount2#sys-umount2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_umount(char __user *name, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_umount2",
+    "url": "/syscall/?q=umount2&highlight=umount2#sys-umount2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_umount(char __user *name, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_swapon",
+    "url": "/syscall/?q=swapon&highlight=swapon#sys-swapon",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_swapon(const char __user *specialfile, int swap_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_swapon",
+    "url": "/syscall/?q=swapon&highlight=swapon#sys-swapon",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_swapon(const char __user *specialfile, int swap_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_swapoff",
+    "url": "/syscall/?q=swapoff&highlight=swapoff#sys-swapoff",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_swapoff(const char __user *specialfile);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_swapoff",
+    "url": "/syscall/?q=swapoff&highlight=swapoff#sys-swapoff",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_swapoff(const char __user *specialfile);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_reboot",
+    "url": "/syscall/?q=reboot&highlight=reboot#sys-reboot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_reboot(int magic1, int magic2, unsigned int cmd, void __user *arg);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_reboot",
+    "url": "/syscall/?q=reboot&highlight=reboot#sys-reboot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_reboot(int magic1, int magic2, unsigned int cmd, void __user *arg);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sethostname",
+    "url": "/syscall/?q=sethostname&highlight=sethostname#sys-sethostname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sethostname(char __user *name, int len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sethostname",
+    "url": "/syscall/?q=sethostname&highlight=sethostname#sys-sethostname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sethostname(char __user *name, int len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setdomainname",
+    "url": "/syscall/?q=setdomainname&highlight=setdomainname#sys-setdomainname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setdomainname(char __user *name, int len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setdomainname",
+    "url": "/syscall/?q=setdomainname&highlight=setdomainname#sys-setdomainname",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setdomainname(char __user *name, int len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_iopl",
+    "url": "/syscall/?q=iopl&highlight=iopl#sys-iopl",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_iopl",
+    "url": "/syscall/?q=iopl&highlight=iopl#sys-iopl",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ioperm",
+    "url": "/syscall/?q=ioperm&highlight=ioperm#sys-ioperm",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioperm(unsigned long from, unsigned long num, int on);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ioperm",
+    "url": "/syscall/?q=ioperm&highlight=ioperm#sys-ioperm",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioperm(unsigned long from, unsigned long num, int on);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_init_module",
+    "url": "/syscall/?q=init_module&highlight=init_module#sys-init_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_init_module(void __user *umod, unsigned long len, const char __user *uargs);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_init_module",
+    "url": "/syscall/?q=init_module&highlight=init_module#sys-init_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_init_module(void __user *umod, unsigned long len, const char __user *uargs);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_delete_module",
+    "url": "/syscall/?q=delete_module&highlight=delete_module#sys-delete_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_delete_module(const char __user *name_user, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_delete_module",
+    "url": "/syscall/?q=delete_module&highlight=delete_module#sys-delete_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_delete_module(const char __user *name_user, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_quotactl",
+    "url": "/syscall/?q=quotactl&highlight=quotactl#sys-quotactl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_quotactl(unsigned int cmd, const char __user *special, qid_t id, void __user *addr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_quotactl",
+    "url": "/syscall/?q=quotactl&highlight=quotactl#sys-quotactl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_quotactl(unsigned int cmd, const char __user *special, qid_t id, void __user *addr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_gettid",
+    "url": "/syscall/?q=gettid&highlight=gettid#sys-gettid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_gettid(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_gettid",
+    "url": "/syscall/?q=gettid&highlight=gettid#sys-gettid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_gettid(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_readahead",
+    "url": "/syscall/?q=readahead&highlight=readahead#sys-readahead",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readahead(int fd, loff_t offset, size_t count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_readahead",
+    "url": "/syscall/?q=readahead&highlight=readahead#sys-readahead",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readahead(int fd, loff_t offset, size_t count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setxattr",
+    "url": "/syscall/?q=setxattr&highlight=setxattr#sys-setxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setxattr",
+    "url": "/syscall/?q=setxattr&highlight=setxattr#sys-setxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lsetxattr",
+    "url": "/syscall/?q=lsetxattr&highlight=lsetxattr#sys-lsetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsetxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lsetxattr",
+    "url": "/syscall/?q=lsetxattr&highlight=lsetxattr#sys-lsetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsetxattr(const char __user *path, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fsetxattr",
+    "url": "/syscall/?q=fsetxattr&highlight=fsetxattr#sys-fsetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsetxattr(int fd, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fsetxattr",
+    "url": "/syscall/?q=fsetxattr&highlight=fsetxattr#sys-fsetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsetxattr(int fd, const char __user *name, const void __user *value, size_t size, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getxattr",
+    "url": "/syscall/?q=getxattr&highlight=getxattr#sys-getxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getxattr(const char __user *path, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getxattr",
+    "url": "/syscall/?q=getxattr&highlight=getxattr#sys-getxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getxattr(const char __user *path, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lgetxattr",
+    "url": "/syscall/?q=lgetxattr&highlight=lgetxattr#sys-lgetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lgetxattr(const char __user *path, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lgetxattr",
+    "url": "/syscall/?q=lgetxattr&highlight=lgetxattr#sys-lgetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lgetxattr(const char __user *path, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fgetxattr",
+    "url": "/syscall/?q=fgetxattr&highlight=fgetxattr#sys-fgetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fgetxattr(int fd, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fgetxattr",
+    "url": "/syscall/?q=fgetxattr&highlight=fgetxattr#sys-fgetxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fgetxattr(int fd, const char __user *name, void __user *value, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_listxattr",
+    "url": "/syscall/?q=listxattr&highlight=listxattr#sys-listxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listxattr(const char __user *path, char __user *list, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_listxattr",
+    "url": "/syscall/?q=listxattr&highlight=listxattr#sys-listxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listxattr(const char __user *path, char __user *list, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_llistxattr",
+    "url": "/syscall/?q=llistxattr&highlight=llistxattr#sys-llistxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_llistxattr(const char __user *path, char __user *list, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_llistxattr",
+    "url": "/syscall/?q=llistxattr&highlight=llistxattr#sys-llistxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_llistxattr(const char __user *path, char __user *list, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_flistxattr",
+    "url": "/syscall/?q=flistxattr&highlight=flistxattr#sys-flistxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_flistxattr(int fd, char __user *list, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_flistxattr",
+    "url": "/syscall/?q=flistxattr&highlight=flistxattr#sys-flistxattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_flistxattr(int fd, char __user *list, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_removexattr",
+    "url": "/syscall/?q=removexattr&highlight=removexattr#sys-removexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_removexattr(const char __user *path, const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_removexattr",
+    "url": "/syscall/?q=removexattr&highlight=removexattr#sys-removexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_removexattr(const char __user *path, const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lremovexattr",
+    "url": "/syscall/?q=lremovexattr&highlight=lremovexattr#sys-lremovexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lremovexattr(const char __user *path, const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lremovexattr",
+    "url": "/syscall/?q=lremovexattr&highlight=lremovexattr#sys-lremovexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lremovexattr(const char __user *path, const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fremovexattr",
+    "url": "/syscall/?q=fremovexattr&highlight=fremovexattr#sys-fremovexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fremovexattr(int fd, const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fremovexattr",
+    "url": "/syscall/?q=fremovexattr&highlight=fremovexattr#sys-fremovexattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fremovexattr(int fd, const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_tkill",
+    "url": "/syscall/?q=tkill&highlight=tkill#sys-tkill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tkill(pid_t pid, int sig);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_tkill",
+    "url": "/syscall/?q=tkill&highlight=tkill#sys-tkill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tkill(pid_t pid, int sig);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_time",
+    "url": "/syscall/?q=time&highlight=time#sys-time",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_time(__kernel_old_time_t __user *tloc);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_time",
+    "url": "/syscall/?q=time&highlight=time#sys-time",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_time(__kernel_old_time_t __user *tloc);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futex",
+    "url": "/syscall/?q=futex&highlight=futex#sys-futex",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex(u32 __user *uaddr, int op, u32 val, const struct __kernel_timespec __user *utime, u32 __user *uaddr2, u32 val3);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futex",
+    "url": "/syscall/?q=futex&highlight=futex#sys-futex",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex(u32 __user *uaddr, int op, u32 val, const struct __kernel_timespec __user *utime, u32 __user *uaddr2, u32 val3);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_setaffinity",
+    "url": "/syscall/?q=sched_setaffinity&highlight=sched_setaffinity#sys-sched_setaffinity",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_setaffinity",
+    "url": "/syscall/?q=sched_setaffinity&highlight=sched_setaffinity#sys-sched_setaffinity",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_getaffinity",
+    "url": "/syscall/?q=sched_getaffinity&highlight=sched_getaffinity#sys-sched_getaffinity",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_getaffinity",
+    "url": "/syscall/?q=sched_getaffinity&highlight=sched_getaffinity#sys-sched_getaffinity",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getaffinity(pid_t pid, unsigned int len, unsigned long __user *user_mask_ptr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_setup",
+    "url": "/syscall/?q=io_setup&highlight=io_setup#sys-io_setup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_setup(unsigned nr_reqs, aio_context_t __user *ctx);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_setup",
+    "url": "/syscall/?q=io_setup&highlight=io_setup#sys-io_setup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_setup(unsigned nr_reqs, aio_context_t __user *ctx);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_destroy",
+    "url": "/syscall/?q=io_destroy&highlight=io_destroy#sys-io_destroy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_destroy(aio_context_t ctx);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_destroy",
+    "url": "/syscall/?q=io_destroy&highlight=io_destroy#sys-io_destroy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_destroy(aio_context_t ctx);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_getevents",
+    "url": "/syscall/?q=io_getevents&highlight=io_getevents#sys-io_getevents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_getevents(aio_context_t ctx_id, long min_nr, long nr, struct io_event __user *events, struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_getevents",
+    "url": "/syscall/?q=io_getevents&highlight=io_getevents#sys-io_getevents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_getevents(aio_context_t ctx_id, long min_nr, long nr, struct io_event __user *events, struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_submit",
+    "url": "/syscall/?q=io_submit&highlight=io_submit#sys-io_submit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_submit(aio_context_t, long, struct iocb __user * __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_submit",
+    "url": "/syscall/?q=io_submit&highlight=io_submit#sys-io_submit",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_submit(aio_context_t, long, struct iocb __user * __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_cancel",
+    "url": "/syscall/?q=io_cancel&highlight=io_cancel#sys-io_cancel",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_cancel(aio_context_t ctx_id, struct iocb __user *iocb, struct io_event __user *result);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_cancel",
+    "url": "/syscall/?q=io_cancel&highlight=io_cancel#sys-io_cancel",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_cancel(aio_context_t ctx_id, struct iocb __user *iocb, struct io_event __user *result);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_create",
+    "url": "/syscall/?q=epoll_create&highlight=epoll_create#sys-epoll_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_create(int size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_create",
+    "url": "/syscall/?q=epoll_create&highlight=epoll_create#sys-epoll_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_create(int size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_remap_file_pages",
+    "url": "/syscall/?q=remap_file_pages&highlight=remap_file_pages#sys-remap_file_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_remap_file_pages(unsigned long start, unsigned long size, unsigned long prot, unsigned long pgoff, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_remap_file_pages",
+    "url": "/syscall/?q=remap_file_pages&highlight=remap_file_pages#sys-remap_file_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_remap_file_pages(unsigned long start, unsigned long size, unsigned long prot, unsigned long pgoff, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getdents64",
+    "url": "/syscall/?q=getdents64&highlight=getdents64#sys-getdents64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getdents64(unsigned int fd, struct linux_dirent64 __user *dirent, unsigned int count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getdents64",
+    "url": "/syscall/?q=getdents64&highlight=getdents64#sys-getdents64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getdents64(unsigned int fd, struct linux_dirent64 __user *dirent, unsigned int count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_set_tid_address",
+    "url": "/syscall/?q=set_tid_address&highlight=set_tid_address#sys-set_tid_address",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_tid_address(int __user *tidptr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_set_tid_address",
+    "url": "/syscall/?q=set_tid_address&highlight=set_tid_address#sys-set_tid_address",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_tid_address(int __user *tidptr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_restart_syscall",
+    "url": "/syscall/?q=restart_syscall&highlight=restart_syscall#sys-restart_syscall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_restart_syscall(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_restart_syscall",
+    "url": "/syscall/?q=restart_syscall&highlight=restart_syscall#sys-restart_syscall",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_restart_syscall(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_semtimedop",
+    "url": "/syscall/?q=semtimedop&highlight=semtimedop#sys-semtimedop",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semtimedop(int semid, struct sembuf __user *sops, unsigned nsops, const struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_semtimedop",
+    "url": "/syscall/?q=semtimedop&highlight=semtimedop#sys-semtimedop",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_semtimedop(int semid, struct sembuf __user *sops, unsigned nsops, const struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fadvise64",
+    "url": "/syscall/?q=fadvise64&highlight=fadvise64#sys-fadvise64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fadvise64(int fd, loff_t offset, size_t len, int advice);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fadvise64",
+    "url": "/syscall/?q=fadvise64&highlight=fadvise64#sys-fadvise64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fadvise64(int fd, loff_t offset, size_t len, int advice);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timer_create",
+    "url": "/syscall/?q=timer_create&highlight=timer_create#sys-timer_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_create(clockid_t which_clock, struct sigevent __user *timer_event_spec, timer_t __user * created_timer_id);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timer_create",
+    "url": "/syscall/?q=timer_create&highlight=timer_create#sys-timer_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_create(clockid_t which_clock, struct sigevent __user *timer_event_spec, timer_t __user * created_timer_id);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timer_settime",
+    "url": "/syscall/?q=timer_settime&highlight=timer_settime#sys-timer_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_settime(timer_t timer_id, int flags, const struct __kernel_itimerspec __user *new_setting, struct __kernel_itimerspec __user *old_setting);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timer_settime",
+    "url": "/syscall/?q=timer_settime&highlight=timer_settime#sys-timer_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_settime(timer_t timer_id, int flags, const struct __kernel_itimerspec __user *new_setting, struct __kernel_itimerspec __user *old_setting);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timer_gettime",
+    "url": "/syscall/?q=timer_gettime&highlight=timer_gettime#sys-timer_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_gettime(timer_t timer_id, struct __kernel_itimerspec __user *setting);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timer_gettime",
+    "url": "/syscall/?q=timer_gettime&highlight=timer_gettime#sys-timer_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_gettime(timer_t timer_id, struct __kernel_itimerspec __user *setting);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timer_getoverrun",
+    "url": "/syscall/?q=timer_getoverrun&highlight=timer_getoverrun#sys-timer_getoverrun",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_getoverrun(timer_t timer_id);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timer_getoverrun",
+    "url": "/syscall/?q=timer_getoverrun&highlight=timer_getoverrun#sys-timer_getoverrun",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_getoverrun(timer_t timer_id);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timer_delete",
+    "url": "/syscall/?q=timer_delete&highlight=timer_delete#sys-timer_delete",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_delete(timer_t timer_id);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timer_delete",
+    "url": "/syscall/?q=timer_delete&highlight=timer_delete#sys-timer_delete",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timer_delete(timer_t timer_id);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clock_settime",
+    "url": "/syscall/?q=clock_settime&highlight=clock_settime#sys-clock_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_settime(clockid_t which_clock, const struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clock_settime",
+    "url": "/syscall/?q=clock_settime&highlight=clock_settime#sys-clock_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_settime(clockid_t which_clock, const struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clock_gettime",
+    "url": "/syscall/?q=clock_gettime&highlight=clock_gettime#sys-clock_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_gettime(clockid_t which_clock, struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clock_gettime",
+    "url": "/syscall/?q=clock_gettime&highlight=clock_gettime#sys-clock_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_gettime(clockid_t which_clock, struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clock_getres",
+    "url": "/syscall/?q=clock_getres&highlight=clock_getres#sys-clock_getres",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_getres(clockid_t which_clock, struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clock_getres",
+    "url": "/syscall/?q=clock_getres&highlight=clock_getres#sys-clock_getres",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_getres(clockid_t which_clock, struct __kernel_timespec __user *tp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clock_nanosleep",
+    "url": "/syscall/?q=clock_nanosleep&highlight=clock_nanosleep#sys-clock_nanosleep",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_nanosleep(clockid_t which_clock, int flags, const struct __kernel_timespec __user *rqtp, struct __kernel_timespec __user *rmtp);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clock_nanosleep",
+    "url": "/syscall/?q=clock_nanosleep&highlight=clock_nanosleep#sys-clock_nanosleep",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_nanosleep(clockid_t which_clock, int flags, const struct __kernel_timespec __user *rqtp, struct __kernel_timespec __user *rmtp);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_exit_group",
+    "url": "/syscall/?q=exit_group&highlight=exit_group#sys-exit_group",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_exit_group(int error_code);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_exit_group",
+    "url": "/syscall/?q=exit_group&highlight=exit_group#sys-exit_group",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_exit_group(int error_code);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_wait",
+    "url": "/syscall/?q=epoll_wait&highlight=epoll_wait#sys-epoll_wait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_wait(int epfd, struct epoll_event __user *events, int maxevents, int timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_wait",
+    "url": "/syscall/?q=epoll_wait&highlight=epoll_wait#sys-epoll_wait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_wait(int epfd, struct epoll_event __user *events, int maxevents, int timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_ctl",
+    "url": "/syscall/?q=epoll_ctl&highlight=epoll_ctl#sys-epoll_ctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_ctl(int epfd, int op, int fd, struct epoll_event __user *event);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_ctl",
+    "url": "/syscall/?q=epoll_ctl&highlight=epoll_ctl#sys-epoll_ctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_ctl(int epfd, int op, int fd, struct epoll_event __user *event);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_tgkill",
+    "url": "/syscall/?q=tgkill&highlight=tgkill#sys-tgkill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tgkill(pid_t tgid, pid_t pid, int sig);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_tgkill",
+    "url": "/syscall/?q=tgkill&highlight=tgkill#sys-tgkill",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tgkill(pid_t tgid, pid_t pid, int sig);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_utimes",
+    "url": "/syscall/?q=utimes&highlight=utimes#sys-utimes",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utimes(char __user *filename, struct __kernel_old_timeval __user *utimes);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_utimes",
+    "url": "/syscall/?q=utimes&highlight=utimes#sys-utimes",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utimes(char __user *filename, struct __kernel_old_timeval __user *utimes);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mbind",
+    "url": "/syscall/?q=mbind&highlight=mbind#sys-mbind",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mbind(unsigned long start, unsigned long len, unsigned long mode, const unsigned long __user *nmask, unsigned long maxnode, unsigned flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mbind",
+    "url": "/syscall/?q=mbind&highlight=mbind#sys-mbind",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mbind(unsigned long start, unsigned long len, unsigned long mode, const unsigned long __user *nmask, unsigned long maxnode, unsigned flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_set_mempolicy",
+    "url": "/syscall/?q=set_mempolicy&highlight=set_mempolicy#sys-set_mempolicy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_mempolicy(int mode, const unsigned long __user *nmask, unsigned long maxnode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_set_mempolicy",
+    "url": "/syscall/?q=set_mempolicy&highlight=set_mempolicy#sys-set_mempolicy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_mempolicy(int mode, const unsigned long __user *nmask, unsigned long maxnode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_get_mempolicy",
+    "url": "/syscall/?q=get_mempolicy&highlight=get_mempolicy#sys-get_mempolicy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_get_mempolicy(int __user *policy, unsigned long __user *nmask, unsigned long maxnode, unsigned long addr, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_get_mempolicy",
+    "url": "/syscall/?q=get_mempolicy&highlight=get_mempolicy#sys-get_mempolicy",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_get_mempolicy(int __user *policy, unsigned long __user *nmask, unsigned long maxnode, unsigned long addr, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_open",
+    "url": "/syscall/?q=mq_open&highlight=mq_open#sys-mq_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_open(const char __user *name, int oflag, umode_t mode, struct mq_attr __user *attr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_open",
+    "url": "/syscall/?q=mq_open&highlight=mq_open#sys-mq_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_open(const char __user *name, int oflag, umode_t mode, struct mq_attr __user *attr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_unlink",
+    "url": "/syscall/?q=mq_unlink&highlight=mq_unlink#sys-mq_unlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_unlink(const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_unlink",
+    "url": "/syscall/?q=mq_unlink&highlight=mq_unlink#sys-mq_unlink",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_unlink(const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_timedsend",
+    "url": "/syscall/?q=mq_timedsend&highlight=mq_timedsend#sys-mq_timedsend",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_timedsend(mqd_t mqdes, const char __user *msg_ptr, size_t msg_len, unsigned int msg_prio, const struct __kernel_timespec __user *abs_timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_timedsend",
+    "url": "/syscall/?q=mq_timedsend&highlight=mq_timedsend#sys-mq_timedsend",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_timedsend(mqd_t mqdes, const char __user *msg_ptr, size_t msg_len, unsigned int msg_prio, const struct __kernel_timespec __user *abs_timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_timedreceive",
+    "url": "/syscall/?q=mq_timedreceive&highlight=mq_timedreceive#sys-mq_timedreceive",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_timedreceive(mqd_t mqdes, char __user *msg_ptr, size_t msg_len, unsigned int __user *msg_prio, const struct __kernel_timespec __user *abs_timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_timedreceive",
+    "url": "/syscall/?q=mq_timedreceive&highlight=mq_timedreceive#sys-mq_timedreceive",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_timedreceive(mqd_t mqdes, char __user *msg_ptr, size_t msg_len, unsigned int __user *msg_prio, const struct __kernel_timespec __user *abs_timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_notify",
+    "url": "/syscall/?q=mq_notify&highlight=mq_notify#sys-mq_notify",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_notify(mqd_t mqdes, const struct sigevent __user *notification);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_notify",
+    "url": "/syscall/?q=mq_notify&highlight=mq_notify#sys-mq_notify",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_notify(mqd_t mqdes, const struct sigevent __user *notification);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mq_getsetattr",
+    "url": "/syscall/?q=mq_getsetattr&highlight=mq_getsetattr#sys-mq_getsetattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_getsetattr(mqd_t mqdes, const struct mq_attr __user *mqstat, struct mq_attr __user *omqstat);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mq_getsetattr",
+    "url": "/syscall/?q=mq_getsetattr&highlight=mq_getsetattr#sys-mq_getsetattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mq_getsetattr(mqd_t mqdes, const struct mq_attr __user *mqstat, struct mq_attr __user *omqstat);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_kexec_load",
+    "url": "/syscall/?q=kexec_load&highlight=kexec_load#sys-kexec_load",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kexec_load(unsigned long entry, unsigned long nr_segments, struct kexec_segment __user *segments, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_kexec_load",
+    "url": "/syscall/?q=kexec_load&highlight=kexec_load#sys-kexec_load",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kexec_load(unsigned long entry, unsigned long nr_segments, struct kexec_segment __user *segments, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_waitid",
+    "url": "/syscall/?q=waitid&highlight=waitid#sys-waitid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_waitid(int which, pid_t pid, struct siginfo __user *infop, int options, struct rusage __user *ru);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_waitid",
+    "url": "/syscall/?q=waitid&highlight=waitid#sys-waitid",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_waitid(int which, pid_t pid, struct siginfo __user *infop, int options, struct rusage __user *ru);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_add_key",
+    "url": "/syscall/?q=add_key&highlight=add_key#sys-add_key",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_add_key(const char __user *_type, const char __user *_description, const void __user *_payload, size_t plen, key_serial_t destringid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_add_key",
+    "url": "/syscall/?q=add_key&highlight=add_key#sys-add_key",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_add_key(const char __user *_type, const char __user *_description, const void __user *_payload, size_t plen, key_serial_t destringid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_request_key",
+    "url": "/syscall/?q=request_key&highlight=request_key#sys-request_key",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_request_key(const char __user *_type, const char __user *_description, const char __user *_callout_info, key_serial_t destringid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_request_key",
+    "url": "/syscall/?q=request_key&highlight=request_key#sys-request_key",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_request_key(const char __user *_type, const char __user *_description, const char __user *_callout_info, key_serial_t destringid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_keyctl",
+    "url": "/syscall/?q=keyctl&highlight=keyctl#sys-keyctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_keyctl(int cmd, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_keyctl",
+    "url": "/syscall/?q=keyctl&highlight=keyctl#sys-keyctl",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_keyctl(int cmd, unsigned long arg2, unsigned long arg3, unsigned long arg4, unsigned long arg5);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ioprio_set",
+    "url": "/syscall/?q=ioprio_set&highlight=ioprio_set#sys-ioprio_set",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioprio_set(int which, int who, int ioprio);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ioprio_set",
+    "url": "/syscall/?q=ioprio_set&highlight=ioprio_set#sys-ioprio_set",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioprio_set(int which, int who, int ioprio);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ioprio_get",
+    "url": "/syscall/?q=ioprio_get&highlight=ioprio_get#sys-ioprio_get",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioprio_get(int which, int who);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ioprio_get",
+    "url": "/syscall/?q=ioprio_get&highlight=ioprio_get#sys-ioprio_get",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ioprio_get(int which, int who);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_inotify_init",
+    "url": "/syscall/?q=inotify_init&highlight=inotify_init#sys-inotify_init",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_init(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_inotify_init",
+    "url": "/syscall/?q=inotify_init&highlight=inotify_init#sys-inotify_init",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_init(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_inotify_add_watch",
+    "url": "/syscall/?q=inotify_add_watch&highlight=inotify_add_watch#sys-inotify_add_watch",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_add_watch(int fd, const char __user *path, u32 mask);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_inotify_add_watch",
+    "url": "/syscall/?q=inotify_add_watch&highlight=inotify_add_watch#sys-inotify_add_watch",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_add_watch(int fd, const char __user *path, u32 mask);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_inotify_rm_watch",
+    "url": "/syscall/?q=inotify_rm_watch&highlight=inotify_rm_watch#sys-inotify_rm_watch",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_rm_watch(int fd, __s32 wd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_inotify_rm_watch",
+    "url": "/syscall/?q=inotify_rm_watch&highlight=inotify_rm_watch#sys-inotify_rm_watch",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_rm_watch(int fd, __s32 wd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_migrate_pages",
+    "url": "/syscall/?q=migrate_pages&highlight=migrate_pages#sys-migrate_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_migrate_pages(pid_t pid, unsigned long maxnode, const unsigned long __user *from, const unsigned long __user *to);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_migrate_pages",
+    "url": "/syscall/?q=migrate_pages&highlight=migrate_pages#sys-migrate_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_migrate_pages(pid_t pid, unsigned long maxnode, const unsigned long __user *from, const unsigned long __user *to);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_openat",
+    "url": "/syscall/?q=openat&highlight=openat#sys-openat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_openat(int dfd, const char __user *filename, int flags, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_openat",
+    "url": "/syscall/?q=openat&highlight=openat#sys-openat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_openat(int dfd, const char __user *filename, int flags, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mkdirat",
+    "url": "/syscall/?q=mkdirat&highlight=mkdirat#sys-mkdirat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mkdirat(int dfd, const char __user * pathname, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mkdirat",
+    "url": "/syscall/?q=mkdirat&highlight=mkdirat#sys-mkdirat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mkdirat(int dfd, const char __user * pathname, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mknodat",
+    "url": "/syscall/?q=mknodat&highlight=mknodat#sys-mknodat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mknodat(int dfd, const char __user * filename, umode_t mode, unsigned dev);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mknodat",
+    "url": "/syscall/?q=mknodat&highlight=mknodat#sys-mknodat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mknodat(int dfd, const char __user * filename, umode_t mode, unsigned dev);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchownat",
+    "url": "/syscall/?q=fchownat&highlight=fchownat#sys-fchownat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group, int flag);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchownat",
+    "url": "/syscall/?q=fchownat&highlight=fchownat#sys-fchownat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group, int flag);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futimesat",
+    "url": "/syscall/?q=futimesat&highlight=futimesat#sys-futimesat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futimesat(int dfd, const char __user *filename, struct __kernel_old_timeval __user *utimes);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futimesat",
+    "url": "/syscall/?q=futimesat&highlight=futimesat#sys-futimesat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futimesat(int dfd, const char __user *filename, struct __kernel_old_timeval __user *utimes);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_newfstatat",
+    "url": "/syscall/?q=newfstatat&highlight=newfstatat#sys-newfstatat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newfstatat(int dfd, const char __user *filename, struct stat __user *statbuf, int flag);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_newfstatat",
+    "url": "/syscall/?q=newfstatat&highlight=newfstatat#sys-newfstatat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_newfstatat(int dfd, const char __user *filename, struct stat __user *statbuf, int flag);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_unlinkat",
+    "url": "/syscall/?q=unlinkat&highlight=unlinkat#sys-unlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unlinkat(int dfd, const char __user * pathname, int flag);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_unlinkat",
+    "url": "/syscall/?q=unlinkat&highlight=unlinkat#sys-unlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unlinkat(int dfd, const char __user * pathname, int flag);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_renameat",
+    "url": "/syscall/?q=renameat&highlight=renameat#sys-renameat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_renameat(int olddfd, const char __user * oldname, int newdfd, const char __user * newname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_renameat",
+    "url": "/syscall/?q=renameat&highlight=renameat#sys-renameat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_renameat(int olddfd, const char __user * oldname, int newdfd, const char __user * newname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_linkat",
+    "url": "/syscall/?q=linkat&highlight=linkat#sys-linkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_linkat(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_linkat",
+    "url": "/syscall/?q=linkat&highlight=linkat#sys-linkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_linkat(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_symlinkat",
+    "url": "/syscall/?q=symlinkat&highlight=symlinkat#sys-symlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_symlinkat(const char __user * oldname, int newdfd, const char __user * newname);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_symlinkat",
+    "url": "/syscall/?q=symlinkat&highlight=symlinkat#sys-symlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_symlinkat(const char __user * oldname, int newdfd, const char __user * newname);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_readlinkat",
+    "url": "/syscall/?q=readlinkat&highlight=readlinkat#sys-readlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readlinkat(int dfd, const char __user *path, char __user *buf, int bufsiz);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_readlinkat",
+    "url": "/syscall/?q=readlinkat&highlight=readlinkat#sys-readlinkat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_readlinkat(int dfd, const char __user *path, char __user *buf, int bufsiz);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchmodat",
+    "url": "/syscall/?q=fchmodat&highlight=fchmodat#sys-fchmodat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmodat(int dfd, const char __user *filename, umode_t mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchmodat",
+    "url": "/syscall/?q=fchmodat&highlight=fchmodat#sys-fchmodat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmodat(int dfd, const char __user *filename, umode_t mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_faccessat",
+    "url": "/syscall/?q=faccessat&highlight=faccessat#sys-faccessat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_faccessat(int dfd, const char __user *filename, int mode);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_faccessat",
+    "url": "/syscall/?q=faccessat&highlight=faccessat#sys-faccessat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_faccessat(int dfd, const char __user *filename, int mode);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pselect6",
+    "url": "/syscall/?q=pselect6&highlight=pselect6#sys-pselect6",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pselect6(int, fd_set __user *, fd_set __user *, fd_set __user *, struct __kernel_timespec __user *, void __user *);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pselect6",
+    "url": "/syscall/?q=pselect6&highlight=pselect6#sys-pselect6",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pselect6(int, fd_set __user *, fd_set __user *, fd_set __user *, struct __kernel_timespec __user *, void __user *);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_ppoll",
+    "url": "/syscall/?q=ppoll&highlight=ppoll#sys-ppoll",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ppoll(struct pollfd __user *, unsigned int, struct __kernel_timespec __user *, const sigset_t __user *, size_t);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_ppoll",
+    "url": "/syscall/?q=ppoll&highlight=ppoll#sys-ppoll",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_ppoll(struct pollfd __user *, unsigned int, struct __kernel_timespec __user *, const sigset_t __user *, size_t);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_unshare",
+    "url": "/syscall/?q=unshare&highlight=unshare#sys-unshare",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unshare(unsigned long unshare_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_unshare",
+    "url": "/syscall/?q=unshare&highlight=unshare#sys-unshare",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_unshare(unsigned long unshare_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_set_robust_list",
+    "url": "/syscall/?q=set_robust_list&highlight=set_robust_list#sys-set_robust_list",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_robust_list(struct robust_list_head __user *head, size_t len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_set_robust_list",
+    "url": "/syscall/?q=set_robust_list&highlight=set_robust_list#sys-set_robust_list",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_robust_list(struct robust_list_head __user *head, size_t len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_get_robust_list",
+    "url": "/syscall/?q=get_robust_list&highlight=get_robust_list#sys-get_robust_list",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_get_robust_list(int pid, struct robust_list_head __user * __user *head_ptr, size_t __user *len_ptr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_get_robust_list",
+    "url": "/syscall/?q=get_robust_list&highlight=get_robust_list#sys-get_robust_list",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_get_robust_list(int pid, struct robust_list_head __user * __user *head_ptr, size_t __user *len_ptr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_splice",
+    "url": "/syscall/?q=splice&highlight=splice#sys-splice",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_splice(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_splice",
+    "url": "/syscall/?q=splice&highlight=splice#sys-splice",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_splice(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_tee",
+    "url": "/syscall/?q=tee&highlight=tee#sys-tee",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tee(int fdin, int fdout, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_tee",
+    "url": "/syscall/?q=tee&highlight=tee#sys-tee",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_tee(int fdin, int fdout, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sync_file_range",
+    "url": "/syscall/?q=sync_file_range&highlight=sync_file_range#sys-sync_file_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sync_file_range(int fd, loff_t offset, loff_t nbytes, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sync_file_range",
+    "url": "/syscall/?q=sync_file_range&highlight=sync_file_range#sys-sync_file_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sync_file_range(int fd, loff_t offset, loff_t nbytes, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_vmsplice",
+    "url": "/syscall/?q=vmsplice&highlight=vmsplice#sys-vmsplice",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vmsplice(int fd, const struct iovec __user *iov, unsigned long nr_segs, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_vmsplice",
+    "url": "/syscall/?q=vmsplice&highlight=vmsplice#sys-vmsplice",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_vmsplice(int fd, const struct iovec __user *iov, unsigned long nr_segs, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_move_pages",
+    "url": "/syscall/?q=move_pages&highlight=move_pages#sys-move_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_move_pages(pid_t pid, unsigned long nr_pages, const void __user * __user *pages, const int __user *nodes, int __user *status, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_move_pages",
+    "url": "/syscall/?q=move_pages&highlight=move_pages#sys-move_pages",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_move_pages(pid_t pid, unsigned long nr_pages, const void __user * __user *pages, const int __user *nodes, int __user *status, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_utimensat",
+    "url": "/syscall/?q=utimensat&highlight=utimensat#sys-utimensat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utimensat(int dfd, const char __user *filename, struct __kernel_timespec __user *utimes, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_utimensat",
+    "url": "/syscall/?q=utimensat&highlight=utimensat#sys-utimensat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_utimensat(int dfd, const char __user *filename, struct __kernel_timespec __user *utimes, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_pwait",
+    "url": "/syscall/?q=epoll_pwait&highlight=epoll_pwait#sys-epoll_pwait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_pwait(int epfd, struct epoll_event __user *events, int maxevents, int timeout, const sigset_t __user *sigmask, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_pwait",
+    "url": "/syscall/?q=epoll_pwait&highlight=epoll_pwait#sys-epoll_pwait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_pwait(int epfd, struct epoll_event __user *events, int maxevents, int timeout, const sigset_t __user *sigmask, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_signalfd",
+    "url": "/syscall/?q=signalfd&highlight=signalfd#sys-signalfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_signalfd(int ufd, sigset_t __user *user_mask, size_t sizemask);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_signalfd",
+    "url": "/syscall/?q=signalfd&highlight=signalfd#sys-signalfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_signalfd(int ufd, sigset_t __user *user_mask, size_t sizemask);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timerfd_create",
+    "url": "/syscall/?q=timerfd_create&highlight=timerfd_create#sys-timerfd_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_create(int clockid, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timerfd_create",
+    "url": "/syscall/?q=timerfd_create&highlight=timerfd_create#sys-timerfd_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_create(int clockid, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_eventfd",
+    "url": "/syscall/?q=eventfd&highlight=eventfd#sys-eventfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_eventfd(unsigned int count);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_eventfd",
+    "url": "/syscall/?q=eventfd&highlight=eventfd#sys-eventfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_eventfd(unsigned int count);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fallocate",
+    "url": "/syscall/?q=fallocate&highlight=fallocate#sys-fallocate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fallocate(int fd, int mode, loff_t offset, loff_t len);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fallocate",
+    "url": "/syscall/?q=fallocate&highlight=fallocate#sys-fallocate",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fallocate(int fd, int mode, loff_t offset, loff_t len);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timerfd_settime",
+    "url": "/syscall/?q=timerfd_settime&highlight=timerfd_settime#sys-timerfd_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_settime(int ufd, int flags, const struct __kernel_itimerspec __user *utmr, struct __kernel_itimerspec __user *otmr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timerfd_settime",
+    "url": "/syscall/?q=timerfd_settime&highlight=timerfd_settime#sys-timerfd_settime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_settime(int ufd, int flags, const struct __kernel_itimerspec __user *utmr, struct __kernel_itimerspec __user *otmr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_timerfd_gettime",
+    "url": "/syscall/?q=timerfd_gettime&highlight=timerfd_gettime#sys-timerfd_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_gettime(int ufd, struct __kernel_itimerspec __user *otmr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_timerfd_gettime",
+    "url": "/syscall/?q=timerfd_gettime&highlight=timerfd_gettime#sys-timerfd_gettime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_timerfd_gettime(int ufd, struct __kernel_itimerspec __user *otmr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_accept4",
+    "url": "/syscall/?q=accept4&highlight=accept4#sys-accept4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_accept4(int, struct sockaddr __user *, int __user *, int);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_accept4",
+    "url": "/syscall/?q=accept4&highlight=accept4#sys-accept4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_accept4(int, struct sockaddr __user *, int __user *, int);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_signalfd4",
+    "url": "/syscall/?q=signalfd4&highlight=signalfd4#sys-signalfd4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_signalfd4(int ufd, sigset_t __user *user_mask, size_t sizemask, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_signalfd4",
+    "url": "/syscall/?q=signalfd4&highlight=signalfd4#sys-signalfd4",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_signalfd4(int ufd, sigset_t __user *user_mask, size_t sizemask, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_eventfd2",
+    "url": "/syscall/?q=eventfd2&highlight=eventfd2#sys-eventfd2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_eventfd2(unsigned int count, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_eventfd2",
+    "url": "/syscall/?q=eventfd2&highlight=eventfd2#sys-eventfd2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_eventfd2(unsigned int count, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_create1",
+    "url": "/syscall/?q=epoll_create1&highlight=epoll_create1#sys-epoll_create1",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_create1(int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_create1",
+    "url": "/syscall/?q=epoll_create1&highlight=epoll_create1#sys-epoll_create1",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_create1(int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_dup3",
+    "url": "/syscall/?q=dup3&highlight=dup3#sys-dup3",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup3(unsigned int oldfd, unsigned int newfd, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_dup3",
+    "url": "/syscall/?q=dup3&highlight=dup3#sys-dup3",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_dup3(unsigned int oldfd, unsigned int newfd, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pipe2",
+    "url": "/syscall/?q=pipe2&highlight=pipe2#sys-pipe2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pipe2(int __user *fildes, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pipe2",
+    "url": "/syscall/?q=pipe2&highlight=pipe2#sys-pipe2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pipe2(int __user *fildes, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_inotify_init1",
+    "url": "/syscall/?q=inotify_init1&highlight=inotify_init1#sys-inotify_init1",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_init1(int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_inotify_init1",
+    "url": "/syscall/?q=inotify_init1&highlight=inotify_init1#sys-inotify_init1",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_inotify_init1(int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_preadv",
+    "url": "/syscall/?q=preadv&highlight=preadv#sys-preadv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_preadv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_preadv",
+    "url": "/syscall/?q=preadv&highlight=preadv#sys-preadv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_preadv(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pwritev",
+    "url": "/syscall/?q=pwritev&highlight=pwritev#sys-pwritev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwritev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pwritev",
+    "url": "/syscall/?q=pwritev&highlight=pwritev#sys-pwritev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwritev(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rt_tgsigqueueinfo",
+    "url": "/syscall/?q=rt_tgsigqueueinfo&highlight=rt_tgsigqueueinfo#sys-rt_tgsigqueueinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_tgsigqueueinfo(pid_t tgid, pid_t pid, int sig, siginfo_t __user *uinfo);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rt_tgsigqueueinfo",
+    "url": "/syscall/?q=rt_tgsigqueueinfo&highlight=rt_tgsigqueueinfo#sys-rt_tgsigqueueinfo",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rt_tgsigqueueinfo(pid_t tgid, pid_t pid, int sig, siginfo_t __user *uinfo);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_perf_event_open",
+    "url": "/syscall/?q=perf_event_open&highlight=perf_event_open#sys-perf_event_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_perf_event_open(struct perf_event_attr __user *attr_uptr, pid_t pid, int cpu, int group_fd, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_perf_event_open",
+    "url": "/syscall/?q=perf_event_open&highlight=perf_event_open#sys-perf_event_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_perf_event_open(struct perf_event_attr __user *attr_uptr, pid_t pid, int cpu, int group_fd, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_recvmmsg",
+    "url": "/syscall/?q=recvmmsg&highlight=recvmmsg#sys-recvmmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags, struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_recvmmsg",
+    "url": "/syscall/?q=recvmmsg&highlight=recvmmsg#sys-recvmmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_recvmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags, struct __kernel_timespec __user *timeout);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fanotify_init",
+    "url": "/syscall/?q=fanotify_init&highlight=fanotify_init#sys-fanotify_init",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fanotify_init(unsigned int flags, unsigned int event_f_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fanotify_init",
+    "url": "/syscall/?q=fanotify_init&highlight=fanotify_init#sys-fanotify_init",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fanotify_init(unsigned int flags, unsigned int event_f_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fanotify_mark",
+    "url": "/syscall/?q=fanotify_mark&highlight=fanotify_mark#sys-fanotify_mark",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "en",
+    "title": "sys_fanotify_mark",
+    "url": "/syscall/?q=fanotify_mark&highlight=fanotify_mark#sys-fanotify_mark",
+    "type": "syscall/",
+    "description": ""
+  },
+  {
+    "lang": "tr",
+    "title": "sys_prlimit64",
+    "url": "/syscall/?q=prlimit64&highlight=prlimit64#sys-prlimit64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_prlimit64(pid_t pid, unsigned int resource, const struct rlimit64 __user *new_rlim, struct rlimit64 __user *old_rlim);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_prlimit64",
+    "url": "/syscall/?q=prlimit64&highlight=prlimit64#sys-prlimit64",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_prlimit64(pid_t pid, unsigned int resource, const struct rlimit64 __user *new_rlim, struct rlimit64 __user *old_rlim);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_name_to_handle_at",
+    "url": "/syscall/?q=name_to_handle_at&highlight=name_to_handle_at#sys-name_to_handle_at",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_name_to_handle_at(int dfd, const char __user *name, struct file_handle __user *handle, void __user *mnt_id, int flag);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_name_to_handle_at",
+    "url": "/syscall/?q=name_to_handle_at&highlight=name_to_handle_at#sys-name_to_handle_at",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_name_to_handle_at(int dfd, const char __user *name, struct file_handle __user *handle, void __user *mnt_id, int flag);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_open_by_handle_at",
+    "url": "/syscall/?q=open_by_handle_at&highlight=open_by_handle_at#sys-open_by_handle_at",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_by_handle_at(int mountdirfd, struct file_handle __user *handle, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_open_by_handle_at",
+    "url": "/syscall/?q=open_by_handle_at&highlight=open_by_handle_at#sys-open_by_handle_at",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_by_handle_at(int mountdirfd, struct file_handle __user *handle, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clock_adjtime",
+    "url": "/syscall/?q=clock_adjtime&highlight=clock_adjtime#sys-clock_adjtime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_adjtime(clockid_t which_clock, struct __kernel_timex __user *tx);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clock_adjtime",
+    "url": "/syscall/?q=clock_adjtime&highlight=clock_adjtime#sys-clock_adjtime",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clock_adjtime(clockid_t which_clock, struct __kernel_timex __user *tx);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_syncfs",
+    "url": "/syscall/?q=syncfs&highlight=syncfs#sys-syncfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_syncfs(int fd);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_syncfs",
+    "url": "/syscall/?q=syncfs&highlight=syncfs#sys-syncfs",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_syncfs(int fd);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sendmmsg",
+    "url": "/syscall/?q=sendmmsg&highlight=sendmmsg#sys-sendmmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sendmmsg",
+    "url": "/syscall/?q=sendmmsg&highlight=sendmmsg#sys-sendmmsg",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sendmmsg(int fd, struct mmsghdr __user *msg, unsigned int vlen, unsigned flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setns",
+    "url": "/syscall/?q=setns&highlight=setns#sys-setns",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setns(int fd, int nstype);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setns",
+    "url": "/syscall/?q=setns&highlight=setns#sys-setns",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setns(int fd, int nstype);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getcpu",
+    "url": "/syscall/?q=getcpu&highlight=getcpu#sys-getcpu",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getcpu(unsigned __user *cpu, unsigned __user *node, void __user *cache);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getcpu",
+    "url": "/syscall/?q=getcpu&highlight=getcpu#sys-getcpu",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getcpu(unsigned __user *cpu, unsigned __user *node, void __user *cache);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_process_vm_readv",
+    "url": "/syscall/?q=process_vm_readv&highlight=process_vm_readv#sys-process_vm_readv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_vm_readv(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_process_vm_readv",
+    "url": "/syscall/?q=process_vm_readv&highlight=process_vm_readv#sys-process_vm_readv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_vm_readv(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_process_vm_writev",
+    "url": "/syscall/?q=process_vm_writev&highlight=process_vm_writev#sys-process_vm_writev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_vm_writev(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_process_vm_writev",
+    "url": "/syscall/?q=process_vm_writev&highlight=process_vm_writev#sys-process_vm_writev",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_vm_writev(pid_t pid, const struct iovec __user *lvec, unsigned long liovcnt, const struct iovec __user *rvec, unsigned long riovcnt, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_kcmp",
+    "url": "/syscall/?q=kcmp&highlight=kcmp#sys-kcmp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type, unsigned long idx1, unsigned long idx2);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_kcmp",
+    "url": "/syscall/?q=kcmp&highlight=kcmp#sys-kcmp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type, unsigned long idx1, unsigned long idx2);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_finit_module",
+    "url": "/syscall/?q=finit_module&highlight=finit_module#sys-finit_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_finit_module(int fd, const char __user *uargs, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_finit_module",
+    "url": "/syscall/?q=finit_module&highlight=finit_module#sys-finit_module",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_finit_module(int fd, const char __user *uargs, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_setattr",
+    "url": "/syscall/?q=sched_setattr&highlight=sched_setattr#sys-sched_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setattr(pid_t pid, struct sched_attr __user *attr, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_setattr",
+    "url": "/syscall/?q=sched_setattr&highlight=sched_setattr#sys-sched_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_setattr(pid_t pid, struct sched_attr __user *attr, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_sched_getattr",
+    "url": "/syscall/?q=sched_getattr&highlight=sched_getattr#sys-sched_getattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getattr(pid_t pid, struct sched_attr __user *attr, unsigned int size, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_sched_getattr",
+    "url": "/syscall/?q=sched_getattr&highlight=sched_getattr#sys-sched_getattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_sched_getattr(pid_t pid, struct sched_attr __user *attr, unsigned int size, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_renameat2",
+    "url": "/syscall/?q=renameat2&highlight=renameat2#sys-renameat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_renameat2(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_renameat2",
+    "url": "/syscall/?q=renameat2&highlight=renameat2#sys-renameat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_renameat2(int olddfd, const char __user *oldname, int newdfd, const char __user *newname, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_seccomp",
+    "url": "/syscall/?q=seccomp&highlight=seccomp#sys-seccomp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_seccomp(unsigned int op, unsigned int flags, void __user *uargs);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_seccomp",
+    "url": "/syscall/?q=seccomp&highlight=seccomp#sys-seccomp",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_seccomp(unsigned int op, unsigned int flags, void __user *uargs);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getrandom",
+    "url": "/syscall/?q=getrandom&highlight=getrandom#sys-getrandom",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrandom(char __user *buf, size_t count, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getrandom",
+    "url": "/syscall/?q=getrandom&highlight=getrandom#sys-getrandom",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getrandom(char __user *buf, size_t count, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_memfd_create",
+    "url": "/syscall/?q=memfd_create&highlight=memfd_create#sys-memfd_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_memfd_create(const char __user *uname_ptr, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_memfd_create",
+    "url": "/syscall/?q=memfd_create&highlight=memfd_create#sys-memfd_create",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_memfd_create(const char __user *uname_ptr, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_kexec_file_load",
+    "url": "/syscall/?q=kexec_file_load&highlight=kexec_file_load#sys-kexec_file_load",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kexec_file_load(int kernel_fd, int initrd_fd, unsigned long cmdline_len, const char __user *cmdline_ptr, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_kexec_file_load",
+    "url": "/syscall/?q=kexec_file_load&highlight=kexec_file_load#sys-kexec_file_load",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_kexec_file_load(int kernel_fd, int initrd_fd, unsigned long cmdline_len, const char __user *cmdline_ptr, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_bpf",
+    "url": "/syscall/?q=bpf&highlight=bpf#sys-bpf",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_bpf(int cmd, union bpf_attr __user *attr, unsigned int size, struct bpf_common_attr __user *attr_common, unsigned int size_common);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_bpf",
+    "url": "/syscall/?q=bpf&highlight=bpf#sys-bpf",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_bpf(int cmd, union bpf_attr __user *attr, unsigned int size, struct bpf_common_attr __user *attr_common, unsigned int size_common);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_execveat",
+    "url": "/syscall/?q=execveat&highlight=execveat#sys-execveat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_execveat(int dfd, const char __user *filename, const char __user *const __user *argv, const char __user *const __user *envp, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_execveat",
+    "url": "/syscall/?q=execveat&highlight=execveat#sys-execveat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_execveat(int dfd, const char __user *filename, const char __user *const __user *argv, const char __user *const __user *envp, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_userfaultfd",
+    "url": "/syscall/?q=userfaultfd&highlight=userfaultfd#sys-userfaultfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_userfaultfd(int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_userfaultfd",
+    "url": "/syscall/?q=userfaultfd&highlight=userfaultfd#sys-userfaultfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_userfaultfd(int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_membarrier",
+    "url": "/syscall/?q=membarrier&highlight=membarrier#sys-membarrier",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_membarrier(int cmd, unsigned int flags, int cpu_id);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_membarrier",
+    "url": "/syscall/?q=membarrier&highlight=membarrier#sys-membarrier",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_membarrier(int cmd, unsigned int flags, int cpu_id);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mlock2",
+    "url": "/syscall/?q=mlock2&highlight=mlock2#sys-mlock2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlock2(unsigned long start, size_t len, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mlock2",
+    "url": "/syscall/?q=mlock2&highlight=mlock2#sys-mlock2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mlock2(unsigned long start, size_t len, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_copy_file_range",
+    "url": "/syscall/?q=copy_file_range&highlight=copy_file_range#sys-copy_file_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_copy_file_range(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_copy_file_range",
+    "url": "/syscall/?q=copy_file_range&highlight=copy_file_range#sys-copy_file_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_copy_file_range(int fd_in, loff_t __user *off_in, int fd_out, loff_t __user *off_out, size_t len, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_preadv2",
+    "url": "/syscall/?q=preadv2&highlight=preadv2#sys-preadv2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_preadv2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_preadv2",
+    "url": "/syscall/?q=preadv2&highlight=preadv2#sys-preadv2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_preadv2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pwritev2",
+    "url": "/syscall/?q=pwritev2&highlight=pwritev2#sys-pwritev2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwritev2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pwritev2",
+    "url": "/syscall/?q=pwritev2&highlight=pwritev2#sys-pwritev2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pwritev2(unsigned long fd, const struct iovec __user *vec, unsigned long vlen, unsigned long pos_l, unsigned long pos_h, rwf_t flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pkey_mprotect",
+    "url": "/syscall/?q=pkey_mprotect&highlight=pkey_mprotect#sys-pkey_mprotect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_mprotect(unsigned long start, size_t len, unsigned long prot, int pkey);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pkey_mprotect",
+    "url": "/syscall/?q=pkey_mprotect&highlight=pkey_mprotect#sys-pkey_mprotect",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_mprotect(unsigned long start, size_t len, unsigned long prot, int pkey);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pkey_alloc",
+    "url": "/syscall/?q=pkey_alloc&highlight=pkey_alloc#sys-pkey_alloc",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_alloc(unsigned long flags, unsigned long init_val);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pkey_alloc",
+    "url": "/syscall/?q=pkey_alloc&highlight=pkey_alloc#sys-pkey_alloc",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_alloc(unsigned long flags, unsigned long init_val);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pkey_free",
+    "url": "/syscall/?q=pkey_free&highlight=pkey_free#sys-pkey_free",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_free(int pkey);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pkey_free",
+    "url": "/syscall/?q=pkey_free&highlight=pkey_free#sys-pkey_free",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pkey_free(int pkey);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_statx",
+    "url": "/syscall/?q=statx&highlight=statx#sys-statx",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags, unsigned mask, struct statx __user *buffer);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_statx",
+    "url": "/syscall/?q=statx&highlight=statx#sys-statx",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags, unsigned mask, struct statx __user *buffer);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_pgetevents",
+    "url": "/syscall/?q=io_pgetevents&highlight=io_pgetevents#sys-io_pgetevents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_pgetevents(aio_context_t ctx_id, long min_nr, long nr, struct io_event __user *events, struct __kernel_timespec __user *timeout, const struct __aio_sigset __user *sig);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_pgetevents",
+    "url": "/syscall/?q=io_pgetevents&highlight=io_pgetevents#sys-io_pgetevents",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_pgetevents(aio_context_t ctx_id, long min_nr, long nr, struct io_event __user *events, struct __kernel_timespec __user *timeout, const struct __aio_sigset __user *sig);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rseq",
+    "url": "/syscall/?q=rseq&highlight=rseq#sys-rseq",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rseq(struct rseq __user *rseq, uint32_t rseq_len, int flags, uint32_t sig);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rseq",
+    "url": "/syscall/?q=rseq&highlight=rseq#sys-rseq",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rseq(struct rseq __user *rseq, uint32_t rseq_len, int flags, uint32_t sig);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_uretprobe",
+    "url": "/syscall/?q=uretprobe&highlight=uretprobe#sys-uretprobe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_uretprobe(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_uretprobe",
+    "url": "/syscall/?q=uretprobe&highlight=uretprobe#sys-uretprobe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_uretprobe(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_uprobe",
+    "url": "/syscall/?q=uprobe&highlight=uprobe#sys-uprobe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_uprobe(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_uprobe",
+    "url": "/syscall/?q=uprobe&highlight=uprobe#sys-uprobe",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_uprobe(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pidfd_send_signal",
+    "url": "/syscall/?q=pidfd_send_signal&highlight=pidfd_send_signal#sys-pidfd_send_signal",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_send_signal(int pidfd, int sig, siginfo_t __user *info, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pidfd_send_signal",
+    "url": "/syscall/?q=pidfd_send_signal&highlight=pidfd_send_signal#sys-pidfd_send_signal",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_send_signal(int pidfd, int sig, siginfo_t __user *info, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_uring_setup",
+    "url": "/syscall/?q=io_uring_setup&highlight=io_uring_setup#sys-io_uring_setup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_setup(u32 entries, struct io_uring_params __user *p);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_uring_setup",
+    "url": "/syscall/?q=io_uring_setup&highlight=io_uring_setup#sys-io_uring_setup",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_setup(u32 entries, struct io_uring_params __user *p);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_uring_enter",
+    "url": "/syscall/?q=io_uring_enter&highlight=io_uring_enter#sys-io_uring_enter",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_enter(unsigned int fd, u32 to_submit, u32 min_complete, u32 flags, const void __user *argp, size_t argsz);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_uring_enter",
+    "url": "/syscall/?q=io_uring_enter&highlight=io_uring_enter#sys-io_uring_enter",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_enter(unsigned int fd, u32 to_submit, u32 min_complete, u32 flags, const void __user *argp, size_t argsz);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_io_uring_register",
+    "url": "/syscall/?q=io_uring_register&highlight=io_uring_register#sys-io_uring_register",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_register(unsigned int fd, unsigned int op, void __user *arg, unsigned int nr_args);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_io_uring_register",
+    "url": "/syscall/?q=io_uring_register&highlight=io_uring_register#sys-io_uring_register",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_io_uring_register(unsigned int fd, unsigned int op, void __user *arg, unsigned int nr_args);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_open_tree",
+    "url": "/syscall/?q=open_tree&highlight=open_tree#sys-open_tree",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_tree(int dfd, const char __user *path, unsigned flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_open_tree",
+    "url": "/syscall/?q=open_tree&highlight=open_tree#sys-open_tree",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_tree(int dfd, const char __user *path, unsigned flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_move_mount",
+    "url": "/syscall/?q=move_mount&highlight=move_mount#sys-move_mount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_move_mount(int from_dfd, const char __user *from_path, int to_dfd, const char __user *to_path, unsigned int ms_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_move_mount",
+    "url": "/syscall/?q=move_mount&highlight=move_mount#sys-move_mount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_move_mount(int from_dfd, const char __user *from_path, int to_dfd, const char __user *to_path, unsigned int ms_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fsopen",
+    "url": "/syscall/?q=fsopen&highlight=fsopen#sys-fsopen",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsopen(const char __user *fs_name, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fsopen",
+    "url": "/syscall/?q=fsopen&highlight=fsopen#sys-fsopen",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsopen(const char __user *fs_name, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fsconfig",
+    "url": "/syscall/?q=fsconfig&highlight=fsconfig#sys-fsconfig",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsconfig(int fs_fd, unsigned int cmd, const char __user *key, const void __user *value, int aux);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fsconfig",
+    "url": "/syscall/?q=fsconfig&highlight=fsconfig#sys-fsconfig",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsconfig(int fs_fd, unsigned int cmd, const char __user *key, const void __user *value, int aux);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fsmount",
+    "url": "/syscall/?q=fsmount&highlight=fsmount#sys-fsmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsmount(int fs_fd, unsigned int flags, unsigned int ms_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fsmount",
+    "url": "/syscall/?q=fsmount&highlight=fsmount#sys-fsmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fsmount(int fs_fd, unsigned int flags, unsigned int ms_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fspick",
+    "url": "/syscall/?q=fspick&highlight=fspick#sys-fspick",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fspick(int dfd, const char __user *path, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fspick",
+    "url": "/syscall/?q=fspick&highlight=fspick#sys-fspick",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fspick(int dfd, const char __user *path, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pidfd_open",
+    "url": "/syscall/?q=pidfd_open&highlight=pidfd_open#sys-pidfd_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_open(pid_t pid, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pidfd_open",
+    "url": "/syscall/?q=pidfd_open&highlight=pidfd_open#sys-pidfd_open",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_open(pid_t pid, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_clone3",
+    "url": "/syscall/?q=clone3&highlight=clone3#sys-clone3",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clone3(struct clone_args __user *uargs, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_clone3",
+    "url": "/syscall/?q=clone3&highlight=clone3#sys-clone3",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_clone3(struct clone_args __user *uargs, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_close_range",
+    "url": "/syscall/?q=close_range&highlight=close_range#sys-close_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_close_range(unsigned int fd, unsigned int max_fd, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_close_range",
+    "url": "/syscall/?q=close_range&highlight=close_range#sys-close_range",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_close_range(unsigned int fd, unsigned int max_fd, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_openat2",
+    "url": "/syscall/?q=openat2&highlight=openat2#sys-openat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_openat2(int dfd, const char __user *filename, struct open_how __user *how, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_openat2",
+    "url": "/syscall/?q=openat2&highlight=openat2#sys-openat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_openat2(int dfd, const char __user *filename, struct open_how __user *how, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_pidfd_getfd",
+    "url": "/syscall/?q=pidfd_getfd&highlight=pidfd_getfd#sys-pidfd_getfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_pidfd_getfd",
+    "url": "/syscall/?q=pidfd_getfd&highlight=pidfd_getfd#sys-pidfd_getfd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_faccessat2",
+    "url": "/syscall/?q=faccessat2&highlight=faccessat2#sys-faccessat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_faccessat2(int dfd, const char __user *filename, int mode, int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_faccessat2",
+    "url": "/syscall/?q=faccessat2&highlight=faccessat2#sys-faccessat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_faccessat2(int dfd, const char __user *filename, int mode, int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_process_madvise",
+    "url": "/syscall/?q=process_madvise&highlight=process_madvise#sys-process_madvise",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_madvise(int pidfd, const struct iovec __user *vec, size_t vlen, int behavior, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_process_madvise",
+    "url": "/syscall/?q=process_madvise&highlight=process_madvise#sys-process_madvise",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_madvise(int pidfd, const struct iovec __user *vec, size_t vlen, int behavior, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_epoll_pwait2",
+    "url": "/syscall/?q=epoll_pwait2&highlight=epoll_pwait2#sys-epoll_pwait2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_pwait2(int epfd, struct epoll_event __user *events, int maxevents, const struct __kernel_timespec __user *timeout, const sigset_t __user *sigmask, size_t sigsetsize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_epoll_pwait2",
+    "url": "/syscall/?q=epoll_pwait2&highlight=epoll_pwait2#sys-epoll_pwait2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_epoll_pwait2(int epfd, struct epoll_event __user *events, int maxevents, const struct __kernel_timespec __user *timeout, const sigset_t __user *sigmask, size_t sigsetsize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mount_setattr",
+    "url": "/syscall/?q=mount_setattr&highlight=mount_setattr#sys-mount_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mount_setattr(int dfd, const char __user *path, unsigned int flags, struct mount_attr __user *uattr, size_t usize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mount_setattr",
+    "url": "/syscall/?q=mount_setattr&highlight=mount_setattr#sys-mount_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mount_setattr(int dfd, const char __user *path, unsigned int flags, struct mount_attr __user *uattr, size_t usize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_quotactl_fd",
+    "url": "/syscall/?q=quotactl_fd&highlight=quotactl_fd#sys-quotactl_fd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_quotactl_fd(unsigned int fd, unsigned int cmd, qid_t id, void __user *addr);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_quotactl_fd",
+    "url": "/syscall/?q=quotactl_fd&highlight=quotactl_fd#sys-quotactl_fd",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_quotactl_fd(unsigned int fd, unsigned int cmd, qid_t id, void __user *addr);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_landlock_create_ruleset",
+    "url": "/syscall/?q=landlock_create_ruleset&highlight=landlock_create_ruleset#sys-landlock_create_ruleset",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_create_ruleset(const struct landlock_ruleset_attr __user *attr, size_t size, __u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_landlock_create_ruleset",
+    "url": "/syscall/?q=landlock_create_ruleset&highlight=landlock_create_ruleset#sys-landlock_create_ruleset",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_create_ruleset(const struct landlock_ruleset_attr __user *attr, size_t size, __u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_landlock_add_rule",
+    "url": "/syscall/?q=landlock_add_rule&highlight=landlock_add_rule#sys-landlock_add_rule",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_add_rule(int ruleset_fd, enum landlock_rule_type rule_type, const void __user *rule_attr, __u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_landlock_add_rule",
+    "url": "/syscall/?q=landlock_add_rule&highlight=landlock_add_rule#sys-landlock_add_rule",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_add_rule(int ruleset_fd, enum landlock_rule_type rule_type, const void __user *rule_attr, __u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_landlock_restrict_self",
+    "url": "/syscall/?q=landlock_restrict_self&highlight=landlock_restrict_self#sys-landlock_restrict_self",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_restrict_self(int ruleset_fd, __u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_landlock_restrict_self",
+    "url": "/syscall/?q=landlock_restrict_self&highlight=landlock_restrict_self#sys-landlock_restrict_self",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_landlock_restrict_self(int ruleset_fd, __u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_memfd_secret",
+    "url": "/syscall/?q=memfd_secret&highlight=memfd_secret#sys-memfd_secret",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_memfd_secret(unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_memfd_secret",
+    "url": "/syscall/?q=memfd_secret&highlight=memfd_secret#sys-memfd_secret",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_memfd_secret(unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_process_mrelease",
+    "url": "/syscall/?q=process_mrelease&highlight=process_mrelease#sys-process_mrelease",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_mrelease(int pidfd, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_process_mrelease",
+    "url": "/syscall/?q=process_mrelease&highlight=process_mrelease#sys-process_mrelease",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_process_mrelease(int pidfd, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futex_waitv",
+    "url": "/syscall/?q=futex_waitv&highlight=futex_waitv#sys-futex_waitv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_waitv(struct futex_waitv __user *waiters, unsigned int nr_futexes, unsigned int flags, struct __kernel_timespec __user *timeout, clockid_t clockid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futex_waitv",
+    "url": "/syscall/?q=futex_waitv&highlight=futex_waitv#sys-futex_waitv",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_waitv(struct futex_waitv __user *waiters, unsigned int nr_futexes, unsigned int flags, struct __kernel_timespec __user *timeout, clockid_t clockid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_set_mempolicy_home_node",
+    "url": "/syscall/?q=set_mempolicy_home_node&highlight=set_mempolicy_home_node#sys-set_mempolicy_home_node",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_mempolicy_home_node(unsigned long start, unsigned long len, unsigned long home_node, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_set_mempolicy_home_node",
+    "url": "/syscall/?q=set_mempolicy_home_node&highlight=set_mempolicy_home_node#sys-set_mempolicy_home_node",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_set_mempolicy_home_node(unsigned long start, unsigned long len, unsigned long home_node, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_cachestat",
+    "url": "/syscall/?q=cachestat&highlight=cachestat#sys-cachestat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_cachestat(unsigned int fd, struct cachestat_range __user *cstat_range, struct cachestat __user *cstat, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_cachestat",
+    "url": "/syscall/?q=cachestat&highlight=cachestat#sys-cachestat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_cachestat(unsigned int fd, struct cachestat_range __user *cstat_range, struct cachestat __user *cstat, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchmodat2",
+    "url": "/syscall/?q=fchmodat2&highlight=fchmodat2#sys-fchmodat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmodat2(int dfd, const char __user *filename, umode_t mode, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchmodat2",
+    "url": "/syscall/?q=fchmodat2&highlight=fchmodat2#sys-fchmodat2",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchmodat2(int dfd, const char __user *filename, umode_t mode, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_map_shadow_stack",
+    "url": "/syscall/?q=map_shadow_stack&highlight=map_shadow_stack#sys-map_shadow_stack",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_map_shadow_stack(unsigned long addr, unsigned long size, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_map_shadow_stack",
+    "url": "/syscall/?q=map_shadow_stack&highlight=map_shadow_stack#sys-map_shadow_stack",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_map_shadow_stack(unsigned long addr, unsigned long size, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futex_wake",
+    "url": "/syscall/?q=futex_wake&highlight=futex_wake#sys-futex_wake",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_wake(void __user *uaddr, unsigned long mask, int nr, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futex_wake",
+    "url": "/syscall/?q=futex_wake&highlight=futex_wake#sys-futex_wake",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_wake(void __user *uaddr, unsigned long mask, int nr, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futex_wait",
+    "url": "/syscall/?q=futex_wait&highlight=futex_wait#sys-futex_wait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_wait(void __user *uaddr, unsigned long val, unsigned long mask, unsigned int flags, struct __kernel_timespec __user *timespec, clockid_t clockid);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futex_wait",
+    "url": "/syscall/?q=futex_wait&highlight=futex_wait#sys-futex_wait",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_wait(void __user *uaddr, unsigned long val, unsigned long mask, unsigned int flags, struct __kernel_timespec __user *timespec, clockid_t clockid);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_futex_requeue",
+    "url": "/syscall/?q=futex_requeue&highlight=futex_requeue#sys-futex_requeue",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_requeue(struct futex_waitv __user *waiters, unsigned int flags, int nr_wake, int nr_requeue);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_futex_requeue",
+    "url": "/syscall/?q=futex_requeue&highlight=futex_requeue#sys-futex_requeue",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_futex_requeue(struct futex_waitv __user *waiters, unsigned int flags, int nr_wake, int nr_requeue);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_statmount",
+    "url": "/syscall/?q=statmount&highlight=statmount#sys-statmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statmount(const struct mnt_id_req __user *req, struct statmount __user *buf, size_t bufsize, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_statmount",
+    "url": "/syscall/?q=statmount&highlight=statmount#sys-statmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_statmount(const struct mnt_id_req __user *req, struct statmount __user *buf, size_t bufsize, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_listmount",
+    "url": "/syscall/?q=listmount&highlight=listmount#sys-listmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listmount(const struct mnt_id_req __user *req, u64 __user *mnt_ids, size_t nr_mnt_ids, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_listmount",
+    "url": "/syscall/?q=listmount&highlight=listmount#sys-listmount",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listmount(const struct mnt_id_req __user *req, u64 __user *mnt_ids, size_t nr_mnt_ids, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lsm_get_self_attr",
+    "url": "/syscall/?q=lsm_get_self_attr&highlight=lsm_get_self_attr#sys-lsm_get_self_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_get_self_attr(unsigned int attr, struct lsm_ctx __user *ctx, u32 __user *size, u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lsm_get_self_attr",
+    "url": "/syscall/?q=lsm_get_self_attr&highlight=lsm_get_self_attr#sys-lsm_get_self_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_get_self_attr(unsigned int attr, struct lsm_ctx __user *ctx, u32 __user *size, u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lsm_set_self_attr",
+    "url": "/syscall/?q=lsm_set_self_attr&highlight=lsm_set_self_attr#sys-lsm_set_self_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_set_self_attr(unsigned int attr, struct lsm_ctx __user *ctx, u32 size, u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lsm_set_self_attr",
+    "url": "/syscall/?q=lsm_set_self_attr&highlight=lsm_set_self_attr#sys-lsm_set_self_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_set_self_attr(unsigned int attr, struct lsm_ctx __user *ctx, u32 size, u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_lsm_list_modules",
+    "url": "/syscall/?q=lsm_list_modules&highlight=lsm_list_modules#sys-lsm_list_modules",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_list_modules(u64 __user *ids, u32 __user *size, u32 flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_lsm_list_modules",
+    "url": "/syscall/?q=lsm_list_modules&highlight=lsm_list_modules#sys-lsm_list_modules",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_lsm_list_modules(u64 __user *ids, u32 __user *size, u32 flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_mseal",
+    "url": "/syscall/?q=mseal&highlight=mseal#sys-mseal",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mseal(unsigned long start, size_t len, unsigned long flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_mseal",
+    "url": "/syscall/?q=mseal&highlight=mseal#sys-mseal",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_mseal(unsigned long start, size_t len, unsigned long flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_setxattrat",
+    "url": "/syscall/?q=setxattrat&highlight=setxattrat#sys-setxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setxattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name, const struct xattr_args __user *args, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_setxattrat",
+    "url": "/syscall/?q=setxattrat&highlight=setxattrat#sys-setxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_setxattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name, const struct xattr_args __user *args, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_getxattrat",
+    "url": "/syscall/?q=getxattrat&highlight=getxattrat#sys-getxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getxattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name, struct xattr_args __user *args, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_getxattrat",
+    "url": "/syscall/?q=getxattrat&highlight=getxattrat#sys-getxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_getxattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name, struct xattr_args __user *args, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_listxattrat",
+    "url": "/syscall/?q=listxattrat&highlight=listxattrat#sys-listxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listxattrat(int dfd, const char __user *path, unsigned int at_flags, char __user *list, size_t size);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_listxattrat",
+    "url": "/syscall/?q=listxattrat&highlight=listxattrat#sys-listxattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listxattrat(int dfd, const char __user *path, unsigned int at_flags, char __user *list, size_t size);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_removexattrat",
+    "url": "/syscall/?q=removexattrat&highlight=removexattrat#sys-removexattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_removexattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_removexattrat",
+    "url": "/syscall/?q=removexattrat&highlight=removexattrat#sys-removexattrat",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_removexattrat(int dfd, const char __user *path, unsigned int at_flags, const char __user *name);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_open_tree_attr",
+    "url": "/syscall/?q=open_tree_attr&highlight=open_tree_attr#sys-open_tree_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_tree_attr(int dfd, const char __user *path, unsigned flags, struct mount_attr __user *uattr, size_t usize);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_open_tree_attr",
+    "url": "/syscall/?q=open_tree_attr&highlight=open_tree_attr#sys-open_tree_attr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_open_tree_attr(int dfd, const char __user *path, unsigned flags, struct mount_attr __user *uattr, size_t usize);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_file_getattr",
+    "url": "/syscall/?q=file_getattr&highlight=file_getattr#sys-file_getattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_file_getattr(int dfd, const char __user *filename, struct file_attr __user *attr, size_t usize, unsigned int at_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_file_getattr",
+    "url": "/syscall/?q=file_getattr&highlight=file_getattr#sys-file_getattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_file_getattr(int dfd, const char __user *filename, struct file_attr __user *attr, size_t usize, unsigned int at_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_file_setattr",
+    "url": "/syscall/?q=file_setattr&highlight=file_setattr#sys-file_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_file_setattr(int dfd, const char __user *filename, struct file_attr __user *attr, size_t usize, unsigned int at_flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_file_setattr",
+    "url": "/syscall/?q=file_setattr&highlight=file_setattr#sys-file_setattr",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_file_setattr(int dfd, const char __user *filename, struct file_attr __user *attr, size_t usize, unsigned int at_flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_listns",
+    "url": "/syscall/?q=listns&highlight=listns#sys-listns",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listns(const struct ns_id_req __user *req, u64 __user *ns_ids, size_t nr_ns_ids, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_listns",
+    "url": "/syscall/?q=listns&highlight=listns#sys-listns",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_listns(const struct ns_id_req __user *req, u64 __user *ns_ids, size_t nr_ns_ids, unsigned int flags);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_rseq_slice_yield",
+    "url": "/syscall/?q=rseq_slice_yield&highlight=rseq_slice_yield#sys-rseq_slice_yield",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rseq_slice_yield(void);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_rseq_slice_yield",
+    "url": "/syscall/?q=rseq_slice_yield&highlight=rseq_slice_yield#sys-rseq_slice_yield",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_rseq_slice_yield(void);"
+  },
+  {
+    "lang": "tr",
+    "title": "sys_fchroot",
+    "url": "/syscall/?q=fchroot&highlight=fchroot#sys-fchroot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchroot(int fd, unsigned int flags);"
+  },
+  {
+    "lang": "en",
+    "title": "sys_fchroot",
+    "url": "/syscall/?q=fchroot&highlight=fchroot#sys-fchroot",
+    "type": "syscall/",
+    "description": "asmlinkage long sys_fchroot(int fd, unsigned int flags);"
+  }
+]

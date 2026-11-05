@@ -27,7 +27,7 @@ function linkedCall() {
 const state = {
   arch: params.get('arch') || 'x64',
   kernel: params.get('kernel'), compare: params.get('compare') || '',
-  query: params.get('q') || '', hex: params.get('hex') === '1', all: params.get('all') === '1',
+  query: params.get('q') || params.get('highlight') || '', hex: params.get('hex') === '1', all: params.get('all') === '1',
   view: params.get('view') === 'args' ? 'args' : 'summary',
   sort: 'number', direction: 1, expanded: linkedCall(),
 };
@@ -247,6 +247,14 @@ function setExpanded(id) {
   updateDetail(id, true);
 }
 
+function highlightMatch(text, q) {
+  if (!q) return esc(text);
+  const terms = q.trim().split(/\s+/).filter(Boolean).map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  if (!terms.length) return esc(text);
+  const regex = new RegExp(`(${terms.join('|')})`, 'gi');
+  return esc(text).replace(regex, '<mark class="console-highlight">$1</mark>');
+}
+
 function renderRows() {
   renderView();
   if (!snapshot) return;
@@ -267,7 +275,7 @@ function renderRows() {
       : `<td class="row-description${noteFor(row) ? '' : ' muted'}">${description(row, row._change === 'removed' ? state.compare : state.kernel)}</td>`;
     return `<tr class="syscall-row" id="sys-${id}"><td class="call-number">${nr(row.number)}</td>
       <th scope="row" class="call-identity"><button class="call-name" data-call="${id}" aria-expanded="false">
-        <span aria-hidden="true">▸</span><span>${esc(row.name)}</span></button>${badge}</th>${trailing}</tr>`;
+        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button>${badge}</th>${trailing}</tr>`;
   }).join('');
   $('results').textContent = t('{count} of {total} entries', { count: rows.length, total: eligible.length });
   applyLanguage($('rows'));
@@ -502,7 +510,7 @@ try {
     $('show-unimplemented').checked = state.all;
     await refresh();
     if (state.expanded) document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
-    else if (location.hash === '#reference') $('reference').scrollIntoView({ behavior: 'instant' });
+    else if (location.hash === '#reference' || state.query) $('reference').scrollIntoView({ behavior: 'smooth' });
   } else {
     renderLibrary();
     if (librarySections.includes(location.hash)) $(location.hash.slice(1)).scrollIntoView({ behavior: 'instant' });
