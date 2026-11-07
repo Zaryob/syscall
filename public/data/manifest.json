@@ -123,6 +123,20 @@
       "x86"
     ]
   },
+  "version_paths": {
+    "v1.0": "revisions/v1.0/553a76db57864dab8e442a217dee54b3",
+    "v2.6.12": "revisions/v2.6.12/f7e46f04f9544c9ea2e58e96c801d0b8",
+    "v2.6.16": "revisions/v2.6.16/b99c2adde4ab44ff987be66a756fb082",
+    "v2.6.24": "revisions/v2.6.24/feaccc3c562e407a9b203e6df716ec60",
+    "v3.0": "revisions/v3.0/69249dd2539e4a4089083191e2eec35b",
+    "v3.7": "revisions/v3.7/1a07d1b617fe469ea8ce4ef67564ea3d",
+    "v4.15": "revisions/v4.15/497f3b55a01041829d46b03c1a6734a7",
+    "v5.19": "revisions/v5.19/b145e8d7f341406d91520a46c3e9b3cd",
+    "v6.6": "revisions/v6.6/95ec3e1a59524c28b102c41e9ed1ee5d",
+    "v6.12": "revisions/v6.12/e0456e7a6c97496ba15301a04e850c6b",
+    "v6.18": "revisions/v6.18/2dbc530a541c4f7c8f5e9e00196820d3",
+    "v7.3": "revisions/v7.3/bcbad8d2a6b441b48f70431ec3bf3bb1"
+  },
   "architectures": [
     {
       "id": "x64",
@@ -378,7 +392,8 @@
       "kernel": "mips",
       "table": "arch/mips/kernel/syscalls/syscall_n64.tbl",
       "abis": [
-        "n64"
+        "n64",
+        "common"
       ],
       "instruction": "syscall",
       "nr": "v0",

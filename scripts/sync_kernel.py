@@ -25,6 +25,8 @@ import urllib.request
 from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parents[1]
+MANUAL_CATALOG = json.loads((ROOT / 'sources/manual-pages.json').read_text())
+MANUAL_PAGES = {section: set(names) for section, names in MANUAL_CATALOG['sections'].items()}
 LICENSE_FILES = ("COPYING", "LICENSES/preferred/GPL-2.0", "LICENSES/exceptions/Linux-syscall-note")
 ARCHES = {
     "x64": dict(label="x86-64", bits=64, kernel="x86", table="arch/x86/entry/syscalls/syscall_64.tbl", abis=["common", "64"], instruction="syscall", nr="rax", result="rax", registers=["rdi", "rsi", "rdx", "r10", "r8", "r9"]),
@@ -38,7 +40,7 @@ ARCHES = {
     "s390x": dict(label="IBM Z (s390x)", bits=64, kernel="s390", table="arch/s390/kernel/syscalls/syscall.tbl", abis=["common", "64"], instruction="svc 0", nr="r1", result="r2", registers=["r2", "r3", "r4", "r5", "r6", "r7"]),
     "mips-o32": dict(label="MIPS o32", bits=32, kernel="mips", table="arch/mips/kernel/syscalls/syscall_o32.tbl", abis=["o32"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3"], stack_slots=[5, 6], error_flag="a3"),
     "mips-n32": dict(label="MIPS n32", bits=32, kernel="mips", table="arch/mips/kernel/syscalls/syscall_n32.tbl", abis=["n32"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3", "a4", "a5"], error_flag="a3"),
-    "mips-n64": dict(label="MIPS n64", bits=64, kernel="mips", table="arch/mips/kernel/syscalls/syscall_n64.tbl", abis=["n64"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3", "a4", "a5"], error_flag="a3"),
+    "mips-n64": dict(label="MIPS n64", bits=64, kernel="mips", table="arch/mips/kernel/syscalls/syscall_n64.tbl", abis=["n64", "common"], instruction="syscall", nr="v0", result="v0", registers=["a0", "a1", "a2", "a3", "a4", "a5"], error_flag="a3"),
 }
 # Import floor for the additional ABI tables; not the ABI's debut in Linux.
 EXTENDED_TABLES_FROM = (5, 19)
@@ -247,11 +249,11 @@ def split_c_arguments(body):
 def parse_prototypes(text, path):
     result = {}
     clean = strip_comments(text)
-    pattern = r"asmlinkage\s+(?:[A-Z_]+\s+)?(?:(?:unsigned\s+)?(?:long|int|short|char)|void|ssize_t|off_t|caddr_t|clock_t|pid_t|\w+_t)\s+((?:compat_)?sys_\w+)\s*\((.*?)\)\s*;"
-    for m in re.finditer(pattern, clean, re.S):
+    pattern = r"^[ \t]*(?:asmlinkage\s+)?(?:[A-Z_]+\s+)?(?:(?:unsigned\s+)?(?:long|int|short|char)|void|ssize_t|off_t|caddr_t|clock_t|pid_t|\w+_t)\s+((?:compat_)?sys_\w+)\s*\(([^;{}]*?)\)\s*;"
+    for m in re.finditer(pattern, clean, re.S | re.M):
         body = re.sub(r"\s+", " ", m[2]).strip()
         args = [] if body == "void" else split_c_arguments(body)
-        declaration = re.sub(r"\s+", " ", clean[m.start():m.start(2)]).rstrip()
+        declaration = re.sub(r"\s+", " ", clean[m.start():m.start(2)]).strip()
         declaration += (", ".join(args) if args else body) + ");"
         # Headers contain CONFIG_* alternatives (notably clone argument order).
         # Without a kernel configuration, conflicting declarations are ambiguous.
@@ -495,6 +497,21 @@ def architecture_rows(source, arch):
     return config["table"], parse_table(source.read(config["table"]), abis, offset, secondary_entry)
 
 
+def manual_url(name):
+    """Resolve editorial/time64 aliases only to pages in the checked-in catalog."""
+    target = name
+    if target.endswith('_time64'):
+        target = target[:-7]
+    elif target.endswith('time64'):
+        target = target[:-2]
+    target = MANUAL_CATALOG['aliases'].get(name, MANUAL_CATALOG['aliases'].get(target, target))
+    page, _, section = target.partition('.')
+    section = section or '2'
+    if page not in MANUAL_PAGES.get(section, set()):
+        return None
+    return f'https://man7.org/linux/man-pages/man{section}/{page}.{section}.html'
+
+
 def generate(ref, tree, output):
     """Write one release into the staging directory."""
     source = Source(ref, tree)
@@ -535,7 +552,7 @@ def generate(ref, tree, output):
                 signature_source={k: prototype[k] for k in ["path", "line"]} if prototype and not unavailable else None,
                 signature_note=prototype.get("note") if prototype and not unavailable else None,
                 source={"path": row.pop("path", table_path), "line": row.pop("line")},
-                man_url="https://man7.org/linux/man-pages/man2/{}.2.html".format(row["name"]),
+                man_url=manual_url(row["name"]) if not unavailable else None,
             )
             if row["signature_source"] and prototype.get("kind"):
                 row["signature_source"]["kind"] = prototype["kind"]
