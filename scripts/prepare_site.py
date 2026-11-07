@@ -8,12 +8,13 @@ import os
 from pathlib import Path
 import tarfile
 import tempfile
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
 ARCHIVE = PUBLIC / 'downloads/syscall-reference-source.tar.gz'
 ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'package-lock.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'README.tr.md', 'THIRD_PARTY_NOTICES.md']
-SOURCE_DIRS = ['public', 'scripts', 'tests', 'LICENSES', '.github']
+SOURCE_DIRS = ['public', 'scripts', 'sources', 'tests', 'LICENSES', '.github']
 
 
 def prepare():
@@ -23,6 +24,14 @@ def prepare():
     paths = manifest.get('version_paths', {})
     availability = manifest.get('version_architectures', {})
     architectures = [arch['id'] for arch in manifest['architectures']]
+    latest = manifest['latest']
+    latest_path = paths.get(latest, latest)
+    release_data = PUBLIC / '_data/syscall_release.json'
+    release_data.parent.mkdir(parents=True, exist_ok=True)
+    release_data.write_text(json.dumps({
+        'latest': latest, 'latest_path': latest_path,
+        'architectures': manifest['architectures'],
+    }, indent=2, ensure_ascii=False) + '\n')
     api = PUBLIC / 'api/v1'
     api.mkdir(parents=True, exist_ok=True)
     indexes = {
@@ -44,7 +53,9 @@ def prepare():
     for filename, data in indexes.items():
         (api / filename).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
-    x64_path = PUBLIC / 'data/v7.3/x64.json'
+    x64_path = PUBLIC / 'data' / latest_path / 'x64.json'
+    if not x64_path.is_file():
+        raise ValueError('Latest x64 snapshot missing: ' + str(x64_path))
     if x64_path.is_file():
         x64_data = json.loads(x64_path.read_bytes())
         search_entries = []
@@ -57,7 +68,7 @@ def prepare():
                 search_entries.append({
                     'lang': lang,
                     'title': f'sys_{name}',
-                    'url': f'/syscall/?q={name}&highlight={name}#sys-{name}',
+                    'url': '?' + urlencode({'arch': 'x64', 'kernel': latest, 'q': name, 'highlight': name}) + f'#sys-{latest}:{s["number"]}:{name}',
                     'type': 'syscall/',
                     'description': decl,
                 })

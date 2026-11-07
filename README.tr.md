@@ -195,3 +195,22 @@ Kaynak dağıtımında bu repo, generator, kullanılan kernel girdileri ve lisan
 metinleri birlikte tutulmalıdır. Web arayüzünün altbilgisinde de lisans ve
 kaynak bildirimleri bulunur.
 GNU veya Free Software Foundation ile resmî ortaklık yoktur.
+
+## Man bağlantıları ve üretilen metadata
+
+İçe aktarıcı, man bağlantılarını `sources/manual-pages.json` içindeki man7 sayfa
+adlarıyla eşler. Açıklama takma adları ve time64 ABI adları aynı belgelenmiş
+sayfayı kullanabilir; POSIX mesaj kuyrukları için bölüm 3 bağlantıları da
+korunur. Karşılığı olmayan sayfalarda `man_url: null` üretilir; arayüz durumu
+açıkça belirtir ve çekirdek kaynağına erişimi korur.
+
+Sayfa listesini `python3 scripts/sync_manual_pages.py` ile yenileyebilir,
+`--check` ile yazmadan karşılaştırabilirsiniz. Ardından snapshot'ları yeniden
+üretin. Yerel Linux ağacı ve depodaki sayfa kataloğuyla çekirdek içe aktarımı
+çevrimdışı çalışır. Katalog man metinlerini içermez; uzak bağlantıların süresiz
+olarak erişilebilir kalacağını garanti etmez.
+
+`prepare_site.py`, arama indeksi, statik örnekler ve indirme bağlantıları için
+manifestteki son sürümü ve etkin revizyonu kullanır. Arama URL'leri uygulama
+köküne görelidir; sitemap mimarileri manifestten alır. npm yerine Jekyll'i
+doğrudan çalıştırırken önce hazırlama betiğini çalıştırın.
