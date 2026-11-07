@@ -24,6 +24,34 @@ class ImportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             sync.parse_table("0 common read sys_read\n0 64 write sys_write", ["common", "64"])
 
+    def test_mips_n64_includes_common_calls_and_keeps_source_identity(self):
+        ref = 'v6.12'
+        tree = sync.ROOT / 'public/data' / ref / 'sources'
+        path, rows = sync.architecture_rows(sync.Source(ref, tree), 'mips-n64')
+        row = next(row for row in rows if row['number'] == 5450)
+        self.assertEqual((row['name'], row['abi'], row['entry']), ('set_mempolicy_home_node', 'common', 'sys_set_mempolicy_home_node'))
+        original = (tree / path).read_text().splitlines()[row['line'] - 1]
+        self.assertIn('common', original)
+        self.assertIn('set_mempolicy_home_node', original)
+
+    def test_powerpc_plain_prototypes_and_multiline_arguments_are_resolved(self):
+        text = ('#define bogus(x) long sys_macro(x);\n'
+                'long sys_mmap(unsigned long addr,\n size_t len);\n'
+                'long sys_rt_sigreturn(void);\n'
+                'long sys_definition(void) { return 0; }\n'
+                'return sys_not_a_declaration();\n')
+        result = sync.parse_prototypes(text, 'arch/powerpc/include/asm/syscalls.h')
+        self.assertEqual(set(result), {'sys_mmap', 'sys_rt_sigreturn'})
+        self.assertEqual(result['sys_mmap']['arguments'], ['unsigned long addr', 'size_t len'])
+        self.assertEqual(result['sys_mmap']['line'], 2)
+        self.assertEqual(result['sys_rt_sigreturn']['arguments'], [])
+
+    def test_manual_aliases_never_construct_unknown_page_urls(self):
+        for name, page in [('read', 'read.2'), ('pread64', 'pread.2'), ('clock_gettime64', 'clock_gettime.2'), ('clock_getres_time64', 'clock_gettime.2'), ('mq_timedsend_time64', 'mq_send.3')]:
+            self.assertEqual(sync.manual_url(name), f'https://man7.org/linux/man-pages/man{page[-1]}/{page}.html')
+        for name in ['unused59', 'not_a_linux_syscall', 'unknown_time64']:
+            self.assertIsNone(sync.manual_url(name))
+
     def test_prototypes_preserve_no_arguments_unknown_names_and_source_lines(self):
         text = "/* comment\n * two lines */\nasmlinkage long sys_getpid(void);\nasmlinkage long sys_read(unsigned int fd,\nchar __user *buf, size_t count);\n"
         result = sync.parse_prototypes(text, 'include/linux/syscalls.h')

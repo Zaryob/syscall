@@ -1,0 +1,2375 @@
+{
+  "schema_version": 1,
+  "kernel": "v1.0",
+  "architecture": "x86",
+  "calling_convention": {
+    "label": "i386",
+    "bits": 32,
+    "kernel": "x86",
+    "table": "include/linux/unistd.h",
+    "abis": [
+      "i386"
+    ],
+    "instruction": "int 0x80",
+    "nr": "eax",
+    "result": "eax",
+    "registers": [
+      "ebx",
+      "ecx",
+      "edx",
+      "esi",
+      "edi",
+      "ebp"
+    ]
+  },
+  "syscalls": [
+    {
+      "number": 0,
+      "abi": "x86",
+      "name": "setup",
+      "entry": "sys_setup",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 121
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setup.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 1,
+      "abi": "x86",
+      "name": "exit",
+      "entry": "sys_exit",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 121
+      },
+      "man_url": null,
+      "signature_status": "not_found"
+    },
+    {
+      "number": 2,
+      "abi": "x86",
+      "name": "fork",
+      "entry": "sys_fork",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 121
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/fork.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 3,
+      "abi": "x86",
+      "name": "read",
+      "entry": "sys_read",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 121
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/read.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 4,
+      "abi": "x86",
+      "name": "write",
+      "entry": "sys_write",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/write.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 5,
+      "abi": "x86",
+      "name": "open",
+      "entry": "sys_open",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/open.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 6,
+      "abi": "x86",
+      "name": "close",
+      "entry": "sys_close",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/close.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 7,
+      "abi": "x86",
+      "name": "waitpid",
+      "entry": "sys_waitpid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/waitpid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 8,
+      "abi": "x86",
+      "name": "creat",
+      "entry": "sys_creat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/creat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 9,
+      "abi": "x86",
+      "name": "link",
+      "entry": "sys_link",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 122
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/link.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 10,
+      "abi": "x86",
+      "name": "unlink",
+      "entry": "sys_unlink",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/unlink.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 11,
+      "abi": "x86",
+      "name": "execve",
+      "entry": "sys_execve",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/execve.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 12,
+      "abi": "x86",
+      "name": "chdir",
+      "entry": "sys_chdir",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 13,
+      "abi": "x86",
+      "name": "time",
+      "entry": "sys_time",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/time.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 14,
+      "abi": "x86",
+      "name": "mknod",
+      "entry": "sys_mknod",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mknod.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 15,
+      "abi": "x86",
+      "name": "chmod",
+      "entry": "sys_chmod",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 123
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 16,
+      "abi": "x86",
+      "name": "chown",
+      "entry": "sys_chown",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 17,
+      "abi": "x86",
+      "name": "break",
+      "entry": "sys_break",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/break.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 18,
+      "abi": "x86",
+      "name": "oldstat",
+      "entry": "sys_stat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/oldstat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 19,
+      "abi": "x86",
+      "name": "lseek",
+      "entry": "sys_lseek",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/lseek.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 20,
+      "abi": "x86",
+      "name": "getpid",
+      "entry": "sys_getpid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 21,
+      "abi": "x86",
+      "name": "mount",
+      "entry": "sys_mount",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 124
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mount.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 22,
+      "abi": "x86",
+      "name": "umount",
+      "entry": "sys_umount",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/umount.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 23,
+      "abi": "x86",
+      "name": "setuid",
+      "entry": "sys_setuid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 24,
+      "abi": "x86",
+      "name": "getuid",
+      "entry": "sys_getuid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 25,
+      "abi": "x86",
+      "name": "stime",
+      "entry": "sys_stime",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/stime.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 26,
+      "abi": "x86",
+      "name": "ptrace",
+      "entry": "sys_ptrace",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ptrace.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 27,
+      "abi": "x86",
+      "name": "alarm",
+      "entry": "sys_alarm",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 125
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/alarm.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 28,
+      "abi": "x86",
+      "name": "oldfstat",
+      "entry": "sys_fstat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/oldfstat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 29,
+      "abi": "x86",
+      "name": "pause",
+      "entry": "sys_pause",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/pause.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 30,
+      "abi": "x86",
+      "name": "utime",
+      "entry": "sys_utime",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/utime.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 31,
+      "abi": "x86",
+      "name": "stty",
+      "entry": "sys_stty",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/stty.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 32,
+      "abi": "x86",
+      "name": "gtty",
+      "entry": "sys_gtty",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/gtty.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 33,
+      "abi": "x86",
+      "name": "access",
+      "entry": "sys_access",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 126
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/access.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 34,
+      "abi": "x86",
+      "name": "nice",
+      "entry": "sys_nice",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/nice.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 35,
+      "abi": "x86",
+      "name": "ftime",
+      "entry": "sys_ftime",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": null,
+      "signature_status": "not_found"
+    },
+    {
+      "number": 36,
+      "abi": "x86",
+      "name": "sync",
+      "entry": "sys_sync",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sync.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 37,
+      "abi": "x86",
+      "name": "kill",
+      "entry": "sys_kill",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/kill.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 38,
+      "abi": "x86",
+      "name": "rename",
+      "entry": "sys_rename",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 39,
+      "abi": "x86",
+      "name": "mkdir",
+      "entry": "sys_mkdir",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 127
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mkdir.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 40,
+      "abi": "x86",
+      "name": "rmdir",
+      "entry": "sys_rmdir",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/rmdir.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 41,
+      "abi": "x86",
+      "name": "dup",
+      "entry": "sys_dup",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 42,
+      "abi": "x86",
+      "name": "pipe",
+      "entry": "sys_pipe",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/pipe.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 43,
+      "abi": "x86",
+      "name": "times",
+      "entry": "sys_times",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/times.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 44,
+      "abi": "x86",
+      "name": "prof",
+      "entry": "sys_prof",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/prof.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 45,
+      "abi": "x86",
+      "name": "brk",
+      "entry": "sys_brk",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/brk.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 46,
+      "abi": "x86",
+      "name": "setgid",
+      "entry": "sys_setgid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 128
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 47,
+      "abi": "x86",
+      "name": "getgid",
+      "entry": "sys_getgid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 48,
+      "abi": "x86",
+      "name": "signal",
+      "entry": "sys_signal",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/signal.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 49,
+      "abi": "x86",
+      "name": "geteuid",
+      "entry": "sys_geteuid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 50,
+      "abi": "x86",
+      "name": "getegid",
+      "entry": "sys_getegid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 51,
+      "abi": "x86",
+      "name": "acct",
+      "entry": "sys_acct",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 52,
+      "abi": "x86",
+      "name": "phys",
+      "entry": "sys_phys",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 129
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/phys.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 53,
+      "abi": "x86",
+      "name": "lock",
+      "entry": "sys_lock",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/lock.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 54,
+      "abi": "x86",
+      "name": "ioctl",
+      "entry": "sys_ioctl",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ioctl.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 55,
+      "abi": "x86",
+      "name": "fcntl",
+      "entry": "sys_fcntl",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/fcntl.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 56,
+      "abi": "x86",
+      "name": "mpx",
+      "entry": "sys_mpx",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mpx.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 57,
+      "abi": "x86",
+      "name": "setpgid",
+      "entry": "sys_setpgid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 58,
+      "abi": "x86",
+      "name": "ulimit",
+      "entry": "sys_ulimit",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 130
+      },
+      "man_url": null,
+      "signature_status": "not_found"
+    },
+    {
+      "number": 59,
+      "abi": "x86",
+      "name": "oldolduname",
+      "entry": "sys_olduname",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/oldolduname.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 60,
+      "abi": "x86",
+      "name": "umask",
+      "entry": "sys_umask",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/umask.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 61,
+      "abi": "x86",
+      "name": "chroot",
+      "entry": "sys_chroot",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chroot.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 62,
+      "abi": "x86",
+      "name": "ustat",
+      "entry": "sys_ustat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ustat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 63,
+      "abi": "x86",
+      "name": "dup2",
+      "entry": "sys_dup2",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 64,
+      "abi": "x86",
+      "name": "getppid",
+      "entry": "sys_getppid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 131
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 65,
+      "abi": "x86",
+      "name": "getpgrp",
+      "entry": "sys_getpgrp",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 132
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getpgrp.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 66,
+      "abi": "x86",
+      "name": "setsid",
+      "entry": "sys_setsid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 132
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setsid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 67,
+      "abi": "x86",
+      "name": "sigaction",
+      "entry": "sys_sigaction",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 132
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sigaction.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 68,
+      "abi": "x86",
+      "name": "sgetmask",
+      "entry": "sys_sgetmask",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 132
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sgetmask.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 69,
+      "abi": "x86",
+      "name": "ssetmask",
+      "entry": "sys_ssetmask",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 132
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ssetmask.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 70,
+      "abi": "x86",
+      "name": "setreuid",
+      "entry": "sys_setreuid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 133
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 71,
+      "abi": "x86",
+      "name": "setregid",
+      "entry": "sys_setregid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 133
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 72,
+      "abi": "x86",
+      "name": "sigsuspend",
+      "entry": "sys_sigsuspend",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 133
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 73,
+      "abi": "x86",
+      "name": "sigpending",
+      "entry": "sys_sigpending",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 133
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sigpending.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 74,
+      "abi": "x86",
+      "name": "sethostname",
+      "entry": "sys_sethostname",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 134
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sethostname.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 75,
+      "abi": "x86",
+      "name": "setrlimit",
+      "entry": "sys_setrlimit",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 134
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 76,
+      "abi": "x86",
+      "name": "getrlimit",
+      "entry": "sys_getrlimit",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 134
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 77,
+      "abi": "x86",
+      "name": "getrusage",
+      "entry": "sys_getrusage",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 134
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getrusage.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 78,
+      "abi": "x86",
+      "name": "gettimeofday",
+      "entry": "sys_gettimeofday",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 135
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/gettimeofday.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 79,
+      "abi": "x86",
+      "name": "settimeofday",
+      "entry": "sys_settimeofday",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 135
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/settimeofday.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 80,
+      "abi": "x86",
+      "name": "getgroups",
+      "entry": "sys_getgroups",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 135
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 81,
+      "abi": "x86",
+      "name": "setgroups",
+      "entry": "sys_setgroups",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 135
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 82,
+      "abi": "x86",
+      "name": "select",
+      "entry": "sys_select",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 136
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 83,
+      "abi": "x86",
+      "name": "symlink",
+      "entry": "sys_symlink",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 136
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/symlink.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 84,
+      "abi": "x86",
+      "name": "oldlstat",
+      "entry": "sys_lstat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 136
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/oldlstat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 85,
+      "abi": "x86",
+      "name": "readlink",
+      "entry": "sys_readlink",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 136
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/readlink.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 86,
+      "abi": "x86",
+      "name": "uselib",
+      "entry": "sys_uselib",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 136
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/uselib.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 87,
+      "abi": "x86",
+      "name": "swapon",
+      "entry": "sys_swapon",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 88,
+      "abi": "x86",
+      "name": "reboot",
+      "entry": "sys_reboot",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/reboot.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 89,
+      "abi": "x86",
+      "name": "readdir",
+      "entry": "sys_readdir",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/readdir.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 90,
+      "abi": "x86",
+      "name": "mmap",
+      "entry": "sys_mmap",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 91,
+      "abi": "x86",
+      "name": "munmap",
+      "entry": "sys_munmap",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 92,
+      "abi": "x86",
+      "name": "truncate",
+      "entry": "sys_truncate",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 137
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 93,
+      "abi": "x86",
+      "name": "ftruncate",
+      "entry": "sys_ftruncate",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 138
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 94,
+      "abi": "x86",
+      "name": "fchmod",
+      "entry": "sys_fchmod",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 138
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 95,
+      "abi": "x86",
+      "name": "fchown",
+      "entry": "sys_fchown",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 138
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 96,
+      "abi": "x86",
+      "name": "getpriority",
+      "entry": "sys_getpriority",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 138
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getpriority.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 97,
+      "abi": "x86",
+      "name": "setpriority",
+      "entry": "sys_setpriority",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 138
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setpriority.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 98,
+      "abi": "x86",
+      "name": "profil",
+      "entry": "sys_profil",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 139
+      },
+      "man_url": null,
+      "signature_status": "not_found"
+    },
+    {
+      "number": 99,
+      "abi": "x86",
+      "name": "statfs",
+      "entry": "sys_statfs",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 139
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/statfs.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 100,
+      "abi": "x86",
+      "name": "fstatfs",
+      "entry": "sys_fstatfs",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 139
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/fstatfs.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 101,
+      "abi": "x86",
+      "name": "ioperm",
+      "entry": "sys_ioperm",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 139
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ioperm.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 102,
+      "abi": "x86",
+      "name": "socketcall",
+      "entry": "sys_socketcall",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 139
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/socketcall.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 103,
+      "abi": "x86",
+      "name": "syslog",
+      "entry": "sys_syslog",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 140
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 104,
+      "abi": "x86",
+      "name": "setitimer",
+      "entry": "sys_setitimer",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 140
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 105,
+      "abi": "x86",
+      "name": "getitimer",
+      "entry": "sys_getitimer",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 140
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 106,
+      "abi": "x86",
+      "name": "stat",
+      "entry": "sys_newstat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 140
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 107,
+      "abi": "x86",
+      "name": "lstat",
+      "entry": "sys_newlstat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 140
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 108,
+      "abi": "x86",
+      "name": "fstat",
+      "entry": "sys_newfstat",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 109,
+      "abi": "x86",
+      "name": "olduname",
+      "entry": "sys_uname",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/olduname.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 110,
+      "abi": "x86",
+      "name": "iopl",
+      "entry": "sys_iopl",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 111,
+      "abi": "x86",
+      "name": "vhangup",
+      "entry": "sys_vhangup",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/vhangup.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 112,
+      "abi": "x86",
+      "name": "idle",
+      "entry": "sys_idle",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/idle.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 113,
+      "abi": "x86",
+      "name": "vm86",
+      "entry": "sys_vm86",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 141
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/vm86.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 114,
+      "abi": "x86",
+      "name": "wait4",
+      "entry": "sys_wait4",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/wait4.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 115,
+      "abi": "x86",
+      "name": "swapoff",
+      "entry": "sys_swapoff",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 116,
+      "abi": "x86",
+      "name": "sysinfo",
+      "entry": "sys_sysinfo",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sysinfo.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 117,
+      "abi": "x86",
+      "name": "ipc",
+      "entry": "sys_ipc",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/ipc.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 118,
+      "abi": "x86",
+      "name": "fsync",
+      "entry": "sys_fsync",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/fsync.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 119,
+      "abi": "x86",
+      "name": "sigreturn",
+      "entry": "sys_sigreturn",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 142
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 120,
+      "abi": "x86",
+      "name": "clone",
+      "entry": "sys_fork",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 143
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 121,
+      "abi": "x86",
+      "name": "setdomainname",
+      "entry": "sys_setdomainname",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 143
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setdomainname.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 122,
+      "abi": "x86",
+      "name": "uname",
+      "entry": "sys_newuname",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 143
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/uname.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 123,
+      "abi": "x86",
+      "name": "modify_ldt",
+      "entry": "sys_modify_ldt",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 143
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/modify_ldt.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 124,
+      "abi": "x86",
+      "name": "adjtimex",
+      "entry": "sys_adjtimex",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 144
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/adjtimex.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 125,
+      "abi": "x86",
+      "name": "mprotect",
+      "entry": "sys_mprotect",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 144
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 126,
+      "abi": "x86",
+      "name": "sigprocmask",
+      "entry": "sys_sigprocmask",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 144
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/sigprocmask.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 127,
+      "abi": "x86",
+      "name": "create_module",
+      "entry": "sys_create_module",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 144
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/create_module.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 128,
+      "abi": "x86",
+      "name": "init_module",
+      "entry": "sys_init_module",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 145
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 129,
+      "abi": "x86",
+      "name": "delete_module",
+      "entry": "sys_delete_module",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 145
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 130,
+      "abi": "x86",
+      "name": "get_kernel_syms",
+      "entry": "sys_get_kernel_syms",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 145
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/get_kernel_syms.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 131,
+      "abi": "x86",
+      "name": "quotactl",
+      "entry": "sys_ni_syscall",
+      "status": "unimplemented",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 145
+      },
+      "man_url": null
+    },
+    {
+      "number": 132,
+      "abi": "x86",
+      "name": "getpgid",
+      "entry": "sys_getpgid",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 146
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 133,
+      "abi": "x86",
+      "name": "fchdir",
+      "entry": "sys_fchdir",
+      "status": "defined",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 146
+      },
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html",
+      "signature_status": "not_found"
+    },
+    {
+      "number": 134,
+      "abi": "x86",
+      "name": "bdflush",
+      "entry": "sys_ni_syscall",
+      "status": "unimplemented",
+      "arguments": null,
+      "declaration": null,
+      "signature_source": null,
+      "signature_note": null,
+      "source": {
+        "path": "kernel/sched.c",
+        "line": 146
+      },
+      "man_url": null
+    }
+  ],
+  "license": "GPL-2.0-only",
+  "licensing": {
+    "generated_file": "GPL-2.0-only",
+    "generated_at": "2026-11-07T11:48:39.870007+00:00",
+    "upstream_notice": "sources/COPYING",
+    "upstream_license_texts": [],
+    "generator": "scripts/sync_kernel.py",
+    "modification_notice": "Generated by syscall-reference from Linux v1.0; tables and declarations were parsed, filtered by ABI, and converted to JSON. Bundled input files are unchanged; their original licenses, notices and exceptions remain in effect. The Linux-syscall-note is not applied to all application code or all extracted declarations."
+  },
+  "provenance": {
+    "kind": "upstream",
+    "repository": "https://www.kernel.org/pub/linux/kernel/",
+    "ref": "v1.0",
+    "files": [
+      {
+        "path": "COPYING",
+        "sha256": "ed71cfca021790f74094e9810f42e31288e7f43cf00c8d9ac8d6f904124bd815",
+        "bundled_path": "sources/COPYING",
+        "role": "license-notice"
+      },
+      {
+        "path": "Makefile",
+        "sha256": "4ea4e1c514105c84e3f092cc4c4401b0118e0a95647c79e604422db4accae00a",
+        "bundled_path": "sources/Makefile",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      },
+      {
+        "path": "include/linux/sys.h",
+        "sha256": "a9720de71d060ddd9500bf5149080d46e27c1f11e4a003a490113675c768a380",
+        "bundled_path": "sources/include/linux/sys.h",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      },
+      {
+        "path": "include/linux/unistd.h",
+        "sha256": "7d670b8d3bfe4391f57b5e92196da40ccdf104f372200f0146bba9c7ab9418a2",
+        "bundled_path": "sources/include/linux/unistd.h",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      },
+      {
+        "path": "kernel/sched.c",
+        "sha256": "ee4b1c06d6e182b3ea2f8ee7424fe2a34a2ab973424d9faf733aee96b3c7064d",
+        "bundled_path": "sources/kernel/sched.c",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      }
+    ],
+    "archive": "https://www.kernel.org/pub/linux/kernel/v1.0/linux-1.0.tar.xz"
+  }
+}

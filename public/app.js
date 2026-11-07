@@ -185,9 +185,11 @@ function detailHTML(row, id) {
   const source = `<a href="${esc(sourceLink(row.source, kernel))}">${esc(row.source.path)}:${row.source.line}</a>`;
   const sourceLabel = row.signature_source?.kind === 'syscall_macro' ? 'Syscall definition:' : 'Declaration:';
   const declaration = row.signature_source ? ` · ${esc(t(sourceLabel))} <a href="${esc(sourceLink(row.signature_source, kernel))}">${esc(row.signature_source.path)}:${row.signature_source.line}</a>` : '';
-  const [manualName, manualSection = '2'] = (noteFor(row)?.manual ?? row.name).split('.');
-  const manual = noteFor(row)?.manual
-    ? `https://man7.org/linux/man-pages/man${manualSection}/${manualName}.${manualSection}.html` : row.man_url;
+  const manual = row.man_url;
+  const [, manualName, manualSection] = manual?.match(/\/([^/]+)\.([23])\.html$/) || [];
+  const manualHTML = manual && manualName
+    ? `<a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a>`
+    : `<span class="muted">${window.ZaryobI18n.language === 'tr' ? 'Bu girdi için man sayfası bağlantısı yok.' : 'No manual link is available for this entry.'}</span>`;
   const signatureHTML = !signature ? `<p class="muted">${esc(t(unresolvedLabels[row.signature_status] ?? 'C declaration not resolved in the imported headers.'))}</p>`
     : `<div class="signature"><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><code>${esc(signature)}</code><span class="console-sr-only" role="status"></span></div>`;
   const raw = datasetPath(kernel, `${state.arch}.json`);
@@ -215,7 +217,7 @@ function detailHTML(row, id) {
       ${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}
       ${row.signature_note && !row.signature_status ? `<p>${esc(t(row.signature_note))}</p>` : ''}${previousSignature}
       <p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p>
-      <p><a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a>
+      <p>${manualHTML}
         · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button>
         · <a href="${esc(raw)}"><span data-i18n="Table JSON">Table JSON</span></a>
         · <a href="${esc(permalink)}"><span data-i18n="Permanent link">Permanent link</span></a></p>

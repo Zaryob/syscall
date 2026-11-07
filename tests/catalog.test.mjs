@@ -11,6 +11,50 @@ const manifest = JSON.parse(await readFile(new URL('../public/data/manifest.json
 const snapshotFile = (version, file) => new URL('../public/' + snapshotPath(manifest, version, file), import.meta.url);
 const dataset = async (version, arch) => JSON.parse(await readFile(snapshotFile(version, arch + '.json'), 'utf8'));
 
+test('all current MIPS n64 snapshots include the common 5450 call with source identity', async () => {
+  for (const version of ['v5.19', 'v6.6', 'v6.12', 'v6.18', 'v7.3']) {
+    const data = await dataset(version, 'mips-n64');
+    const row = data.syscalls.find(row => row.number === 5450);
+    assert.equal(row.name, 'set_mempolicy_home_node');
+    assert.equal(row.abi, 'common');
+    assert.equal(row.entry, 'sys_set_mempolicy_home_node');
+    const source = await readFile(snapshotFile(version, `sources/${row.source.path}`), 'utf8');
+    assert.match(source.split('\n')[row.source.line - 1], /450\s+common\s+set_mempolicy_home_node/);
+  }
+});
+
+test('PowerPC plain prototypes resolve from their bundled architecture headers', async () => {
+  for (const arch of ['ppc', 'ppc64']) {
+    const data = await dataset('v7.3', arch);
+    for (const name of ['mmap', 'rt_sigreturn', 'swapcontext', 'rtas', 'subpage_prot']) {
+      const row = data.syscalls.find(row => row.name === name);
+      assert.ok(Array.isArray(row.arguments), `${arch}/${name}`);
+      assert.equal(row.signature_source.path, 'arch/powerpc/include/asm/syscalls.h');
+      const source = await readFile(snapshotFile('v7.3', `sources/${row.signature_source.path}`), 'utf8');
+      assert.ok(source.split('\n')[row.signature_source.line - 1].includes(row.entry));
+    }
+  }
+});
+
+test('every active manual link is a cataloged page, including time64 and section 3 aliases', async () => {
+  const catalog = JSON.parse(await readFile(new URL('../sources/manual-pages.json', import.meta.url)));
+  for (const version of manifest.versions) {
+    for (const arch of availableArchitectures(manifest, version)) {
+      for (const row of (await dataset(version, arch)).syscalls) {
+        if (row.man_url === null) continue;
+        const url = new URL(row.man_url);
+        assert.equal(url.origin, 'https://man7.org');
+        const match = url.pathname.match(/^\/linux\/man-pages\/man([23])\/([^/]+)\.\1\.html$/);
+        assert.ok(match, row.man_url);
+        assert.ok(catalog.sections[match[1]].includes(match[2]), row.man_url);
+      }
+    }
+  }
+  const x86 = await dataset('v7.3', 'x86');
+  assert.match(x86.syscalls.find(row => row.name === 'clock_gettime64').man_url, /clock_gettime\.2\.html$/);
+  assert.equal(x86.syscalls.find(row => row.status === 'unimplemented').man_url, null);
+});
+
 test('search finds exact decimal/hex numbers and matches declaration text', () => {
   const rows = [
     { number: 0, name: 'read', entry: 'sys_read', arguments: ['unsigned int fd', 'char *buf'] },
