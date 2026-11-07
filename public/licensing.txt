@@ -14,6 +14,12 @@ The Linux-syscall-note applies only where granted by upstream; we do not apply
 it to the entire application or to all generated data. Its complete text:
   {{ '/licenses/Linux-syscall-note.txt' | relative_url }}
 
+Historical pre-SPDX UAPI inputs may carry the normalized GPL-2.0-only fallback
+with license_basis COPYING. This does not remove the original normal-system-call
+user-program note at the start of (for example) Linux v3.7 COPYING. Read the
+bundled original notice with the input; no modern SPDX expression is inserted
+retroactively. See LICENSING.md for the source-notice scope.
+
 Each release includes its exact input source files and original notices:
   {{ '/data/v6.12/sources.json' | relative_url }}
   {{ '/data/v6.18/sources.json' | relative_url }}
@@ -25,8 +31,8 @@ For a release such as v7.3, read its kernel license notices at:
   {{ '/data/v7.3/sources/LICENSES/exceptions/Linux-syscall-note' | relative_url }}
 
 For any new release, use {{ '/data/manifest.json' | relative_url }} and then
-{{ '/data/' | relative_url }}<release>/sources.json. Each architecture JSON includes licensing and
-source provenance. The original input files are under {{ '/data/' | relative_url }}<release>/sources/.
+{{ '/data/' | relative_url }}<version_paths[release] or release>/sources.json. Each architecture JSON includes licensing and
+source provenance. The original input files are under {{ '/data/' | relative_url }}<version_paths[release] or release>/sources/.
 The raw upstream endpoint represents Git symlinks as target-path text; such
 entries are identified in sources.json.
 

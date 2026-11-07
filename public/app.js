@@ -3,17 +3,16 @@ import { searchSyscalls, diffSyscalls, availableArchitectures, normalizeSelectio
 import { snapshotPath, withBase } from './paths.mjs';
 import { buildExample } from './examples.mjs';
 import { syscallNote } from './notes.mjs';
+import { readRoute, routeURL } from './navigation.mjs';
+import { referenceCopy, secondResult, releaseLabel } from './reference.mjs';
 
 const { t, apply: applyLanguage } = window.ZaryobI18n;
 const $ = id => document.getElementById(id);
 const rootPath = document.querySelector('meta[name="site-root"]').content;
 const sitePath = path => withBase(rootPath, path);
-const params = new URLSearchParams(location.search);
 const librarySections = ['#title', '#architectures', '#conventions', '#api', '#sources'];
-const tableView = !librarySections.includes(location.hash) &&
-  (location.hash === '#reference' || location.hash.startsWith('#sys-') ||
-    ['arch', 'kernel', 'compare', 'q', 'view', 'hex', 'all', 'full'].some(name => params.has(name)));
-
+let tableView = readRoute(location.href).tableView;
+let restoringHistory = false;
 function referenceURL(values = {}, hash = '') {
   const query = new URLSearchParams(values);
   if (new URLSearchParams(location.search).has('lang')) query.set('lang', window.ZaryobI18n.language);
@@ -24,13 +23,7 @@ function linkedCall() {
   try { return decodeURIComponent(location.hash.slice(5)); }
   catch { return ''; }
 }
-const state = {
-  arch: params.get('arch') || 'x64',
-  kernel: params.get('kernel'), compare: params.get('compare') || '',
-  query: params.get('q') || params.get('highlight') || '', hex: params.get('hex') === '1', all: params.get('all') === '1',
-  view: params.get('view') === 'args' ? 'args' : 'summary',
-  sort: 'number', direction: 1, expanded: linkedCall(),
-};
+const state = { ...readRoute(location.href).state, sort: 'number', direction: 1 };
 const cache = new Map();
 let manifest, snapshot, previous, requestId = 0;
 let comparison, tableRows = new Map();
@@ -106,18 +99,18 @@ function getSnapshot(kernel, arch) {
   }
   return cache.get(url);
 }
-function saveURL(updateDetail = false) {
-  const p = new URLSearchParams({ arch: state.arch, kernel: state.kernel });
-  if (new URLSearchParams(location.search).has('lang')) p.set('lang', window.ZaryobI18n.language);
-  if (state.compare) p.set('compare', state.compare);
-  if (state.query) p.set('q', state.query);
-  if (state.view === 'args') p.set('view', 'args');
-  if (state.hex) p.set('hex', '1');
-  if (state.all) p.set('all', '1');
-  const hash = updateDetail || location.hash.startsWith('#sys-')
-    ? state.expanded ? rowHash(state.expanded) : ''
-    : location.hash;
-  history.replaceState(null, '', `${rootPath}?${p}${hash}`);
+function saveURL(updateDetail = false, mode = 'replace') {
+  if (mode === 'none' || restoringHistory) return;
+  const url = routeURL(location.href, rootPath, state, updateDetail);
+  if (url !== location.pathname + location.search + location.hash) {
+    history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
+  }
+}
+function renderReferenceCopy() {
+  const copy = referenceCopy(window.ZaryobI18n.language);
+  document.querySelectorAll('[data-syscall-copy]').forEach(node => {
+    node.innerHTML = copy[node.dataset.syscallCopy];
+  });
 }
 function renderView() {
   const args = state.view === 'args';
@@ -135,7 +128,7 @@ function setView(view) {
   if (state.view === view) return;
   state.view = view;
   $('table-scroll').scrollLeft = 0;
-  renderRows(); saveURL();
+  renderRows(); saveURL(false, 'push');
 }
 function updateSelects() {
   const picker = $('architecture-picker');
@@ -146,19 +139,22 @@ function updateSelects() {
     picker.disabled = false;
   }
   const releases = manifest.versions.filter(version => availableArchitectures(manifest, version).includes(state.arch));
-  $('kernel').replaceChildren(...releases.map(version => new Option(version.slice(1), version, false, version === state.kernel)));
+  $('kernel').replaceChildren(...releases.map(version => new Option(releaseLabel(version), version, false, version === state.kernel)));
   $('compare').replaceChildren(new Option(t('None'), ''), ...releases.filter(version => version !== state.kernel).map(
-    version => new Option(version.slice(1), version, false, version === state.compare)
+    version => new Option(releaseLabel(version), version, false, version === state.compare)
   ));
   $('kernel').disabled = false;
   $('compare').disabled = releases.length < 2;
+  $('compare-help').hidden = releases.length >= 2;
+  renderReferenceCopy();
 }
 function renderMetadata() {
   const c = snapshot.calling_convention;
   $('table-title').textContent = t('{arch} system calls', { arch: c.label });
   document.title = `${c.label} · Linux ${state.kernel.slice(1)} · ${t('System Call Reference')}`;
   const conventions = [[t('ENTRY'), c.instruction], ['NR', c.nr], [t('RETURN'), c.result],
-    [t('Argument locations'), argumentLocations(c).join(' · ')]];
+    [t('Argument locations'), argumentLocations(c).join(' · ')], ['RET2', secondResult(state.arch)]];
+  if (state.arch === 'x64') conventions.push(['Clobber', 'rcx, r11']);
   if (c.error_flag) conventions.push([t('Error flag'), c.error_flag]);
   $('convention-strip').innerHTML = conventions.map(([label, value]) =>
     `<span><strong>${esc(label)}</strong> <code>${esc(value)}</code></span>`).join('');
@@ -321,7 +317,7 @@ async function finishComparison(id, pending) {
   if (focused) document.getElementById(`sys-${focused}`)?.querySelector('[data-call]')?.focus({ preventScroll: true });
 }
 
-async function refresh() {
+async function refresh(historyMode = 'replace') {
   normalizeSelection(manifest, state);
   const id = ++requestId;
   $('error').hidden = true;
@@ -339,7 +335,7 @@ async function refresh() {
   updateSelects();
   const arch = manifest.architectures.find(a => a.id === state.arch);
   $('table-title').textContent = t('{arch} system calls', { arch: arch.label });
-  saveURL();
+  saveURL(false, historyMode);
   const pending = state.compare ? getSnapshot(state.compare, state.arch).catch(() => null) : null;
   try {
     const next = await getSnapshot(state.kernel, state.arch);
@@ -388,14 +384,14 @@ $('architecture-picker')?.addEventListener('change', () => {
   if (state.compare && (!availableVersions.includes(state.compare) || state.compare === state.kernel)) {
     state.compare = '';
   }
-  state.expanded = ''; refresh();
+  state.expanded = ''; refresh('push');
 });
 $('kernel').addEventListener('change', () => {
   state.kernel = $('kernel').value;
   if (state.compare === state.kernel) state.compare = '';
-  state.expanded = ''; refresh();
+  state.expanded = ''; refresh('push');
 });
-$('compare').addEventListener('change', () => { state.compare = $('compare').value; refresh(); });
+$('compare').addEventListener('change', () => { state.compare = $('compare').value; state.expanded = ''; refresh('push'); });
 $('retry-compare').addEventListener('click', () => {
   comparisonLoad = 'loading';
   $('compare').focus();
@@ -415,8 +411,8 @@ $('search').addEventListener('input', () => {
 });
 $('clear').addEventListener('click', resetSearch);
 $('reset-search').addEventListener('click', resetSearch);
-$('hex').addEventListener('change', () => { state.hex = $('hex').checked; renderRows(); saveURL(); });
-$('show-unimplemented').addEventListener('change', () => { state.all = $('show-unimplemented').checked; renderRows(); saveURL(); });
+$('hex').addEventListener('change', () => { state.hex = $('hex').checked; renderRows(); saveURL(false, 'push'); });
+$('show-unimplemented').addEventListener('change', () => { state.all = $('show-unimplemented').checked; renderRows(); saveURL(false, 'push'); });
 for (const sort of ['number', 'name']) $(`sort-${sort}`).addEventListener('click', () => {
   state.direction = state.sort === sort ? -state.direction : 1; state.sort = sort; renderRows();
 });
@@ -443,7 +439,7 @@ $('rows').addEventListener('click', event => {
   if (!button) return;
   const id = button.dataset.call;
   setExpanded(state.expanded === id ? '' : id);
-  saveURL(true);
+  saveURL(true, 'push');
 });
 $('rows').addEventListener('click', async event => {
   const button = event.target.closest('[data-copy-signature]');
@@ -473,7 +469,7 @@ function renderLibrary() {
     `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a></li>`
   ).join('');
   $('convention-rows').innerHTML = manifest.architectures.map(a =>
-    `<tr><th scope="row"><a href="${links.get(a.id)}">${esc(a.label)}</a></th><td>${esc(a.instruction)}</td><td>${esc(a.nr)}</td><td>${esc(a.result)}</td><td>${esc(argumentLocations(a).join(', '))}</td><td>${esc(a.error_flag ?? '—')}</td></tr>`
+    `<tr><th scope="row"><a href="${links.get(a.id)}">${esc(a.label)}</a></th><td>${esc(a.instruction)}</td><td>${esc(a.nr)}</td><td>${esc(a.result)}</td><td>${esc(secondResult(a.id))}</td><td>${esc(a.id === 'x64' ? 'rcx, r11' : referenceCopy(window.ZaryobI18n.language).notCatalogued)}</td><td>${esc(argumentLocations(a).join(', '))}</td><td>${esc(a.error_flag ?? '—')}</td></tr>`
   ).join('');
   const download = datasetPath(manifest.latest, 'x64.json');
   $('bulk-link').href = download;
@@ -481,7 +477,8 @@ function renderLibrary() {
   $('snapshot-sources').href = datasetPath(manifest.latest, 'sources.json');
 }
 window.addEventListener('zaryob:language', () => {
-  if (!manifest) return;
+  if (!manifest || restoringHistory) return;
+  renderReferenceCopy();
   if (!tableView) {
     renderLibrary();
     return;
@@ -493,7 +490,8 @@ window.addEventListener('zaryob:language', () => {
 });
 window.addEventListener('hashchange', () => {
   if (!tableView) return;
-  if (!snapshot) {
+  if (!snapshot || comparisonLoad === 'loading') {
+    // A fragment can identify a removed row that arrives with the comparison.
     state.expanded = linkedCall();
     return;
   }
@@ -501,10 +499,41 @@ window.addEventListener('hashchange', () => {
   document.getElementById(`sys-${state.expanded}`)?.scrollIntoView({ block: 'center' });
 });
 
+async function restoreFromURL() {
+  ++requestId; // Also invalidate a load when navigating back to the library.
+  const route = readRoute(location.href);
+  tableView = route.tableView;
+  Object.assign(state, route.state);
+  restoringHistory = true;
+  try {
+    const lang = new URLSearchParams(location.search).get('lang');
+    if (lang) window.ZaryobLanguage.set(lang, { persist: false, updateUrl: false });
+    $('library').hidden = tableView;
+    $('reference').hidden = !tableView;
+    renderReferenceCopy();
+    if (!manifest) return;
+    if (tableView) {
+      $('back-to-architectures').href = referenceURL({}, '#architectures');
+      $('search').value = state.query;
+      $('hex').checked = state.hex;
+      $('show-unimplemented').checked = state.all;
+    } else {
+      snapshot = previous = null;
+      document.title = t('Linux System Call Reference');
+      renderLibrary();
+    }
+  } finally {
+    restoringHistory = false;
+  }
+  if (tableView) await refresh('none');
+}
+window.addEventListener('popstate', restoreFromURL);
+
 $('library').hidden = tableView;
 $('reference').hidden = !tableView;
 try {
   manifest = await getJSON(sitePath('data/manifest.json'));
+  renderReferenceCopy();
   if (tableView) {
     $('back-to-architectures').href = referenceURL({}, '#architectures');
     $('search').value = state.query;

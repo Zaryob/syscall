@@ -214,3 +214,27 @@ olarak erişilebilir kalacağını garanti etmez.
 manifestteki son sürümü ve etkin revizyonu kullanır. Arama URL'leri uygulama
 köküne görelidir; sitemap mimarileri manifestten alır. npm yerine Jekyll'i
 doğrudan çalıştırırken önce hazırlama betiğini çalıştırın.
+
+## Gezinme ve ABI başvuru notları
+
+Mimari, sürüm, karşılaştırma, tablo görünümü, sayı biçimi ve detay seçimleri
+tarayıcı geçmişine adım ekler. Arama yazmak veya temizlemek geçerli adımı yeniler.
+Geri/İleri URL’deki seçimi, açıkça belirtilmiş dili ve detay kimliğini geri yükler;
+eski bekleyen veri yüklemeleri sonraki seçimi değiştiremez.
+
+Çağrı kuralları tablosu RET2 ve x86-64 komutunun bozduğu yazmaçları gösterir;
+notlar eax/w8 numaralandırmasını, PPC sc ve özellik denetimli PPC64 scv 0 farkını
+açıklar. Kısa tablo tam bir assembly yazmaç koruma sözleşmesi değildir. Bu editoryal
+notlar değişmez snapshot metaverisini değiştirmez. LTS işaretleri
+[kernel.org](https://www.kernel.org/category/releases.html) verisine göre
+7 Kasım 2026 tarihlidir; kayıtlı snapshot bakım yaması içermez.
+
+Sistem çağrısı araması tarayıcıda çalışır. Sayfa ayrıca üçüncü taraf Umami Cloud
+betiğini (`cloud.umami.is/script.js`) yükler ve ziyaret analitiği gönderir.
+[Umami veri toplama açıklaması](https://docs.umami.is/docs/collect-data).
+
+SPDX öncesi UAPI girdilerindeki `GPL-2.0-only` / `license_basis: COPYING` yedeği,
+örneğin v3.7 COPYING başındaki normal sistem çağrısı kullanıcı programı notunu
+ortadan kaldırmaz. Tarihsel kaynağa yeni SPDX ifadesi eklenmez; özgün bildirim
+dosyayla birlikte okunur. Bu açıklama hukuki kullanım hükmü değildir.
+[Kaynak bildirimleri ve kapsam](LICENSING.md).

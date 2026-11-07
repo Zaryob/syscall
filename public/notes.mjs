@@ -111,7 +111,7 @@ const entries = [
 
   // Memory, synchronization and timing
   ['mmap', 'Map a file or anonymous memory into the process address space.', 'Bir dosyayı veya anonim belleği sürecin adres alanına eşler.'],
-  ['mmap2', 'Map memory using an offset in page units rather than bytes on supported ABIs.', 'Destekleyen ABI’lerde bayt yerine sayfa birimiyle belirtilen ofsetten bellek eşler.'],
+  ['mmap2', 'Map memory using a file offset in 4096-byte units on the supported ABIs.', 'Desteklenen ABI’lerde 4096 baytlık birimlerle belirtilen dosya ofsetinden bellek eşler.'],
   ['munmap', 'Remove a mapped address range from the process.', 'Eşlenmiş bir adres aralığını sürecin adres alanından kaldırır.', 'mmap'],
   ['mremap', 'Resize an existing mapping and optionally move it to a different address.', 'Var olan bellek eşlemesini yeniden boyutlandırır ve gerekirse başka adrese taşır.'],
   ['mprotect', 'Change which accesses are permitted to a mapped address range.', 'Eşlenmiş bir adres aralığındaki okuma, yazma ve yürütme izinlerini değiştirir.'],
@@ -178,7 +178,7 @@ const entries = [
   ['setresgid', 'Set the real, effective and saved group IDs within the caller’s permissions.', 'Çağıranın izinleri ölçüsünde gerçek, etkin ve kayıtlı grup kimliklerini ayarlar.', 'setresuid'],
   ['setgid', 'Change the caller’s group identity, within its current permissions.', 'Geçerli izinlerin elverdiği ölçüde çağıranın grup kimliğini değiştirir.'],
   ['capget', 'Read a thread’s Linux capability sets.', 'Bir iş parçacığının Linux yetenek kümelerini (capabilities) okur.'],
-  ['capset', 'Set permitted Linux capability fields for a thread.', 'Bir iş parçacığının Linux yetenek alanlarını izin verilen ölçüde ayarlar.', 'capget'],
+  ['capset', 'Set a thread’s effective, permitted and inheritable Linux capability sets within the caller’s permissions.', 'Çağıranın izinleri ölçüsünde bir iş parçacığının etkin, izinli ve devralınabilir Linux yetenek kümelerini ayarlar.', 'capget'],
   ['prctl', 'Query or change process and thread attributes selected by an operation code.', 'İşlem koduyla seçilen süreç veya iş parçacığı özelliklerini okur ya da değiştirir.'],
   ['arch_prctl', 'Query or change architecture-specific thread state, such as the x86-64 FS base.', 'x86-64 FS tabanı gibi mimariye özgü iş parçacığı durumunu okur veya değiştirir.'],
   ['getrandom', 'Fill a buffer with random bytes from the kernel’s random number generator.', 'Arabelleği çekirdeğin rastgele sayı üretecinden aldığı baytlarla doldurur.'],

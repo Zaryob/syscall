@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<!-- SPDX-License-Identifier: GPL-2.0-only -->
+<rect width="1200" height="630" fill="#171b20"/>
+<path d="M70 70h1060v490H70z" fill="none" stroke="#454c55" stroke-width="2"/>
+<path d="M70 125h1060" stroke="#454c55" stroke-width="2"/>
+<g fill="#d6b879"><circle cx="100" cy="98" r="5"/><circle cx="120" cy="98" r="5"/><circle cx="140" cy="98" r="5"/></g>
+<g font-family="monospace" fill="#d6b879"><text x="110" y="192" font-size="25">~/syscall</text></g>
+<g font-family="sans-serif" fill="#f1f2f4" font-weight="600"><text x="110" y="274" font-size="57">Linux System Call</text><text x="110" y="342" font-size="57">Reference</text></g>
+<text x="110" y="411" font-family="sans-serif" font-size="26" fill="#b9c0ca">Numbers. C signatures. ABI conventions.</text>
+<path d="M110 452h980" stroke="#454c55"/>
+<text x="110" y="508" font-family="monospace" font-size="23" fill="#d6b879">Kernel sources · Release comparisons · TR / EN</text>
+</svg>

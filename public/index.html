@@ -39,7 +39,8 @@ title: Linux System Call Reference
       </ol>
       <p><span data-i18n="These are the raw kernel conventions. The C library provides its own wrappers.">These are the raw kernel conventions. The C library provides its own wrappers.</span></p>
       <p class="small"><span data-i18n="The table is organized by the Linux userspace ABI. CPUs that run the same ABI share syscall numbers: Intel Core and AMD Ryzen running x86-64 Linux both use x64.">The table is organized by the Linux userspace ABI. CPUs that run the same ABI share syscall numbers: Intel Core and AMD Ryzen running x86-64 Linux both use x64.</span></p>
-      <div class="table-scroll" tabindex="0" role="region" aria-label="Calling conventions" data-i18n-aria-label="Calling conventions"><table class="conventions-table"><caption class="console-sr-only"><span data-i18n="Linux calling conventions by ABI">Linux calling conventions by ABI</span></caption><thead><tr><th scope="col"><span data-i18n="Architecture">Architecture</span></th><th scope="col"><span data-i18n="Instruction">Instruction</span></th><th scope="col">NR</th><th scope="col">RET</th><th scope="col"><span data-i18n="Argument locations">Argument locations</span></th><th scope="col"><span data-i18n="Error flag">Error flag</span></th></tr></thead><tbody id="convention-rows"></tbody></table></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Calling conventions" data-i18n-aria-label="Calling conventions"><table class="conventions-table"><caption class="console-sr-only"><span data-i18n="Linux calling conventions by ABI">Linux calling conventions by ABI</span></caption><thead><tr><th scope="col"><span data-i18n="Architecture">Architecture</span></th><th scope="col"><span data-i18n="Instruction">Instruction</span></th><th scope="col">NR</th><th scope="col">RET</th><th scope="col">RET2</th><th scope="col">Clobber</th><th scope="col"><span data-i18n="Argument locations">Argument locations</span></th><th scope="col"><span data-i18n="Error flag">Error flag</span></th></tr></thead><tbody id="convention-rows"></tbody></table></div>
+      <div class="small" data-syscall-copy="abiNotes"></div>
       <p class="small"><span data-i18n="On ARM EABI, some 64-bit arguments require an aligned register pair. MIPS o32 passes argument slots 5 and 6 on the user stack. See the">On ARM EABI, some 64-bit arguments require an aligned register pair. MIPS o32 passes argument slots 5 and 6 on the user stack. See the</span> <a href="https://man7.org/linux/man-pages/man2/syscall.2.html#NOTES"><span data-i18n="architecture notes in syscall(2)">architecture notes in syscall(2)</span></a> <span data-i18n="before writing assembly.">before writing assembly.</span></p>
     </section>
 
@@ -92,8 +93,8 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
           <div class="search-line"><input id="search" type="search" placeholder="Name, number, or purpose…" data-i18n-placeholder="Name, number, or purpose…" autocomplete="off" spellcheck="false"><button type="button" id="clear"><span data-i18n="Clear">Clear</span></button></div>
         </form>
         <label class="release-field"><span data-i18n="Architecture">Architecture</span> <span class="console-select"><select id="architecture-picker" disabled aria-label="Architecture" data-i18n-aria-label="Architecture"></select></span></label>
-        <label class="release-field"><span data-i18n="Kernel release">Kernel release</span> <span class="console-select"><select id="kernel" disabled aria-label="Kernel release" data-i18n-aria-label="Kernel release"></select></span></label>
-        <label class="release-field"><span data-i18n="Compare with">Compare with</span> <span class="console-select"><select id="compare" disabled aria-label="Compare with" data-i18n-aria-label="Compare with"><option value="" data-i18n="None">None</option></select></span></label>
+        <label class="release-field"><span data-i18n="Kernel release">Kernel release</span> <span class="console-select"><select id="kernel" aria-describedby="release-help" disabled aria-label="Kernel release" data-i18n-aria-label="Kernel release"></select></span></label>
+        <label class="release-field"><span data-i18n="Compare with">Compare with</span> <span class="console-select"><select id="compare" aria-describedby="compare-help" disabled aria-label="Compare with" data-i18n-aria-label="Compare with"><option value="" data-i18n="None">None</option></select></span></label>
       </div>
       <div class="view-bar">
         <div id="table-views" class="view-switch" role="group" aria-label="Table view" data-i18n-aria-label="Table view">
@@ -104,6 +105,9 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
           <a id="download" hidden href="{{ '/data/manifest.json' | relative_url }}" download><span data-i18n="Download JSON ↓">Download JSON ↓</span></a>
         </div>
       </div>
+      <p id="compare-help" class="small" data-syscall-copy="compareHelp" hidden></p>
+      <p id="release-help" class="small" data-syscall-copy="releaseHelp"></p>
+      <details class="small"><summary><span data-i18n="Calling conventions">Calling conventions</span></summary><div data-syscall-copy="abiNotes"></div></details>
       <div class="table-filters">
         <label><input type="checkbox" id="hex"> <span data-i18n="Hex numbers">Hex numbers</span></label>
         <label><input type="checkbox" id="show-unimplemented"> <span data-i18n="Include unimplemented">Include unimplemented</span></label>

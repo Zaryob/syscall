@@ -40,14 +40,18 @@ as target-path text and identified in the manifest. The generation source is
 
 Register calling conventions are factual reference information checked against
 Linux man-pages `syscall(2)`: https://man7.org/linux/man-pages/man2/syscall.2.html.
-Manual-page prose is not bundled. Links use the corresponding syscall name and
-may not exist for entries without a dedicated manual page.
+Manual-page prose is not bundled. Links are resolved against the checked-in
+page catalog; entries without a cataloged page have no manual link. Supplemental NR, RET2 and clobber notes
+are editorial reference data in `public/reference.mjs`, not changes to imported
+Linux snapshots. PowerPC error handling is checked against the kernel ABI
+documentation and `arch/powerpc/kernel/interrupt.c`, preserving cr0.SO for sc.
 
 ## Shared console theme assets
 
 The common Zaryob theme code in `public/assets/console/theme.css`, `theme.js`
 and `public/_includes/console-header.html` is GPL-2.0-or-later. IBM Plex Mono
-Regular and Medium are Copyright © 2017 IBM Corp., with Reserved Font Name
+Regular and Medium, and IBM Plex Sans Regular, Italic, SemiBold and
+SemiBoldItalic are Copyright © 2017 IBM Corp., with Reserved Font Name
 "Plex", and are distributed unmodified under SIL OFL 1.1; the full notice is
 `public/assets/console/fonts/OFL.txt`. The Font Awesome Free regular icon sprite
 retains its upstream license notice; see

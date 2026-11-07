@@ -28,7 +28,9 @@ Find what a Linux syscall does, inspect its C arguments, and follow the entry ba
 - **C downloads:** hand-written `getpid` and `write` examples, plus review-required skeletons for other supported 64-bit signatures.
 - **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and an overview that fits small screens. The argument view keeps the syscall number and name visible as you scroll to ARG5 and ARG6.
 
-The published site runs entirely in the browser. Jekyll builds the pages; a Node server is available separately for local API use.
+Syscall lookup runs in the browser. The published page also loads the third-party
+Umami Cloud script at `cloud.umami.is/script.js` and sends visit analytics; see
+[Umami data collection](https://docs.umami.is/docs/collect-data). Jekyll builds the pages; a Node server is available separately for local API use.
 
 ## Get started
 
@@ -165,3 +167,18 @@ manual text, and does not promise that a remote URL will stay available forever.
 search index, static examples and download links. Search URLs are relative to
 the application root; the sitemap enumerates the manifest's architecture list.
 Run preparation before Jekyll when building directly rather than via npm.
+
+## Navigation and ABI reference notes
+
+Architecture, release, comparison, table view, number-format and detail selections
+create browser history entries. Typing or clearing a search replaces the current
+entry. Back/Forward restores the URL selection, including its explicit language
+and detail identity; older pending data loads cannot overwrite a later selection.
+
+The conventions table includes RET2 and the x86-64 instruction clobbers. Its notes
+explain eax/w8 numbering and distinguish PPC sc from capability-gated PPC64 scv 0.
+The abbreviated table is not a complete assembly preservation contract. These
+editorial supplements leave immutable snapshot metadata unchanged. LTS labels
+are dated 7 November 2026, sourced from
+[kernel.org](https://www.kernel.org/category/releases.html), and describe release
+families rather than the patch level of a bundled snapshot.

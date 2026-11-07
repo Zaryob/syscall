@@ -24,6 +24,16 @@ notices, license texts, and exceptions remain unchanged. In particular:
 - The syscall exception applies where upstream grants it. It is not a blanket
   exception for internal headers, generated JSON, or this application's code.
 
+Pre-SPDX snapshots need the original notices as well as the normalized metadata.
+For example, v3.7 `include/uapi/asm-generic/unistd.h` is recorded as
+`GPL-2.0-only` with `license_basis: COPYING`. That fallback is not a claim
+that its UAPI use has no syscall exception: the bundled v3.7 `COPYING`
+opens with Linus Torvalds's normal-system-call user-program note. Read that
+notice with the input file; we do not retroactively insert a modern SPDX
+expression into historical sources. This is a description of retained source
+notices, not a legal determination about a downstream use.
+[Original v3.7 COPYING](https://github.com/torvalds/linux/blob/v3.7/COPYING).
+
 The JSON files mix table facts and extracted declarations. They are distributed
 under GPL-2.0-only as a conservative project policy, without claiming exclusive
 rights over facts or revoking permissions already granted by upstream. A
