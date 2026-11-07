@@ -3,55 +3,24 @@ layout: null
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+{% assign site_origin = site.url | default: 'https://zaryob.github.io' %}
+{% assign site_root = '/' | relative_url | prepend: site_origin %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zaryob.github.io/syscall/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?lang=tr" />
+    <loc>{{ site_root }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site_root }}?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ site_root }}?lang=tr" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% for architecture in site.data.syscall_release.architectures %}
   <url>
-    <loc>https://zaryob.github.io/syscall/?arch=x64</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=x64&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=x64&amp;lang=tr" />
+    <loc>{{ site_root }}?arch={{ architecture.id }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site_root }}?arch={{ architecture.id }}&amp;lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ site_root }}?arch={{ architecture.id }}&amp;lang=tr" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://zaryob.github.io/syscall/?arch=arm64</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=arm64&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=arm64&amp;lang=tr" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://zaryob.github.io/syscall/?arch=riscv64</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=riscv64&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=riscv64&amp;lang=tr" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://zaryob.github.io/syscall/?arch=x86</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=x86&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=x86&amp;lang=tr" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zaryob.github.io/syscall/?arch=arm</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=arm&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=arm&amp;lang=tr" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zaryob.github.io/syscall/?arch=loongarch64</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall/?arch=loongarch64&amp;lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall/?arch=loongarch64&amp;lang=tr" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  {% endfor %}
 </urlset>

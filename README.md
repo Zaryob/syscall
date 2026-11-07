@@ -146,3 +146,22 @@ Keep the source archive, license texts, and bundled kernel inputs with the outpu
 Application code, documentation, examples, and the generated JSON compilation are **GPL-2.0-only**. See [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md). Imported Linux files retain their original notices and any applicable `Linux-syscall-note` exception; that exception does not apply to the whole application.
 
 Independent of GNU and the Free Software Foundation.
+
+## Manual links and generated metadata
+
+The importer resolves manual links against `sources/manual-pages.json`, a catalog
+of page names from the man7 section indexes. Editorial aliases and time64 ABI
+names can share a documented page, including the POSIX message-queue pages in
+section 3. Unknown pages produce `man_url: null`; the interface displays an
+explicit unavailable state and retains the kernel-source reference.
+
+Refresh page availability with `python3 scripts/sync_manual_pages.py`, or compare
+it without writing with `python3 scripts/sync_manual_pages.py --check`, before
+regenerating snapshots. Kernel imports themselves remain usable offline with
+a local tree and the checked-in catalog. Page-name metadata does not embed the
+manual text, and does not promise that a remote URL will stay available forever.
+
+`prepare_site.py` uses the manifest's latest release and active revision for the
+search index, static examples and download links. Search URLs are relative to
+the application root; the sitemap enumerates the manifest's architecture list.
+Run preparation before Jekyll when building directly rather than via npm.

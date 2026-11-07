@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import re
 import tarfile
+import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlsplit
 
 
@@ -58,6 +59,10 @@ def check(site, baseurl):
     paths = manifest.get('version_paths', {})
     availability = manifest.get('version_architectures', {})
     architectures = [arch['id'] for arch in manifest['architectures']]
+    sitemap = ET.parse(site / 'sitemap.xml')
+    locations = [element.text for element in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+    for arch in architectures:
+        assert any(urlsplit(url).query == 'arch=' + arch for url in locations), 'Sitemap missing ABI: ' + arch
     api_index = json.loads((site / 'api/v1/index.json').read_text())
     expected_tables = {
         (version, arch): '../../data/{}/{}.json'.format(paths.get(version, version), arch)
@@ -78,7 +83,7 @@ def check(site, baseurl):
     with tarfile.open(site / 'downloads/syscall-reference-source.tar.gz') as archive:
         members = archive.getmembers()
         names = {m.name for m in members}
-        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/prepare_site.py', 'public/_layouts/default.html']:
+        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/prepare_site.py', 'sources/manual-pages.json', 'public/_layouts/default.html']:
             assert 'syscall-reference/' + required in names, 'Source archive missing ' + required
         for member in members:
             assert member.isfile(), 'Archive contains a non-file entry'
