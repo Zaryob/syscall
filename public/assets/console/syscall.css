@@ -290,17 +290,6 @@
   overflow-wrap: anywhere;
 }
 #syscall-table .detail-content h3 { margin-bottom: 7px; }
-#syscall-table .signature {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin: 8px 0 13px;
-  padding: 9px 12px 12px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-}
-#syscall-table .signature button { min-height: 30px; margin-inline-start: auto; padding: 3px 9px; font-size: var(--text-xs); }
-#syscall-table .signature code { flex: 1 0 100%; font-size: var(--text-sm); white-space: pre-wrap; }
 #syscall-table .argument-table { table-layout: fixed; }
 #syscall-table .argument-table th { white-space: normal; }
 #syscall-table .argument-table :is(th, td):first-child { width: 74px; }
@@ -395,3 +384,18 @@
 .console-syscall .console-hero__panel-head a { color: var(--accent); }
 .console-syscall .console-hero__inner { padding-inline: 0; }
 .console-syscall .console-hero .console-hero__lead { margin: 16px 0 0; }
+
+.console-syscall .architecture-links li { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.console-syscall .architecture-links a { border: 0; }
+.console-syscall .architecture-links .static-table-link { font-size: var(--text-xs); color: var(--muted); }
+.console-syscall .advanced-options { margin: 0 0 12px; border-block: 1px solid var(--line); }
+.console-syscall .advanced-options > summary, .source-notes > summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--accent); font-size: var(--text-sm); }
+.console-syscall .advanced-options__body { padding: 8px 0 12px; }
+.console-syscall .advanced-options .release-field { max-width: 20rem; margin-bottom: 16px; }
+.console-syscall .advanced-options p { font-family: var(--font-prose); font-size: var(--text-base); line-height: var(--line-prose); }
+.console-syscall .documentation > p, .console-syscall .source-notes { font-family: var(--font-prose); font-size: var(--text-prose); line-height: var(--line-prose); }
+.console-syscall .signature.console-declaration { background: var(--paper); }
+@media (max-width: 760px) {
+  .console-syscall .lookup-bar { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .console-syscall .lookup-bar .release-field:first-of-type { grid-column: auto; }
+}

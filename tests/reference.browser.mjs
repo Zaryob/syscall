@@ -397,9 +397,9 @@ test('generated pages are readable without JavaScript and fit a phone', async t 
   const page = await openPage(t, { javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   await page.goto(base);
   // Crawlable links: present in the served HTML, not rendered by the application.
-  assert.equal(await page.locator('.static-links a[href="/syscall-test/arch/x64/"]').count(), 1);
+  assert.equal(await page.locator('#architecture-links a[href="/syscall-test/arch/x64/"]').count(), 1);
   assert.equal(await page.locator('.static-links a[href="/syscall-test/call/"]').count(), 1);
-  assert.equal(await page.locator('.static-links a').count(), 13);
+  assert.equal(await page.locator('#architecture-links a, .static-links a').count(), 13);
 
   await page.goto(`${base}call/openat/`);
   assert.equal(await page.title(), 'openat — Linux system call numbers by architecture (Linux 7.3)');
@@ -429,4 +429,20 @@ test('choosing a language on a generated page opens its translation', async t =>
   await page.locator('html[lang="tr"]').waitFor({ state: 'attached' });
   assert.equal(new URL(page.url()).pathname, '/syscall-test/tr/call/openat/');
   assert.equal(await page.locator('h1 code').textContent(), 'openat');
+});
+
+test('compact lookup reaches real rows before the fold and restores active advanced filters', async t => {
+  const page = await openPage(t, { viewport: { width: 390, height: 844 } });
+  await page.goto(`${base}?arch=x64&lang=en`);
+  await page.locator('#rows tr').first().waitFor();
+  assert.equal(await page.locator('#advanced-options').getAttribute('open'), null);
+  const row = await page.locator('#rows tr').first().boundingBox();
+  assert.ok(row.y < 800, `first row starts at ${row.y}px`);
+  await page.locator('#advanced-options > summary').click();
+  await page.locator('#hex').check();
+  await page.reload();
+  await page.locator('#rows tr').first().waitFor();
+  assert.notEqual(await page.locator('#advanced-options').getAttribute('open'), null);
+  assert.equal(await page.locator('#hex').isChecked(), true);
+  assert.match(await page.locator('#rows tr').first().textContent(), /0x0/);
 });

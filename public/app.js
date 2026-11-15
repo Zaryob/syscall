@@ -198,7 +198,7 @@ function detailHTML(row, id) {
     ? `<a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a>`
     : `<span class="muted">${window.ZaryobI18n.language === 'tr' ? 'Bu girdi için man sayfası bağlantısı yok.' : 'No manual link is available for this entry.'}</span>`;
   const signatureHTML = !signature ? `<p class="muted">${esc(t(unresolvedLabels[row.signature_status] ?? 'C declaration not resolved in the imported headers.'))}</p>`
-    : `<div class="signature"><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><code>${esc(signature)}</code><span class="console-sr-only" role="status"></span></div>`;
+    : `<div class="signature console-declaration"><code>${esc(signature)}</code><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><span class="console-sr-only" role="status"></span></div>`;
   const raw = datasetPath(kernel, `${state.arch}.json`);
   const before = row._before;
   const permalink = referenceURL({ arch: state.arch, kernel, ...(row.status === 'unimplemented' ? { all: '1' } : {}) }, rowHash(id));
@@ -487,7 +487,7 @@ function renderLibrary() {
     return [arch.id, esc(referenceURL({ arch: arch.id, kernel }))];
   }));
   $('architecture-links').innerHTML = manifest.architectures.map(arch =>
-    `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a></li>`
+    `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a><a class="static-table-link" data-static-page="arch/${esc(arch.id)}/" href="${esc(staticPage(`arch/${arch.id}/`))}" aria-label="${esc(arch.label)} · ${esc(referenceCopy(window.ZaryobI18n.language).staticTable)}">${esc(referenceCopy(window.ZaryobI18n.language).staticTable)}</a></li>`
   ).join('');
   document.querySelectorAll('[data-static-page]').forEach(link => { link.href = staticPage(link.dataset.staticPage); });
   $('convention-rows').innerHTML = manifest.architectures.map(a =>
@@ -574,3 +574,12 @@ try {
   alert.hidden = false;
   if (tableView) $('results').textContent = t('Dataset unavailable');
 }
+
+// Preserve visible active filters when restoring a shared URL or using browser history.
+const compactFilters = matchMedia('(max-width: 760px)');
+const updateAdvancedOptions = () => {
+  $('advanced-options').open = !compactFilters.matches || Boolean(state.compare || state.hex || state.all);
+};
+updateAdvancedOptions();
+compactFilters.addEventListener('change', updateAdvancedOptions);
+window.addEventListener('popstate', updateAdvancedOptions);

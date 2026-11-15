@@ -10,6 +10,9 @@ export const releaseLabel = version => version.slice(1) + (['v6.18', 'v6.12', 'v
 export function referenceCopy(language) {
   return language === 'tr' ? {
     notCatalogued: 'Listelenmedi',
+    advancedOptions: 'Diğer filtreler ve sürüm notları',
+    sourceDetails: 'Anlık görüntülerin kapsamı ve sınırları',
+    staticTable: 'HTML tablo',
     staticPages: 'Her ABI için düz HTML tablosu (en yeni kayıtlı sürüm):',
     staticIndex: 'A’dan Z’ye tüm sistem çağrıları',
     staticCall: 'Bu çağrının kalıcı sayfası (tüm ABI’ler)',
@@ -24,6 +27,9 @@ export function referenceCopy(language) {
     analytics: 'Bu sayfa üçüncü taraf Umami Cloud ve Google Analytics betiklerini yükler ve ziyaret analitiği gönderir; Google Analytics çerez kullanır. Sistem çağrısı araması tarayıcıda yapılır. <a href="https://docs.umami.is/docs/collect-data">Umami veri toplama açıklaması</a> · <a href="https://policies.google.com/technologies/partner-sites?hl=tr">Google verileri nasıl kullanır</a>.',
   } : {
     notCatalogued: 'Not catalogued',
+    advancedOptions: 'More filters and release notes',
+    sourceDetails: 'Scope and limits of these snapshots',
+    staticTable: 'HTML table',
     staticPages: 'Plain HTML tables for the newest bundled release, one page per ABI:',
     staticIndex: 'All system calls A–Z',
     staticCall: 'Permanent page for this call (all ABIs)',
