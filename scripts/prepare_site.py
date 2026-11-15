@@ -31,6 +31,55 @@ def editorial_notes():
     return {name: {'en': english, 'tr': turkish} for name, english, turkish, _ in rows}
 
 
+def abi_release():
+    """Provenance record of the latest errno/signal/ioctl release, if one is published."""
+    manifest_path = PUBLIC / 'data/abi/manifest.json'
+    if not manifest_path.is_file():
+        return None
+    return json.loads((PUBLIC / 'data/abi' / json.loads(manifest_path.read_bytes())['latest'] / 'sources.json').read_bytes())
+
+
+def abi_search_entries(abi):
+    """One search result per errno, signal and ioctl command name, linking to its page."""
+    if not abi:
+        return []
+    folder = PUBLIC / 'data/abi' / abi['kernel']
+    release = abi['kernel'][1:]
+    templates = {
+        'errno': {'en': 'errno {number} on {scope}, Linux {release}', 'tr': '{scope} üzerinde errno {number}, Linux {release}'},
+        'signals': {'en': 'Signal {number} on {scope}, Linux {release}', 'tr': '{scope} üzerinde sinyal {number}, Linux {release}'},
+        'ioctl': {'en': 'ioctl command {number} on {scope}, Linux {release}', 'tr': '{scope} üzerinde ioctl komutu {number}, Linux {release}'},
+    }
+    unfixed = {'en': 'defined with a size-dependent macro', 'tr': 'boyuta bağlı bir makroyla tanımlı'}
+    entries = []
+    for kind, page, group in [('errno', 'errno/', 'tables'), ('signals', 'signals/', 'tables'), ('ioctl', 'ioctl/', 'commands')]:
+        document = json.loads((folder / (kind + '.json')).read_bytes())
+        key = 'commands' if kind == 'ioctl' else 'table'
+        listed = set()
+        # x86-64 first; other ABIs add the names it lacks (SIGEMT, TIOCGETP, ...).
+        for arch in sorted(document['architectures'], key=lambda arch: arch != 'x64'):
+            for entry in document[group][document['architectures'][arch][key]]['entries']:
+                name = entry['name']
+                if name in listed:
+                    continue
+                listed.add(name)
+                # Every ABI with the same number as this one, so the text stays true off x86-64.
+                same = [document['architectures'][other]['label'] for other in document['architectures']
+                        if any(e['name'] == name and e.get('value', e.get('number')) == entry.get('value', entry.get('number'))
+                               for e in document[group][document['architectures'][other][key]]['entries'])]
+                value = entry.get('value', entry.get('number'))
+                for lang in ['tr', 'en']:
+                    number = unfixed[lang] if value is None else hex(value) if kind == 'ioctl' else str(value)
+                    text = templates[kind][lang].format(number=number, scope=', '.join(same), release=release)
+                    entries.append({
+                        'lang': lang, 'title': name,
+                        'url': page + '?' + urlencode({**({} if arch == 'x64' else {'arch': arch}), 'q': name}) + '#' + name,
+                        'type': 'syscall/',
+                        'description': ' — '.join(part for part in [entry.get('comment'), text] if part),
+                    })
+    return entries
+
+
 def prepare():
     manifest_path = PUBLIC / 'data/manifest.json'
     manifest_bytes = manifest_path.read_bytes()
@@ -48,6 +97,10 @@ def prepare():
         # Date of the active latest snapshot, used as the sitemap's lastmod.
         release['updated'] = json.loads(sources_path.read_bytes())['licensing']['generated_at'][:10]
     release['architectures'] = manifest['architectures']
+    # The errno, signal and ioctl pages follow their own manifest (scripts/sync_abi.py).
+    abi = abi_release()
+    if abi:
+        release.update(abi_latest=abi['kernel'], abi_updated=abi['licensing']['generated_at'][:10])
     release_data.write_text(json.dumps(release, indent=2, ensure_ascii=False) + '\n')
     api = PUBLIC / 'api/v1'
     api.mkdir(parents=True, exist_ok=True)
@@ -98,6 +151,7 @@ def prepare():
                     'type': 'syscall/',
                     'description': ' — '.join(part for part in [summary, decl] if part) or fallback[lang].format(label=labels.get(arch, arch), number=s['number']),
                 })
+    search_entries.extend(abi_search_entries(abi))
     (PUBLIC / 'search.json').write_text(json.dumps(search_entries, indent=2, ensure_ascii=False) + '\n')
 
     paths = [ROOT / p for p in ROOT_FILES]

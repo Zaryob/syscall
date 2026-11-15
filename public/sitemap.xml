@@ -6,9 +6,9 @@ permalink: /sitemap.xml
 {% assign site_origin = site.url | default: 'https://zaryob.github.io' %}
 {% assign site_root = '/' | relative_url | prepend: site_origin %}
 {% comment %}
-Every view is a client-side state of one document whose canonical URL is the
-site root, so only that URL is listed. Query-string views (?arch=, ?lang=)
-would contradict the canonical link in the layout.
+Each page has one canonical URL and only that URL is listed. Views inside a
+page (?arch=, ?q=, ?lang=) are client-side states of it and would contradict
+the canonical link in the layout.
 {% endcomment %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -17,4 +17,13 @@ would contradict the canonical link in the layout.
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% assign listed_pages = site.pages | where: 'sitemap', true | sort: 'url' %}
+  {% for listed in listed_pages %}
+  <url>
+    <loc>{{ listed.url | relative_url | prepend: site_origin }}</loc>
+    {% if site.data.syscall_release.abi_updated %}<lastmod>{{ site.data.syscall_release.abi_updated }}</lastmod>{% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
 </urlset>

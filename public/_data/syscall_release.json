@@ -273,5 +273,7 @@
       ],
       "error_flag": "a3"
     }
-  ]
+  ],
+  "abi_latest": "v7.3",
+  "abi_updated": "2026-11-15"
 }

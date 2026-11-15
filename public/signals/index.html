@@ -1,0 +1,41 @@
+---
+layout: default
+title: Linux Signal Reference
+description: Linux signal names, numbers and default actions for each architecture, generated from the kernel sources with recorded provenance.
+script: abi.js
+sitemap: true
+---
+<!-- SPDX-License-Identifier: GPL-2.0-only -->
+{% assign abi_release = site.data.syscall_release.abi_latest %}
+{% assign abi_document = '/data/abi/' | append: abi_release | append: '/signals.json' %}
+    <section id="reference" data-abi-page="signals" tabindex="-1" aria-labelledby="table-title">
+      <p class="table-back"><a href="{{ '/' | relative_url }}#architectures" data-abi-link>← <span data-i18n="Architectures">Architectures</span></a></p>
+      <h1 id="table-title"><span data-i18n="Linux signals">Linux signals</span></h1>
+      {% include abi-nav.html current='signals' %}
+      <p class="abi-lede" data-abi-copy="signalsLede">Signal numbers as the kernel’s UAPI headers define them, with the default action the kernel documents for each signal.</p>
+      {% include abi-lookup.html label='Find a signal' %}
+      <p id="arch-note" class="small"></p>
+      <div class="table-toolbar">
+        <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">Loading…</span></p>
+        <div class="table-actions"><a id="download" hidden href="{{ abi_document | relative_url }}" download><span data-i18n="Download JSON ↓">Download JSON ↓</span></a></div>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <noscript><p><a href="{{ abi_document | relative_url }}"><span data-i18n="the signal tables as JSON">the signal tables as JSON</span></a></p></noscript>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Signals for the selected architecture" data-i18n-aria-label="Signals for the selected architecture">
+        <table class="abi-table">
+          <caption class="console-sr-only"><span data-i18n="Signals for the selected architecture">Signals for the selected architecture</span></caption>
+          <thead><tr><th scope="col"><span data-i18n="No.">No.</span></th><th scope="col"><span data-i18n="Name">Name</span></th><th scope="col"><span data-i18n="Default action">Default action</span></th><th scope="col"><span data-i18n="Kernel comment">Kernel comment</span></th><th scope="col"><span data-i18n="Other architectures">Other architectures</span></th><th scope="col"><span data-i18n="Source">Source</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No entries match this search.">No entries match this search.</span> <button type="button" id="reset-search"><span data-i18n="Clear search">Clear search</span></button></p>
+      <p id="realtime" class="table-footnote"></p>
+    </section>
+    <section id="actions" tabindex="-1" class="documentation" aria-labelledby="actions-title">
+      <div class="doc-heading">
+        <h2 id="actions-title"><span data-i18n="Default actions">Default actions</span></h2>
+        <a href="#main"><span data-i18n="Back to top ↑">Back to top ↑</span></a>
+      </div>
+      <div id="action-legend"></div>
+    </section>
+    {% include abi-about.html %}

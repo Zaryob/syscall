@@ -9,11 +9,14 @@
   <script src="{{ '/assets/console/i18n.js' | relative_url }}"></script>
   <script src="{{ '/assets/console/theme.js' | relative_url }}"></script>
   <meta name="site-root" content="{{ '/' | relative_url }}">
-  <meta name="description" content="A free Linux system call reference. Search syscall numbers, inspect kernel signatures, compare releases, and download the source data.">
-  <link rel="canonical" href="https://zaryob.github.io/syscall/">
-  <meta property="og:title" content="Linux System Call Reference">
-  <meta property="og:description" content="A free Linux system call reference. Search syscall numbers, inspect kernel signatures, compare releases, and download the source data.">
-  <meta property="og:url" content="https://zaryob.github.io/syscall/">
+  {% comment %}Each page has one canonical address; views inside a page are query-string states of it.{% endcomment %}
+  {% assign page_description = page.description | default: "A free Linux system call reference. Search syscall numbers, inspect kernel signatures, compare releases, and download the source data." %}
+  {% assign page_canonical = 'https://zaryob.github.io/syscall' | append: page.url %}
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ page_canonical }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:url" content="{{ page_canonical }}">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://zaryob.github.io/syscall/assets/syscall-social.png">
   <meta property="og:image:width" content="1200">
@@ -41,7 +44,8 @@
   <title>{{ page.title | default: site.title | escape }}</title>
   <link rel="stylesheet" href="{{ '/assets/console/theme.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/console/syscall.css' | relative_url }}">
-  <script type="module" src="{{ '/app.js' | relative_url }}"></script>
+  {% assign page_script = page.script | default: 'app.js' %}
+  <script type="module" src="{{ '/' | append: page_script | relative_url }}"></script>
 </head>
 <body class="console-site console-syscall">
   <a class="skip-link" href="#main"><span data-i18n="Skip to content">Skip to content</span></a>

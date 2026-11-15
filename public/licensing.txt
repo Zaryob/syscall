@@ -26,6 +26,13 @@ Each release includes its exact input source files and original notices:
   {{ '/data/v6.18/sources.json' | relative_url }}
   {{ '/data/v7.3/sources.json' | relative_url }}
 
+The errno, signal and ioctl pages use further Linux inputs, bundled unmodified
+with their own manifest:
+  {{ '/data/abi/' | append: site.data.syscall_release.abi_latest | append: '/sources.json' | relative_url }}
+Their generator is scripts/sync_abi.py. One of these inputs,
+Documentation/userspace-api/ioctl/ioctl-number.rst, carries no SPDX line and no
+notice of its own; it is recorded as GPL-2.0-only with license_basis COPYING.
+
 For a release such as v7.3, read its kernel license notices at:
   {{ '/data/v7.3/sources/COPYING' | relative_url }}
   {{ '/data/v7.3/sources/LICENSES/preferred/GPL-2.0' | relative_url }}
@@ -47,7 +54,7 @@ Development Labs, Jaswinder Singh Rajput, and other Linux contributors.
 Source for this application and generator is supplied in the project repository
 and in the downloadable source archive:
   {{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}
-When distributing it or its data, include the source, scripts/sync_kernel.py,
+When distributing it or its data, include the source, scripts/sync_kernel.py, scripts/sync_abi.py,
 LICENSE, LICENSING.md, THIRD_PARTY_NOTICES.md, and bundled Linux inputs/notices.
 The source policies and distribution instructions are in LICENSING.md.
 

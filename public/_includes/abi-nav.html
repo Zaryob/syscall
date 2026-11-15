@@ -1,0 +1,7 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-only{% endcomment %}
+<nav class="reference-links" aria-label="Reference sections" data-i18n-aria-label="Reference sections">
+  <a href="{{ '/' | relative_url }}#architectures" data-abi-link><span data-i18n="System call tables">System call tables</span></a>
+  <a href="{{ '/errno/' | relative_url }}" data-abi-link="arch"{% if include.current == 'errno' %} aria-current="page"{% endif %}><span data-i18n="errno values">errno values</span></a>
+  <a href="{{ '/signals/' | relative_url }}" data-abi-link="arch"{% if include.current == 'signals' %} aria-current="page"{% endif %}><span data-i18n="Signals">Signals</span></a>
+  <a href="{{ '/ioctl/' | relative_url }}" data-abi-link="arch"{% if include.current == 'ioctl' %} aria-current="page"{% endif %}><span data-i18n="ioctl requests">ioctl requests</span></a>
+</nav>

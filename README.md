@@ -26,6 +26,7 @@ Find what a Linux syscall does, inspect its C arguments, and follow the entry ba
 - **Release comparisons:** highlight added, removed, and changed entries between the bundled snapshots.
 - **Shareable views:** architecture, release, comparison, search, table view, and open syscall details stay in the URL.
 - **C downloads:** hand-written `getpid` and `write` examples, plus review-required skeletons for other supported 64-bit signatures.
+- **errno, signals and ioctl:** [`/errno/`](public/errno/index.html), [`/signals/`](public/signals/index.html) and [`/ioctl/`](public/ioctl/index.html) list error numbers, signal numbers with the kernel's documented default actions, and the ioctl request-number layout with a decoder, the registered magic numbers and the terminal and socket commands. Each page shows where an architecture differs. This section covers the latest bundled release only.
 - **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and an overview that fits small screens. The argument view keeps the syscall number and name visible as you scroll to ARG5 and ARG6.
 
 Syscall lookup runs in the browser. The published page also loads the third-party
@@ -120,6 +121,22 @@ Reimporting a published release creates a new snapshot under `data/revisions/`. 
 
 **Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; declarations that the architecture's `Kconfig` cannot decide are marked configuration-dependent. A table entry does not guarantee availability in every kernel configuration: most optional calls return `ENOSYS` when the matching option or architecture support is not built. The interface shows a per-call note only where `enosys_fallback.implementation` is `null`, meaning the release defines no implementation for that ABI. PowerPC 32 and MIPS o32 show native table entry points; a 64-bit kernel may dispatch the same number through a compatibility entry point. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
 
+### errno, signals and ioctl
+
+`scripts/sync_abi.py` generates `public/data/abi/<release>/` (`errno.json`, `signals.json`, `ioctl.json`, `ioctl-numbers.json`, `sources.json` and the unmodified inputs under `sources/`). It defaults to the latest release in `public/data/manifest.json` and fetches single files the same way `sync_kernel.py` does.
+
+```sh
+npm run sync:abi
+python3 scripts/sync_abi.py --refs v7.3
+
+# From a matching Linux checkout, without network access.
+python3 scripts/sync_abi.py --refs v7.3 --kernel-tree /path/to/linux
+```
+
+Nothing in these tables is typed in by hand. The importer follows the `#include`, `#ifdef` and `#undef` lines of the UAPI headers for each ABI. Whether an architecture has its own `<asm/errno.h>`, `signal.h`, `ioctl.h`, `ioctls.h` or `sockios.h`, or uses the `asm-generic` one, is decided from the file's presence and the `mandatory-y` / `generic-y` lines of the `Kbuild` files, and the deciding rule is recorded per ABI. Default signal actions come from the comment table in `include/linux/signal.h`, the magic-number registry from `Documentation/userspace-api/ioctl/ioctl-number.rst`. The data lives beside the syscall snapshots, not inside `data/<release>/`, because a syscall import rewrites those directories.
+
+Limits: an ioctl command built with `_IOR`/`_IOW`/`_IOWR` gets a number only when its argument is a C integer type whose size `include/uapi/asm-generic/int-ll64.h` fixes; where the size of a structure, `pid_t` or `loff_t` decides, the macro is shown without a number. `SIGRTMAX` has no number on x86, ARM and s390, which define `_NSIG` outside their UAPI signal header. The command table is the content of `asm/ioctls.h` and `linux/sockios.h`, not a list of every ioctl.
+
 C skeletons require review of pointers, flags, object lifetimes, and error handling. They include a blocking `#error` until reviewed; unresolved signatures, unimplemented slots, and 32-bit ABIs do not get speculative code.
 
 ## Deploy
@@ -140,6 +157,7 @@ Keep the source archive, license texts, and bundled kernel inputs with the outpu
 
 - [Türkçe documentation](README.tr.md) — detailed setup, importer, API, and accuracy notes.
 - [Kernel manifest](public/data/manifest.json) — bundled architectures and releases.
+- [errno, signal and ioctl manifest](public/data/abi/manifest.json) — releases covered by that section.
 - [Licensing and distribution](LICENSING.md) — application and upstream source terms.
 - [Third-party notices](THIRD_PARTY_NOTICES.md) — retained attributions and licenses.
 

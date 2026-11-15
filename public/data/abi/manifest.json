@@ -1,0 +1,88 @@
+{
+  "license": "GPL-2.0-only",
+  "schema_version": 1,
+  "versions": [
+    "v7.3"
+  ],
+  "latest": "v7.3",
+  "documents": [
+    "errno.json",
+    "signals.json",
+    "ioctl.json",
+    "ioctl-numbers.json"
+  ],
+  "architectures": [
+    {
+      "id": "x64",
+      "label": "x86-64",
+      "bits": 64,
+      "kernel": "x86"
+    },
+    {
+      "id": "x86",
+      "label": "i386",
+      "bits": 32,
+      "kernel": "x86"
+    },
+    {
+      "id": "arm64",
+      "label": "AArch64",
+      "bits": 64,
+      "kernel": "arm64"
+    },
+    {
+      "id": "arm",
+      "label": "ARM EABI",
+      "bits": 32,
+      "kernel": "arm"
+    },
+    {
+      "id": "riscv64",
+      "label": "RISC-V 64",
+      "bits": 64,
+      "kernel": "riscv"
+    },
+    {
+      "id": "loongarch64",
+      "label": "LoongArch 64",
+      "bits": 64,
+      "kernel": "loongarch"
+    },
+    {
+      "id": "ppc64",
+      "label": "PowerPC 64",
+      "bits": 64,
+      "kernel": "powerpc"
+    },
+    {
+      "id": "ppc",
+      "label": "PowerPC 32",
+      "bits": 32,
+      "kernel": "powerpc"
+    },
+    {
+      "id": "s390x",
+      "label": "IBM Z (s390x)",
+      "bits": 64,
+      "kernel": "s390"
+    },
+    {
+      "id": "mips-o32",
+      "label": "MIPS o32",
+      "bits": 32,
+      "kernel": "mips"
+    },
+    {
+      "id": "mips-n32",
+      "label": "MIPS n32",
+      "bits": 32,
+      "kernel": "mips"
+    },
+    {
+      "id": "mips-n64",
+      "label": "MIPS n64",
+      "bits": 64,
+      "kernel": "mips"
+    }
+  ]
+}

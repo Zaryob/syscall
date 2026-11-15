@@ -345,3 +345,47 @@
 .console-syscall .search-line { flex-wrap: wrap; }
 .console-syscall .search-line input { flex: 1 1 12rem; }
 .console-syscall .search-line button { flex: 0 1 auto; }
+
+/* errno, signal and ioctl reference pages */
+.console-syscall .abi-lede { max-width: 80ch; margin-bottom: 16px; color: var(--muted); font-size: var(--text-base); overflow-wrap: anywhere; }
+.console-syscall .reference-links a[aria-current=page] { color: var(--ink); font-weight: 500; text-decoration: none; }
+.console-syscall #arch-note { margin-bottom: 12px; overflow-wrap: anywhere; }
+.console-syscall .abi-table { min-width: 44rem; border-collapse: separate; border-spacing: 0; }
+.console-syscall .abi-table.layout-table { min-width: 30rem; }
+.console-syscall .abi-table thead th { position: sticky; top: 0; z-index: 2; background: var(--surface); border-bottom: 1px solid var(--line); }
+.console-syscall .abi-table tbody th { border-bottom: 1px solid var(--line); vertical-align: top; white-space: normal; }
+.console-syscall .abi-table tbody tr:last-child > th { border-bottom: 0; }
+.console-syscall .abi-table tbody tr:hover { background: var(--surface); }
+.console-syscall .abi-table tbody th:target { background: var(--selection); }
+.console-syscall .abi-table tbody th[id] { scroll-margin-top: 60px; }
+.console-syscall .abi-table tbody th .small { display: block; font-weight: normal; font-size: var(--text-xs); }
+.console-syscall .abi-table .abi-number { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.console-syscall .abi-table .abi-source { font-size: var(--text-xs); overflow-wrap: anywhere; min-width: 11rem; }
+.console-syscall .abi-table td code { overflow-wrap: anywhere; }
+.console-syscall .abi-difference { display: block; }
+.console-syscall .abi-difference [title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+.console-syscall .bit-layout { display: flex; max-width: 46rem; margin: 0 0 14px; border: 1px solid var(--line); font-size: var(--text-xs); overflow-x: auto; }
+.console-syscall .bit-layout > div { flex: var(--bits) 0 auto; min-width: max-content; padding: 8px 9px; background: var(--surface); white-space: nowrap; }
+.console-syscall .bit-layout span { display: block; }
+.console-syscall .abi-table.layout-table tbody th { white-space: nowrap; }
+.console-syscall .bit-layout > div + div { border-inline-start: 1px solid var(--line); }
+.console-syscall .bit-layout strong { display: block; color: var(--accent); font-weight: 500; }
+.console-syscall .decoder-form { max-width: 32rem; margin-bottom: 14px; }
+.console-syscall .decoder-form > label { display: block; margin-bottom: 6px; font-size: var(--text-sm); font-weight: 500; }
+.console-syscall .decoder-form .small { margin: 6px 0 0; }
+.console-syscall .decoder-form input[aria-invalid=true] { border-color: var(--danger); }
+.console-syscall .decoder-result { max-width: 60rem; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.console-syscall .decoder-result :is(h3, h4) { margin: 0 0 8px; font-size: var(--text-sm); }
+.console-syscall .decoder-result h4 { margin-top: 14px; color: var(--muted); font-weight: 500; }
+.console-syscall .decoder-result :is(p, ul) { margin: 0; }
+.console-syscall .decoder-result ul { padding-inline-start: 20px; }
+.console-syscall .decoder-result .error { padding: 0; margin: 0; border: 0; }
+.console-syscall .decoded { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 16px; margin: 0; }
+.console-syscall .decoded dt { color: var(--muted); }
+.console-syscall .decoded dd { margin: 0; }
+@media (max-width: 760px) {
+  .console-syscall .abi-table :is(th, td) { padding: 7px 8px; }
+  .console-syscall .abi-table .abi-source { min-width: 9rem; }
+}
+/* Symbol names (EOWNERDEAD, SIGHUP) stay on one line; the table scrolls instead. */
+.console-syscall .abi-table tbody th > code { white-space: nowrap; overflow-wrap: normal; }

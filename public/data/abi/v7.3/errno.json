@@ -1,0 +1,4125 @@
+{
+  "license": "GPL-2.0-only",
+  "schema_version": 1,
+  "kind": "errno",
+  "kernel": "v7.3",
+  "tables": {
+    "generic": {
+      "header": "include/uapi/asm-generic/errno.h",
+      "files": [
+        "include/uapi/asm-generic/errno.h",
+        "include/uapi/asm-generic/errno-base.h"
+      ],
+      "entries": [
+        {
+          "name": "EPERM",
+          "number": 1,
+          "comment": "Operation not permitted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 5
+          }
+        },
+        {
+          "name": "ENOENT",
+          "number": 2,
+          "comment": "No such file or directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 6
+          }
+        },
+        {
+          "name": "ESRCH",
+          "number": 3,
+          "comment": "No such process",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 7
+          }
+        },
+        {
+          "name": "EINTR",
+          "number": 4,
+          "comment": "Interrupted system call",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 8
+          }
+        },
+        {
+          "name": "EIO",
+          "number": 5,
+          "comment": "I/O error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 9
+          }
+        },
+        {
+          "name": "ENXIO",
+          "number": 6,
+          "comment": "No such device or address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 10
+          }
+        },
+        {
+          "name": "E2BIG",
+          "number": 7,
+          "comment": "Argument list too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 11
+          }
+        },
+        {
+          "name": "ENOEXEC",
+          "number": 8,
+          "comment": "Exec format error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 12
+          }
+        },
+        {
+          "name": "EBADF",
+          "number": 9,
+          "comment": "Bad file number",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 13
+          }
+        },
+        {
+          "name": "ECHILD",
+          "number": 10,
+          "comment": "No child processes",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 14
+          }
+        },
+        {
+          "name": "EAGAIN",
+          "number": 11,
+          "comment": "Try again",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 15
+          }
+        },
+        {
+          "name": "ENOMEM",
+          "number": 12,
+          "comment": "Out of memory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 16
+          }
+        },
+        {
+          "name": "EACCES",
+          "number": 13,
+          "comment": "Permission denied",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 17
+          }
+        },
+        {
+          "name": "EFAULT",
+          "number": 14,
+          "comment": "Bad address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "ENOTBLK",
+          "number": 15,
+          "comment": "Block device required",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 19
+          }
+        },
+        {
+          "name": "EBUSY",
+          "number": 16,
+          "comment": "Device or resource busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "EEXIST",
+          "number": 17,
+          "comment": "File exists",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EXDEV",
+          "number": 18,
+          "comment": "Cross-device link",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "ENODEV",
+          "number": 19,
+          "comment": "No such device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "ENOTDIR",
+          "number": 20,
+          "comment": "Not a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "EISDIR",
+          "number": 21,
+          "comment": "Is a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "EINVAL",
+          "number": 22,
+          "comment": "Invalid argument",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "ENFILE",
+          "number": 23,
+          "comment": "File table overflow",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EMFILE",
+          "number": 24,
+          "comment": "Too many open files",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ENOTTY",
+          "number": 25,
+          "comment": "Not a typewriter",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "ETXTBSY",
+          "number": 26,
+          "comment": "Text file busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "EFBIG",
+          "number": 27,
+          "comment": "File too large",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "ENOSPC",
+          "number": 28,
+          "comment": "No space left on device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "ESPIPE",
+          "number": 29,
+          "comment": "Illegal seek",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EROFS",
+          "number": 30,
+          "comment": "Read-only file system",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EMLINK",
+          "number": 31,
+          "comment": "Too many links",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "EPIPE",
+          "number": 32,
+          "comment": "Broken pipe",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EDOM",
+          "number": 33,
+          "comment": "Math argument out of domain of func",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "ERANGE",
+          "number": 34,
+          "comment": "Math result not representable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "EDEADLK",
+          "number": 35,
+          "comment": "Resource deadlock would occur",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 7
+          }
+        },
+        {
+          "name": "ENAMETOOLONG",
+          "number": 36,
+          "comment": "File name too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 8
+          }
+        },
+        {
+          "name": "ENOLCK",
+          "number": 37,
+          "comment": "No record locks available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 9
+          }
+        },
+        {
+          "name": "ENOSYS",
+          "number": 38,
+          "comment": "Invalid system call number",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "ENOTEMPTY",
+          "number": 39,
+          "comment": "Directory not empty",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "ELOOP",
+          "number": 40,
+          "comment": "Too many symbolic links encountered",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EWOULDBLOCK",
+          "number": 11,
+          "alias_of": "EAGAIN",
+          "comment": "Operation would block",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "ENOMSG",
+          "number": 42,
+          "comment": "No message of desired type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "EIDRM",
+          "number": 43,
+          "comment": "Identifier removed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "ECHRNG",
+          "number": 44,
+          "comment": "Channel number out of range",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "EL2NSYNC",
+          "number": 45,
+          "comment": "Level 2 not synchronized",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "EL3HLT",
+          "number": 46,
+          "comment": "Level 3 halted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EL3RST",
+          "number": 47,
+          "comment": "Level 3 reset",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ELNRNG",
+          "number": 48,
+          "comment": "Link number out of range",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "EUNATCH",
+          "number": 49,
+          "comment": "Protocol driver not attached",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "ENOCSI",
+          "number": 50,
+          "comment": "No CSI structure available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "EL2HLT",
+          "number": 51,
+          "comment": "Level 2 halted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "EBADE",
+          "number": 52,
+          "comment": "Invalid exchange",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EBADR",
+          "number": 53,
+          "comment": "Invalid request descriptor",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EXFULL",
+          "number": 54,
+          "comment": "Exchange full",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "ENOANO",
+          "number": 55,
+          "comment": "No anode",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EBADRQC",
+          "number": 56,
+          "comment": "Invalid request code",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "EBADSLT",
+          "number": 57,
+          "comment": "Invalid slot",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "EDEADLOCK",
+          "number": 35,
+          "alias_of": "EDEADLK",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 40
+          }
+        },
+        {
+          "name": "EBFONT",
+          "number": 59,
+          "comment": "Bad font file format",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 42
+          }
+        },
+        {
+          "name": "ENOSTR",
+          "number": 60,
+          "comment": "Device not a stream",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 43
+          }
+        },
+        {
+          "name": "ENODATA",
+          "number": 61,
+          "comment": "No data available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 44
+          }
+        },
+        {
+          "name": "ETIME",
+          "number": 62,
+          "comment": "Timer expired",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 45
+          }
+        },
+        {
+          "name": "ENOSR",
+          "number": 63,
+          "comment": "Out of streams resources",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 46
+          }
+        },
+        {
+          "name": "ENONET",
+          "number": 64,
+          "comment": "Machine is not on the network",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 47
+          }
+        },
+        {
+          "name": "ENOPKG",
+          "number": 65,
+          "comment": "Package not installed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 48
+          }
+        },
+        {
+          "name": "EREMOTE",
+          "number": 66,
+          "comment": "Object is remote",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 49
+          }
+        },
+        {
+          "name": "ENOLINK",
+          "number": 67,
+          "comment": "Link has been severed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 50
+          }
+        },
+        {
+          "name": "EADV",
+          "number": 68,
+          "comment": "Advertise error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 51
+          }
+        },
+        {
+          "name": "ESRMNT",
+          "number": 69,
+          "comment": "Srmount error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 52
+          }
+        },
+        {
+          "name": "ECOMM",
+          "number": 70,
+          "comment": "Communication error on send",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 53
+          }
+        },
+        {
+          "name": "EPROTO",
+          "number": 71,
+          "comment": "Protocol error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 54
+          }
+        },
+        {
+          "name": "EMULTIHOP",
+          "number": 72,
+          "comment": "Multihop attempted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 55
+          }
+        },
+        {
+          "name": "EDOTDOT",
+          "number": 73,
+          "comment": "RFS specific error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 56
+          }
+        },
+        {
+          "name": "EBADMSG",
+          "number": 74,
+          "comment": "Not a data message",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 57
+          }
+        },
+        {
+          "name": "EFSBADCRC",
+          "number": 74,
+          "alias_of": "EBADMSG",
+          "comment": "Bad CRC detected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 58
+          }
+        },
+        {
+          "name": "EOVERFLOW",
+          "number": 75,
+          "comment": "Value too large for defined data type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 59
+          }
+        },
+        {
+          "name": "ENOTUNIQ",
+          "number": 76,
+          "comment": "Name not unique on network",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 60
+          }
+        },
+        {
+          "name": "EBADFD",
+          "number": 77,
+          "comment": "File descriptor in bad state",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 61
+          }
+        },
+        {
+          "name": "EREMCHG",
+          "number": 78,
+          "comment": "Remote address changed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 62
+          }
+        },
+        {
+          "name": "ELIBACC",
+          "number": 79,
+          "comment": "Can not access a needed shared library",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 63
+          }
+        },
+        {
+          "name": "ELIBBAD",
+          "number": 80,
+          "comment": "Accessing a corrupted shared library",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 64
+          }
+        },
+        {
+          "name": "ELIBSCN",
+          "number": 81,
+          "comment": ".lib section in a.out corrupted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 65
+          }
+        },
+        {
+          "name": "ELIBMAX",
+          "number": 82,
+          "comment": "Attempting to link in too many shared libraries",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 66
+          }
+        },
+        {
+          "name": "ELIBEXEC",
+          "number": 83,
+          "comment": "Cannot exec a shared library directly",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 67
+          }
+        },
+        {
+          "name": "EILSEQ",
+          "number": 84,
+          "comment": "Illegal byte sequence",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 68
+          }
+        },
+        {
+          "name": "ERESTART",
+          "number": 85,
+          "comment": "Interrupted system call should be restarted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 69
+          }
+        },
+        {
+          "name": "ESTRPIPE",
+          "number": 86,
+          "comment": "Streams pipe error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 70
+          }
+        },
+        {
+          "name": "EUSERS",
+          "number": 87,
+          "comment": "Too many users",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 71
+          }
+        },
+        {
+          "name": "ENOTSOCK",
+          "number": 88,
+          "comment": "Socket operation on non-socket",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 72
+          }
+        },
+        {
+          "name": "EDESTADDRREQ",
+          "number": 89,
+          "comment": "Destination address required",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 73
+          }
+        },
+        {
+          "name": "EMSGSIZE",
+          "number": 90,
+          "comment": "Message too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 74
+          }
+        },
+        {
+          "name": "EPROTOTYPE",
+          "number": 91,
+          "comment": "Protocol wrong type for socket",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 75
+          }
+        },
+        {
+          "name": "ENOPROTOOPT",
+          "number": 92,
+          "comment": "Protocol not available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 76
+          }
+        },
+        {
+          "name": "EPROTONOSUPPORT",
+          "number": 93,
+          "comment": "Protocol not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 77
+          }
+        },
+        {
+          "name": "ESOCKTNOSUPPORT",
+          "number": 94,
+          "comment": "Socket type not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 78
+          }
+        },
+        {
+          "name": "EOPNOTSUPP",
+          "number": 95,
+          "comment": "Operation not supported on transport endpoint",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 79
+          }
+        },
+        {
+          "name": "EPFNOSUPPORT",
+          "number": 96,
+          "comment": "Protocol family not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 80
+          }
+        },
+        {
+          "name": "EAFNOSUPPORT",
+          "number": 97,
+          "comment": "Address family not supported by protocol",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 81
+          }
+        },
+        {
+          "name": "EADDRINUSE",
+          "number": 98,
+          "comment": "Address already in use",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 82
+          }
+        },
+        {
+          "name": "EADDRNOTAVAIL",
+          "number": 99,
+          "comment": "Cannot assign requested address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 83
+          }
+        },
+        {
+          "name": "ENETDOWN",
+          "number": 100,
+          "comment": "Network is down",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 84
+          }
+        },
+        {
+          "name": "ENETUNREACH",
+          "number": 101,
+          "comment": "Network is unreachable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 85
+          }
+        },
+        {
+          "name": "ENETRESET",
+          "number": 102,
+          "comment": "Network dropped connection because of reset",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 86
+          }
+        },
+        {
+          "name": "ECONNABORTED",
+          "number": 103,
+          "comment": "Software caused connection abort",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 87
+          }
+        },
+        {
+          "name": "ECONNRESET",
+          "number": 104,
+          "comment": "Connection reset by peer",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 88
+          }
+        },
+        {
+          "name": "ENOBUFS",
+          "number": 105,
+          "comment": "No buffer space available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 89
+          }
+        },
+        {
+          "name": "EISCONN",
+          "number": 106,
+          "comment": "Transport endpoint is already connected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 90
+          }
+        },
+        {
+          "name": "ENOTCONN",
+          "number": 107,
+          "comment": "Transport endpoint is not connected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 91
+          }
+        },
+        {
+          "name": "ESHUTDOWN",
+          "number": 108,
+          "comment": "Cannot send after transport endpoint shutdown",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 92
+          }
+        },
+        {
+          "name": "ETOOMANYREFS",
+          "number": 109,
+          "comment": "Too many references: cannot splice",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 93
+          }
+        },
+        {
+          "name": "ETIMEDOUT",
+          "number": 110,
+          "comment": "Connection timed out",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 94
+          }
+        },
+        {
+          "name": "ECONNREFUSED",
+          "number": 111,
+          "comment": "Connection refused",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 95
+          }
+        },
+        {
+          "name": "EHOSTDOWN",
+          "number": 112,
+          "comment": "Host is down",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 96
+          }
+        },
+        {
+          "name": "EHOSTUNREACH",
+          "number": 113,
+          "comment": "No route to host",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 97
+          }
+        },
+        {
+          "name": "EALREADY",
+          "number": 114,
+          "comment": "Operation already in progress",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 98
+          }
+        },
+        {
+          "name": "EINPROGRESS",
+          "number": 115,
+          "comment": "Operation now in progress",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 99
+          }
+        },
+        {
+          "name": "ESTALE",
+          "number": 116,
+          "comment": "Stale file handle",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 100
+          }
+        },
+        {
+          "name": "EUCLEAN",
+          "number": 117,
+          "comment": "Structure needs cleaning",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 101
+          }
+        },
+        {
+          "name": "EFSCORRUPTED",
+          "number": 117,
+          "alias_of": "EUCLEAN",
+          "comment": "Filesystem is corrupted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 102
+          }
+        },
+        {
+          "name": "ENOTNAM",
+          "number": 118,
+          "comment": "Not a XENIX named type file",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 103
+          }
+        },
+        {
+          "name": "ENAVAIL",
+          "number": 119,
+          "comment": "No XENIX semaphores available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 104
+          }
+        },
+        {
+          "name": "EISNAM",
+          "number": 120,
+          "comment": "Is a named type file",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 105
+          }
+        },
+        {
+          "name": "EREMOTEIO",
+          "number": 121,
+          "comment": "Remote I/O error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 106
+          }
+        },
+        {
+          "name": "EDQUOT",
+          "number": 122,
+          "comment": "Quota exceeded",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 107
+          }
+        },
+        {
+          "name": "ENOMEDIUM",
+          "number": 123,
+          "comment": "No medium found",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 109
+          }
+        },
+        {
+          "name": "EMEDIUMTYPE",
+          "number": 124,
+          "comment": "Wrong medium type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 110
+          }
+        },
+        {
+          "name": "ECANCELED",
+          "number": 125,
+          "comment": "Operation Canceled",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 111
+          }
+        },
+        {
+          "name": "ENOKEY",
+          "number": 126,
+          "comment": "Required key not available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 112
+          }
+        },
+        {
+          "name": "EKEYEXPIRED",
+          "number": 127,
+          "comment": "Key has expired",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 113
+          }
+        },
+        {
+          "name": "EKEYREVOKED",
+          "number": 128,
+          "comment": "Key has been revoked",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 114
+          }
+        },
+        {
+          "name": "EKEYREJECTED",
+          "number": 129,
+          "comment": "Key was rejected by service",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 115
+          }
+        },
+        {
+          "name": "EOWNERDEAD",
+          "number": 130,
+          "comment": "Owner died",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 118
+          }
+        },
+        {
+          "name": "ENOTRECOVERABLE",
+          "number": 131,
+          "comment": "State not recoverable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 119
+          }
+        },
+        {
+          "name": "ERFKILL",
+          "number": 132,
+          "comment": "Operation not possible due to RF-kill",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 121
+          }
+        },
+        {
+          "name": "EHWPOISON",
+          "number": 133,
+          "comment": "Memory page has hardware error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 123
+          }
+        },
+        {
+          "name": "EFTYPE",
+          "number": 134,
+          "comment": "Wrong file type for the intended operation",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 125
+          }
+        }
+      ]
+    },
+    "powerpc": {
+      "header": "arch/powerpc/include/uapi/asm/errno.h",
+      "files": [
+        "arch/powerpc/include/uapi/asm/errno.h",
+        "include/uapi/asm-generic/errno.h",
+        "include/uapi/asm-generic/errno-base.h"
+      ],
+      "entries": [
+        {
+          "name": "EPERM",
+          "number": 1,
+          "comment": "Operation not permitted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 5
+          }
+        },
+        {
+          "name": "ENOENT",
+          "number": 2,
+          "comment": "No such file or directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 6
+          }
+        },
+        {
+          "name": "ESRCH",
+          "number": 3,
+          "comment": "No such process",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 7
+          }
+        },
+        {
+          "name": "EINTR",
+          "number": 4,
+          "comment": "Interrupted system call",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 8
+          }
+        },
+        {
+          "name": "EIO",
+          "number": 5,
+          "comment": "I/O error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 9
+          }
+        },
+        {
+          "name": "ENXIO",
+          "number": 6,
+          "comment": "No such device or address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 10
+          }
+        },
+        {
+          "name": "E2BIG",
+          "number": 7,
+          "comment": "Argument list too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 11
+          }
+        },
+        {
+          "name": "ENOEXEC",
+          "number": 8,
+          "comment": "Exec format error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 12
+          }
+        },
+        {
+          "name": "EBADF",
+          "number": 9,
+          "comment": "Bad file number",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 13
+          }
+        },
+        {
+          "name": "ECHILD",
+          "number": 10,
+          "comment": "No child processes",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 14
+          }
+        },
+        {
+          "name": "EAGAIN",
+          "number": 11,
+          "comment": "Try again",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 15
+          }
+        },
+        {
+          "name": "ENOMEM",
+          "number": 12,
+          "comment": "Out of memory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 16
+          }
+        },
+        {
+          "name": "EACCES",
+          "number": 13,
+          "comment": "Permission denied",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 17
+          }
+        },
+        {
+          "name": "EFAULT",
+          "number": 14,
+          "comment": "Bad address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "ENOTBLK",
+          "number": 15,
+          "comment": "Block device required",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 19
+          }
+        },
+        {
+          "name": "EBUSY",
+          "number": 16,
+          "comment": "Device or resource busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "EEXIST",
+          "number": 17,
+          "comment": "File exists",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EXDEV",
+          "number": 18,
+          "comment": "Cross-device link",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "ENODEV",
+          "number": 19,
+          "comment": "No such device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "ENOTDIR",
+          "number": 20,
+          "comment": "Not a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "EISDIR",
+          "number": 21,
+          "comment": "Is a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "EINVAL",
+          "number": 22,
+          "comment": "Invalid argument",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "ENFILE",
+          "number": 23,
+          "comment": "File table overflow",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EMFILE",
+          "number": 24,
+          "comment": "Too many open files",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ENOTTY",
+          "number": 25,
+          "comment": "Not a typewriter",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "ETXTBSY",
+          "number": 26,
+          "comment": "Text file busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "EFBIG",
+          "number": 27,
+          "comment": "File too large",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "ENOSPC",
+          "number": 28,
+          "comment": "No space left on device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "ESPIPE",
+          "number": 29,
+          "comment": "Illegal seek",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EROFS",
+          "number": 30,
+          "comment": "Read-only file system",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EMLINK",
+          "number": 31,
+          "comment": "Too many links",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "EPIPE",
+          "number": 32,
+          "comment": "Broken pipe",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EDOM",
+          "number": 33,
+          "comment": "Math argument out of domain of func",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "ERANGE",
+          "number": 34,
+          "comment": "Math result not representable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "EDEADLK",
+          "number": 35,
+          "comment": "Resource deadlock would occur",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 7
+          }
+        },
+        {
+          "name": "ENAMETOOLONG",
+          "number": 36,
+          "comment": "File name too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 8
+          }
+        },
+        {
+          "name": "ENOLCK",
+          "number": 37,
+          "comment": "No record locks available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 9
+          }
+        },
+        {
+          "name": "ENOSYS",
+          "number": 38,
+          "comment": "Invalid system call number",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "ENOTEMPTY",
+          "number": 39,
+          "comment": "Directory not empty",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "ELOOP",
+          "number": 40,
+          "comment": "Too many symbolic links encountered",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EWOULDBLOCK",
+          "number": 11,
+          "alias_of": "EAGAIN",
+          "comment": "Operation would block",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "ENOMSG",
+          "number": 42,
+          "comment": "No message of desired type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "EIDRM",
+          "number": 43,
+          "comment": "Identifier removed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "ECHRNG",
+          "number": 44,
+          "comment": "Channel number out of range",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "EL2NSYNC",
+          "number": 45,
+          "comment": "Level 2 not synchronized",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "EL3HLT",
+          "number": 46,
+          "comment": "Level 3 halted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EL3RST",
+          "number": 47,
+          "comment": "Level 3 reset",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ELNRNG",
+          "number": 48,
+          "comment": "Link number out of range",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "EUNATCH",
+          "number": 49,
+          "comment": "Protocol driver not attached",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "ENOCSI",
+          "number": 50,
+          "comment": "No CSI structure available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "EL2HLT",
+          "number": 51,
+          "comment": "Level 2 halted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "EBADE",
+          "number": 52,
+          "comment": "Invalid exchange",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EBADR",
+          "number": 53,
+          "comment": "Invalid request descriptor",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EXFULL",
+          "number": 54,
+          "comment": "Exchange full",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "ENOANO",
+          "number": 55,
+          "comment": "No anode",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EBADRQC",
+          "number": 56,
+          "comment": "Invalid request code",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "EBADSLT",
+          "number": 57,
+          "comment": "Invalid slot",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "EBFONT",
+          "number": 59,
+          "comment": "Bad font file format",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 42
+          }
+        },
+        {
+          "name": "ENOSTR",
+          "number": 60,
+          "comment": "Device not a stream",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 43
+          }
+        },
+        {
+          "name": "ENODATA",
+          "number": 61,
+          "comment": "No data available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 44
+          }
+        },
+        {
+          "name": "ETIME",
+          "number": 62,
+          "comment": "Timer expired",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 45
+          }
+        },
+        {
+          "name": "ENOSR",
+          "number": 63,
+          "comment": "Out of streams resources",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 46
+          }
+        },
+        {
+          "name": "ENONET",
+          "number": 64,
+          "comment": "Machine is not on the network",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 47
+          }
+        },
+        {
+          "name": "ENOPKG",
+          "number": 65,
+          "comment": "Package not installed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 48
+          }
+        },
+        {
+          "name": "EREMOTE",
+          "number": 66,
+          "comment": "Object is remote",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 49
+          }
+        },
+        {
+          "name": "ENOLINK",
+          "number": 67,
+          "comment": "Link has been severed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 50
+          }
+        },
+        {
+          "name": "EADV",
+          "number": 68,
+          "comment": "Advertise error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 51
+          }
+        },
+        {
+          "name": "ESRMNT",
+          "number": 69,
+          "comment": "Srmount error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 52
+          }
+        },
+        {
+          "name": "ECOMM",
+          "number": 70,
+          "comment": "Communication error on send",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 53
+          }
+        },
+        {
+          "name": "EPROTO",
+          "number": 71,
+          "comment": "Protocol error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 54
+          }
+        },
+        {
+          "name": "EMULTIHOP",
+          "number": 72,
+          "comment": "Multihop attempted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 55
+          }
+        },
+        {
+          "name": "EDOTDOT",
+          "number": 73,
+          "comment": "RFS specific error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 56
+          }
+        },
+        {
+          "name": "EBADMSG",
+          "number": 74,
+          "comment": "Not a data message",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 57
+          }
+        },
+        {
+          "name": "EFSBADCRC",
+          "number": 74,
+          "alias_of": "EBADMSG",
+          "comment": "Bad CRC detected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 58
+          }
+        },
+        {
+          "name": "EOVERFLOW",
+          "number": 75,
+          "comment": "Value too large for defined data type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 59
+          }
+        },
+        {
+          "name": "ENOTUNIQ",
+          "number": 76,
+          "comment": "Name not unique on network",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 60
+          }
+        },
+        {
+          "name": "EBADFD",
+          "number": 77,
+          "comment": "File descriptor in bad state",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 61
+          }
+        },
+        {
+          "name": "EREMCHG",
+          "number": 78,
+          "comment": "Remote address changed",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 62
+          }
+        },
+        {
+          "name": "ELIBACC",
+          "number": 79,
+          "comment": "Can not access a needed shared library",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 63
+          }
+        },
+        {
+          "name": "ELIBBAD",
+          "number": 80,
+          "comment": "Accessing a corrupted shared library",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 64
+          }
+        },
+        {
+          "name": "ELIBSCN",
+          "number": 81,
+          "comment": ".lib section in a.out corrupted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 65
+          }
+        },
+        {
+          "name": "ELIBMAX",
+          "number": 82,
+          "comment": "Attempting to link in too many shared libraries",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 66
+          }
+        },
+        {
+          "name": "ELIBEXEC",
+          "number": 83,
+          "comment": "Cannot exec a shared library directly",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 67
+          }
+        },
+        {
+          "name": "EILSEQ",
+          "number": 84,
+          "comment": "Illegal byte sequence",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 68
+          }
+        },
+        {
+          "name": "ERESTART",
+          "number": 85,
+          "comment": "Interrupted system call should be restarted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 69
+          }
+        },
+        {
+          "name": "ESTRPIPE",
+          "number": 86,
+          "comment": "Streams pipe error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 70
+          }
+        },
+        {
+          "name": "EUSERS",
+          "number": 87,
+          "comment": "Too many users",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 71
+          }
+        },
+        {
+          "name": "ENOTSOCK",
+          "number": 88,
+          "comment": "Socket operation on non-socket",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 72
+          }
+        },
+        {
+          "name": "EDESTADDRREQ",
+          "number": 89,
+          "comment": "Destination address required",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 73
+          }
+        },
+        {
+          "name": "EMSGSIZE",
+          "number": 90,
+          "comment": "Message too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 74
+          }
+        },
+        {
+          "name": "EPROTOTYPE",
+          "number": 91,
+          "comment": "Protocol wrong type for socket",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 75
+          }
+        },
+        {
+          "name": "ENOPROTOOPT",
+          "number": 92,
+          "comment": "Protocol not available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 76
+          }
+        },
+        {
+          "name": "EPROTONOSUPPORT",
+          "number": 93,
+          "comment": "Protocol not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 77
+          }
+        },
+        {
+          "name": "ESOCKTNOSUPPORT",
+          "number": 94,
+          "comment": "Socket type not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 78
+          }
+        },
+        {
+          "name": "EOPNOTSUPP",
+          "number": 95,
+          "comment": "Operation not supported on transport endpoint",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 79
+          }
+        },
+        {
+          "name": "EPFNOSUPPORT",
+          "number": 96,
+          "comment": "Protocol family not supported",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 80
+          }
+        },
+        {
+          "name": "EAFNOSUPPORT",
+          "number": 97,
+          "comment": "Address family not supported by protocol",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 81
+          }
+        },
+        {
+          "name": "EADDRINUSE",
+          "number": 98,
+          "comment": "Address already in use",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 82
+          }
+        },
+        {
+          "name": "EADDRNOTAVAIL",
+          "number": 99,
+          "comment": "Cannot assign requested address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 83
+          }
+        },
+        {
+          "name": "ENETDOWN",
+          "number": 100,
+          "comment": "Network is down",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 84
+          }
+        },
+        {
+          "name": "ENETUNREACH",
+          "number": 101,
+          "comment": "Network is unreachable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 85
+          }
+        },
+        {
+          "name": "ENETRESET",
+          "number": 102,
+          "comment": "Network dropped connection because of reset",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 86
+          }
+        },
+        {
+          "name": "ECONNABORTED",
+          "number": 103,
+          "comment": "Software caused connection abort",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 87
+          }
+        },
+        {
+          "name": "ECONNRESET",
+          "number": 104,
+          "comment": "Connection reset by peer",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 88
+          }
+        },
+        {
+          "name": "ENOBUFS",
+          "number": 105,
+          "comment": "No buffer space available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 89
+          }
+        },
+        {
+          "name": "EISCONN",
+          "number": 106,
+          "comment": "Transport endpoint is already connected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 90
+          }
+        },
+        {
+          "name": "ENOTCONN",
+          "number": 107,
+          "comment": "Transport endpoint is not connected",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 91
+          }
+        },
+        {
+          "name": "ESHUTDOWN",
+          "number": 108,
+          "comment": "Cannot send after transport endpoint shutdown",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 92
+          }
+        },
+        {
+          "name": "ETOOMANYREFS",
+          "number": 109,
+          "comment": "Too many references: cannot splice",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 93
+          }
+        },
+        {
+          "name": "ETIMEDOUT",
+          "number": 110,
+          "comment": "Connection timed out",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 94
+          }
+        },
+        {
+          "name": "ECONNREFUSED",
+          "number": 111,
+          "comment": "Connection refused",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 95
+          }
+        },
+        {
+          "name": "EHOSTDOWN",
+          "number": 112,
+          "comment": "Host is down",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 96
+          }
+        },
+        {
+          "name": "EHOSTUNREACH",
+          "number": 113,
+          "comment": "No route to host",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 97
+          }
+        },
+        {
+          "name": "EALREADY",
+          "number": 114,
+          "comment": "Operation already in progress",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 98
+          }
+        },
+        {
+          "name": "EINPROGRESS",
+          "number": 115,
+          "comment": "Operation now in progress",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 99
+          }
+        },
+        {
+          "name": "ESTALE",
+          "number": 116,
+          "comment": "Stale file handle",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 100
+          }
+        },
+        {
+          "name": "EUCLEAN",
+          "number": 117,
+          "comment": "Structure needs cleaning",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 101
+          }
+        },
+        {
+          "name": "EFSCORRUPTED",
+          "number": 117,
+          "alias_of": "EUCLEAN",
+          "comment": "Filesystem is corrupted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 102
+          }
+        },
+        {
+          "name": "ENOTNAM",
+          "number": 118,
+          "comment": "Not a XENIX named type file",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 103
+          }
+        },
+        {
+          "name": "ENAVAIL",
+          "number": 119,
+          "comment": "No XENIX semaphores available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 104
+          }
+        },
+        {
+          "name": "EISNAM",
+          "number": 120,
+          "comment": "Is a named type file",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 105
+          }
+        },
+        {
+          "name": "EREMOTEIO",
+          "number": 121,
+          "comment": "Remote I/O error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 106
+          }
+        },
+        {
+          "name": "EDQUOT",
+          "number": 122,
+          "comment": "Quota exceeded",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 107
+          }
+        },
+        {
+          "name": "ENOMEDIUM",
+          "number": 123,
+          "comment": "No medium found",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 109
+          }
+        },
+        {
+          "name": "EMEDIUMTYPE",
+          "number": 124,
+          "comment": "Wrong medium type",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 110
+          }
+        },
+        {
+          "name": "ECANCELED",
+          "number": 125,
+          "comment": "Operation Canceled",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 111
+          }
+        },
+        {
+          "name": "ENOKEY",
+          "number": 126,
+          "comment": "Required key not available",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 112
+          }
+        },
+        {
+          "name": "EKEYEXPIRED",
+          "number": 127,
+          "comment": "Key has expired",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 113
+          }
+        },
+        {
+          "name": "EKEYREVOKED",
+          "number": 128,
+          "comment": "Key has been revoked",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 114
+          }
+        },
+        {
+          "name": "EKEYREJECTED",
+          "number": 129,
+          "comment": "Key was rejected by service",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 115
+          }
+        },
+        {
+          "name": "EOWNERDEAD",
+          "number": 130,
+          "comment": "Owner died",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 118
+          }
+        },
+        {
+          "name": "ENOTRECOVERABLE",
+          "number": 131,
+          "comment": "State not recoverable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 119
+          }
+        },
+        {
+          "name": "ERFKILL",
+          "number": 132,
+          "comment": "Operation not possible due to RF-kill",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 121
+          }
+        },
+        {
+          "name": "EHWPOISON",
+          "number": 133,
+          "comment": "Memory page has hardware error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 123
+          }
+        },
+        {
+          "name": "EFTYPE",
+          "number": 134,
+          "comment": "Wrong file type for the intended operation",
+          "source": {
+            "path": "include/uapi/asm-generic/errno.h",
+            "line": 125
+          }
+        },
+        {
+          "name": "EDEADLOCK",
+          "number": 58,
+          "comment": "File locking deadlock error",
+          "source": {
+            "path": "arch/powerpc/include/uapi/asm/errno.h",
+            "line": 9
+          }
+        }
+      ]
+    },
+    "mips": {
+      "header": "arch/mips/include/uapi/asm/errno.h",
+      "files": [
+        "arch/mips/include/uapi/asm/errno.h",
+        "include/uapi/asm-generic/errno-base.h"
+      ],
+      "entries": [
+        {
+          "name": "EPERM",
+          "number": 1,
+          "comment": "Operation not permitted",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 5
+          }
+        },
+        {
+          "name": "ENOENT",
+          "number": 2,
+          "comment": "No such file or directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 6
+          }
+        },
+        {
+          "name": "ESRCH",
+          "number": 3,
+          "comment": "No such process",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 7
+          }
+        },
+        {
+          "name": "EINTR",
+          "number": 4,
+          "comment": "Interrupted system call",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 8
+          }
+        },
+        {
+          "name": "EIO",
+          "number": 5,
+          "comment": "I/O error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 9
+          }
+        },
+        {
+          "name": "ENXIO",
+          "number": 6,
+          "comment": "No such device or address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 10
+          }
+        },
+        {
+          "name": "E2BIG",
+          "number": 7,
+          "comment": "Argument list too long",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 11
+          }
+        },
+        {
+          "name": "ENOEXEC",
+          "number": 8,
+          "comment": "Exec format error",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 12
+          }
+        },
+        {
+          "name": "EBADF",
+          "number": 9,
+          "comment": "Bad file number",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 13
+          }
+        },
+        {
+          "name": "ECHILD",
+          "number": 10,
+          "comment": "No child processes",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 14
+          }
+        },
+        {
+          "name": "EAGAIN",
+          "number": 11,
+          "comment": "Try again",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 15
+          }
+        },
+        {
+          "name": "ENOMEM",
+          "number": 12,
+          "comment": "Out of memory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 16
+          }
+        },
+        {
+          "name": "EACCES",
+          "number": 13,
+          "comment": "Permission denied",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 17
+          }
+        },
+        {
+          "name": "EFAULT",
+          "number": 14,
+          "comment": "Bad address",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "ENOTBLK",
+          "number": 15,
+          "comment": "Block device required",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 19
+          }
+        },
+        {
+          "name": "EBUSY",
+          "number": 16,
+          "comment": "Device or resource busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "EEXIST",
+          "number": 17,
+          "comment": "File exists",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EXDEV",
+          "number": 18,
+          "comment": "Cross-device link",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "ENODEV",
+          "number": 19,
+          "comment": "No such device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "ENOTDIR",
+          "number": 20,
+          "comment": "Not a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "EISDIR",
+          "number": 21,
+          "comment": "Is a directory",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "EINVAL",
+          "number": 22,
+          "comment": "Invalid argument",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "ENFILE",
+          "number": 23,
+          "comment": "File table overflow",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EMFILE",
+          "number": 24,
+          "comment": "Too many open files",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ENOTTY",
+          "number": 25,
+          "comment": "Not a typewriter",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "ETXTBSY",
+          "number": 26,
+          "comment": "Text file busy",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "EFBIG",
+          "number": 27,
+          "comment": "File too large",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "ENOSPC",
+          "number": 28,
+          "comment": "No space left on device",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "ESPIPE",
+          "number": 29,
+          "comment": "Illegal seek",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EROFS",
+          "number": 30,
+          "comment": "Read-only file system",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EMLINK",
+          "number": 31,
+          "comment": "Too many links",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "EPIPE",
+          "number": 32,
+          "comment": "Broken pipe",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EDOM",
+          "number": 33,
+          "comment": "Math argument out of domain of func",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "ERANGE",
+          "number": 34,
+          "comment": "Math result not representable",
+          "source": {
+            "path": "include/uapi/asm-generic/errno-base.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "ENOMSG",
+          "number": 35,
+          "comment": "No message of desired type",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 18
+          }
+        },
+        {
+          "name": "EIDRM",
+          "number": 36,
+          "comment": "Identifier removed",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 19
+          }
+        },
+        {
+          "name": "ECHRNG",
+          "number": 37,
+          "comment": "Channel number out of range",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 20
+          }
+        },
+        {
+          "name": "EL2NSYNC",
+          "number": 38,
+          "comment": "Level 2 not synchronized",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 21
+          }
+        },
+        {
+          "name": "EL3HLT",
+          "number": 39,
+          "comment": "Level 3 halted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 22
+          }
+        },
+        {
+          "name": "EL3RST",
+          "number": 40,
+          "comment": "Level 3 reset",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 23
+          }
+        },
+        {
+          "name": "ELNRNG",
+          "number": 41,
+          "comment": "Link number out of range",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 24
+          }
+        },
+        {
+          "name": "EUNATCH",
+          "number": 42,
+          "comment": "Protocol driver not attached",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 25
+          }
+        },
+        {
+          "name": "ENOCSI",
+          "number": 43,
+          "comment": "No CSI structure available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 26
+          }
+        },
+        {
+          "name": "EL2HLT",
+          "number": 44,
+          "comment": "Level 2 halted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 27
+          }
+        },
+        {
+          "name": "EDEADLK",
+          "number": 45,
+          "comment": "Resource deadlock would occur",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 28
+          }
+        },
+        {
+          "name": "ENOLCK",
+          "number": 46,
+          "comment": "No record locks available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 29
+          }
+        },
+        {
+          "name": "EBADE",
+          "number": 50,
+          "comment": "Invalid exchange",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 30
+          }
+        },
+        {
+          "name": "EBADR",
+          "number": 51,
+          "comment": "Invalid request descriptor",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 31
+          }
+        },
+        {
+          "name": "EXFULL",
+          "number": 52,
+          "comment": "Exchange full",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 32
+          }
+        },
+        {
+          "name": "ENOANO",
+          "number": 53,
+          "comment": "No anode",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 33
+          }
+        },
+        {
+          "name": "EBADRQC",
+          "number": 54,
+          "comment": "Invalid request code",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 34
+          }
+        },
+        {
+          "name": "EBADSLT",
+          "number": 55,
+          "comment": "Invalid slot",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 35
+          }
+        },
+        {
+          "name": "EDEADLOCK",
+          "number": 56,
+          "comment": "File locking deadlock error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 36
+          }
+        },
+        {
+          "name": "EBFONT",
+          "number": 59,
+          "comment": "Bad font file format",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 37
+          }
+        },
+        {
+          "name": "ENOSTR",
+          "number": 60,
+          "comment": "Device not a stream",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 38
+          }
+        },
+        {
+          "name": "ENODATA",
+          "number": 61,
+          "comment": "No data available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 39
+          }
+        },
+        {
+          "name": "ETIME",
+          "number": 62,
+          "comment": "Timer expired",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 40
+          }
+        },
+        {
+          "name": "ENOSR",
+          "number": 63,
+          "comment": "Out of streams resources",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 41
+          }
+        },
+        {
+          "name": "ENONET",
+          "number": 64,
+          "comment": "Machine is not on the network",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 42
+          }
+        },
+        {
+          "name": "ENOPKG",
+          "number": 65,
+          "comment": "Package not installed",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 43
+          }
+        },
+        {
+          "name": "EREMOTE",
+          "number": 66,
+          "comment": "Object is remote",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 44
+          }
+        },
+        {
+          "name": "ENOLINK",
+          "number": 67,
+          "comment": "Link has been severed",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 45
+          }
+        },
+        {
+          "name": "EADV",
+          "number": 68,
+          "comment": "Advertise error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 46
+          }
+        },
+        {
+          "name": "ESRMNT",
+          "number": 69,
+          "comment": "Srmount error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 47
+          }
+        },
+        {
+          "name": "ECOMM",
+          "number": 70,
+          "comment": "Communication error on send",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 48
+          }
+        },
+        {
+          "name": "EPROTO",
+          "number": 71,
+          "comment": "Protocol error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 49
+          }
+        },
+        {
+          "name": "EDOTDOT",
+          "number": 73,
+          "comment": "RFS specific error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 50
+          }
+        },
+        {
+          "name": "EMULTIHOP",
+          "number": 74,
+          "comment": "Multihop attempted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 51
+          }
+        },
+        {
+          "name": "EBADMSG",
+          "number": 77,
+          "comment": "Not a data message",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 52
+          }
+        },
+        {
+          "name": "EFSBADCRC",
+          "number": 77,
+          "alias_of": "EBADMSG",
+          "comment": "Bad CRC detected",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 53
+          }
+        },
+        {
+          "name": "ENAMETOOLONG",
+          "number": 78,
+          "comment": "File name too long",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 54
+          }
+        },
+        {
+          "name": "EOVERFLOW",
+          "number": 79,
+          "comment": "Value too large for defined data type",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 55
+          }
+        },
+        {
+          "name": "ENOTUNIQ",
+          "number": 80,
+          "comment": "Name not unique on network",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 56
+          }
+        },
+        {
+          "name": "EBADFD",
+          "number": 81,
+          "comment": "File descriptor in bad state",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 57
+          }
+        },
+        {
+          "name": "EREMCHG",
+          "number": 82,
+          "comment": "Remote address changed",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 58
+          }
+        },
+        {
+          "name": "ELIBACC",
+          "number": 83,
+          "comment": "Can not access a needed shared library",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 59
+          }
+        },
+        {
+          "name": "ELIBBAD",
+          "number": 84,
+          "comment": "Accessing a corrupted shared library",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 60
+          }
+        },
+        {
+          "name": "ELIBSCN",
+          "number": 85,
+          "comment": ".lib section in a.out corrupted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 61
+          }
+        },
+        {
+          "name": "ELIBMAX",
+          "number": 86,
+          "comment": "Attempting to link in too many shared libraries",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 62
+          }
+        },
+        {
+          "name": "ELIBEXEC",
+          "number": 87,
+          "comment": "Cannot exec a shared library directly",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 63
+          }
+        },
+        {
+          "name": "EILSEQ",
+          "number": 88,
+          "comment": "Illegal byte sequence",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 64
+          }
+        },
+        {
+          "name": "ENOSYS",
+          "number": 89,
+          "comment": "Function not implemented",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 65
+          }
+        },
+        {
+          "name": "ELOOP",
+          "number": 90,
+          "comment": "Too many symbolic links encountered",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 66
+          }
+        },
+        {
+          "name": "ERESTART",
+          "number": 91,
+          "comment": "Interrupted system call should be restarted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 67
+          }
+        },
+        {
+          "name": "ESTRPIPE",
+          "number": 92,
+          "comment": "Streams pipe error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 68
+          }
+        },
+        {
+          "name": "ENOTEMPTY",
+          "number": 93,
+          "comment": "Directory not empty",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 69
+          }
+        },
+        {
+          "name": "EUSERS",
+          "number": 94,
+          "comment": "Too many users",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 70
+          }
+        },
+        {
+          "name": "ENOTSOCK",
+          "number": 95,
+          "comment": "Socket operation on non-socket",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 71
+          }
+        },
+        {
+          "name": "EDESTADDRREQ",
+          "number": 96,
+          "comment": "Destination address required",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 72
+          }
+        },
+        {
+          "name": "EMSGSIZE",
+          "number": 97,
+          "comment": "Message too long",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 73
+          }
+        },
+        {
+          "name": "EPROTOTYPE",
+          "number": 98,
+          "comment": "Protocol wrong type for socket",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 74
+          }
+        },
+        {
+          "name": "ENOPROTOOPT",
+          "number": 99,
+          "comment": "Protocol not available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 75
+          }
+        },
+        {
+          "name": "EPROTONOSUPPORT",
+          "number": 120,
+          "comment": "Protocol not supported",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 76
+          }
+        },
+        {
+          "name": "ESOCKTNOSUPPORT",
+          "number": 121,
+          "comment": "Socket type not supported",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 77
+          }
+        },
+        {
+          "name": "EOPNOTSUPP",
+          "number": 122,
+          "comment": "Operation not supported on transport endpoint",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 78
+          }
+        },
+        {
+          "name": "EPFNOSUPPORT",
+          "number": 123,
+          "comment": "Protocol family not supported",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 79
+          }
+        },
+        {
+          "name": "EAFNOSUPPORT",
+          "number": 124,
+          "comment": "Address family not supported by protocol",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 80
+          }
+        },
+        {
+          "name": "EADDRINUSE",
+          "number": 125,
+          "comment": "Address already in use",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 81
+          }
+        },
+        {
+          "name": "EADDRNOTAVAIL",
+          "number": 126,
+          "comment": "Cannot assign requested address",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 82
+          }
+        },
+        {
+          "name": "ENETDOWN",
+          "number": 127,
+          "comment": "Network is down",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 83
+          }
+        },
+        {
+          "name": "ENETUNREACH",
+          "number": 128,
+          "comment": "Network is unreachable",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 84
+          }
+        },
+        {
+          "name": "ENETRESET",
+          "number": 129,
+          "comment": "Network dropped connection because of reset",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 85
+          }
+        },
+        {
+          "name": "ECONNABORTED",
+          "number": 130,
+          "comment": "Software caused connection abort",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 86
+          }
+        },
+        {
+          "name": "ECONNRESET",
+          "number": 131,
+          "comment": "Connection reset by peer",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 87
+          }
+        },
+        {
+          "name": "ENOBUFS",
+          "number": 132,
+          "comment": "No buffer space available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 88
+          }
+        },
+        {
+          "name": "EISCONN",
+          "number": 133,
+          "comment": "Transport endpoint is already connected",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 89
+          }
+        },
+        {
+          "name": "ENOTCONN",
+          "number": 134,
+          "comment": "Transport endpoint is not connected",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 90
+          }
+        },
+        {
+          "name": "EUCLEAN",
+          "number": 135,
+          "comment": "Structure needs cleaning",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 91
+          }
+        },
+        {
+          "name": "EFSCORRUPTED",
+          "number": 135,
+          "alias_of": "EUCLEAN",
+          "comment": "Filesystem is corrupted",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 92
+          }
+        },
+        {
+          "name": "ENOTNAM",
+          "number": 137,
+          "comment": "Not a XENIX named type file",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 93
+          }
+        },
+        {
+          "name": "ENAVAIL",
+          "number": 138,
+          "comment": "No XENIX semaphores available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 94
+          }
+        },
+        {
+          "name": "EISNAM",
+          "number": 139,
+          "comment": "Is a named type file",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 95
+          }
+        },
+        {
+          "name": "EREMOTEIO",
+          "number": 140,
+          "comment": "Remote I/O error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 96
+          }
+        },
+        {
+          "name": "EINIT",
+          "number": 141,
+          "comment": "Reserved",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 97
+          }
+        },
+        {
+          "name": "EREMDEV",
+          "number": 142,
+          "comment": "Error 142",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 98
+          }
+        },
+        {
+          "name": "ESHUTDOWN",
+          "number": 143,
+          "comment": "Cannot send after transport endpoint shutdown",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 99
+          }
+        },
+        {
+          "name": "ETOOMANYREFS",
+          "number": 144,
+          "comment": "Too many references: cannot splice",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 100
+          }
+        },
+        {
+          "name": "ETIMEDOUT",
+          "number": 145,
+          "comment": "Connection timed out",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 101
+          }
+        },
+        {
+          "name": "ECONNREFUSED",
+          "number": 146,
+          "comment": "Connection refused",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 102
+          }
+        },
+        {
+          "name": "EHOSTDOWN",
+          "number": 147,
+          "comment": "Host is down",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 103
+          }
+        },
+        {
+          "name": "EHOSTUNREACH",
+          "number": 148,
+          "comment": "No route to host",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 104
+          }
+        },
+        {
+          "name": "EWOULDBLOCK",
+          "number": 11,
+          "alias_of": "EAGAIN",
+          "comment": "Operation would block",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 105
+          }
+        },
+        {
+          "name": "EALREADY",
+          "number": 149,
+          "comment": "Operation already in progress",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 106
+          }
+        },
+        {
+          "name": "EINPROGRESS",
+          "number": 150,
+          "comment": "Operation now in progress",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 107
+          }
+        },
+        {
+          "name": "ESTALE",
+          "number": 151,
+          "comment": "Stale file handle",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 108
+          }
+        },
+        {
+          "name": "ECANCELED",
+          "number": 158,
+          "comment": "AIO operation canceled",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 109
+          }
+        },
+        {
+          "name": "ENOMEDIUM",
+          "number": 159,
+          "comment": "No medium found",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 114
+          }
+        },
+        {
+          "name": "EMEDIUMTYPE",
+          "number": 160,
+          "comment": "Wrong medium type",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 115
+          }
+        },
+        {
+          "name": "ENOKEY",
+          "number": 161,
+          "comment": "Required key not available",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 116
+          }
+        },
+        {
+          "name": "EKEYEXPIRED",
+          "number": 162,
+          "comment": "Key has expired",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 117
+          }
+        },
+        {
+          "name": "EKEYREVOKED",
+          "number": 163,
+          "comment": "Key has been revoked",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 118
+          }
+        },
+        {
+          "name": "EKEYREJECTED",
+          "number": 164,
+          "comment": "Key was rejected by service",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 119
+          }
+        },
+        {
+          "name": "EOWNERDEAD",
+          "number": 165,
+          "comment": "Owner died",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 122
+          }
+        },
+        {
+          "name": "ENOTRECOVERABLE",
+          "number": 166,
+          "comment": "State not recoverable",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 123
+          }
+        },
+        {
+          "name": "ERFKILL",
+          "number": 167,
+          "comment": "Operation not possible due to RF-kill",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 125
+          }
+        },
+        {
+          "name": "EHWPOISON",
+          "number": 168,
+          "comment": "Memory page has hardware error",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 127
+          }
+        },
+        {
+          "name": "EFTYPE",
+          "number": 169,
+          "comment": "Wrong file type for the intended operation",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 129
+          }
+        },
+        {
+          "name": "EDQUOT",
+          "number": 1133,
+          "comment": "Quota exceeded",
+          "source": {
+            "path": "arch/mips/include/uapi/asm/errno.h",
+            "line": 131
+          }
+        }
+      ]
+    }
+  },
+  "architectures": {
+    "x64": {
+      "label": "x86-64",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "x86": {
+      "label": "i386",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "arm64": {
+      "label": "AArch64",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "arm": {
+      "label": "ARM EABI",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "riscv64": {
+      "label": "RISC-V 64",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "loongarch64": {
+      "label": "LoongArch 64",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "ppc64": {
+      "label": "PowerPC 64",
+      "table": "powerpc",
+      "headers": {
+        "errno.h": {
+          "path": "arch/powerpc/include/uapi/asm/errno.h",
+          "kind": "architecture"
+        }
+      }
+    },
+    "ppc": {
+      "label": "PowerPC 32",
+      "table": "powerpc",
+      "headers": {
+        "errno.h": {
+          "path": "arch/powerpc/include/uapi/asm/errno.h",
+          "kind": "architecture"
+        }
+      }
+    },
+    "s390x": {
+      "label": "IBM Z (s390x)",
+      "table": "generic",
+      "headers": {
+        "errno.h": {
+          "path": "include/uapi/asm-generic/errno.h",
+          "kind": "mandatory-y",
+          "kbuild": "include/uapi/asm-generic/Kbuild",
+          "line": 10
+        }
+      }
+    },
+    "mips-o32": {
+      "label": "MIPS o32",
+      "table": "mips",
+      "headers": {
+        "errno.h": {
+          "path": "arch/mips/include/uapi/asm/errno.h",
+          "kind": "architecture"
+        }
+      }
+    },
+    "mips-n32": {
+      "label": "MIPS n32",
+      "table": "mips",
+      "headers": {
+        "errno.h": {
+          "path": "arch/mips/include/uapi/asm/errno.h",
+          "kind": "architecture"
+        }
+      }
+    },
+    "mips-n64": {
+      "label": "MIPS n64",
+      "table": "mips",
+      "headers": {
+        "errno.h": {
+          "path": "arch/mips/include/uapi/asm/errno.h",
+          "kind": "architecture"
+        }
+      }
+    }
+  },
+  "licensing": {
+    "generated_file": "GPL-2.0-only",
+    "generated_at": "2026-11-15T02:13:54.216147+00:00",
+    "upstream_notice": "sources/COPYING",
+    "upstream_license_texts": [
+      "sources/LICENSES/preferred/GPL-2.0",
+      "sources/LICENSES/exceptions/Linux-syscall-note"
+    ],
+    "generator": "scripts/sync_abi.py",
+    "modification_notice": "Generated by syscall-reference from Linux v7.3; preprocessor definitions, a comment table and a documentation table were parsed per ABI and converted to JSON. Bundled input files are unchanged; their original licenses, notices and exceptions remain in effect. The Linux-syscall-note is not applied to all application code or all extracted data."
+  },
+  "provenance": {
+    "kind": "upstream",
+    "repository": "https://github.com/torvalds/linux",
+    "ref": "v7.3",
+    "files": [
+      {
+        "path": "COPYING",
+        "sha256": "fb5a425bd3b3cd6071a3a9aff9909a859e7c1158d54d32e07658398cd67eb6a0",
+        "bundled_path": "sources/COPYING",
+        "role": "license-notice"
+      },
+      {
+        "path": "Documentation/userspace-api/ioctl/ioctl-number.rst",
+        "sha256": "254a47c27672f956d25bf8ca8b485e0f6f910f136c277d2554a75c4ff7c681bd",
+        "bundled_path": "sources/Documentation/userspace-api/ioctl/ioctl-number.rst",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "No SPDX identifier and no notice of its own; the release COPYING provides the kernel under GPL-2.0 where a file does not say otherwise."
+      },
+      {
+        "path": "LICENSES/exceptions/Linux-syscall-note",
+        "sha256": "8e378ab93586eb55135d3bc119cce787f7324f48394777d00c34fa3d0be3303f",
+        "bundled_path": "sources/LICENSES/exceptions/Linux-syscall-note",
+        "role": "license-notice"
+      },
+      {
+        "path": "LICENSES/preferred/GPL-2.0",
+        "sha256": "8780e78a1a737e127f25a65f6d95269bffd36158dc261114de7859b490bfc5aa",
+        "bundled_path": "sources/LICENSES/preferred/GPL-2.0",
+        "role": "license-notice"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/Kbuild",
+        "sha256": "10b63170bdcd9a83347a852a7eaf8b5f0c1b57fffb339e718bc4bd22ffbff87e",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/ioctls.h",
+        "sha256": "19970612f5a7f7f71226d50527d8267411958e4dcc9f2e9c3b29a5de060524e1",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/signal.h",
+        "sha256": "830f020f3a0f65cae1a25bbedc05d1f24809e635085ef1ea16c11bbe8bfe7a88",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/arm64/include/uapi/asm/Kbuild",
+        "sha256": "80ea7d9bb46731c0ddf368714430e69508fa0e1489779ac0d2fdda2f2351955f",
+        "bundled_path": "sources/arch/arm64/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/arm64/include/uapi/asm/signal.h",
+        "sha256": "92c29473269b68c451736ca630be953aa301223328884cb89bc15c016c2eec6b",
+        "bundled_path": "sources/arch/arm64/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/loongarch/include/uapi/asm/Kbuild",
+        "sha256": "6683d53e06dd6e9d00ff0057d4fd62cf61d73c0b1124e1d5df96ab05b4cb1f52",
+        "bundled_path": "sources/arch/loongarch/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/loongarch/include/uapi/asm/signal.h",
+        "sha256": "f3b3264fbd4c8e6fd081e0ce2547d38324929e98cc44649c4ceb60bec2edd81b",
+        "bundled_path": "sources/arch/loongarch/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/errno.h",
+        "sha256": "006286df7ccd50a0740612ecb1fed94714373770f60c63fa72b262a685f0966a",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/ioctl.h",
+        "sha256": "a392959e96a7d49bef865971871f4a9e8e1dab7113e36badc5c467a6c6ab24d8",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/ioctls.h",
+        "sha256": "863b668f67f8d7356f5ff2d8b4e5712d5e70d9b191520765a8533702c4ed3fd5",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/signal.h",
+        "sha256": "982348cac1b8ce1245d3675ad01afd596cb2e896139edd2dbf93abb23cf7dda1",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/sockios.h",
+        "sha256": "383966e9882ccff015304bcb4bf9cc2b2c2c048fb359a39baeec1976e7288ddd",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/sockios.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/Kbuild",
+        "sha256": "f8c9ae4d5e6ee40b425f66998171027245f383fec5704e1088a0de3aa3f22dcd",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/errno.h",
+        "sha256": "702fcb7a05834fcf1e3cb681fd3820eae29892169f8e90a159a8cda1b6a1c5d7",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/ioctl.h",
+        "sha256": "655298e24d49ba6b81e85c73f96c38a354d01b2d6256edc97c7f3ace7719a65b",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/ioctls.h",
+        "sha256": "52592a83cae5958bb89712fb7a79377fcf4ce0b6ce6a86b4374026dbfdad6cdf",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/signal.h",
+        "sha256": "769702cbf1833d78dc82373d1524596e0df5e97e0c41871c746794c610e9f80f",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/riscv/include/uapi/asm/Kbuild",
+        "sha256": "6683d53e06dd6e9d00ff0057d4fd62cf61d73c0b1124e1d5df96ab05b4cb1f52",
+        "bundled_path": "sources/arch/riscv/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/Kbuild",
+        "sha256": "6f1e6b6bb5952da2a06173484802d7cda7d177065cf3bc9fa7ee10fe8663a9cc",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/ioctls.h",
+        "sha256": "9d4348f185ce883ab05b78ea6721542fa40870389677e46e6f43ef3fa8161e24",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/signal.h",
+        "sha256": "0015cc9f719c8f79d46a113b08f81d81e6d5fb27e38517fdc84b8362ec273905",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/x86/include/uapi/asm/Kbuild",
+        "sha256": "0d4c0278e93a0b2ce1efbc2d3872fbca69282af3041c1a4985a34c8dac1c4b13",
+        "bundled_path": "sources/arch/x86/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/include/uapi/asm/signal.h",
+        "sha256": "4aa8e8c9dd54a2ad66b9f95aba04040bcfeb6046ae5566e13e0dfbd834d271f1",
+        "bundled_path": "sources/arch/x86/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/linux/signal.h",
+        "sha256": "f6b75a1b35c5fb2b0e5994964ce75ef30bcdd0a4d412f8755c0c791d56a7eab4",
+        "bundled_path": "sources/include/linux/signal.h",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "include/uapi/asm-generic/Kbuild",
+        "sha256": "7f798a9dee418ae8169e28cfcfd4646cfdbf265e74907ce99191c1029a5cc1c0",
+        "bundled_path": "sources/include/uapi/asm-generic/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "include/uapi/asm-generic/errno-base.h",
+        "sha256": "2c148e92b8318deeb767fabd60822113e575ee664ff09a1873aed8f7a495793c",
+        "bundled_path": "sources/include/uapi/asm-generic/errno-base.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/errno.h",
+        "sha256": "66a5ad60566fdd62e41701bcfc42bfeca5e5696ad1d47d78981575e0c51622be",
+        "bundled_path": "sources/include/uapi/asm-generic/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/int-ll64.h",
+        "sha256": "faca16150492e943a43c83e6b3069531dd498ef15dc612fb2051b88f7da83afc",
+        "bundled_path": "sources/include/uapi/asm-generic/int-ll64.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/ioctl.h",
+        "sha256": "8629514cdd724a7100fc6eea84d93db5fbc3285431a1631a77c7f8006b70bce0",
+        "bundled_path": "sources/include/uapi/asm-generic/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/ioctls.h",
+        "sha256": "867644cd4a20815b7d8be14902b594bb6e30a81ea159aa5c67f24212c92cbab6",
+        "bundled_path": "sources/include/uapi/asm-generic/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/signal-defs.h",
+        "sha256": "6b3e6cb49936df8565f3adce214586d423cc9e5cba4af5ba29b90d3e1f9d9c31",
+        "bundled_path": "sources/include/uapi/asm-generic/signal-defs.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/signal.h",
+        "sha256": "936247c76acb82e5c82c58c2cddfe45fcb71230465f6c137966a8a285a3dc04c",
+        "bundled_path": "sources/include/uapi/asm-generic/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/sockios.h",
+        "sha256": "3e46cdcb281f87f1b532901e6388eed77fa687c3c5c56f72aceb8640696a4ef9",
+        "bundled_path": "sources/include/uapi/asm-generic/sockios.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/linux/ioctl.h",
+        "sha256": "ba73b5892de6605e6c40b151820e367dfcb98cbdb3f8f468c5ef2bd8437df873",
+        "bundled_path": "sources/include/uapi/linux/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/linux/sockios.h",
+        "sha256": "69c8cd1427d631cd4950536c189ef4737fd9b6dd6c3833c628551dea55f6b240",
+        "bundled_path": "sources/include/uapi/linux/sockios.h",
+        "spdx_license_identifier": "GPL-2.0+ WITH Linux-syscall-note"
+      }
+    ]
+  }
+}

@@ -60,6 +60,33 @@ Original source notices:
   `arch/mips/mm/cache.c` (v5.19–v7.3), whose own notices place them under the
   GNU General Public License and refer to `COPYING`.
 
+The errno, signal and ioctl data in `public/data/abi/<release>/` is extracted
+from further Linux files, bundled unmodified in
+`public/data/abi/<release>/sources/` and listed in that directory's
+`sources.json`, which is authoritative. In v7.3:
+
+- UAPI headers, SPDX `GPL-2.0 WITH Linux-syscall-note`: in
+  `include/uapi/asm-generic/`, `errno-base.h`, `errno.h`, `signal.h`,
+  `signal-defs.h`, `ioctl.h`, `ioctls.h`, `sockios.h` and `int-ll64.h`;
+  `include/uapi/linux/ioctl.h`; and the architecture headers under
+  `arch/<arch>/include/uapi/asm/` that exist for arm (`ioctls.h`, `signal.h`),
+  arm64 and loongarch (`signal.h`), mips (`errno.h`, `ioctl.h`, `ioctls.h`,
+  `signal.h`, `sockios.h`), powerpc (`errno.h`, `ioctl.h`, `ioctls.h`,
+  `signal.h`), s390 (`ioctls.h`, `signal.h`) and x86 (`signal.h`).
+  `include/uapi/linux/sockios.h` is `GPL-2.0+ WITH Linux-syscall-note`.
+- SPDX `GPL-2.0`: `include/linux/signal.h` (the default-action comment table)
+  and the `Kbuild` files in `include/uapi/asm-generic/` and
+  `arch/<arch>/include/uapi/asm/`.
+- `Documentation/userspace-api/ioctl/ioctl-number.rst` (which names
+  Michael Elizabeth Chastain, 19 October 1999) has no SPDX line and no notice of its own.
+  It is recorded as `license_identifier: GPL-2.0-only` with
+  `license_basis: COPYING`.
+
+Modification notice for this data: syscall-reference evaluates the
+preprocessor definitions per ABI, reads one comment table and one
+documentation table, and converts the results to JSON. The generation source
+is `scripts/sync_abi.py`.
+
 The full upstream `COPYING`, `LICENSES/preferred/GPL-2.0`, and
 `LICENSES/exceptions/Linux-syscall-note` accompany each snapshot. Reference
 copies of the two license documents are also in this repository's `LICENSES/`

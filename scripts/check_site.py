@@ -30,14 +30,18 @@ class Links(HTMLParser):
             self.canonical = attrs.get('href')
 
 
-def check(site, baseurl):
-    site = site.resolve()
-    base = '/' + baseurl.strip('/') + '/' if baseurl.strip('/') else '/'
-    index = (site / 'index.html').read_text()
-    assert not index.startswith('---'), 'Unprocessed Jekyll front matter'
-    assert '{{' not in index and '{%' not in index, 'Unprocessed Liquid template'
+# Pages besides the site root, each with its own canonical URL and sitemap entry.
+SECTION_PAGES = ['errno/', 'signals/', 'ioctl/']
+
+
+def check_page(site, base, relative):
+    """Check one built HTML page: templates rendered, site-root set, local links resolve."""
+    folder = site / relative
+    text = (folder / 'index.html').read_text()
+    assert not text.startswith('---'), 'Unprocessed Jekyll front matter: ' + relative
+    assert '{{' not in text and '{%' not in text, 'Unprocessed Liquid template: ' + relative
     parser = Links()
-    parser.feed(index)
+    parser.feed(text)
     assert parser.site_root == base, 'Incorrect site-root: {}'.format(parser.site_root)
     for url in parser.urls:
         parsed = urlsplit(url)
@@ -46,13 +50,42 @@ def check(site, baseurl):
         pathname = unquote(parsed.path)
         if pathname.startswith('/'):
             assert pathname.startswith(base), 'URL escapes baseurl: ' + url
-            pathname = pathname[len(base):]
-        target = (site / pathname).resolve()
+            target = (site / pathname[len(base):]).resolve()
+        else:
+            target = (folder / pathname).resolve()
         assert target.is_relative_to(site), 'URL escapes site: ' + url
         if target.is_dir():
             target = target / 'index.html'
         assert target.is_file(), 'Broken local link: ' + url
-    for module in ['app.js', 'catalog.mjs', 'paths.mjs', 'examples.mjs']:
+    return parser
+
+
+def check_abi(site):
+    """The errno, signal and ioctl data: documents present, bundled inputs unmodified."""
+    manifest = json.loads((site / 'data/abi/manifest.json').read_text())
+    assert manifest['latest'] == manifest['versions'][0], 'ABI manifest does not name its newest release'
+    for version in manifest['versions']:
+        folder = site / 'data/abi' / version
+        sources = json.loads((folder / 'sources.json').read_text())
+        assert sources['kernel'] == version and sources['documents'] == manifest['documents'], 'ABI release differs from its manifest: ' + version
+        for name in sources['documents']:
+            document = json.loads((folder / name).read_text())
+            assert document['kernel'] == version and document['provenance']['files'] == sources['files'], 'ABI document without matching provenance: ' + name
+        for source in sources['files']:
+            data = (folder / source['bundled_path']).read_bytes()
+            assert hashlib.sha256(data).hexdigest() == source['sha256'], 'Modified kernel source: ' + source['path']
+        bundled = {p.relative_to(folder).as_posix() for p in (folder / 'sources').rglob('*') if p.is_file()}
+        assert bundled == {source['bundled_path'] for source in sources['files']}, 'Unrecorded file among the ABI sources: ' + version
+    return manifest
+
+
+def check(site, baseurl):
+    site = site.resolve()
+    base = '/' + baseurl.strip('/') + '/' if baseurl.strip('/') else '/'
+    parser = check_page(site, base, '')
+    sections = {relative: check_page(site, base, relative) for relative in SECTION_PAGES}
+    link_count = len(parser.urls) + sum(len(section.urls) for section in sections.values())
+    for module in ['app.js', 'catalog.mjs', 'paths.mjs', 'examples.mjs', 'abi.js', 'abi.mjs', 'abi-copy.mjs']:
         text = (site / module).read_text()
         for imported in re.findall(r"from ['\"]([^'\"]+)['\"]", text):
             assert imported.startswith('./'), 'Module import must be relative: ' + imported
@@ -64,14 +97,28 @@ def check(site, baseurl):
     architectures = [arch['id'] for arch in manifest['architectures']]
     sitemap = ET.parse(site / 'sitemap.xml')
     locations = [element.text for element in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-    # The layout declares one canonical URL; the sitemap must not list others.
-    assert parser.canonical and not urlsplit(parser.canonical).query, 'Missing or parameterized canonical URL'
+    # Every page declares one canonical URL; the sitemap lists exactly those
+    # pages, once each, and never a query-string view of one.
     assert locations, 'Empty sitemap'
+    assert len(locations) == len(set(locations)), 'Duplicate sitemap URL'
+    pages = {base: parser, **{base + relative: section for relative, section in sections.items()}}
+    root_canonical = urlsplit(parser.canonical or '')
+    for path, built in pages.items():
+        relative = path[len(base):]
+        canonical = urlsplit(built.canonical or '')
+        assert built.canonical and not canonical.query and not canonical.fragment, 'Missing or parameterized canonical URL: ' + path
+        assert built.canonical == parser.canonical + relative, 'Canonical URL is not this page: ' + built.canonical
     for url in locations:
         parsed = urlsplit(url)
-        assert parsed.path == base and not parsed.query and not parsed.fragment, 'Sitemap URL contradicts the canonical URL: ' + url
-        if urlsplit(parser.canonical).path == base:
-            assert url == parser.canonical, 'Sitemap URL differs from the canonical URL: ' + url
+        assert parsed.path in pages and not parsed.query and not parsed.fragment, 'Sitemap URL contradicts the canonical URL: ' + url
+        if root_canonical.path == base:
+            assert url == pages[parsed.path].canonical, 'Sitemap URL differs from the canonical URL: ' + url
+    assert {urlsplit(url).path for url in locations} == pages.keys(), 'Sitemap does not list every page'
+    # The landing page must lead to every section.
+    for relative in SECTION_PAGES:
+        assert any(urlsplit(url).path == base + relative for url in parser.urls), 'Landing page does not link to ' + relative
+    assert '/api/v1/syscalls/' not in (site / 'abi.js').read_text(), 'Section pages depend on the Node API'
+    abi = check_abi(site)
     api_index = json.loads((site / 'api/v1/index.json').read_text())
     expected_tables = {
         (version, arch): '../../data/{}/{}.json'.format(paths.get(version, version), arch)
@@ -92,13 +139,13 @@ def check(site, baseurl):
     with tarfile.open(site / 'downloads/syscall-reference-source.tar.gz') as archive:
         members = archive.getmembers()
         names = {m.name for m in members}
-        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/prepare_site.py', 'sources/manual-pages.json', 'public/_layouts/default.html']:
+        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/sync_abi.py', 'scripts/prepare_site.py', 'public/data/abi/manifest.json', 'sources/manual-pages.json', 'public/_layouts/default.html']:
             assert 'syscall-reference/' + required in names, 'Source archive missing ' + required
         for member in members:
             assert member.isfile(), 'Archive contains a non-file entry'
             parts = Path(member.name).parts
             assert not any(p in {'.git', '.cache', '.bundle', 'vendor', '_site', '__pycache__'} or p.startswith('.env') for p in parts), 'Local state in source archive'
-    print('Verified Jekyll output at {} (baseurl {}, {} local links, {} source files in archive).'.format(site, base, len(parser.urls), len(names)))
+    print('Verified Jekyll output at {} (baseurl {}, {} pages, {} local links, ABI data for {}, {} source files in archive).'.format(site, base, len(pages), link_count, ', '.join(abi['versions']), len(names)))
 
 
 if __name__ == '__main__':

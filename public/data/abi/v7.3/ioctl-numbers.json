@@ -1,0 +1,4518 @@
+{
+  "license": "GPL-2.0-only",
+  "schema_version": 1,
+  "kind": "ioctl-numbers",
+  "kernel": "v7.3",
+  "source": {
+    "path": "Documentation/userspace-api/ioctl/ioctl-number.rst",
+    "line": 73
+  },
+  "rows": [
+    {
+      "code": "0x00",
+      "value": 0,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 76
+    },
+    {
+      "code": "0x00",
+      "value": 0,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "scsi/scsi_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 77
+    },
+    {
+      "code": "0x00",
+      "value": 0,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/fb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 78
+    },
+    {
+      "code": "0x00",
+      "value": 0,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/wavefront.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 79
+    },
+    {
+      "code": "0x02",
+      "value": 2,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/fd.h"
+      ],
+      "comments": [],
+      "line": 80
+    },
+    {
+      "code": "0x03",
+      "value": 3,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/hdreg.h"
+      ],
+      "comments": [],
+      "line": 81
+    },
+    {
+      "code": "0x04",
+      "value": 4,
+      "sequence": "D2-DC",
+      "range": [
+        210,
+        220
+      ],
+      "includes": [
+        "linux/umsdos_fs.h"
+      ],
+      "comments": [
+        "Dead since 2.6.11, but don't reuse these."
+      ],
+      "line": 82
+    },
+    {
+      "code": "0x06",
+      "value": 6,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/lp.h"
+      ],
+      "comments": [],
+      "line": 83
+    },
+    {
+      "code": "0x07",
+      "value": 7,
+      "sequence": "9F-D0",
+      "range": [
+        159,
+        208
+      ],
+      "includes": [
+        "linux/vmw_vmci_defs.h, uapi/linux/vm_sockets.h"
+      ],
+      "comments": [],
+      "line": 84
+    },
+    {
+      "code": "0x09",
+      "value": 9,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/raid/md_u.h"
+      ],
+      "comments": [],
+      "line": 85
+    },
+    {
+      "code": "0x10",
+      "value": 16,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/char/s390/vmcp.h"
+      ],
+      "comments": [],
+      "line": 86
+    },
+    {
+      "code": "0x10",
+      "value": 16,
+      "sequence": "10-1F",
+      "range": [
+        16,
+        31
+      ],
+      "includes": [
+        "arch/s390/include/uapi/sclp_ctl.h"
+      ],
+      "comments": [],
+      "line": 87
+    },
+    {
+      "code": "0x10",
+      "value": 16,
+      "sequence": "20-2F",
+      "range": [
+        32,
+        47
+      ],
+      "includes": [
+        "arch/s390/include/uapi/asm/hypfs.h"
+      ],
+      "comments": [],
+      "line": 88
+    },
+    {
+      "code": "0x12",
+      "value": 18,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/fs.h",
+        "linux/blkpg.h",
+        "linux/blkzoned.h",
+        "linux/blk-crypto.h"
+      ],
+      "comments": [
+        "BLK* ioctls"
+      ],
+      "line": 89
+    },
+    {
+      "code": "0x15",
+      "value": 21,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/fs.h"
+      ],
+      "comments": [
+        "FS_IOC_* ioctls"
+      ],
+      "line": 93
+    },
+    {
+      "code": "0x1b",
+      "value": 27,
+      "sequence": "all",
+      "range": null,
+      "includes": [],
+      "comments": [
+        "InfiniBand Subsystem",
+        "<http://infiniband.sourceforge.net/>"
+      ],
+      "line": 94
+    },
+    {
+      "code": "0x20",
+      "value": 32,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "drivers/cdrom/cm206.h"
+      ],
+      "comments": [],
+      "line": 96
+    },
+    {
+      "code": "0x22",
+      "value": 34,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "scsi/sg.h"
+      ],
+      "comments": [],
+      "line": 97
+    },
+    {
+      "code": "0x3E",
+      "value": 62,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/counter.h"
+      ],
+      "comments": [
+        "<mailto:linux-iio@vger.kernel.org>"
+      ],
+      "line": 98
+    },
+    {
+      "code": "'!'",
+      "value": 33,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "uapi/linux/seccomp.h"
+      ],
+      "comments": [],
+      "line": 99
+    },
+    {
+      "code": "'#'",
+      "value": 35,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [],
+      "comments": [
+        "IEEE 1394 Subsystem",
+        "Block for the entire subsystem"
+      ],
+      "line": 100
+    },
+    {
+      "code": "'$'",
+      "value": 36,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/perf_counter.h, linux/perf_event.h"
+      ],
+      "comments": [],
+      "line": 102
+    },
+    {
+      "code": "'%'",
+      "value": 37,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "include/uapi/linux/stm.h"
+      ],
+      "comments": [
+        "System Trace Module subsystem",
+        "<mailto:alexander.shishkin@linux.intel.com>"
+      ],
+      "line": 103
+    },
+    {
+      "code": "'&'",
+      "value": 38,
+      "sequence": "00-07",
+      "range": [
+        0,
+        7
+      ],
+      "includes": [
+        "drivers/firewire/nosy-user.h"
+      ],
+      "comments": [],
+      "line": 105
+    },
+    {
+      "code": "'*'",
+      "value": 42,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "uapi/linux/user_events.h"
+      ],
+      "comments": [
+        "User Events Subsystem",
+        "<mailto:linux-trace-kernel@vger.kernel.org>"
+      ],
+      "line": 106
+    },
+    {
+      "code": "'1'",
+      "value": 49,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/timepps.h"
+      ],
+      "comments": [
+        "PPS kit from Ulrich Windl",
+        "<ftp://ftp.de.kernel.org/pub/linux/daemons/ntp/PPS/>"
+      ],
+      "line": 108
+    },
+    {
+      "code": "'2'",
+      "value": 50,
+      "sequence": "01-04",
+      "range": [
+        1,
+        4
+      ],
+      "includes": [
+        "linux/i2o.h"
+      ],
+      "comments": [],
+      "line": 110
+    },
+    {
+      "code": "'3'",
+      "value": 51,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/s390/char/raw3270.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 111
+    },
+    {
+      "code": "'3'",
+      "value": 51,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/suspend_ioctls.h,",
+        "kernel/power/user.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 112
+    },
+    {
+      "code": "'8'",
+      "value": 56,
+      "sequence": "all",
+      "range": null,
+      "includes": [],
+      "comments": [
+        "SNP8023 advanced NIC card",
+        "<mailto:mcr@solidum.com>"
+      ],
+      "line": 114
+    },
+    {
+      "code": "';'",
+      "value": 59,
+      "sequence": "64-7F",
+      "range": [
+        100,
+        127
+      ],
+      "includes": [
+        "linux/vfio.h"
+      ],
+      "comments": [],
+      "line": 116
+    },
+    {
+      "code": "';'",
+      "value": 59,
+      "sequence": "80-FF",
+      "range": [
+        128,
+        255
+      ],
+      "includes": [
+        "linux/iommufd.h"
+      ],
+      "comments": [],
+      "line": 117
+    },
+    {
+      "code": "'='",
+      "value": 61,
+      "sequence": "00-3f",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "uapi/linux/ptp_clock.h"
+      ],
+      "comments": [
+        "<mailto:richardcochran@gmail.com>"
+      ],
+      "line": 118
+    },
+    {
+      "code": "'@'",
+      "value": 64,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/radeonfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 119
+    },
+    {
+      "code": "'@'",
+      "value": 64,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/video/aty/aty128fb.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 120
+    },
+    {
+      "code": "'A'",
+      "value": 65,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/apm_bios.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 121
+    },
+    {
+      "code": "'A'",
+      "value": 65,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/agpgart.h,",
+        "drivers/char/agp/compat_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 122
+    },
+    {
+      "code": "'A'",
+      "value": 65,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "sound/asound.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 124
+    },
+    {
+      "code": "'B'",
+      "value": 66,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/cciss_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 125
+    },
+    {
+      "code": "'B'",
+      "value": 66,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "include/linux/pmu.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 126
+    },
+    {
+      "code": "'B'",
+      "value": 66,
+      "sequence": "C0-FF",
+      "range": [
+        192,
+        255
+      ],
+      "includes": [
+        "advanced bbus"
+      ],
+      "comments": [
+        "<mailto:maassen@uni-freiburg.de>"
+      ],
+      "line": 127
+    },
+    {
+      "code": "'B'",
+      "value": 66,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "xen/xenbus_dev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 128
+    },
+    {
+      "code": "'C'",
+      "value": 67,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 129
+    },
+    {
+      "code": "'C'",
+      "value": 67,
+      "sequence": "01-2F",
+      "range": [
+        1,
+        47
+      ],
+      "includes": [
+        "linux/capi.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 130
+    },
+    {
+      "code": "'C'",
+      "value": 67,
+      "sequence": "F0-FF",
+      "range": [
+        240,
+        255
+      ],
+      "includes": [
+        "drivers/net/wan/cosa.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 131
+    },
+    {
+      "code": "'D'",
+      "value": 68,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "arch/s390/include/asm/dasd.h"
+      ],
+      "comments": [],
+      "line": 132
+    },
+    {
+      "code": "'D'",
+      "value": 68,
+      "sequence": "40-5F",
+      "range": [
+        64,
+        95
+      ],
+      "includes": [
+        "drivers/scsi/dpt/dtpi_ioctl.h"
+      ],
+      "comments": [
+        "Dead since 2022"
+      ],
+      "line": 133
+    },
+    {
+      "code": "'D'",
+      "value": 68,
+      "sequence": "05",
+      "range": [
+        5,
+        5
+      ],
+      "includes": [
+        "drivers/scsi/pmcraid.h"
+      ],
+      "comments": [],
+      "line": 134
+    },
+    {
+      "code": "'E'",
+      "value": 69,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/input.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 135
+    },
+    {
+      "code": "'E'",
+      "value": 69,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "xen/evtchn.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 136
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/fb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 137
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "01-02",
+      "range": [
+        1,
+        2
+      ],
+      "includes": [
+        "drivers/scsi/pmcraid.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 138
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "20",
+      "range": [
+        32,
+        32
+      ],
+      "includes": [
+        "drivers/video/fsl-diu-fb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 139
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "20",
+      "range": [
+        32,
+        32
+      ],
+      "includes": [
+        "linux/ivtvfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 140
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "20",
+      "range": [
+        32,
+        32
+      ],
+      "includes": [
+        "linux/matroxfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 141
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "20",
+      "range": [
+        32,
+        32
+      ],
+      "includes": [
+        "drivers/video/aty/atyfb_base.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 142
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "video/da8xx-fb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 143
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "linux/arcfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 144
+    },
+    {
+      "code": "'F'",
+      "value": 70,
+      "sequence": "DD",
+      "range": [
+        221,
+        221
+      ],
+      "includes": [
+        "video/sstfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 145
+    },
+    {
+      "code": "'G'",
+      "value": 71,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "drivers/misc/sgi-gru/grulib.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 146
+    },
+    {
+      "code": "'G'",
+      "value": 71,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "xen/gntalloc.h, xen/gntdev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 147
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/hiddev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 148
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/hidraw.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 149
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "01",
+      "range": [
+        1,
+        1
+      ],
+      "includes": [
+        "linux/mei.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 150
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "02",
+      "range": [
+        2,
+        2
+      ],
+      "includes": [
+        "linux/mei.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 151
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "03",
+      "range": [
+        3,
+        3
+      ],
+      "includes": [
+        "linux/mei.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 152
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "sound/asound.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 153
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "20-40",
+      "range": [
+        32,
+        64
+      ],
+      "includes": [
+        "sound/asound_fm.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 154
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "sound/sfnt_info.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 155
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "10-8F",
+      "range": [
+        16,
+        143
+      ],
+      "includes": [
+        "sound/emu10k1.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 156
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "10-1F",
+      "range": [
+        16,
+        31
+      ],
+      "includes": [
+        "sound/sb16_csp.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 157
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "10-1F",
+      "range": [
+        16,
+        31
+      ],
+      "includes": [
+        "sound/hda_hwdep.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 158
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "40-4F",
+      "range": [
+        64,
+        79
+      ],
+      "includes": [
+        "sound/hdspm.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 159
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "40-4F",
+      "range": [
+        64,
+        79
+      ],
+      "includes": [
+        "sound/hdsp.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 160
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "90",
+      "range": [
+        144,
+        144
+      ],
+      "includes": [
+        "sound/usb/usx2y/usb_stream.h"
+      ],
+      "comments": [],
+      "line": 161
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/misc/habanalabs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 162
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "A0",
+      "range": [
+        160,
+        160
+      ],
+      "includes": [
+        "uapi/linux/usb/cdc-wdm.h"
+      ],
+      "comments": [],
+      "line": 163
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "C0-F0",
+      "range": [
+        192,
+        240
+      ],
+      "includes": [
+        "net/bluetooth/hci.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 164
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "C0-DF",
+      "range": [
+        192,
+        223
+      ],
+      "includes": [
+        "net/bluetooth/hidp/hidp.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 165
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "C0-DF",
+      "range": [
+        192,
+        223
+      ],
+      "includes": [
+        "net/bluetooth/cmtp/cmtp.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 166
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "C0-DF",
+      "range": [
+        192,
+        223
+      ],
+      "includes": [
+        "net/bluetooth/bnep/bnep.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 167
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "F1",
+      "range": [
+        241,
+        241
+      ],
+      "includes": [
+        "linux/hid-roccat.h"
+      ],
+      "comments": [
+        "<mailto:erazor_de@users.sourceforge.net>"
+      ],
+      "line": 168
+    },
+    {
+      "code": "'H'",
+      "value": 72,
+      "sequence": "F8-FA",
+      "range": [
+        248,
+        250
+      ],
+      "includes": [
+        "sound/firewire.h"
+      ],
+      "comments": [],
+      "line": 169
+    },
+    {
+      "code": "'I'",
+      "value": 73,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/isdn.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 170
+    },
+    {
+      "code": "'I'",
+      "value": 73,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/isdn/divert/isdn_divert.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 171
+    },
+    {
+      "code": "'I'",
+      "value": 73,
+      "sequence": "40-4F",
+      "range": [
+        64,
+        79
+      ],
+      "includes": [
+        "linux/mISDNif.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 172
+    },
+    {
+      "code": "'K'",
+      "value": 75,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/kd.h"
+      ],
+      "comments": [],
+      "line": 173
+    },
+    {
+      "code": "'L'",
+      "value": 76,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/loop.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 174
+    },
+    {
+      "code": "'L'",
+      "value": 76,
+      "sequence": "10-1F",
+      "range": [
+        16,
+        31
+      ],
+      "includes": [
+        "drivers/scsi/mpt3sas/mpt3sas_ctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 175
+    },
+    {
+      "code": "'L'",
+      "value": 76,
+      "sequence": "E0-FF",
+      "range": [
+        224,
+        255
+      ],
+      "includes": [
+        "linux/ppdd.h"
+      ],
+      "comments": [
+        "encrypted disk device driver",
+        "<http://linux01.gwdg.de/~alatham/ppdd.html>"
+      ],
+      "line": 176
+    },
+    {
+      "code": "'M'",
+      "value": 77,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 178
+    },
+    {
+      "code": "'M'",
+      "value": 77,
+      "sequence": "01-16",
+      "range": [
+        1,
+        22
+      ],
+      "includes": [
+        "mtd/mtd-abi.h",
+        "and drivers/mtd/mtdchar.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 179
+    },
+    {
+      "code": "'M'",
+      "value": 77,
+      "sequence": "01-03",
+      "range": [
+        1,
+        3
+      ],
+      "includes": [
+        "drivers/scsi/megaraid/megaraid_sas.h"
+      ],
+      "comments": [],
+      "line": 181
+    },
+    {
+      "code": "'M'",
+      "value": 77,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/video/fsl-diu-fb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 182
+    },
+    {
+      "code": "'N'",
+      "value": 78,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "drivers/usb/scanner.h"
+      ],
+      "comments": [],
+      "line": 183
+    },
+    {
+      "code": "'N'",
+      "value": 78,
+      "sequence": "40-7F",
+      "range": [
+        64,
+        127
+      ],
+      "includes": [
+        "drivers/block/nvme.c"
+      ],
+      "comments": [],
+      "line": 184
+    },
+    {
+      "code": "'N'",
+      "value": 78,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "uapi/linux/ntsync.h"
+      ],
+      "comments": [
+        "NT synchronization primitives",
+        "<mailto:wine-devel@winehq.org>"
+      ],
+      "line": 185
+    },
+    {
+      "code": "'O'",
+      "value": 79,
+      "sequence": "00-06",
+      "range": [
+        0,
+        6
+      ],
+      "includes": [
+        "mtd/ubi-user.h"
+      ],
+      "comments": [
+        "UBI"
+      ],
+      "line": 187
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 188
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "60-6F",
+      "range": [
+        96,
+        111
+      ],
+      "includes": [
+        "sound/sscape_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 189
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/usb/class/usblp.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 190
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "01-09",
+      "range": [
+        1,
+        9
+      ],
+      "includes": [
+        "drivers/misc/pci_endpoint_test.c"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 191
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "xen/privcmd.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 192
+    },
+    {
+      "code": "'P'",
+      "value": 80,
+      "sequence": "00-05",
+      "range": [
+        0,
+        5
+      ],
+      "includes": [
+        "linux/tps6594_pfsm.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 193
+    },
+    {
+      "code": "'Q'",
+      "value": 81,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [],
+      "line": 194
+    },
+    {
+      "code": "'R'",
+      "value": 82,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/random.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 195
+    },
+    {
+      "code": "'R'",
+      "value": 82,
+      "sequence": "01",
+      "range": [
+        1,
+        1
+      ],
+      "includes": [
+        "linux/rfkill.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 196
+    },
+    {
+      "code": "'R'",
+      "value": 82,
+      "sequence": "20-2F",
+      "range": [
+        32,
+        47
+      ],
+      "includes": [
+        "linux/trace_mmap.h"
+      ],
+      "comments": [],
+      "line": 197
+    },
+    {
+      "code": "'R'",
+      "value": 82,
+      "sequence": "C0-DF",
+      "range": [
+        192,
+        223
+      ],
+      "includes": [
+        "net/bluetooth/rfcomm.h"
+      ],
+      "comments": [],
+      "line": 198
+    },
+    {
+      "code": "'R'",
+      "value": 82,
+      "sequence": "E0",
+      "range": [
+        224,
+        224
+      ],
+      "includes": [
+        "uapi/linux/fsl_mc.h"
+      ],
+      "comments": [],
+      "line": 199
+    },
+    {
+      "code": "'S'",
+      "value": 83,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/cdrom.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 200
+    },
+    {
+      "code": "'S'",
+      "value": 83,
+      "sequence": "80-81",
+      "range": [
+        128,
+        129
+      ],
+      "includes": [
+        "scsi/scsi_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 201
+    },
+    {
+      "code": "'S'",
+      "value": 83,
+      "sequence": "82-FF",
+      "range": [
+        130,
+        255
+      ],
+      "includes": [
+        "scsi/scsi.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 202
+    },
+    {
+      "code": "'S'",
+      "value": 83,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "sound/asequencer.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 203
+    },
+    {
+      "code": "'T'",
+      "value": 84,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 204
+    },
+    {
+      "code": "'T'",
+      "value": 84,
+      "sequence": "00-AF",
+      "range": [
+        0,
+        175
+      ],
+      "includes": [
+        "sound/asound.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 205
+    },
+    {
+      "code": "'T'",
+      "value": 84,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "arch/x86/include/asm/ioctls.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 206
+    },
+    {
+      "code": "'T'",
+      "value": 84,
+      "sequence": "C0-DF",
+      "range": [
+        192,
+        223
+      ],
+      "includes": [
+        "linux/if_tun.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 207
+    },
+    {
+      "code": "'U'",
+      "value": 85,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "sound/asound.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 208
+    },
+    {
+      "code": "'U'",
+      "value": 85,
+      "sequence": "00-CF",
+      "range": [
+        0,
+        207
+      ],
+      "includes": [
+        "linux/uinput.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 209
+    },
+    {
+      "code": "'U'",
+      "value": 85,
+      "sequence": "00-EF",
+      "range": [
+        0,
+        239
+      ],
+      "includes": [
+        "linux/usbdevice_fs.h"
+      ],
+      "comments": [],
+      "line": 210
+    },
+    {
+      "code": "'U'",
+      "value": 85,
+      "sequence": "C0-CF",
+      "range": [
+        192,
+        207
+      ],
+      "includes": [
+        "drivers/bluetooth/hci_uart.h"
+      ],
+      "comments": [],
+      "line": 211
+    },
+    {
+      "code": "'V'",
+      "value": 86,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/vt.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 212
+    },
+    {
+      "code": "'V'",
+      "value": 86,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/videodev2.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 213
+    },
+    {
+      "code": "'V'",
+      "value": 86,
+      "sequence": "C0",
+      "range": [
+        192,
+        192
+      ],
+      "includes": [
+        "linux/ivtvfb.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 214
+    },
+    {
+      "code": "'V'",
+      "value": 86,
+      "sequence": "C0",
+      "range": [
+        192,
+        192
+      ],
+      "includes": [
+        "linux/ivtv.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 215
+    },
+    {
+      "code": "'V'",
+      "value": 86,
+      "sequence": "C0",
+      "range": [
+        192,
+        192
+      ],
+      "includes": [
+        "media/si4713.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 216
+    },
+    {
+      "code": "'W'",
+      "value": 87,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/watchdog.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 217
+    },
+    {
+      "code": "'W'",
+      "value": 87,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/wanrouter.h"
+      ],
+      "comments": [
+        "conflict! (pre 3.9)"
+      ],
+      "line": 218
+    },
+    {
+      "code": "'W'",
+      "value": 87,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "sound/asound.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 219
+    },
+    {
+      "code": "'W'",
+      "value": 87,
+      "sequence": "40-5F",
+      "range": [
+        64,
+        95
+      ],
+      "includes": [
+        "drivers/pci/switch/switchtec.c"
+      ],
+      "comments": [],
+      "line": 220
+    },
+    {
+      "code": "'W'",
+      "value": 87,
+      "sequence": "60-61",
+      "range": [
+        96,
+        97
+      ],
+      "includes": [
+        "linux/watch_queue.h"
+      ],
+      "comments": [],
+      "line": 221
+    },
+    {
+      "code": "'X'",
+      "value": 88,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "fs/xfs/xfs_fs.h,",
+        "fs/xfs/linux-2.6/xfs_ioctl32.h,",
+        "include/linux/falloc.h,",
+        "linux/fs.h,"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 222
+    },
+    {
+      "code": "'X'",
+      "value": 88,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "fs/ocfs2/ocfs_fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 226
+    },
+    {
+      "code": "'Z'",
+      "value": 90,
+      "sequence": "14-15",
+      "range": [
+        20,
+        21
+      ],
+      "includes": [
+        "drivers/message/fusion/mptctl.h"
+      ],
+      "comments": [],
+      "line": 227
+    },
+    {
+      "code": "'['",
+      "value": 91,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/usb/tmc.h"
+      ],
+      "comments": [
+        "USB Test and Measurement Devices",
+        "<mailto:gregkh@linuxfoundation.org>"
+      ],
+      "line": 228
+    },
+    {
+      "code": "'a'",
+      "value": 97,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/atm*.h, linux/sonet.h"
+      ],
+      "comments": [
+        "ATM on linux",
+        "<http://lrcwww.epfl.ch/>"
+      ],
+      "line": 230
+    },
+    {
+      "code": "'b'",
+      "value": 98,
+      "sequence": "00-FF",
+      "range": [
+        0,
+        255
+      ],
+      "includes": [],
+      "comments": [
+        "conflict! bit3 vme host bridge",
+        "<mailto:natalia@nikhefk.nikhef.nl>"
+      ],
+      "line": 232
+    },
+    {
+      "code": "'b'",
+      "value": 98,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/dma-buf.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 234
+    },
+    {
+      "code": "'c'",
+      "value": 99,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/comstats.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 235
+    },
+    {
+      "code": "'c'",
+      "value": 99,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/coda.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 236
+    },
+    {
+      "code": "'c'",
+      "value": 99,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/chio.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 237
+    },
+    {
+      "code": "'c'",
+      "value": 99,
+      "sequence": "80-9F",
+      "range": [
+        128,
+        159
+      ],
+      "includes": [
+        "arch/s390/include/asm/chsc.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 238
+    },
+    {
+      "code": "'c'",
+      "value": 99,
+      "sequence": "A0-AF",
+      "range": [
+        160,
+        175
+      ],
+      "includes": [
+        "arch/x86/include/asm/msr.h conflict!"
+      ],
+      "comments": [],
+      "line": 239
+    },
+    {
+      "code": "'d'",
+      "value": 100,
+      "sequence": "00-FF",
+      "range": [
+        0,
+        255
+      ],
+      "includes": [
+        "linux/char/drm/drm.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 240
+    },
+    {
+      "code": "'d'",
+      "value": 100,
+      "sequence": "02-40",
+      "range": [
+        2,
+        64
+      ],
+      "includes": [
+        "pcmcia/ds.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 241
+    },
+    {
+      "code": "'d'",
+      "value": 100,
+      "sequence": "F0-FF",
+      "range": [
+        240,
+        255
+      ],
+      "includes": [
+        "linux/digi1.h"
+      ],
+      "comments": [],
+      "line": 242
+    },
+    {
+      "code": "'e'",
+      "value": 101,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/digi1.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 243
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/ext2_fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 244
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/ext3_fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 245
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "fs/jfs/jfs_dinode.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 246
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "fs/ext4/ext4.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 247
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 248
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "fs/ocfs2/ocfs2_fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 249
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "13-27",
+      "range": [
+        19,
+        39
+      ],
+      "includes": [
+        "linux/fscrypt.h"
+      ],
+      "comments": [],
+      "line": 250
+    },
+    {
+      "code": "'f'",
+      "value": 102,
+      "sequence": "81-8F",
+      "range": [
+        129,
+        143
+      ],
+      "includes": [
+        "linux/fsverity.h"
+      ],
+      "comments": [],
+      "line": 251
+    },
+    {
+      "code": "'g'",
+      "value": 103,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/usb/gadgetfs.h"
+      ],
+      "comments": [],
+      "line": 252
+    },
+    {
+      "code": "'g'",
+      "value": 103,
+      "sequence": "20-2F",
+      "range": [
+        32,
+        47
+      ],
+      "includes": [
+        "linux/usb/g_printer.h"
+      ],
+      "comments": [],
+      "line": 253
+    },
+    {
+      "code": "'h'",
+      "value": 104,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [],
+      "comments": [
+        "conflict! Charon filesystem",
+        "<mailto:zapman@interlan.net>"
+      ],
+      "line": 254
+    },
+    {
+      "code": "'h'",
+      "value": 104,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/hpet.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 256
+    },
+    {
+      "code": "'h'",
+      "value": 104,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "fs/hfsplus/ioctl.c"
+      ],
+      "comments": [],
+      "line": 257
+    },
+    {
+      "code": "'i'",
+      "value": 105,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/i2o-dev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 258
+    },
+    {
+      "code": "'i'",
+      "value": 105,
+      "sequence": "0B-1F",
+      "range": [
+        11,
+        31
+      ],
+      "includes": [
+        "linux/ipmi.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 259
+    },
+    {
+      "code": "'i'",
+      "value": 105,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "linux/i8k.h"
+      ],
+      "comments": [],
+      "line": 260
+    },
+    {
+      "code": "'i'",
+      "value": 105,
+      "sequence": "90-9F",
+      "range": [
+        144,
+        159
+      ],
+      "includes": [
+        "`linux/iio/*.h`"
+      ],
+      "comments": [
+        "IIO"
+      ],
+      "line": 261
+    },
+    {
+      "code": "'j'",
+      "value": 106,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/joystick.h"
+      ],
+      "comments": [],
+      "line": 262
+    },
+    {
+      "code": "'k'",
+      "value": 107,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/spi/spidev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 263
+    },
+    {
+      "code": "'k'",
+      "value": 107,
+      "sequence": "00-05",
+      "range": [
+        0,
+        5
+      ],
+      "includes": [
+        "video/kyro.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 264
+    },
+    {
+      "code": "'k'",
+      "value": 107,
+      "sequence": "10-17",
+      "range": [
+        16,
+        23
+      ],
+      "includes": [
+        "linux/hsi/hsi_char.h"
+      ],
+      "comments": [
+        "HSI character device"
+      ],
+      "line": 265
+    },
+    {
+      "code": "'l'",
+      "value": 108,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/tcfs_fs.h"
+      ],
+      "comments": [
+        "transparent cryptographic file system",
+        "<http://web.archive.org/web/%2A/http://mikonos.dia.unisa.it/tcfs>"
+      ],
+      "line": 266
+    },
+    {
+      "code": "'l'",
+      "value": 108,
+      "sequence": "40-7F",
+      "range": [
+        64,
+        127
+      ],
+      "includes": [
+        "linux/udf_fs_i.h"
+      ],
+      "comments": [
+        "in development:",
+        "<https://github.com/pali/udftools>"
+      ],
+      "line": 268
+    },
+    {
+      "code": "'m'",
+      "value": 109,
+      "sequence": "00-09",
+      "range": [
+        0,
+        9
+      ],
+      "includes": [
+        "linux/mmtimer.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 270
+    },
+    {
+      "code": "'m'",
+      "value": 109,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/mtio.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 271
+    },
+    {
+      "code": "'m'",
+      "value": 109,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/soundcard.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 272
+    },
+    {
+      "code": "'m'",
+      "value": 109,
+      "sequence": "00-19",
+      "range": [
+        0,
+        25
+      ],
+      "includes": [
+        "drivers/message/fusion/mptctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 273
+    },
+    {
+      "code": "'m'",
+      "value": 109,
+      "sequence": "00",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [
+        "drivers/scsi/megaraid/megaraid_ioctl.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 274
+    },
+    {
+      "code": "'n'",
+      "value": 110,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/ncp_fs.h and fs/ncpfs/ioctl.c"
+      ],
+      "comments": [],
+      "line": 275
+    },
+    {
+      "code": "'n'",
+      "value": 110,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "uapi/linux/nilfs2_api.h"
+      ],
+      "comments": [
+        "NILFS2"
+      ],
+      "line": 276
+    },
+    {
+      "code": "'n'",
+      "value": 110,
+      "sequence": "E0-FF",
+      "range": [
+        224,
+        255
+      ],
+      "includes": [
+        "linux/matroxfb.h"
+      ],
+      "comments": [
+        "matroxfb"
+      ],
+      "line": 277
+    },
+    {
+      "code": "'o'",
+      "value": 111,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "fs/ocfs2/ocfs2_fs.h"
+      ],
+      "comments": [
+        "OCFS2"
+      ],
+      "line": 278
+    },
+    {
+      "code": "'o'",
+      "value": 111,
+      "sequence": "00-03",
+      "range": [
+        0,
+        3
+      ],
+      "includes": [
+        "mtd/ubi-user.h"
+      ],
+      "comments": [
+        "conflict! (OCFS2 and UBI overlaps)"
+      ],
+      "line": 279
+    },
+    {
+      "code": "'o'",
+      "value": 111,
+      "sequence": "40-41",
+      "range": [
+        64,
+        65
+      ],
+      "includes": [
+        "mtd/ubi-user.h"
+      ],
+      "comments": [
+        "UBI"
+      ],
+      "line": 280
+    },
+    {
+      "code": "'o'",
+      "value": 111,
+      "sequence": "01-A1",
+      "range": [
+        1,
+        161
+      ],
+      "includes": [
+        "`linux/dvb/*.h`"
+      ],
+      "comments": [
+        "DVB"
+      ],
+      "line": 281
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/phantom.h"
+      ],
+      "comments": [
+        "conflict! (OpenHaptics needs this)"
+      ],
+      "line": 282
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/rtc.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 283
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "40-7F",
+      "range": [
+        64,
+        127
+      ],
+      "includes": [
+        "linux/nvram.h"
+      ],
+      "comments": [],
+      "line": 284
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "80-9F",
+      "range": [
+        128,
+        159
+      ],
+      "includes": [
+        "linux/ppdev.h"
+      ],
+      "comments": [
+        "user-space parport",
+        "<mailto:tim@cyberelk.net>"
+      ],
+      "line": 285
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "A1-A5",
+      "range": [
+        161,
+        165
+      ],
+      "includes": [
+        "linux/pps.h"
+      ],
+      "comments": [
+        "LinuxPPS"
+      ],
+      "line": 287
+    },
+    {
+      "code": "'p'",
+      "value": 112,
+      "sequence": "B1-B3",
+      "range": [
+        177,
+        179
+      ],
+      "includes": [
+        "linux/pps_gen.h"
+      ],
+      "comments": [
+        "LinuxPPS",
+        "<mailto:giometti@linux.it>"
+      ],
+      "line": 288
+    },
+    {
+      "code": "'q'",
+      "value": 113,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/serio.h"
+      ],
+      "comments": [],
+      "line": 290
+    },
+    {
+      "code": "'q'",
+      "value": 113,
+      "sequence": "80-FF",
+      "range": [
+        128,
+        255
+      ],
+      "includes": [
+        "linux/telephony.h",
+        "linux/ixjuser.h"
+      ],
+      "comments": [
+        "Internet PhoneJACK, Internet LineJACK",
+        "<http://web.archive.org/web/%2A/http://www.quicknet.net>"
+      ],
+      "line": 291
+    },
+    {
+      "code": "'r'",
+      "value": 114,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/msdos_fs.h and fs/fat/dir.c"
+      ],
+      "comments": [],
+      "line": 293
+    },
+    {
+      "code": "'s'",
+      "value": 115,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/cdk.h"
+      ],
+      "comments": [],
+      "line": 294
+    },
+    {
+      "code": "'t'",
+      "value": 116,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/ppp-ioctl.h"
+      ],
+      "comments": [],
+      "line": 295
+    },
+    {
+      "code": "'t'",
+      "value": 116,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [
+        "linux/isdn_ppp.h"
+      ],
+      "comments": [],
+      "line": 296
+    },
+    {
+      "code": "'t'",
+      "value": 116,
+      "sequence": "90-91",
+      "range": [
+        144,
+        145
+      ],
+      "includes": [
+        "linux/toshiba.h"
+      ],
+      "comments": [
+        "toshiba and toshiba_acpi SMM"
+      ],
+      "line": 297
+    },
+    {
+      "code": "'u'",
+      "value": 117,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/smb_fs.h"
+      ],
+      "comments": [
+        "gone"
+      ],
+      "line": 298
+    },
+    {
+      "code": "'u'",
+      "value": 117,
+      "sequence": "00-2F",
+      "range": [
+        0,
+        47
+      ],
+      "includes": [
+        "linux/ublk_cmd.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 299
+    },
+    {
+      "code": "'u'",
+      "value": 117,
+      "sequence": "20-3F",
+      "range": [
+        32,
+        63
+      ],
+      "includes": [
+        "linux/uvcvideo.h"
+      ],
+      "comments": [
+        "USB video class host driver"
+      ],
+      "line": 300
+    },
+    {
+      "code": "'u'",
+      "value": 117,
+      "sequence": "40-4f",
+      "range": [
+        64,
+        79
+      ],
+      "includes": [
+        "linux/udmabuf.h"
+      ],
+      "comments": [
+        "userspace dma-buf misc device"
+      ],
+      "line": 301
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/ext2_fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 302
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/fs.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 303
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/sonypi.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 304
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "media/v4l2-subdev.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 305
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "20-27",
+      "range": [
+        32,
+        39
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/vas-api.h"
+      ],
+      "comments": [
+        "VAS API"
+      ],
+      "line": 306
+    },
+    {
+      "code": "'v'",
+      "value": 118,
+      "sequence": "C0-FF",
+      "range": [
+        192,
+        255
+      ],
+      "includes": [
+        "linux/meye.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 307
+    },
+    {
+      "code": "'w'",
+      "value": 119,
+      "sequence": "all",
+      "range": null,
+      "includes": [],
+      "comments": [
+        "CERN SCI driver"
+      ],
+      "line": 308
+    },
+    {
+      "code": "'y'",
+      "value": 121,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [],
+      "comments": [
+        "packet based user level communications",
+        "<mailto:zapman@interlan.net>"
+      ],
+      "line": 309
+    },
+    {
+      "code": "'z'",
+      "value": 122,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [],
+      "comments": [
+        "CAN bus card conflict!",
+        "<mailto:hdstich@connectu.ulm.circular.de>"
+      ],
+      "line": 311
+    },
+    {
+      "code": "'z'",
+      "value": 122,
+      "sequence": "40-7F",
+      "range": [
+        64,
+        127
+      ],
+      "includes": [],
+      "comments": [
+        "CAN bus card conflict!",
+        "<mailto:oe@port.de>"
+      ],
+      "line": 313
+    },
+    {
+      "code": "'z'",
+      "value": 122,
+      "sequence": "10-4F",
+      "range": [
+        16,
+        79
+      ],
+      "includes": [
+        "drivers/s390/crypto/zcrypt_api.h"
+      ],
+      "comments": [
+        "conflict!"
+      ],
+      "line": 315
+    },
+    {
+      "code": "'|'",
+      "value": 124,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "linux/media.h"
+      ],
+      "comments": [],
+      "line": 316
+    },
+    {
+      "code": "'|'",
+      "value": 124,
+      "sequence": "80-9F",
+      "range": [
+        128,
+        159
+      ],
+      "includes": [
+        "samples/"
+      ],
+      "comments": [
+        "Any sample and example drivers"
+      ],
+      "line": 317
+    },
+    {
+      "code": "0x80",
+      "value": 128,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/fb.h"
+      ],
+      "comments": [],
+      "line": 318
+    },
+    {
+      "code": "0x81",
+      "value": 129,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/vduse.h"
+      ],
+      "comments": [],
+      "line": 319
+    },
+    {
+      "code": "0x89",
+      "value": 137,
+      "sequence": "00-06",
+      "range": [
+        0,
+        6
+      ],
+      "includes": [
+        "arch/x86/include/asm/sockios.h"
+      ],
+      "comments": [],
+      "line": 320
+    },
+    {
+      "code": "0x89",
+      "value": 137,
+      "sequence": "0B-DF",
+      "range": [
+        11,
+        223
+      ],
+      "includes": [
+        "linux/sockios.h"
+      ],
+      "comments": [],
+      "line": 321
+    },
+    {
+      "code": "0x89",
+      "value": 137,
+      "sequence": "E0-EF",
+      "range": [
+        224,
+        239
+      ],
+      "includes": [
+        "linux/sockios.h"
+      ],
+      "comments": [
+        "SIOCPROTOPRIVATE range"
+      ],
+      "line": 322
+    },
+    {
+      "code": "0x89",
+      "value": 137,
+      "sequence": "F0-FF",
+      "range": [
+        240,
+        255
+      ],
+      "includes": [
+        "linux/sockios.h"
+      ],
+      "comments": [
+        "SIOCDEVPRIVATE range"
+      ],
+      "line": 323
+    },
+    {
+      "code": "0x8A",
+      "value": 138,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/eventpoll.h"
+      ],
+      "comments": [],
+      "line": 324
+    },
+    {
+      "code": "0x8B",
+      "value": 139,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/wireless.h"
+      ],
+      "comments": [],
+      "line": 325
+    },
+    {
+      "code": "0x8C",
+      "value": 140,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [],
+      "comments": [
+        "WiNRADiO driver",
+        "<http://www.winradio.com.au/>"
+      ],
+      "line": 326
+    },
+    {
+      "code": "0x90",
+      "value": 144,
+      "sequence": "00",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [
+        "drivers/cdrom/sbpcd.h"
+      ],
+      "comments": [],
+      "line": 328
+    },
+    {
+      "code": "0x92",
+      "value": 146,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/usb/mon/mon_bin.c"
+      ],
+      "comments": [],
+      "line": 329
+    },
+    {
+      "code": "0x93",
+      "value": 147,
+      "sequence": "60-7F",
+      "range": [
+        96,
+        127
+      ],
+      "includes": [
+        "linux/auto_fs.h"
+      ],
+      "comments": [],
+      "line": 330
+    },
+    {
+      "code": "0x94",
+      "value": 148,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "fs/btrfs/ioctl.h",
+        "and linux/fs.h"
+      ],
+      "comments": [
+        "Btrfs filesystem",
+        "some lifted to vfs/generic"
+      ],
+      "line": 331
+    },
+    {
+      "code": "0x97",
+      "value": 151,
+      "sequence": "00-7F",
+      "range": [
+        0,
+        127
+      ],
+      "includes": [
+        "fs/ceph/ioctl.h"
+      ],
+      "comments": [
+        "Ceph file system"
+      ],
+      "line": 333
+    },
+    {
+      "code": "0x99",
+      "value": 153,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [],
+      "comments": [
+        "537-Addinboard driver",
+        "<mailto:buk@buks.ipn.de>"
+      ],
+      "line": 334
+    },
+    {
+      "code": "0x9A",
+      "value": 154,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "include/uapi/fwctl/fwctl.h"
+      ],
+      "comments": [],
+      "line": 336
+    },
+    {
+      "code": "0xA0",
+      "value": 160,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/sdp/sdp.h"
+      ],
+      "comments": [
+        "Industrial Device Project",
+        "<mailto:kenji@bitgate.com>"
+      ],
+      "line": 337
+    },
+    {
+      "code": "0xA1",
+      "value": 161,
+      "sequence": "0",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [
+        "linux/vtpm_proxy.h"
+      ],
+      "comments": [
+        "TPM Emulator Proxy Driver"
+      ],
+      "line": 339
+    },
+    {
+      "code": "0xA2",
+      "value": 162,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "uapi/linux/acrn.h"
+      ],
+      "comments": [
+        "ACRN hypervisor"
+      ],
+      "line": 340
+    },
+    {
+      "code": "0xA3",
+      "value": 163,
+      "sequence": "80-8F",
+      "range": [
+        128,
+        143
+      ],
+      "includes": [],
+      "comments": [
+        "Port ACL  in development:",
+        "<mailto:tlewis@mindspring.com>"
+      ],
+      "line": 341
+    },
+    {
+      "code": "0xA4",
+      "value": 164,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "uapi/linux/tee.h"
+      ],
+      "comments": [
+        "Generic TEE subsystem"
+      ],
+      "line": 343
+    },
+    {
+      "code": "0xA4",
+      "value": 164,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "uapi/asm/sgx.h"
+      ],
+      "comments": [
+        "<mailto:linux-sgx@vger.kernel.org>"
+      ],
+      "line": 344
+    },
+    {
+      "code": "0xA5",
+      "value": 165,
+      "sequence": "01-05",
+      "range": [
+        1,
+        5
+      ],
+      "includes": [
+        "linux/surface_aggregator/cdev.h"
+      ],
+      "comments": [
+        "Microsoft Surface Platform System Aggregator",
+        "<mailto:luzmaximilian@gmail.com>"
+      ],
+      "line": 345
+    },
+    {
+      "code": "0xA5",
+      "value": 165,
+      "sequence": "20-2F",
+      "range": [
+        32,
+        47
+      ],
+      "includes": [
+        "linux/surface_aggregator/dtx.h"
+      ],
+      "comments": [
+        "Microsoft Surface DTX driver",
+        "<mailto:luzmaximilian@gmail.com>"
+      ],
+      "line": 347
+    },
+    {
+      "code": "0xA6",
+      "value": 166,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/linux/alloc_tag.h"
+      ],
+      "comments": [
+        "Memory allocation profiling",
+        "<mailto:surenb@google.com>"
+      ],
+      "line": 349
+    },
+    {
+      "code": "0xAA",
+      "value": 170,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/uapi/linux/userfaultfd.h"
+      ],
+      "comments": [],
+      "line": 351
+    },
+    {
+      "code": "0xAB",
+      "value": 171,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/nbd.h"
+      ],
+      "comments": [],
+      "line": 352
+    },
+    {
+      "code": "0xAC",
+      "value": 172,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/raw.h"
+      ],
+      "comments": [],
+      "line": 353
+    },
+    {
+      "code": "0xAD",
+      "value": 173,
+      "sequence": "00",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [],
+      "comments": [
+        "Netfilter device in development:",
+        "<mailto:rusty@rustcorp.com.au>"
+      ],
+      "line": 354
+    },
+    {
+      "code": "0xAE",
+      "value": 174,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/kvm.h"
+      ],
+      "comments": [
+        "Kernel-based Virtual Machine",
+        "<mailto:kvm@vger.kernel.org>"
+      ],
+      "line": 356
+    },
+    {
+      "code": "0xAE",
+      "value": 174,
+      "sequence": "40-FF",
+      "range": [
+        64,
+        255
+      ],
+      "includes": [
+        "linux/kvm.h"
+      ],
+      "comments": [
+        "Kernel-based Virtual Machine",
+        "<mailto:kvm@vger.kernel.org>"
+      ],
+      "line": 358
+    },
+    {
+      "code": "0xAE",
+      "value": 174,
+      "sequence": "20-3F",
+      "range": [
+        32,
+        63
+      ],
+      "includes": [
+        "linux/nitro_enclaves.h"
+      ],
+      "comments": [
+        "Nitro Enclaves"
+      ],
+      "line": 360
+    },
+    {
+      "code": "0xAF",
+      "value": 175,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [
+        "linux/fsl_hypervisor.h"
+      ],
+      "comments": [
+        "Freescale hypervisor"
+      ],
+      "line": 361
+    },
+    {
+      "code": "0xB0",
+      "value": 176,
+      "sequence": "all",
+      "range": null,
+      "includes": [],
+      "comments": [
+        "RATIO devices in development:",
+        "<mailto:vgo@ratio.de>"
+      ],
+      "line": 362
+    },
+    {
+      "code": "0xB1",
+      "value": 177,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [],
+      "comments": [
+        "PPPoX",
+        "<mailto:mostrows@styx.uwaterloo.ca>"
+      ],
+      "line": 364
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "00",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-vpd.h"
+      ],
+      "comments": [
+        "powerpc/pseries VPD API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 366
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "01-02",
+      "range": [
+        1,
+        2
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-sysparm.h"
+      ],
+      "comments": [
+        "powerpc/pseries system parameter API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 368
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "03-05",
+      "range": [
+        3,
+        5
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-indices.h"
+      ],
+      "comments": [
+        "powerpc/pseries indices API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 370
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "06-07",
+      "range": [
+        6,
+        7
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-platform-dump.h"
+      ],
+      "comments": [
+        "powerpc/pseries Platform Dump API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 372
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "08",
+      "range": [
+        8,
+        8
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-physical-attestation.h"
+      ],
+      "comments": [
+        "powerpc/pseries Physical Attestation API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 374
+    },
+    {
+      "code": "0xB2",
+      "value": 178,
+      "sequence": "09",
+      "range": [
+        9,
+        9
+      ],
+      "includes": [
+        "arch/powerpc/include/uapi/asm/papr-hvpipe.h"
+      ],
+      "comments": [
+        "powerpc/pseries HVPIPE API",
+        "<mailto:linuxppc-dev@lists.ozlabs.org>"
+      ],
+      "line": 376
+    },
+    {
+      "code": "0xB3",
+      "value": 179,
+      "sequence": "00",
+      "range": [
+        0,
+        0
+      ],
+      "includes": [
+        "linux/mmc/ioctl.h"
+      ],
+      "comments": [],
+      "line": 378
+    },
+    {
+      "code": "0xB4",
+      "value": 180,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/gpio.h"
+      ],
+      "comments": [
+        "<mailto:linux-gpio@vger.kernel.org>"
+      ],
+      "line": 379
+    },
+    {
+      "code": "0xB5",
+      "value": 181,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/linux/rpmsg.h"
+      ],
+      "comments": [
+        "<mailto:linux-remoteproc@vger.kernel.org>"
+      ],
+      "line": 380
+    },
+    {
+      "code": "0xB6",
+      "value": 182,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/fpga-dfl.h"
+      ],
+      "comments": [],
+      "line": 381
+    },
+    {
+      "code": "0xB7",
+      "value": 183,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "uapi/linux/remoteproc_cdev.h"
+      ],
+      "comments": [
+        "<mailto:linux-remoteproc@vger.kernel.org>"
+      ],
+      "line": 382
+    },
+    {
+      "code": "0xB7",
+      "value": 183,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "uapi/linux/nsfs.h"
+      ],
+      "comments": [
+        "<mailto:Andrei Vagin <avagin@openvz.org>>"
+      ],
+      "line": 383
+    },
+    {
+      "code": "0xB8",
+      "value": 184,
+      "sequence": "01-02",
+      "range": [
+        1,
+        2
+      ],
+      "includes": [
+        "uapi/misc/mrvl_cn10k_dpi.h"
+      ],
+      "comments": [
+        "Marvell CN10K DPI driver"
+      ],
+      "line": 384
+    },
+    {
+      "code": "0xB8",
+      "value": 184,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "uapi/linux/mshv.h"
+      ],
+      "comments": [
+        "Microsoft Hyper-V /dev/mshv driver",
+        "<mailto:linux-hyperv@vger.kernel.org>"
+      ],
+      "line": 385
+    },
+    {
+      "code": "0xBA",
+      "value": 186,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/linux/liveupdate.h"
+      ],
+      "comments": [
+        "Pasha Tatashin",
+        "<mailto:pasha.tatashin@soleen.com>"
+      ],
+      "line": 387
+    },
+    {
+      "code": "0xC0",
+      "value": 192,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "linux/usb/iowarrior.h"
+      ],
+      "comments": [],
+      "line": 389
+    },
+    {
+      "code": "0xCA",
+      "value": 202,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/misc/cxl.h"
+      ],
+      "comments": [
+        "Dead since 6.15"
+      ],
+      "line": 390
+    },
+    {
+      "code": "0xCA",
+      "value": 202,
+      "sequence": "10-2F",
+      "range": [
+        16,
+        47
+      ],
+      "includes": [
+        "uapi/misc/ocxl.h"
+      ],
+      "comments": [],
+      "line": 391
+    },
+    {
+      "code": "0xCA",
+      "value": 202,
+      "sequence": "80-BF",
+      "range": [
+        128,
+        191
+      ],
+      "includes": [
+        "uapi/scsi/cxlflash_ioctl.h"
+      ],
+      "comments": [
+        "Dead since 6.15"
+      ],
+      "line": 392
+    },
+    {
+      "code": "0xCB",
+      "value": 203,
+      "sequence": "00-1F",
+      "range": [
+        0,
+        31
+      ],
+      "includes": [],
+      "comments": [
+        "CBM serial IEC bus in development:",
+        "<mailto:michael.klein@puffin.lb.shuttle.de>"
+      ],
+      "line": 393
+    },
+    {
+      "code": "0xCC",
+      "value": 204,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "drivers/misc/ibmvmc.h"
+      ],
+      "comments": [
+        "pseries VMC driver"
+      ],
+      "line": 395
+    },
+    {
+      "code": "0xCD",
+      "value": 205,
+      "sequence": "01",
+      "range": [
+        1,
+        1
+      ],
+      "includes": [
+        "linux/reiserfs_fs.h"
+      ],
+      "comments": [
+        "Dead since 6.13"
+      ],
+      "line": 396
+    },
+    {
+      "code": "0xCE",
+      "value": 206,
+      "sequence": "01-02",
+      "range": [
+        1,
+        2
+      ],
+      "includes": [
+        "uapi/linux/cxl_mem.h"
+      ],
+      "comments": [
+        "Compute Express Link Memory Devices"
+      ],
+      "line": 397
+    },
+    {
+      "code": "0xCF",
+      "value": 207,
+      "sequence": "02",
+      "range": [
+        2,
+        2
+      ],
+      "includes": [
+        "fs/smb/client/cifs_ioctl.h"
+      ],
+      "comments": [],
+      "line": 398
+    },
+    {
+      "code": "0xDD",
+      "value": 221,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [],
+      "comments": [
+        "ZFCP device driver see drivers/s390/scsi/",
+        "<mailto:aherrman@de.ibm.com>"
+      ],
+      "line": 399
+    },
+    {
+      "code": "0xE5",
+      "value": 229,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "linux/fuse.h"
+      ],
+      "comments": [],
+      "line": 401
+    },
+    {
+      "code": "0xEC",
+      "value": 236,
+      "sequence": "00-01",
+      "range": [
+        0,
+        1
+      ],
+      "includes": [
+        "drivers/platform/chrome/cros_ec_dev.h"
+      ],
+      "comments": [
+        "ChromeOS EC driver"
+      ],
+      "line": 402
+    },
+    {
+      "code": "0xEE",
+      "value": 238,
+      "sequence": "00-09",
+      "range": [
+        0,
+        9
+      ],
+      "includes": [
+        "uapi/linux/pfrut.h"
+      ],
+      "comments": [
+        "Platform Firmware Runtime Update and Telemetry"
+      ],
+      "line": 403
+    },
+    {
+      "code": "0xF3",
+      "value": 243,
+      "sequence": "00-3F",
+      "range": [
+        0,
+        63
+      ],
+      "includes": [
+        "drivers/usb/misc/sisusbvga/sisusb.h"
+      ],
+      "comments": [
+        "sisfb (in development)",
+        "<mailto:thomas@winischhofer.net>"
+      ],
+      "line": 404
+    },
+    {
+      "code": "0xF6",
+      "value": 246,
+      "sequence": "all",
+      "range": null,
+      "includes": [],
+      "comments": [
+        "LTTng Linux Trace Toolkit Next Generation",
+        "<mailto:mathieu.desnoyers@efficios.com>"
+      ],
+      "line": 406
+    },
+    {
+      "code": "0xF8",
+      "value": 248,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "arch/x86/include/uapi/asm/amd_hsmp.h"
+      ],
+      "comments": [
+        "AMD HSMP EPYC system management interface driver",
+        "<mailto:nchatrad@amd.com>"
+      ],
+      "line": 408
+    },
+    {
+      "code": "0xF9",
+      "value": 249,
+      "sequence": "00-0F",
+      "range": [
+        0,
+        15
+      ],
+      "includes": [
+        "uapi/misc/amd-apml.h"
+      ],
+      "comments": [
+        "AMD side band system management interface driver",
+        "<mailto:naveenkrishna.chatradhi@amd.com>"
+      ],
+      "line": 410
+    },
+    {
+      "code": "0xFD",
+      "value": 253,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/dm-ioctl.h"
+      ],
+      "comments": [],
+      "line": 412
+    },
+    {
+      "code": "0xFE",
+      "value": 254,
+      "sequence": "all",
+      "range": null,
+      "includes": [
+        "linux/isst_if.h"
+      ],
+      "comments": [],
+      "line": 413
+    }
+  ],
+  "licensing": {
+    "generated_file": "GPL-2.0-only",
+    "generated_at": "2026-11-15T02:13:54.216147+00:00",
+    "upstream_notice": "sources/COPYING",
+    "upstream_license_texts": [
+      "sources/LICENSES/preferred/GPL-2.0",
+      "sources/LICENSES/exceptions/Linux-syscall-note"
+    ],
+    "generator": "scripts/sync_abi.py",
+    "modification_notice": "Generated by syscall-reference from Linux v7.3; preprocessor definitions, a comment table and a documentation table were parsed per ABI and converted to JSON. Bundled input files are unchanged; their original licenses, notices and exceptions remain in effect. The Linux-syscall-note is not applied to all application code or all extracted data."
+  },
+  "provenance": {
+    "kind": "upstream",
+    "repository": "https://github.com/torvalds/linux",
+    "ref": "v7.3",
+    "files": [
+      {
+        "path": "COPYING",
+        "sha256": "fb5a425bd3b3cd6071a3a9aff9909a859e7c1158d54d32e07658398cd67eb6a0",
+        "bundled_path": "sources/COPYING",
+        "role": "license-notice"
+      },
+      {
+        "path": "Documentation/userspace-api/ioctl/ioctl-number.rst",
+        "sha256": "254a47c27672f956d25bf8ca8b485e0f6f910f136c277d2554a75c4ff7c681bd",
+        "bundled_path": "sources/Documentation/userspace-api/ioctl/ioctl-number.rst",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "No SPDX identifier and no notice of its own; the release COPYING provides the kernel under GPL-2.0 where a file does not say otherwise."
+      },
+      {
+        "path": "LICENSES/exceptions/Linux-syscall-note",
+        "sha256": "8e378ab93586eb55135d3bc119cce787f7324f48394777d00c34fa3d0be3303f",
+        "bundled_path": "sources/LICENSES/exceptions/Linux-syscall-note",
+        "role": "license-notice"
+      },
+      {
+        "path": "LICENSES/preferred/GPL-2.0",
+        "sha256": "8780e78a1a737e127f25a65f6d95269bffd36158dc261114de7859b490bfc5aa",
+        "bundled_path": "sources/LICENSES/preferred/GPL-2.0",
+        "role": "license-notice"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/Kbuild",
+        "sha256": "10b63170bdcd9a83347a852a7eaf8b5f0c1b57fffb339e718bc4bd22ffbff87e",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/ioctls.h",
+        "sha256": "19970612f5a7f7f71226d50527d8267411958e4dcc9f2e9c3b29a5de060524e1",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/arm/include/uapi/asm/signal.h",
+        "sha256": "830f020f3a0f65cae1a25bbedc05d1f24809e635085ef1ea16c11bbe8bfe7a88",
+        "bundled_path": "sources/arch/arm/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/arm64/include/uapi/asm/Kbuild",
+        "sha256": "80ea7d9bb46731c0ddf368714430e69508fa0e1489779ac0d2fdda2f2351955f",
+        "bundled_path": "sources/arch/arm64/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/arm64/include/uapi/asm/signal.h",
+        "sha256": "92c29473269b68c451736ca630be953aa301223328884cb89bc15c016c2eec6b",
+        "bundled_path": "sources/arch/arm64/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/loongarch/include/uapi/asm/Kbuild",
+        "sha256": "6683d53e06dd6e9d00ff0057d4fd62cf61d73c0b1124e1d5df96ab05b4cb1f52",
+        "bundled_path": "sources/arch/loongarch/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/loongarch/include/uapi/asm/signal.h",
+        "sha256": "f3b3264fbd4c8e6fd081e0ce2547d38324929e98cc44649c4ceb60bec2edd81b",
+        "bundled_path": "sources/arch/loongarch/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/errno.h",
+        "sha256": "006286df7ccd50a0740612ecb1fed94714373770f60c63fa72b262a685f0966a",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/ioctl.h",
+        "sha256": "a392959e96a7d49bef865971871f4a9e8e1dab7113e36badc5c467a6c6ab24d8",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/ioctls.h",
+        "sha256": "863b668f67f8d7356f5ff2d8b4e5712d5e70d9b191520765a8533702c4ed3fd5",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/signal.h",
+        "sha256": "982348cac1b8ce1245d3675ad01afd596cb2e896139edd2dbf93abb23cf7dda1",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/include/uapi/asm/sockios.h",
+        "sha256": "383966e9882ccff015304bcb4bf9cc2b2c2c048fb359a39baeec1976e7288ddd",
+        "bundled_path": "sources/arch/mips/include/uapi/asm/sockios.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/Kbuild",
+        "sha256": "f8c9ae4d5e6ee40b425f66998171027245f383fec5704e1088a0de3aa3f22dcd",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/errno.h",
+        "sha256": "702fcb7a05834fcf1e3cb681fd3820eae29892169f8e90a159a8cda1b6a1c5d7",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/ioctl.h",
+        "sha256": "655298e24d49ba6b81e85c73f96c38a354d01b2d6256edc97c7f3ace7719a65b",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/ioctls.h",
+        "sha256": "52592a83cae5958bb89712fb7a79377fcf4ce0b6ce6a86b4374026dbfdad6cdf",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/powerpc/include/uapi/asm/signal.h",
+        "sha256": "769702cbf1833d78dc82373d1524596e0df5e97e0c41871c746794c610e9f80f",
+        "bundled_path": "sources/arch/powerpc/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/riscv/include/uapi/asm/Kbuild",
+        "sha256": "6683d53e06dd6e9d00ff0057d4fd62cf61d73c0b1124e1d5df96ab05b4cb1f52",
+        "bundled_path": "sources/arch/riscv/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/Kbuild",
+        "sha256": "6f1e6b6bb5952da2a06173484802d7cda7d177065cf3bc9fa7ee10fe8663a9cc",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/ioctls.h",
+        "sha256": "9d4348f185ce883ab05b78ea6721542fa40870389677e46e6f43ef3fa8161e24",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/s390/include/uapi/asm/signal.h",
+        "sha256": "0015cc9f719c8f79d46a113b08f81d81e6d5fb27e38517fdc84b8362ec273905",
+        "bundled_path": "sources/arch/s390/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/x86/include/uapi/asm/Kbuild",
+        "sha256": "0d4c0278e93a0b2ce1efbc2d3872fbca69282af3041c1a4985a34c8dac1c4b13",
+        "bundled_path": "sources/arch/x86/include/uapi/asm/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/include/uapi/asm/signal.h",
+        "sha256": "4aa8e8c9dd54a2ad66b9f95aba04040bcfeb6046ae5566e13e0dfbd834d271f1",
+        "bundled_path": "sources/arch/x86/include/uapi/asm/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/linux/signal.h",
+        "sha256": "f6b75a1b35c5fb2b0e5994964ce75ef30bcdd0a4d412f8755c0c791d56a7eab4",
+        "bundled_path": "sources/include/linux/signal.h",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "include/uapi/asm-generic/Kbuild",
+        "sha256": "7f798a9dee418ae8169e28cfcfd4646cfdbf265e74907ce99191c1029a5cc1c0",
+        "bundled_path": "sources/include/uapi/asm-generic/Kbuild",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "include/uapi/asm-generic/errno-base.h",
+        "sha256": "2c148e92b8318deeb767fabd60822113e575ee664ff09a1873aed8f7a495793c",
+        "bundled_path": "sources/include/uapi/asm-generic/errno-base.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/errno.h",
+        "sha256": "66a5ad60566fdd62e41701bcfc42bfeca5e5696ad1d47d78981575e0c51622be",
+        "bundled_path": "sources/include/uapi/asm-generic/errno.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/int-ll64.h",
+        "sha256": "faca16150492e943a43c83e6b3069531dd498ef15dc612fb2051b88f7da83afc",
+        "bundled_path": "sources/include/uapi/asm-generic/int-ll64.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/ioctl.h",
+        "sha256": "8629514cdd724a7100fc6eea84d93db5fbc3285431a1631a77c7f8006b70bce0",
+        "bundled_path": "sources/include/uapi/asm-generic/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/ioctls.h",
+        "sha256": "867644cd4a20815b7d8be14902b594bb6e30a81ea159aa5c67f24212c92cbab6",
+        "bundled_path": "sources/include/uapi/asm-generic/ioctls.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/signal-defs.h",
+        "sha256": "6b3e6cb49936df8565f3adce214586d423cc9e5cba4af5ba29b90d3e1f9d9c31",
+        "bundled_path": "sources/include/uapi/asm-generic/signal-defs.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/signal.h",
+        "sha256": "936247c76acb82e5c82c58c2cddfe45fcb71230465f6c137966a8a285a3dc04c",
+        "bundled_path": "sources/include/uapi/asm-generic/signal.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/asm-generic/sockios.h",
+        "sha256": "3e46cdcb281f87f1b532901e6388eed77fa687c3c5c56f72aceb8640696a4ef9",
+        "bundled_path": "sources/include/uapi/asm-generic/sockios.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/linux/ioctl.h",
+        "sha256": "ba73b5892de6605e6c40b151820e367dfcb98cbdb3f8f468c5ef2bd8437df873",
+        "bundled_path": "sources/include/uapi/linux/ioctl.h",
+        "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "include/uapi/linux/sockios.h",
+        "sha256": "69c8cd1427d631cd4950536c189ef4737fd9b6dd6c3833c628551dea55f6b240",
+        "bundled_path": "sources/include/uapi/linux/sockios.h",
+        "spdx_license_identifier": "GPL-2.0+ WITH Linux-syscall-note"
+      }
+    ]
+  }
+}

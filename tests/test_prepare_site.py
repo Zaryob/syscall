@@ -56,6 +56,35 @@ class PrepareTests(unittest.TestCase):
             self.assertIn('arch=', by_key[('sys_' + name, 'en')]['url'])
             self.assertNotIn('arch=x64', by_key[('sys_' + name, 'en')]['url'])
 
+    def test_errno_signal_and_ioctl_names_are_searchable_and_link_to_their_pages(self):
+        abi = prepare.abi_release()
+        self.assertEqual(json.loads((prepare.PUBLIC / '_data/syscall_release.json').read_text())['abi_latest'], abi['kernel'])
+        entries = json.loads((prepare.PUBLIC / 'search.json').read_text())
+        by_key = {(e['title'], e['lang']): e for e in entries}
+        folder = prepare.PUBLIC / 'data/abi' / abi['kernel']
+        errno = json.loads((folder / 'errno.json').read_text())
+        generic = {e['name']: e for e in errno['tables']['generic']['entries']}
+        entry = by_key[('ENOENT', 'en')]
+        # theme.js resolves 'syscall/' results against this site's root.
+        self.assertEqual((entry['type'], entry['url']), ('syscall/', 'errno/?q=ENOENT#ENOENT'))
+        self.assertTrue(entry['description'].startswith(generic['ENOENT']['comment'] + ' — errno {} on x86-64'.format(generic['ENOENT']['number'])))
+        self.assertIn('MIPS o32', entry['description'])
+        # A number that differs on MIPS is not attributed to it.
+        self.assertNotIn('MIPS', by_key[('EDEADLK', 'en')]['description'])
+        self.assertNotEqual(by_key[('EDEADLK', 'tr')]['description'], by_key[('EDEADLK', 'en')]['description'])
+        self.assertEqual(parse_qs(urlsplit(by_key[('SIGEMT', 'en')]['url']).query)['arch'], ['mips-o32'])
+        self.assertTrue(by_key[('SIGEMT', 'en')]['url'].startswith('signals/?'))
+        self.assertIn('0x5401', by_key[('TCGETS', 'en')]['description'])
+        self.assertTrue(by_key[('TCGETS', 'tr')]['url'].startswith('ioctl/?'))
+        for name in generic:
+            self.assertIn((name, 'tr'), by_key)
+
+    def test_a_site_without_abi_data_gets_no_abi_search_entries(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.multiple(prepare, PUBLIC=Path(directory)):
+                self.assertIsNone(prepare.abi_release())
+                self.assertEqual(prepare.abi_search_entries(None), [])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -37,6 +37,20 @@ expression into historical sources. This is a description of retained source
 notices, not a legal determination about a downstream use.
 [Original v3.7 COPYING](https://github.com/torvalds/linux/blob/v3.7/COPYING).
 
+The errno, signal and ioctl data under `public/data/abi/<release>/` follows the
+same arrangement: its inputs are bundled unmodified in
+`public/data/abi/<release>/sources/` and listed, with SPDX expressions and
+SHA-256 hashes, in `public/data/abi/<release>/sources.json`. They pass the same
+licence gate as the syscall inputs. Most are UAPI headers under
+`GPL-2.0 WITH Linux-syscall-note`; `include/linux/signal.h` and the `Kbuild`
+files are `GPL-2.0` without that exception. One input,
+`Documentation/userspace-api/ioctl/ioctl-number.rst`, has neither an SPDX line
+nor a notice of its own. It is recorded as `GPL-2.0-only` with
+`license_basis: COPYING`, because the release `COPYING` provides the kernel
+under GPL version 2 only where a file does not say otherwise. The importer
+accepts that fallback for this one reviewed path and refuses any other input
+without a licence identifier. The generator is `scripts/sync_abi.py`.
+
 The JSON files mix table facts and extracted declarations. They are distributed
 under GPL-2.0-only as a conservative project policy, without claiming exclusive
 rights over facts or revoking permissions already granted by upstream. A
@@ -55,8 +69,8 @@ material; our application license does not replace them.
 The importer transforms tables and declarations into JSON; it does not edit the
 bundled Linux input files. A Git symlink returned by the raw upstream endpoint
 is stored as its target-path text and identified as such in the source manifest.
-`scripts/sync_kernel.py` is the source of the generation process and must be
-included when distributing generated data. For a release, distribute this
+`scripts/sync_kernel.py` and `scripts/sync_abi.py` are the source of the
+generation process and must be included when distributing generated data. For a release, distribute this
 repository's source with its license texts, notices, generator, and bundled
 inputs; do not strip the license/provenance fields from downloadable JSON.
 
@@ -65,7 +79,8 @@ inputs; do not strip the license/provenance fields from downloadable JSON.
 The web footer links to the full GPL, syscall exception, and source notices.
 The inputs for a snapshot are downloadable alongside the JSON, at
 `/data/<release>/sources/<kernel-path>` (with the configured Jekyll `baseurl`
-prepended on a project site). A source archive is linked from the footer:
+prepended on a project site); those of the errno, signal and ioctl section at
+`/data/abi/<release>/sources/<kernel-path>`. A source archive is linked from the footer:
 `/downloads/syscall-reference-source.tar.gz`. It contains the application,
 Jekyll configuration/templates, generator, tests, license notices, and kernel
 inputs. Installed gems, caches, environment files and Git state are excluded.

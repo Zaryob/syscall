@@ -1,0 +1,8 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-only{% endcomment %}
+<div class="lookup-bar">
+  <form id="search-form" role="search">
+    <label for="search"><span data-i18n="{{ include.label }}">{{ include.label }}</span></label>
+    <div class="search-line"><input id="search" type="search" placeholder="Name, number, or text…" data-i18n-placeholder="Name, number, or text…" autocomplete="off" spellcheck="false"><button type="button" id="clear"><span data-i18n="Clear">Clear</span></button></div>
+  </form>
+  <label class="release-field"><span data-i18n="Architecture">Architecture</span> <span class="console-select"><select id="architecture-picker" disabled aria-label="Architecture" data-i18n-aria-label="Architecture"></select></span></label>
+</div>

@@ -63,6 +63,7 @@ yayımlanan çıktıyla birlikte tutun.
 - 64-bit mimarilerde argüman register’ları; 32-bit ABI’ler için açık hizalama notları.
 - Sürümler arası eklenen, kaldırılan ve imzası değişen kayıtlar.
 - URL’de korunan mimari, sürüm, karşılaştırma, arama, tablo görünümü ve açık syscall detayı.
+- errno, sinyal ve ioctl bölümü: [`/errno/`](public/errno/index.html), [`/signals/`](public/signals/index.html) ve [`/ioctl/`](public/ioctl/index.html) sayfaları hata numaralarını, sinyal numaralarını ve çekirdeğin belgelediği varsayılan eylemleri, ioctl istek numarasının bit düzenini, bir çözücüyü, kayıtlı sihirli sayıları ve terminal/soket komutlarını gösterir. Mimariler arasındaki farklar her satırda belirtilir. Bu bölüm yalnızca repodaki en yeni sürümü kapsar.
 - JSON indirme, statik JSON API ve isteğe bağlı yerel HTTP API.
 - Dar ekranlarda yatay kaydırılabilen tablo ve klavyeyle kullanılabilir kontroller.
 
@@ -82,6 +83,40 @@ python3 scripts/sync_kernel.py --refs v7.3 --kernel-tree /path/to/linux
 # Ayrı bir çıktı dizini:
 python3 scripts/sync_kernel.py --refs v7.3 --output /tmp/syscall-data
 ```
+
+### errno, sinyal ve ioctl verisi
+
+`scripts/sync_abi.py`, `public/data/abi/<sürüm>/` dizinini üretir: `errno.json`,
+`signals.json`, `ioctl.json`, `ioctl-numbers.json`, `sources.json` ve `sources/`
+altında değiştirilmemiş girdi dosyaları. Sürüm verilmezse
+`public/data/manifest.json` içindeki en yeni sürümü kullanır; `sync_kernel.py`
+gibi yalnızca tek tek dosya indirir.
+
+```sh
+npm run sync:abi
+python3 scripts/sync_abi.py --refs v7.3
+
+# Ağ kullanmadan, eşleşen bir Linux checkout’undan:
+python3 scripts/sync_abi.py --refs v7.3 --kernel-tree /path/to/linux
+```
+
+Bu tablolardaki hiçbir değer elle yazılmaz. Importer her ABI için UAPI
+başlıklarındaki `#include`, `#ifdef` ve `#undef` satırlarını izler. Bir mimarinin
+kendi `<asm/errno.h>`, `signal.h`, `ioctl.h`, `ioctls.h` veya `sockios.h` başlığını mı,
+yoksa `asm-generic` başlığını mı kullandığına dosyanın varlığına ve `Kbuild`
+dosyalarındaki `mandatory-y` / `generic-y` satırlarına bakılarak karar verilir;
+karar veren kural her ABI için kaydedilir. Sinyallerin varsayılan eylemleri
+`include/linux/signal.h` içindeki açıklama tablosundan, sihirli sayı kaydı
+`Documentation/userspace-api/ioctl/ioctl-number.rst` dosyasından okunur. Veri,
+`data/<sürüm>/` içinde değil yanında durur; çünkü syscall importer’ı o dizinleri
+her çalıştığında yeniden yazar.
+
+Sınırlar: `_IOR`/`_IOW`/`_IOWR` ile tanımlanan bir ioctl komutuna yalnızca argümanı,
+boyutu `include/uapi/asm-generic/int-ll64.h` ile sabitlenen bir C tamsayı tipiyse
+numara verilir; boyutu bir yapı, `pid_t` veya `loff_t` belirliyorsa makro numarasız
+gösterilir. `_NSIG` değerini UAPI sinyal başlığının dışında tanımlayan x86, ARM ve
+s390 için `SIGRTMAX` numarası yoktur. Komut tablosu bütün ioctl’lerin listesi
+değildir; `asm/ioctls.h` ve `linux/sockios.h` içeriğidir.
 
 Importer, repoda bulunan tarihsel başlık düzenlerini ve güncel `.tbl` tablolarını
 destekler. Yeni bir sürümü varsayılanlara eklemeden önce importer ve testleri
