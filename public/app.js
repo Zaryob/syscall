@@ -556,11 +556,10 @@ try {
   if (tableView) $('results').textContent = t('Dataset unavailable');
 }
 
-// Preserve visible active filters when restoring a shared URL or using browser history.
-const compactFilters = matchMedia('(max-width: 760px)');
+// The panel starts closed; any active option opens it, from a shared URL, history or a change.
 const updateAdvancedOptions = () => {
-  $('advanced-options').open = !compactFilters.matches || Boolean(state.compare || state.hex || state.all);
+  if (state.compare || state.hex || state.all) $('advanced-options').open = true;
 };
 updateAdvancedOptions();
-compactFilters.addEventListener('change', updateAdvancedOptions);
 window.addEventListener('popstate', updateAdvancedOptions);
+for (const id of ['compare', 'hex', 'show-unimplemented']) $(id).addEventListener('change', updateAdvancedOptions);

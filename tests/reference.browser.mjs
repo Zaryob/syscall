@@ -258,6 +258,7 @@ test('late comparison results cannot replace a new comparison', async t => {
     const pathname = new URL(route.request().url()).pathname.slice(new URL(base).pathname.length);
     await route.fulfill({path:fileURLToPath(new URL(pathname, site))});
   });
+  await page.locator('#advanced-options > summary').click();
   await page.locator('#compare').selectOption('v6.6');
   await intercepted;
   await page.locator('#compare').selectOption('v6.12');
@@ -280,6 +281,7 @@ test('a single-release ABI explains its disabled comparison in both languages', 
   assert.equal(await page.locator('#compare').isDisabled(), true);
   assert.equal(await page.locator('#compare').getAttribute('aria-describedby'), 'compare-help');
   assert.match(await page.locator('#compare-help').textContent(), /at least two/);
+  await page.locator('#advanced-options > summary').click();
   assert.equal(await page.locator('#compare-help').isVisible(), true);
   await page.locator('[data-console-language]').selectOption('tr');
   assert.match(await page.locator('#compare-help').textContent(), /en az iki/);
@@ -320,6 +322,7 @@ test('the single argument table keeps filters and data consistent through histor
   assert.equal(await page.locator('#syscall-table thead th').count(), 8);
   assert.equal((await selection(page)).view, 'args');
   assert.equal(new URL(page.url()).searchParams.has('view'), false);
+  await page.locator('#advanced-options > summary').click();
   await page.locator('#hex').check();
   await page.locator('#show-unimplemented').check();
   await page.goBack(); await ready(page);
@@ -449,6 +452,26 @@ test('compact lookup reaches real rows before the fold and restores active advan
   assert.notEqual(await page.locator('#advanced-options').getAttribute('open'), null);
   assert.equal(await page.locator('#hex').isChecked(), true);
   assert.match(await page.locator('#rows tr').first().textContent(), /0x0/);
+});
+
+test('advanced options start closed on desktop and open for any active option', async t => {
+  const page = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  const panel = page.locator('#advanced-options');
+  await page.goto(`${base}?arch=x64&lang=en`);
+  await ready(page);
+  assert.equal(await panel.getAttribute('open'), null);
+  await page.goto(`${base}?arch=x86&kernel=v7.3&compare=v6.6&lang=en`);
+  await ready(page);
+  assert.notEqual(await panel.getAttribute('open'), null);
+  await page.goto(`${base}?arch=x64&lang=en`);
+  await ready(page);
+  await page.locator('#advanced-options > summary').click();
+  await page.locator('#show-unimplemented').check();
+  assert.notEqual(await panel.getAttribute('open'), null);
+  await page.locator('#show-unimplemented').uncheck();
+  assert.notEqual(await panel.getAttribute('open'), null);
+  await page.goBack();
+  assert.notEqual(await panel.getAttribute('open'), null);
 });
 
 test('architecture links are single entries with a usable no-script fallback', async t => {
