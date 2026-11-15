@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
 /* Syscall layout and catalogue. Shared controls and colours live in theme.css. */
-.console-syscall > :is(main,footer) { max-width: var(--shell-width); margin-inline: auto; padding-inline: var(--gutter); }
+.console-syscall > main { max-width: var(--shell-width); margin-inline: auto; padding-inline: var(--gutter); }
 .console-syscall main :is(h1,h2,h3,p) { margin-top: 0; }
 .console-syscall [hidden] { display: none !important; }
 
@@ -172,21 +172,18 @@
 .console-syscall .documentation details { margin: 23px 0; font-size: var(--text-base); }
 .console-syscall .documentation summary { cursor: pointer; color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
 .console-syscall .documentation details[open] > summary { margin-bottom: 12px; }
-.console-syscall > footer { margin-top: 40px; padding-block: 20px 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-xs); }
-.console-syscall > footer p { margin: 0 0 6px; }
 .console-syscall .console-search :is(h2,p) { margin-block: 0; }
 
 @media (max-width: 760px) {
-  .console-syscall > :is(main,footer) { padding-inline: 20px; }
+  .console-syscall > main { padding-inline: 20px; }
   .console-syscall .table-toolbar { align-items: start; gap: 10px; }
   .console-syscall .documentation { padding-top: 25px; margin-top: 28px; }
   .console-syscall .api-list code { font-size: var(--text-xs); overflow-wrap: anywhere; }
   .console-syscall .api-list dd { margin-left: 0; }
-  .console-syscall > footer { margin-top: 30px; }
   .console-syscall .detail-row > td { padding: 13px; }
 }
 @media (max-width: 560px) {
-  .console-syscall > :is(main,footer) { padding-inline: 16px; }
+  .console-syscall > main { padding-inline: 16px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }

@@ -76,8 +76,20 @@
   <main id="main" tabindex="-1">
 {{ content }}
   </main>
-  {% include console-suite.html %}
-  <footer><p><span data-i18n="Free software. Plain HTML. Useful data.">Free software. Plain HTML. Useful data.</span></p><p><a href="{{ '/licensing.txt' | relative_url }}"><span data-i18n="License &amp; source notices">License &amp; source notices</span></a> · <a href="{{ '/licenses/GPL-2.0-only.txt' | relative_url }}"><span data-i18n="GPL version 2">GPL version 2</span></a> · <a href="{{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}"><span data-i18n="Download source">Download source</span></a> · <a href="{{ '/licenses/Linux-syscall-note.txt' | relative_url }}"><span data-i18n="Linux syscall exception">Linux syscall exception</span></a></p><p><span data-i18n="Linux source:">Linux source:</span> <a href="https://www.kernel.org/">kernel.org</a> · <span data-i18n="Manual pages:">Manual pages:</span> <a href="https://www.kernel.org/doc/man-pages/">Linux man-pages project</a> · <a href="#main"><span data-i18n="Back to top ↑">Back to top ↑</span></a></p><p class="small" data-syscall-copy="analytics">This page loads the third-party Umami Cloud script and sends visit analytics. Syscall search runs in your browser. <a href="https://docs.umami.is/docs/collect-data">Umami data collection</a>.</p>
-</footer>
+  {% capture footer_columns %}
+    <nav class="suite-footer__col" aria-label="License &amp; source notices" data-i18n-aria-label="License &amp; source notices">
+      <p class="suite-footer__title">~/syscall/</p>
+      <ul>
+        <li><a href="{{ '/licensing.txt' | relative_url }}"><span data-i18n="License &amp; source notices">License &amp; source notices</span></a></li>
+        <li><a href="{{ '/licenses/GPL-2.0-only.txt' | relative_url }}"><span data-i18n="GPL version 2">GPL version 2</span></a></li>
+        <li><a href="{{ '/licenses/Linux-syscall-note.txt' | relative_url }}"><span data-i18n="Linux syscall exception">Linux syscall exception</span></a></li>
+        <li><a href="{{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}"><span data-i18n="Download source">Download source</span></a></li>
+      </ul>
+    </nav>
+  {% endcapture %}
+  {% capture footer_legal %}<span aria-hidden="true"># </span><span data-i18n="Free software. Plain HTML. Useful data.">Free software. Plain HTML. Useful data.</span>{% endcapture %}
+  {% capture footer_links %}<span data-i18n="Linux source:">Linux source:</span>&nbsp;<a href="https://www.kernel.org/">kernel.org</a>&nbsp;· <span data-i18n="Manual pages:">Manual pages:</span>&nbsp;<a href="https://www.kernel.org/doc/man-pages/">Linux man-pages project</a>{% endcapture %}
+  {% capture footer_note %}<span data-syscall-copy="analytics">This page loads the third-party Umami Cloud script and sends visit analytics. Syscall search runs in your browser. <a href="https://docs.umami.is/docs/collect-data">Umami data collection</a>.</span>{% endcapture %}
+  {% include console-footer.html cwd="~/syscall" columns=footer_columns legal=footer_legal links=footer_links note=footer_note %}
 </body>
 </html>
