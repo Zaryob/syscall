@@ -15,6 +15,7 @@ async function openPage(t, options = {}) {
   const page = await context.newPage();
   page.setDefaultTimeout(5000);
   await page.route('https://cloud.umami.is/**', route => route.abort());
+  await page.route('https://www.googletagmanager.com/**', route => route.abort());
   await page.route(`${base}**`, route => {
     const pathname = new URL(route.request().url()).pathname.slice(new URL(base).pathname.length);
     // A directory address is its index document, as on the static host.

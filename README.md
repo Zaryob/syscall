@@ -31,8 +31,8 @@ Find what a Linux syscall does, inspect its C arguments, and follow the entry ba
 - **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and an overview that fits small screens. The argument view keeps the syscall number and name visible as you scroll to ARG5 and ARG6.
 
 Syscall lookup runs in the browser. The published page also loads the third-party
-Umami Cloud script at `cloud.umami.is/script.js` and sends visit analytics; see
-[Umami data collection](https://docs.umami.is/docs/collect-data). Jekyll builds the pages; a Node server is available separately for local API use.
+Umami Cloud script at `cloud.umami.is/script.js` and the Google Analytics 4 tag from `www.googletagmanager.com`, and sends visit analytics; Google Analytics sets cookies. See
+[Umami data collection](https://docs.umami.is/docs/collect-data) and [how Google uses data](https://policies.google.com/technologies/partner-sites). Jekyll builds the pages; a Node server is available separately for local API use.
 
 ## Get started
 

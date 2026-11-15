@@ -311,8 +311,10 @@ notlar değişmez veri kümesi metaverisini değiştirmez. LTS işaretleri
 7 Kasım 2026 tarihlidir; kayıtlı veri kümesi bakım yaması içermez.
 
 Sistem çağrısı araması tarayıcıda çalışır. Sayfa ayrıca üçüncü taraf Umami Cloud
-betiğini (`cloud.umami.is/script.js`) yükler ve ziyaret analitiği gönderir.
-[Umami veri toplama açıklaması](https://docs.umami.is/docs/collect-data).
+betiğini (`cloud.umami.is/script.js`) ve `www.googletagmanager.com` adresinden Google Analytics 4
+etiketini yükler ve ziyaret analitiği gönderir; Google Analytics çerez kullanır.
+[Umami veri toplama açıklaması](https://docs.umami.is/docs/collect-data),
+[Google verileri nasıl kullanır](https://policies.google.com/technologies/partner-sites?hl=tr).
 
 SPDX öncesi UAPI girdilerindeki `GPL-2.0-only` / `license_basis: COPYING` yedeği,
 örneğin v3.7 COPYING başındaki normal sistem çağrısı kullanıcı programı notunu
