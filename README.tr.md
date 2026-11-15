@@ -97,13 +97,19 @@ Başlık `CONFIG_CLONE_BACKWARDS*`, `CONFIG_OLD_SIGSUSPEND*`, `CONFIG_OLD_SIGACT
 veya `CONFIG_ARCH_SPLIT_ARG64` altında birden çok bildirim içeriyorsa importer
 mimarinin `Kconfig` dosyasındaki `select` satırlarını okur ve belirleyici
 simgeleri `signature_source.configuration` alanına yazar. Kconfig ile karar
-verilemeyen bildirimler “yapılandırmaya bağlı” olarak kalır. Başlıklarda
-bulunmayan birkaç imza mimarinin C dosyasındaki `SYSCALL_DEFINE` satırından
-alınır (arm64, RISC-V ve LoongArch için `mmap`; MIPS o32 için `sigaction` ve
-`sigsuspend`). `kernel/sys_ni.c` içinde `COND_SYSCALL` yedeği bulunan giriş
-noktaları `enosys_fallback` alanını taşır: ilgili seçenek veya mimari desteği
-derlenmemişse çağrı `ENOSYS` döner. Depodaki girdiler bir mimarinin böyle bir
-çağrıyı gerçekten uygulayıp uygulamadığını göstermez.
+verilemeyen bildirimler “yapılandırmaya bağlı” olarak kalır. v4.15 ve
+sonrasında, başlıklarda bulunmayan imzalar mimarinin C dosyalarındaki
+`SYSCALL_DEFINE` ve `COMPAT_SYSCALL_DEFINE` satırlarından alınır: arm64, RISC-V
+ve LoongArch için `mmap`; x86 için `arch_prctl` ve `sys_ia32_*` girişleri;
+`s390_*` çağrıları; MIPS için `mips_mmap`, `cacheflush` ve `sigaction` gibi.
+Lisansı kaydedilemeyen C dosyası atlanır ve o girişler çözülmemiş kalır;
+assembly sarmalayıcıları ve düz C işlevleri de çözülmez. `kernel/sys_ni.c`
+içinde `COND_SYSCALL` yedeği bulunan giriş noktaları `enosys_fallback` alanını
+taşır. İsteğe bağlı çağrıların çoğu, ilgili seçenek veya mimari desteği
+derlenmemişse `ENOSYS` döner. Tanım yerlerinin tamamı depoda bulunan `uselib`,
+`map_shadow_stack` ve `pciconfig_iobase` için `enosys_fallback.implementation`
+o ABI’deki tanımı gösterir; tanım yoksa `null` olur ve arayüz yalnız bu durumda
+çağrıya özel not gösterir.
 
 İndirilen kaynaklar `.cache/` içinde saklanır (Git’e dahil değildir).
 Tekrar indirmek için ilgili `.cache/<tag>/` dizinini kaldırabilirsiniz.
@@ -119,8 +125,9 @@ yeniden içe aktarmak `data/revisions/` altında yeni bir veri kümesi oluşturu
 Manifestteki `version_paths` ve statik API dizini etkin revizyonu gösterir;
 importer ardından `data/<sürüm>/` dizinini etkin revizyonun birebir kopyası
 olarak yeniler. Bu yüzden `/data/v7.3/x64.json` her zaman güncel veriyi sunar.
-Revizyon dizinleri yeniden yazılmaz; önceki revizyon adresleri kendi veri
-kümelerini sunmaya devam eder.
+Yalnız etkin revizyon saklanır: manifest yeni revizyonu gösterdikten sonra
+eski revizyon dizini silinir. Kalıcı adres olarak revizyon yolu yerine
+`/data/<sürüm>/` kullanın.
 
 ## Statik JSON API
 

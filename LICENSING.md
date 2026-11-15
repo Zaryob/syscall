@@ -26,7 +26,7 @@ notices, license texts, and exceptions remain unchanged. In particular:
 
 Inputs without an SPDX line need the original notices as well as the normalized
 metadata. Besides historical files, this includes a current file such as
-`arch/mips/kernel/signal.c`, which keeps only the older notice that refers to
+`arch/mips/kernel/signal.c` (likewise `syscall.c` and `arch/mips/mm/cache.c`), which keeps only the older notice that refers to
 `COPYING`.
 For example, v3.7 `include/uapi/asm-generic/unistd.h` is recorded as
 `GPL-2.0-only` with `license_basis: COPYING`. That fallback is not a claim

@@ -67,13 +67,29 @@ KCONFIG_FACTS = {
 SELECTED_SYMBOLS = {"CLONE_BACKWARDS", "CLONE_BACKWARDS3", "OLD_SIGSUSPEND", "OLD_SIGSUSPEND3", "OLD_SIGACTION", "ARCH_SPLIT_ARG64"}
 # Architecture C files whose SYSCALL_DEFINEn() headers supply declarations that
 # the headers do not provide for that ABI.
+X86_DEFINITIONS = ["arch/x86/kernel/" + name for name in ["process.c", "signal.c", "ioport.c", "ldt.c", "tls.c", "shstk.c"]]
+MIPS_DEFINITIONS = ["arch/mips/kernel/syscall.c", "arch/mips/mm/cache.c"]
 DEFINITION_FILES = {
-    "x64": ["arch/x86/kernel/sys_x86_64.c"],
-    "arm64": ["arch/arm64/kernel/sys.c"],
-    "riscv64": ["arch/riscv/kernel/sys_riscv.c", "arch/riscv/kernel/sys_hwprobe.c"],
-    "loongarch64": ["arch/loongarch/kernel/syscall.c"],
-    "mips-o32": ["arch/mips/kernel/signal.c"],
+    "x64": ["arch/x86/kernel/sys_x86_64.c", "arch/x86/kernel/process_64.c", "arch/x86/kernel/signal_64.c", *X86_DEFINITIONS],
+    "x86": ["arch/x86/kernel/process_32.c", "arch/x86/kernel/sys_ia32.c", "arch/x86/kernel/vm86_32.c", *X86_DEFINITIONS],
+    "arm64": ["arch/arm64/kernel/sys.c", "arch/arm64/kernel/signal.c", "arch/arm64/mm/gcs.c"],
+    "riscv64": ["arch/riscv/kernel/sys_riscv.c", "arch/riscv/kernel/sys_hwprobe.c", "arch/riscv/kernel/signal.c", "arch/riscv/kernel/usercfi.c"],
+    "loongarch64": ["arch/loongarch/kernel/syscall.c", "arch/loongarch/kernel/signal.c"],
+    "ppc64": ["arch/powerpc/kernel/pci_64.c", "arch/powerpc/mm/book3s64/subpage_prot.c"],
+    "ppc": ["arch/powerpc/kernel/pci_32.c"],
+    "s390x": ["arch/s390/kernel/syscall.c", "arch/s390/kernel/signal.c", "arch/s390/kernel/runtime_instr.c",
+              "arch/s390/kernel/guarded_storage.c", "arch/s390/kernel/sthyi.c", "arch/s390/pci/pci_mmio.c"],
+    "mips-o32": ["arch/mips/kernel/signal.c", *MIPS_DEFINITIONS],
+    "mips-n32": ["arch/mips/kernel/linux32.c", "ipc/msg.c", "ipc/sem.c", "ipc/shm.c", *MIPS_DEFINITIONS],
+    "mips-n64": MIPS_DEFINITIONS,
 }
+# These C files carry SPDX identifiers from the 4.14 conversion onward; earlier
+# releases are left unresolved rather than given a reviewed licence fallback.
+DEFINITIONS_FROM = (4, 15)
+# Entry points whose every definition site in the kernel tree is listed above
+# (or in the shared file named here). When none of the listed files defines
+# the entry for an ABI, only the ENOSYS fallback in kernel/sys_ni.c remains.
+IMPLEMENTATION_FILES = {"sys_uselib": ["fs/exec.c"], "sys_map_shadow_stack": [], "sys_pciconfig_iobase": []}
 FALLBACK_PATH = "kernel/sys_ni.c"
 AMBIGUOUS_NOTE = "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI."
 
@@ -203,6 +219,18 @@ class Source:
                     target = cache / path
                     atomic_bytes(target, archive.extractfile(member).read())
         atomic_text(cache / ".archive-complete", self.archive_url)
+
+    def definition(self, path):
+        """Read an optional C file; skip it when the licence gate rejects it."""
+        text = self.read(path, optional=True)
+        if text:
+            try:
+                source_licenses({k: self.files[k] for k in {path, "COPYING"} & self.files.keys()}, self.ref)
+            except ValueError:
+                del self.files[path]
+                self.missing.add(path)
+                return ""
+        return text
 
     def read(self, path, optional=False):
         if optional and path in self.missing:
@@ -794,6 +822,8 @@ def generate(ref, tree, output):
     for path in ["include/linux/syscalls.h", "include/linux/compat.h"]:
         common.update(parse_prototypes(source.read(path, optional=version_key(ref) < (2, 6, 0)), path))
     fallbacks = fallback_entries(source.read(FALLBACK_PATH, optional=True), FALLBACK_PATH)
+    # The licence gate for optional C files refers to the release COPYING.
+    source.read("COPYING")
     snapshots = {}
     for arch, config in ARCHES.items():
         table_path, rows = architecture_rows(source, arch)
@@ -806,9 +836,9 @@ def generate(ref, tree, output):
         if table_path.endswith(".h"):
             prototypes.update(parse_prototypes(source.read(table_path), table_path))
         definitions = {}
-        if version_key(ref) >= (5, 19):
+        if version_key(ref) >= DEFINITIONS_FROM:
             for path in DEFINITION_FILES.get(arch, []):
-                definitions.update(parse_definitions(source.read(path, optional=True), path))
+                definitions.update(parse_definitions(source.definition(path), path))
         configuration = Configuration(source, arch)
         for row in rows:
             symbol = row["entry"] or ""
@@ -829,6 +859,14 @@ def generate(ref, tree, output):
                     row["signature_source"][key] = prototype[key]
             if not unavailable and symbol in fallbacks:
                 row["enosys_fallback"] = dict(fallbacks[symbol])
+                if symbol in IMPLEMENTATION_FILES and version_key(ref) >= DEFINITIONS_FROM:
+                    shared = [(path, source.definition(path)) for path in IMPLEMENTATION_FILES[symbol]]
+                    # Decide only when every shared definition site could be read.
+                    if all(text for _, text in shared):
+                        found = definitions.get(symbol)
+                        for path, text in shared:
+                            found = found or parse_definitions(text, path).get(symbol)
+                        row["enosys_fallback"]["implementation"] = {k: found[k] for k in ["path", "line"]} if found else None
             if not unavailable and row["arguments"] is None:
                 if prototype and prototype.get("note"):
                     row["signature_status"] = "configuration_dependent"
@@ -927,9 +965,9 @@ def publish_snapshots(output, staged, refs):
                 if ref in availability and same_snapshot(staged / ref, active, staged_architectures[ref]):
                     continue
                 if target.exists() or ref in availability:
-                    # Revisions are immutable, so clients still using the previous
-                    # manifest keep reading the revision it names. data/<release>/
-                    # is refreshed afterwards as a mirror of the active revision.
+                    # A revision is written once and never edited. After the manifest
+                    # names it, data/<release>/ is refreshed as its mirror and the
+                    # superseded revision is removed.
                     target = output / "revisions" / ref / uuid4().hex
                     target.parent.mkdir(parents=True, exist_ok=True)
                     paths[ref] = target.relative_to(output).as_posix()
@@ -938,6 +976,7 @@ def publish_snapshots(output, staged, refs):
                 availability[ref] = staged_architectures[ref]
             if not published:
                 mirror_active(output, paths)
+                prune_revisions(output, paths)
                 return
             releases = sorted(availability, key=version_key, reverse=True)
             atomic_json(manifest_path, {
@@ -951,6 +990,15 @@ def publish_snapshots(output, staged, refs):
                 shutil.rmtree(folder)
             raise
         mirror_active(output, paths)
+        prune_revisions(output, paths)
+
+
+def prune_revisions(output, paths):
+    """Remove revisions the manifest no longer names; data/<release>/ is the stable address."""
+    active = {(output / path).resolve() for path in paths.values()}
+    for folder in sorted(output.glob("revisions/*/*")):
+        if folder.is_dir() and folder.resolve() not in active:
+            shutil.rmtree(folder)
 
 
 def mirror_active(output, paths):

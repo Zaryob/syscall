@@ -109,6 +109,46 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(row('arm', 'uselib')['enosys_fallback']['path'], 'kernel/sys_ni.c')
         self.assertNotIn('enosys_fallback', row('x64', 'read'))
         self.assertTrue(row('x64', 'exit')['man_url'].endswith('/man2/exit.2.html'))
+        # Checked definition sites: absent for the ABI (null) or named.
+        self.assertIsNone(row('arm', 'uselib')['enosys_fallback']['implementation'])
+        self.assertIsNone(row('s390x', 'map_shadow_stack')['enosys_fallback']['implementation'])
+        self.assertIsNone(row('arm', 'pciconfig_iobase')['enosys_fallback']['implementation'])
+        self.assertEqual(row('x64', 'map_shadow_stack')['enosys_fallback']['implementation']['path'], 'arch/x86/kernel/shstk.c')
+        self.assertEqual(row('ppc', 'pciconfig_iobase')['enosys_fallback']['implementation']['path'], 'arch/powerpc/kernel/pci_32.c')
+        self.assertNotIn('implementation', row('x64', 'io_setup')['enosys_fallback'])
+        older = next(r for r in json.loads((sync.ROOT / 'public/data/v6.6/arm.json').read_text())['syscalls'] if r['name'] == 'uselib')
+        self.assertEqual(older['enosys_fallback']['implementation']['path'], 'fs/exec.c')
+        for arch, name, path in [('x64', 'arch_prctl', 'arch/x86/kernel/process.c'), ('x86', 'pread64', 'arch/x86/kernel/sys_ia32.c'),
+                                 ('s390x', 's390_sthyi', 'arch/s390/kernel/sthyi.c'), ('mips-n32', 'shmctl', 'ipc/shm.c'),
+                                 ('mips-n64', 'mmap', 'arch/mips/kernel/syscall.c')]:
+            self.assertEqual(row(arch, name)['signature_source'], {**row(arch, name)['signature_source'], 'path': path, 'kind': 'syscall_macro'})
+        unresolved = {arch: sum(r['status'] == 'defined' and r['arguments'] is None for r in json.loads((data / (arch + '.json')).read_text())['syscalls'])
+                      for arch in sync.ARCHES}
+        self.assertEqual(unresolved, {'x64': 0, 'x86': 2, 'arm64': 0, 'arm': 5, 'riscv64': 0, 'loongarch64': 0, 'ppc64': 0, 'ppc': 0,
+                                      's390x': 0, 'mips-o32': 6, 'mips-n32': 6, 'mips-n64': 5})
+
+    def test_definition_files_failing_the_licence_gate_are_not_bundled(self):
+        class Tree(sync.Source):
+            def __init__(self, texts):
+                super().__init__('v7.3')
+                self.texts = texts
+
+            def read(self, path, optional=False):
+                if path in self.missing or path not in self.texts:
+                    return ''
+                self.files[path] = {'text': self.texts[path], 'sha256': 'fixture'}
+                return self.texts[path]
+
+        source = Tree({'COPYING': 'GNU GENERAL PUBLIC LICENSE', 'a.c': '// SPDX-License-Identifier: GPL-2.0\n', 'b.c': '/* Copyright only */\n', 'c.c': '// SPDX-License-Identifier: MIT\n'})
+        source.read('COPYING')
+        self.assertTrue(source.definition('a.c'))
+        self.assertEqual((source.definition('b.c'), source.definition('c.c'), source.definition('missing.c')), ('', '', ''))
+        self.assertEqual(set(source.files), {'COPYING', 'a.c'})
+
+    def test_only_active_revisions_remain_after_publication(self):
+        data = sync.ROOT / 'public/data'
+        manifest = json.loads((data / 'manifest.json').read_text())
+        self.assertEqual({p.relative_to(data).as_posix() for p in data.glob('revisions/*/*')}, set(manifest['version_paths'].values()))
 
     def test_table_filters_abi_without_losing_unimplemented_slots(self):
         table = "# header\n0 common read sys_read\n1 64 write sys_write\n2 x32 compat compat_sys_read\n3 common reserved\n4 common unavailable sys_ni_syscall\n"
@@ -296,6 +336,14 @@ class ImportTests(unittest.TestCase):
             self.assertNotEqual((output / 'v7.3/x64.json').read_bytes(), old_table)
             self.assertEqual(tree_digest(output / 'v7.3'), tree_digest(folder))
             self.assertFalse(list(output.glob('.tmp-*')))
+            self.assertEqual([p.relative_to(output).as_posix() for p in output.glob('revisions/*/*')], [revised['version_paths']['v7.3']])
+            header.write_text(header.read_text().replace('ssize_t sys_read', 'int sys_read'))
+            with patch.object(sync.sys, 'argv', argv):
+                self.assertEqual(sync.main(), 0)
+            latest = json.loads((output / 'manifest.json').read_text())['version_paths']['v7.3']
+            self.assertNotEqual(latest, revised['version_paths']['v7.3'])
+            self.assertEqual([p.relative_to(output).as_posix() for p in output.glob('revisions/*/*')], [latest])
+            self.assertEqual(tree_digest(output / 'v7.3'), tree_digest(output / latest))
 
     def test_batch_failure_does_not_publish_a_successful_release(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -130,12 +130,12 @@
     "v2.6.24": "revisions/v2.6.24/8c76463eb52a4c319dc929b9f97567d4",
     "v3.0": "revisions/v3.0/b5af52c173824185b473bcb7eedf478c",
     "v3.7": "revisions/v3.7/72a30e57807d4c328caefb1ee78c508a",
-    "v4.15": "revisions/v4.15/06f933b157564e0fbf40cb61f392f8ec",
-    "v5.19": "revisions/v5.19/b0ec678d439049afa5f02fbbb6a86df3",
-    "v6.6": "revisions/v6.6/2ed1a090d62e4acb964cd380d7ab37b0",
-    "v6.12": "revisions/v6.12/70d4fece081346488a9eb271cdf32f18",
-    "v6.18": "revisions/v6.18/d8106fea04c94f1997778ac4c143cd74",
-    "v7.3": "revisions/v7.3/3819fd666b2e4463a30e2d4af8ee92e7"
+    "v4.15": "revisions/v4.15/71563fda72a143e08afc935657d18fb6",
+    "v5.19": "revisions/v5.19/3b979708490f495cbba55b5f469188e0",
+    "v6.6": "revisions/v6.6/30625f151f234789bc0617381b65a56c",
+    "v6.12": "revisions/v6.12/0bd7b0eb340448699b6578c2f6c95d2b",
+    "v6.18": "revisions/v6.18/c4b1af87f40a42d5aeca4bb1591f7125",
+    "v7.3": "revisions/v7.3/eb0925aca29c434d8822c3c6c78798a5"
   },
   "architectures": [
     {

@@ -33,17 +33,32 @@ Original source notices:
 - `Makefile.syscalls` files and the architecture `Kconfig` files: SPDX
   `GPL-2.0`, except `arch/arm64/Kconfig` and `arch/riscv/Kconfig`, which are
   `GPL-2.0-only` from v5.19.
-- Architecture C files read for `SYSCALL_DEFINE` signatures: SPDX `GPL-2.0`
-  for `arch/x86/kernel/sys_x86_64.c`; `GPL-2.0-only` for
-  `arch/arm64/kernel/sys.c`, `arch/riscv/kernel/sys_riscv.c` and
-  `arch/riscv/kernel/sys_hwprobe.c`; `GPL-2.0+` for
-  `arch/loongarch/kernel/syscall.c`.
+- C files read for `SYSCALL_DEFINE` signatures and definition sites:
+  - SPDX `GPL-2.0`: in `arch/x86/kernel/`, `sys_x86_64.c`, `process.c`,
+    `signal.c`, `signal_64.c`, `ioport.c`, `ldt.c`, `tls.c`, `shstk.c`,
+    `sys_ia32.c` and `vm86_32.c`; in `arch/s390/kernel/`, `syscall.c`,
+    `signal.c`, `runtime_instr.c`, `guarded_storage.c` and `sthyi.c`;
+    `arch/s390/pci/pci_mmio.c`; `arch/mips/kernel/linux32.c`;
+    `arch/riscv/kernel/usercfi.c`; `ipc/msg.c`, `ipc/sem.c` and `ipc/shm.c`.
+  - SPDX `GPL-2.0-only`: `arch/x86/kernel/process_64.c`;
+    `arch/arm64/kernel/sys.c`, `arch/arm64/kernel/signal.c` and
+    `arch/arm64/mm/gcs.c`; `arch/riscv/kernel/sys_riscv.c` and
+    `arch/riscv/kernel/sys_hwprobe.c`; `arch/powerpc/kernel/pci_32.c`;
+    `fs/exec.c`.
+  - SPDX `GPL-2.0+`: `arch/loongarch/kernel/syscall.c` and
+    `arch/loongarch/kernel/signal.c`.
+  - SPDX `GPL-2.0-or-later`: `arch/riscv/kernel/signal.c`,
+    `arch/powerpc/kernel/pci_64.c` and
+    `arch/powerpc/mm/book3s64/subpage_prot.c`.
+  A candidate C file with neither an SPDX line nor the notice described next
+  is not bundled and not used.
 - Files without an SPDX line are recorded as `license_identifier:
   GPL-2.0-only` with `license_basis: COPYING`, which refers to the release's
   bundled `COPYING` and is not an upstream SPDX expression. This covers every
   input of v1.0–v3.7, the remaining pre-SPDX inputs of v4.15, the tables named
-  above, and `arch/mips/kernel/signal.c` (v5.19–v7.3), whose own notice places
-  it under the GNU General Public License and refers to `COPYING`.
+  above, and `arch/mips/kernel/signal.c`, `arch/mips/kernel/syscall.c` and
+  `arch/mips/mm/cache.c` (v5.19–v7.3), whose own notices place them under the
+  GNU General Public License and refer to `COPYING`.
 
 The full upstream `COPYING`, `LICENSES/preferred/GPL-2.0`, and
 `LICENSES/exceptions/Linux-syscall-note` accompany each snapshot. Reference

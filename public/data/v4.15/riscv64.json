@@ -6783,7 +6783,7 @@
   "license": "GPL-2.0-only",
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-14T11:09:18.354343+00:00",
+    "generated_at": "2026-11-15T01:09:32.663741+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [],
     "generator": "scripts/sync_kernel.py",
@@ -6901,6 +6901,48 @@
         "license_identifier": "GPL-2.0-only",
         "license_basis": "COPYING",
         "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      },
+      {
+        "path": "arch/x86/kernel/ioport.c",
+        "sha256": "7bc133455bc7f966c26761653ef5771f52fb203927436f0120361e42bc2407dc",
+        "bundled_path": "sources/arch/x86/kernel/ioport.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/ldt.c",
+        "sha256": "bc0c82179f30346d36099b5b5e7fdf2a335b00c0e164e0ef40b11d37d3d2eb00",
+        "bundled_path": "sources/arch/x86/kernel/ldt.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/process.c",
+        "sha256": "5372bef5f20516bd522cc98ac12f5fb8a5882db90cf61f52113f44d0cb59b39b",
+        "bundled_path": "sources/arch/x86/kernel/process.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/signal.c",
+        "sha256": "c74a0209ac9118ec41efa56a72cfe7c7a2adeaa63bfb764099ea80bddc6e60d3",
+        "bundled_path": "sources/arch/x86/kernel/signal.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/sys_x86_64.c",
+        "sha256": "9d9f781c13bd8f2db461f0a75b5ad60e2e6c8b5793cc1d37f5940a7340b52016",
+        "bundled_path": "sources/arch/x86/kernel/sys_x86_64.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/tls.c",
+        "sha256": "320eebbf6b9de9936b51dcbd11c1f5c77d2ce7009e28de1b0c005ba3dec494aa",
+        "bundled_path": "sources/arch/x86/kernel/tls.c",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
+        "path": "arch/x86/kernel/vm86_32.c",
+        "sha256": "a107aef9a0bb7caeb776eeffd27fc39094ecf7474bb71c507ed8a6d00037b94b",
+        "bundled_path": "sources/arch/x86/kernel/vm86_32.c",
+        "spdx_license_identifier": "GPL-2.0"
       },
       {
         "path": "include/linux/compat.h",

@@ -214,14 +214,14 @@
     "title": "sys_rt_sigreturn",
     "url": "?arch=x64&kernel=v7.3&q=rt_sigreturn&highlight=rt_sigreturn#sys-v7.3:15:rt_sigreturn",
     "type": "syscall/",
-    "description": "Sinyal işleyicisi bitince kaydedilmiş iş parçacığı bağlamını geri yükler."
+    "description": "Sinyal işleyicisi bitince kaydedilmiş iş parçacığı bağlamını geri yükler. — asmlinkage long sys_rt_sigreturn(void);"
   },
   {
     "lang": "en",
     "title": "sys_rt_sigreturn",
     "url": "?arch=x64&kernel=v7.3&q=rt_sigreturn&highlight=rt_sigreturn#sys-v7.3:15:rt_sigreturn",
     "type": "syscall/",
-    "description": "Restore the saved thread context after a signal handler finishes."
+    "description": "Restore the saved thread context after a signal handler finishes. — asmlinkage long sys_rt_sigreturn(void);"
   },
   {
     "lang": "tr",
@@ -2146,14 +2146,14 @@
     "title": "sys_modify_ldt",
     "url": "?arch=x64&kernel=v7.3&q=modify_ldt&highlight=modify_ldt#sys-v7.3:154:modify_ldt",
     "type": "syscall/",
-    "description": "x86-64 sistem çağrısı 154"
+    "description": "asmlinkage long sys_modify_ldt(int func, void __user *ptr, unsigned long bytecount);"
   },
   {
     "lang": "en",
     "title": "sys_modify_ldt",
     "url": "?arch=x64&kernel=v7.3&q=modify_ldt&highlight=modify_ldt#sys-v7.3:154:modify_ldt",
     "type": "syscall/",
-    "description": "x86-64 system call 154"
+    "description": "asmlinkage long sys_modify_ldt(int func, void __user *ptr, unsigned long bytecount);"
   },
   {
     "lang": "tr",
@@ -2188,14 +2188,14 @@
     "title": "sys_arch_prctl",
     "url": "?arch=x64&kernel=v7.3&q=arch_prctl&highlight=arch_prctl#sys-v7.3:158:arch_prctl",
     "type": "syscall/",
-    "description": "x86-64 FS tabanı gibi mimariye özgü iş parçacığı durumunu okur veya değiştirir."
+    "description": "x86-64 FS tabanı gibi mimariye özgü iş parçacığı durumunu okur veya değiştirir. — asmlinkage long sys_arch_prctl(int option, unsigned long arg2);"
   },
   {
     "lang": "en",
     "title": "sys_arch_prctl",
     "url": "?arch=x64&kernel=v7.3&q=arch_prctl&highlight=arch_prctl#sys-v7.3:158:arch_prctl",
     "type": "syscall/",
-    "description": "Query or change architecture-specific thread state, such as the x86-64 FS base."
+    "description": "Query or change architecture-specific thread state, such as the x86-64 FS base. — asmlinkage long sys_arch_prctl(int option, unsigned long arg2);"
   },
   {
     "lang": "tr",
@@ -2384,14 +2384,14 @@
     "title": "sys_iopl",
     "url": "?arch=x64&kernel=v7.3&q=iopl&highlight=iopl#sys-v7.3:172:iopl",
     "type": "syscall/",
-    "description": "x86-64 sistem çağrısı 172"
+    "description": "asmlinkage long sys_iopl(unsigned int level);"
   },
   {
     "lang": "en",
     "title": "sys_iopl",
     "url": "?arch=x64&kernel=v7.3&q=iopl&highlight=iopl#sys-v7.3:172:iopl",
     "type": "syscall/",
-    "description": "x86-64 system call 172"
+    "description": "asmlinkage long sys_iopl(unsigned int level);"
   },
   {
     "lang": "tr",
@@ -5422,14 +5422,14 @@
     "title": "sys_vm86old",
     "url": "?arch=x86&kernel=v7.3&q=vm86old&highlight=vm86old#sys-v7.3:113:vm86old",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 113"
+    "description": "asmlinkage long sys_vm86old(struct vm86_struct __user *user_vm86);"
   },
   {
     "lang": "en",
     "title": "sys_vm86old",
     "url": "?arch=x86&kernel=v7.3&q=vm86old&highlight=vm86old#sys-v7.3:113:vm86old",
     "type": "syscall/",
-    "description": "i386 system call 113"
+    "description": "asmlinkage long sys_vm86old(struct vm86_struct __user *user_vm86);"
   },
   {
     "lang": "tr",
@@ -5506,14 +5506,14 @@
     "title": "sys_vm86",
     "url": "?arch=x86&kernel=v7.3&q=vm86&highlight=vm86#sys-v7.3:166:vm86",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 166"
+    "description": "asmlinkage long sys_vm86(unsigned long cmd, unsigned long arg);"
   },
   {
     "lang": "en",
     "title": "sys_vm86",
     "url": "?arch=x86&kernel=v7.3&q=vm86&highlight=vm86#sys-v7.3:166:vm86",
     "type": "syscall/",
-    "description": "i386 system call 166"
+    "description": "asmlinkage long sys_vm86(unsigned long cmd, unsigned long arg);"
   },
   {
     "lang": "tr",
@@ -5548,28 +5548,28 @@
     "title": "sys_truncate64",
     "url": "?arch=x86&kernel=v7.3&q=truncate64&highlight=truncate64#sys-v7.3:193:truncate64",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 193"
+    "description": "asmlinkage long sys_ia32_truncate64(const char __user *filename, unsigned long offset_low, unsigned long offset_high);"
   },
   {
     "lang": "en",
     "title": "sys_truncate64",
     "url": "?arch=x86&kernel=v7.3&q=truncate64&highlight=truncate64#sys-v7.3:193:truncate64",
     "type": "syscall/",
-    "description": "i386 system call 193"
+    "description": "asmlinkage long sys_ia32_truncate64(const char __user *filename, unsigned long offset_low, unsigned long offset_high);"
   },
   {
     "lang": "tr",
     "title": "sys_ftruncate64",
     "url": "?arch=x86&kernel=v7.3&q=ftruncate64&highlight=ftruncate64#sys-v7.3:194:ftruncate64",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 194"
+    "description": "asmlinkage long sys_ia32_ftruncate64(unsigned int fd, unsigned long offset_low, unsigned long offset_high);"
   },
   {
     "lang": "en",
     "title": "sys_ftruncate64",
     "url": "?arch=x86&kernel=v7.3&q=ftruncate64&highlight=ftruncate64#sys-v7.3:194:ftruncate64",
     "type": "syscall/",
-    "description": "i386 system call 194"
+    "description": "asmlinkage long sys_ia32_ftruncate64(unsigned int fd, unsigned long offset_low, unsigned long offset_high);"
   },
   {
     "lang": "tr",
@@ -5912,28 +5912,28 @@
     "title": "sys_set_thread_area",
     "url": "?arch=x86&kernel=v7.3&q=set_thread_area&highlight=set_thread_area#sys-v7.3:243:set_thread_area",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 243"
+    "description": "asmlinkage long sys_set_thread_area(struct user_desc __user *u_info);"
   },
   {
     "lang": "en",
     "title": "sys_set_thread_area",
     "url": "?arch=x86&kernel=v7.3&q=set_thread_area&highlight=set_thread_area#sys-v7.3:243:set_thread_area",
     "type": "syscall/",
-    "description": "i386 system call 243"
+    "description": "asmlinkage long sys_set_thread_area(struct user_desc __user *u_info);"
   },
   {
     "lang": "tr",
     "title": "sys_get_thread_area",
     "url": "?arch=x86&kernel=v7.3&q=get_thread_area&highlight=get_thread_area#sys-v7.3:244:get_thread_area",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 244"
+    "description": "asmlinkage long sys_get_thread_area(struct user_desc __user *u_info);"
   },
   {
     "lang": "en",
     "title": "sys_get_thread_area",
     "url": "?arch=x86&kernel=v7.3&q=get_thread_area&highlight=get_thread_area#sys-v7.3:244:get_thread_area",
     "type": "syscall/",
-    "description": "i386 system call 244"
+    "description": "asmlinkage long sys_get_thread_area(struct user_desc __user *u_info);"
   },
   {
     "lang": "tr",
@@ -5968,14 +5968,14 @@
     "title": "sys_fadvise64_64",
     "url": "?arch=x86&kernel=v7.3&q=fadvise64_64&highlight=fadvise64_64#sys-v7.3:272:fadvise64_64",
     "type": "syscall/",
-    "description": "i386 sistem çağrısı 272"
+    "description": "asmlinkage long sys_ia32_fadvise64_64(int fd, __u32 offset_low, __u32 offset_high, __u32 len_low, __u32 len_high, int advice);"
   },
   {
     "lang": "en",
     "title": "sys_fadvise64_64",
     "url": "?arch=x86&kernel=v7.3&q=fadvise64_64&highlight=fadvise64_64#sys-v7.3:272:fadvise64_64",
     "type": "syscall/",
-    "description": "i386 system call 272"
+    "description": "asmlinkage long sys_ia32_fadvise64_64(int fd, __u32 offset_low, __u32 offset_high, __u32 len_low, __u32 len_high, int advice);"
   },
   {
     "lang": "tr",
@@ -6514,70 +6514,70 @@
     "title": "sys_s390_runtime_instr",
     "url": "?arch=s390x&kernel=v7.3&q=s390_runtime_instr&highlight=s390_runtime_instr#sys-v7.3:342:s390_runtime_instr",
     "type": "syscall/",
-    "description": "IBM Z (s390x) sistem çağrısı 342"
+    "description": "asmlinkage long sys_s390_runtime_instr(int command, int signum);"
   },
   {
     "lang": "en",
     "title": "sys_s390_runtime_instr",
     "url": "?arch=s390x&kernel=v7.3&q=s390_runtime_instr&highlight=s390_runtime_instr#sys-v7.3:342:s390_runtime_instr",
     "type": "syscall/",
-    "description": "IBM Z (s390x) system call 342"
+    "description": "asmlinkage long sys_s390_runtime_instr(int command, int signum);"
   },
   {
     "lang": "tr",
     "title": "sys_s390_pci_mmio_write",
     "url": "?arch=s390x&kernel=v7.3&q=s390_pci_mmio_write&highlight=s390_pci_mmio_write#sys-v7.3:352:s390_pci_mmio_write",
     "type": "syscall/",
-    "description": "IBM Z (s390x) sistem çağrısı 352"
+    "description": "asmlinkage long sys_s390_pci_mmio_write(unsigned long mmio_addr, const void __user *user_buffer, size_t length);"
   },
   {
     "lang": "en",
     "title": "sys_s390_pci_mmio_write",
     "url": "?arch=s390x&kernel=v7.3&q=s390_pci_mmio_write&highlight=s390_pci_mmio_write#sys-v7.3:352:s390_pci_mmio_write",
     "type": "syscall/",
-    "description": "IBM Z (s390x) system call 352"
+    "description": "asmlinkage long sys_s390_pci_mmio_write(unsigned long mmio_addr, const void __user *user_buffer, size_t length);"
   },
   {
     "lang": "tr",
     "title": "sys_s390_pci_mmio_read",
     "url": "?arch=s390x&kernel=v7.3&q=s390_pci_mmio_read&highlight=s390_pci_mmio_read#sys-v7.3:353:s390_pci_mmio_read",
     "type": "syscall/",
-    "description": "IBM Z (s390x) sistem çağrısı 353"
+    "description": "asmlinkage long sys_s390_pci_mmio_read(unsigned long mmio_addr, void __user *user_buffer, size_t length);"
   },
   {
     "lang": "en",
     "title": "sys_s390_pci_mmio_read",
     "url": "?arch=s390x&kernel=v7.3&q=s390_pci_mmio_read&highlight=s390_pci_mmio_read#sys-v7.3:353:s390_pci_mmio_read",
     "type": "syscall/",
-    "description": "IBM Z (s390x) system call 353"
+    "description": "asmlinkage long sys_s390_pci_mmio_read(unsigned long mmio_addr, void __user *user_buffer, size_t length);"
   },
   {
     "lang": "tr",
     "title": "sys_s390_guarded_storage",
     "url": "?arch=s390x&kernel=v7.3&q=s390_guarded_storage&highlight=s390_guarded_storage#sys-v7.3:378:s390_guarded_storage",
     "type": "syscall/",
-    "description": "IBM Z (s390x) sistem çağrısı 378"
+    "description": "asmlinkage long sys_s390_guarded_storage(int command, struct gs_cb __user *gs_cb);"
   },
   {
     "lang": "en",
     "title": "sys_s390_guarded_storage",
     "url": "?arch=s390x&kernel=v7.3&q=s390_guarded_storage&highlight=s390_guarded_storage#sys-v7.3:378:s390_guarded_storage",
     "type": "syscall/",
-    "description": "IBM Z (s390x) system call 378"
+    "description": "asmlinkage long sys_s390_guarded_storage(int command, struct gs_cb __user *gs_cb);"
   },
   {
     "lang": "tr",
     "title": "sys_s390_sthyi",
     "url": "?arch=s390x&kernel=v7.3&q=s390_sthyi&highlight=s390_sthyi#sys-v7.3:380:s390_sthyi",
     "type": "syscall/",
-    "description": "IBM Z (s390x) sistem çağrısı 380"
+    "description": "asmlinkage long sys_s390_sthyi(unsigned long function_code, void __user *buffer, u64 __user *return_code, unsigned long flags);"
   },
   {
     "lang": "en",
     "title": "sys_s390_sthyi",
     "url": "?arch=s390x&kernel=v7.3&q=s390_sthyi&highlight=s390_sthyi#sys-v7.3:380:s390_sthyi",
     "type": "syscall/",
-    "description": "IBM Z (s390x) system call 380"
+    "description": "asmlinkage long sys_s390_sthyi(unsigned long function_code, void __user *buffer, u64 __user *return_code, unsigned long flags);"
   },
   {
     "lang": "tr",
@@ -6626,28 +6626,28 @@
     "title": "sys_cacheflush",
     "url": "?arch=mips-o32&kernel=v7.3&q=cacheflush&highlight=cacheflush#sys-v7.3:4147:cacheflush",
     "type": "syscall/",
-    "description": "MIPS o32 sistem çağrısı 4147"
+    "description": "asmlinkage long sys_cacheflush(unsigned long addr, unsigned long bytes, unsigned int cache);"
   },
   {
     "lang": "en",
     "title": "sys_cacheflush",
     "url": "?arch=mips-o32&kernel=v7.3&q=cacheflush&highlight=cacheflush#sys-v7.3:4147:cacheflush",
     "type": "syscall/",
-    "description": "MIPS o32 system call 4147"
+    "description": "asmlinkage long sys_cacheflush(unsigned long addr, unsigned long bytes, unsigned int cache);"
   },
   {
     "lang": "tr",
     "title": "sys_cachectl",
     "url": "?arch=mips-o32&kernel=v7.3&q=cachectl&highlight=cachectl#sys-v7.3:4148:cachectl",
     "type": "syscall/",
-    "description": "MIPS o32 sistem çağrısı 4148"
+    "description": "asmlinkage long sys_cachectl(char *addr, int nbytes, int op);"
   },
   {
     "lang": "en",
     "title": "sys_cachectl",
     "url": "?arch=mips-o32&kernel=v7.3&q=cachectl&highlight=cachectl#sys-v7.3:4148:cachectl",
     "type": "syscall/",
-    "description": "MIPS o32 system call 4148"
+    "description": "asmlinkage long sys_cachectl(char *addr, int nbytes, int op);"
   },
   {
     "lang": "tr",

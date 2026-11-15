@@ -73,6 +73,27 @@ test('the copied C declaration matches the historical source', async t => {
   assert.equal(await page.evaluate(() => navigator.clipboard.readText()), declaration);
 });
 
+test('the ENOSYS note appears only where a release defines no implementation for the ABI', async t => {
+  const page = await openPage(t);
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  const detail = page.locator('.detail-row');
+  await page.goto(`${base}?arch=arm&kernel=v7.3&q=uselib&lang=en#sys-uselib`);
+  await detail.waitFor();
+  assert.match(await detail.textContent(), /define no implementation of this entry point for this ABI.*kernel\/sys_ni\.c:\d+/s);
+  await page.goto(`${base}?arch=arm&kernel=v6.6&q=uselib&lang=en#sys-uselib`);
+  await detail.waitFor();
+  assert.doesNotMatch(await detail.textContent(), /ENOSYS fallback/);
+  await page.goto(`${base}?arch=x64&kernel=v7.3&q=io_setup&lang=en#sys-io_setup`);
+  await detail.waitFor();
+  assert.doesNotMatch(await detail.textContent(), /ENOSYS fallback/);
+  assert.match(await page.locator('[data-syscall-copy="availability"]').textContent(), /return ENOSYS when the matching configuration option/);
+  await page.goto(`${base}?arch=x86&kernel=v7.3&q=pread64&lang=en#sys-pread64`);
+  await detail.waitFor();
+  assert.match(await detail.textContent(), /sys_ia32_pread64\(unsigned int fd, char __user \*ubuf/);
+  assert.deepEqual(errors, []);
+});
+
 test('MIPS common calls are searchable and missing manuals have an explicit bilingual state', async t => {
   const page = await openPage(t);
   const errors = [];

@@ -200,7 +200,8 @@ function detailHTML(row, id) {
   const selection = row.signature_source?.configuration;
   const selectionHTML = selection ? `<p class="small">${esc(copy.configuration)} ${Object.entries(selection.symbols).map(([symbol, enabled]) =>
     `<code>${esc(symbol)}=${enabled ? 'y' : 'n'}</code>`).join(' ')} · <a href="${esc(sourceLink({ path: selection.path, line: 1 }, kernel))}">${esc(selection.path)}</a></p>` : '';
-  const fallbackHTML = row.enosys_fallback ? `<p class="small">${esc(copy.fallback)} <a href="${esc(sourceLink(row.enosys_fallback, kernel))}">${esc(row.enosys_fallback.path)}:${row.enosys_fallback.line}</a></p>` : '';
+  // Only where the importer checked every definition site and found none for this ABI.
+  const fallbackHTML = row.enosys_fallback?.implementation === null ? `<p class="small">${esc(copy.fallback)} <a href="${esc(sourceLink(row.enosys_fallback, kernel))}">${esc(row.enosys_fallback.path)}:${row.enosys_fallback.line}</a></p>` : '';
   const entryMetadata = [
     row.compat_entry && `${esc(t('Compatibility entry point'))} <code>${esc(row.compat_entry)}</code>`,
     row.oabi_entry && `${esc(t('OABI entry point'))} <code>${esc(row.oabi_entry)}</code>`,
