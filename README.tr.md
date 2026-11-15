@@ -271,9 +271,30 @@ olarak erişilebilir kalacağını garanti etmez.
 manifestteki son sürümü ve etkin revizyonu kullanır. Arama indeksi İngilizce ve
 Türkçe açıklamaları `notes.mjs` dosyasından alır; yalnız başka ABI’lerde bulunan
 çağrıları onları sunan ilk ABI altında listeler. Arama URL'leri uygulama köküne
-görelidir. Sitemap yalnız kanonik kök adresi içerir; mimari ve dil görünümleri
-aynı belgenin durumlarıdır. npm yerine Jekyll'i
-doğrudan çalıştırırken önce hazırlama betiğini çalıştırın.
+görelidir. npm yerine Jekyll'i doğrudan çalıştırırken önce hazırlama betiğini
+çalıştırın.
+
+### Statik sayfalar
+
+`prepare_site.py`, `scripts/static_pages.py` betiğini de çalıştırır. Bu betik her
+ABI için bir sayfa (`/arch/<abi>/`), her sistem çağrısı adı için bir sayfa
+(`/call/<ad>/`) ve bir dizin (`/call/`) üretir; aynı sayfalar `/tr/` altında
+Türkçe olarak da üretilir. İçeriğin tamamı `public/data/` ve `notes.mjs`
+dosyalarından gelir: ABI sayfaları en yeni kayıtlı sürümü gösterir, çağrı sayfası
+ayrıca adın hangi kayıtlı sürümlerde tanımlı olduğunu listeler. Yalnız eski bir
+sürümde tanımlı olan veya yalnız ayrılmış yuva olan adların sayfası bunu açıkça
+belirtir. Çıktı (`public/arch/`, `public/call/`, `public/tr/`) `public/api/` gibi
+derleme çıktısıdır: Git yok sayar, kaynak arşivine girmez ve her çalıştırmada
+yeniden yazılır. Sayfalar JavaScript olmadan okunur.
+
+Her sayfanın kendi kanonik adresi, çevirisini gösteren `hreflang` bağlantıları ve
+bir `BreadcrumbList` kaydı vardır. Sitemap uygulamanın kök adresini, errno, sinyal
+ve ioctl sayfalarını ve üretilen bütün sayfaları listeler; uygulama içindeki
+görünümler (`?arch=…#sys-…`) kök belgenin durumlarıdır ve listelenmez. Üretilen
+sayfalarda `lastmod` yoktur, çünkü bir sürümü yeniden içe aktarmak bu sayfaların
+çoğunu değiştirmeden veri kümesinin tarihini yeniler. `check_site.py`, üretilen
+sayfaların veriyle eşleştiğini, bağlantılarının çalıştığını ve sitemap'in yalnız
+kanonik adresleri listelediğini doğrular.
 
 ## Gezinme ve ABI başvuru notları
 

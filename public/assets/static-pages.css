@@ -1,0 +1,67 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+/* Generated pages per ABI and per syscall name (scripts/static_pages.py).
+   Tables reuse .abi-table and .table-scroll from console/syscall.css. */
+.console-syscall .static-page { padding: 20px 0 8px; overflow-wrap: anywhere; }
+.console-syscall .static-page h1 { margin-bottom: 12px; font-size: var(--text-h1); }
+.console-syscall .static-page h1 code { font-size: inherit; }
+.console-syscall .static-page h2 { margin: 34px 0 12px; }
+.console-syscall .static-page h3 { margin: 22px 0 6px; font-size: var(--text-base); color: var(--muted); }
+.console-syscall .static-page > p { max-width: 85ch; }
+.console-syscall .static-release { margin-inline-start: 6px; font-size: var(--text-base); white-space: nowrap; }
+.console-syscall .static-note { color: var(--ink); }
+
+.console-syscall .static-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin-bottom: 14px; font-size: var(--text-sm); }
+.console-syscall .static-crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 0; padding: 0; list-style: none; }
+.console-syscall .static-crumbs li + li::before { content: "/"; margin: 0 8px; color: var(--muted); }
+.console-syscall .static-crumbs [aria-current] { color: var(--muted); }
+
+.console-syscall .static-cta { padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface); }
+.console-syscall .static-cta a { margin-inline-end: 10px; }
+
+.console-syscall .static-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 0 20px; margin: 0 0 12px; }
+.console-syscall .static-facts > div { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.console-syscall .static-facts dt { color: var(--muted); font-size: var(--text-xs); }
+.console-syscall .static-facts dd { margin: 0; }
+
+/* The page scrolls; only a wide table scrolls sideways inside its own box. */
+.console-syscall .static-scroll { max-height: none; overflow-x: auto; overflow-y: visible; margin-bottom: 10px; }
+.console-syscall .static-table { min-width: 40rem; }
+.console-syscall .static-table thead th { position: static; }
+.console-syscall .static-table tbody th { font-weight: 500; }
+.console-syscall .static-table td code { overflow-wrap: normal; }
+.console-syscall .static-table tbody th code { white-space: nowrap; }
+.console-syscall .static-calls td:nth-child(4) { min-width: 13rem; }
+.console-syscall .static-calls td:nth-child(4) code { overflow-wrap: anywhere; }
+.console-syscall .static-calls td:nth-child(5) { min-width: 13rem; }
+.console-syscall .static-table .small { display: block; font-size: var(--text-xs); }
+.console-syscall .static-numbers { min-width: 62rem; }
+.console-syscall .static-numbers tbody th { white-space: nowrap; }
+.console-syscall .static-numbers .abi-source { min-width: 0; white-space: nowrap; }
+.console-syscall .static-releases { min-width: 0; }
+.console-syscall .static-releases thead th { min-width: 5.5rem; white-space: normal; overflow-wrap: normal; }
+.console-syscall .static-releases tbody th { white-space: nowrap; }
+.console-syscall .static-releases td code { color: var(--muted); }
+
+.console-syscall .static-declaration-group { margin-bottom: 16px; }
+.console-syscall .static-declaration { margin: 0 0 6px; padding: 12px 14px; border: 1px solid var(--line); background: var(--surface); font-size: var(--text-sm); overflow-wrap: anywhere; }
+.console-syscall .static-declaration code { padding: 0; background: transparent; }
+.console-syscall .static-declaration-group p { margin-bottom: 4px; }
+
+.console-syscall .static-abi-list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+.console-syscall .static-abi-list a { justify-content: space-between; gap: 10px; }
+.console-syscall .static-abi-list .small { white-space: nowrap; }
+.console-syscall .static-letters { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.console-syscall .static-letters a { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; border: 1px solid var(--line); text-decoration: none; }
+.console-syscall .static-letters a:hover { background: var(--surface); }
+.console-syscall .static-names { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 0 20px; margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
+.console-syscall .static-names a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.console-syscall .static-page :is(h2, h3)[id] { scroll-margin-top: 70px; }
+
+.console-syscall .static-sections { margin: 36px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+/* Links from the application's landing page to the generated pages. */
+.console-syscall .static-links { margin: 0 0 18px; font-size: var(--text-sm); }
+.console-syscall .static-links ul { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 4px 0 0; padding: 0; list-style: none; }
+
+@media (max-width: 560px) {
+  .console-syscall .static-names { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
+}

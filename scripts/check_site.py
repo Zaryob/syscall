@@ -7,9 +7,14 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
+import sys
 import tarfile
 import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlsplit
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import static_pages  # scripts/static_pages.py, beside this file
 
 
 class Links(HTMLParser):
@@ -18,6 +23,9 @@ class Links(HTMLParser):
         self.urls = []
         self.site_root = None
         self.canonical = None
+        self.language = None
+        self.alternates = {}
+        self.scripts = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -28,6 +36,12 @@ class Links(HTMLParser):
             self.site_root = attrs.get('content')
         if tag == 'link' and attrs.get('rel') == 'canonical':
             self.canonical = attrs.get('href')
+        if tag == 'link' and attrs.get('rel') == 'alternate' and attrs.get('hreflang'):
+            self.alternates[attrs['hreflang']] = attrs.get('href')
+        if tag == 'html':
+            self.language = attrs.get('lang')
+        if tag == 'script' and attrs.get('src'):
+            self.scripts.append(attrs['src'])
 
 
 # Pages besides the site root, each with its own canonical URL and sitemap entry.
@@ -58,6 +72,24 @@ def check_page(site, base, relative):
             target = target / 'index.html'
         assert target.is_file(), 'Broken local link: ' + url
     return parser
+
+
+def check_static(site, base, root_canonical):
+    """The generated pages: one per ABI and per syscall name of the built data, in each language."""
+    paths = static_pages.page_paths(static_pages.load(site))
+    built = {}
+    for lang, listed in paths.items():
+        for index, relative in enumerate(listed):
+            page = built[relative] = check_page(site, base, relative)
+            assert page.language == lang, 'Wrong content language: ' + relative
+            # Each page names itself and its translation, and English is the default.
+            expected = {code: root_canonical + other[index] for code, other in paths.items()}
+            expected['x-default'] = expected['en']
+            assert page.alternates == expected, 'Wrong hreflang alternates: ' + relative
+            assert not any(script.endswith('/app.js') for script in page.scripts), 'Static page loads the application: ' + relative
+    on_disk = {p.parent.relative_to(site).as_posix() + '/' for folder in static_pages.OUTPUT_DIRS for p in (site / folder).rglob('index.html')}
+    assert on_disk == built.keys(), 'Static pages differ from the built data: {}'.format(sorted(on_disk ^ built.keys())[:5])
+    return built
 
 
 def check_abi(site):
@@ -101,7 +133,9 @@ def check(site, baseurl):
     # pages, once each, and never a query-string view of one.
     assert locations, 'Empty sitemap'
     assert len(locations) == len(set(locations)), 'Duplicate sitemap URL'
-    pages = {base: parser, **{base + relative: section for relative, section in sections.items()}}
+    static = check_static(site, base, parser.canonical or '')
+    link_count += sum(len(page.urls) for page in static.values())
+    pages = {base: parser, **{base + relative: section for relative, section in {**sections, **static}.items()}}
     root_canonical = urlsplit(parser.canonical or '')
     for path, built in pages.items():
         relative = path[len(base):]
@@ -115,7 +149,7 @@ def check(site, baseurl):
             assert url == pages[parsed.path].canonical, 'Sitemap URL differs from the canonical URL: ' + url
     assert {urlsplit(url).path for url in locations} == pages.keys(), 'Sitemap does not list every page'
     # The landing page must lead to every section.
-    for relative in SECTION_PAGES:
+    for relative in SECTION_PAGES + ['call/'] + [path for path in static if path.startswith('arch/')]:
         assert any(urlsplit(url).path == base + relative for url in parser.urls), 'Landing page does not link to ' + relative
     assert '/api/v1/syscalls/' not in (site / 'abi.js').read_text(), 'Section pages depend on the Node API'
     abi = check_abi(site)

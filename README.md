@@ -27,6 +27,7 @@ Find what a Linux syscall does, inspect its C arguments, and follow the entry ba
 - **Shareable views:** architecture, release, comparison, search, table view, and open syscall details stay in the URL.
 - **C downloads:** hand-written `getpid` and `write` examples, plus review-required skeletons for other supported 64-bit signatures.
 - **errno, signals and ioctl:** [`/errno/`](public/errno/index.html), [`/signals/`](public/signals/index.html) and [`/ioctl/`](public/ioctl/index.html) list error numbers, signal numbers with the kernel's documented default actions, and the ioctl request-number layout with a decoder, the registered magic numbers and the terminal and socket commands. Each page shows where an architecture differs. This section covers the latest bundled release only.
+- **A page for every table and call:** `/arch/<abi>/` is the newest bundled release's table for one ABI as plain HTML, `/call/<name>/` shows one call's number, entry point and registers on every ABI, and `/call/` lists them all. The same pages exist in Turkish under `/tr/`. They need no JavaScript and are listed in the sitemap.
 - **A static frontend:** English/Turkish controls, light/dark themes, keyboard access, and an overview that fits small screens. The argument view keeps the syscall number and name visible as you scroll to ARG5 and ARG6.
 
 Syscall lookup runs in the browser. The published page also loads the third-party
@@ -186,9 +187,29 @@ manual text, and does not promise that a remote URL will stay available forever.
 search index, static examples and download links. The search index takes its
 English and Turkish descriptions from `notes.mjs` and lists calls that only
 other ABIs have under the first ABI that provides them. Search URLs are relative
-to the application root. The sitemap lists only the canonical root URL, because
-every architecture and language view is a state of that one document.
-Run preparation before Jekyll when building directly rather than via npm.
+to the application root. Run preparation before Jekyll when building directly
+rather than via npm.
+
+### Static pages
+
+`prepare_site.py` also runs `scripts/static_pages.py`, which writes one Jekyll
+document per ABI (`/arch/<abi>/`), one per syscall name (`/call/<name>/`) and an
+index (`/call/`), in English and again under `/tr/` in Turkish. Everything on
+them comes from `public/data/` and `notes.mjs`: the ABI pages show the latest
+release, and a syscall page also lists which bundled releases define the name.
+A name that only an earlier release defines, or that is only a reserved slot,
+gets a page that says so. The output (`public/arch/`, `public/call/`,
+`public/tr/`) is build output like `public/api/`: ignored by Git, left out of
+the source archive, and rewritten on every run.
+
+Each page is its own canonical URL with `hreflang` links to its translation and a
+`BreadcrumbList`. The sitemap lists the application root, the errno, signal and
+ioctl pages and every generated page; views inside the application
+(`?arch=…#sys-…`) remain states of the root document and are not listed.
+Generated pages carry no `lastmod`, because re-importing a release renews the
+snapshot date without changing most of them. `check_site.py` verifies that the
+built pages match the data, that their links resolve and that the sitemap lists
+exactly the canonical URLs.
 
 ## Navigation and ABI reference notes
 

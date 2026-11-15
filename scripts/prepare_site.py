@@ -7,9 +7,14 @@ import json
 import os
 from pathlib import Path
 import re
+import sys
 import tarfile
 import tempfile
 from urllib.parse import urlencode
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import static_pages  # scripts/static_pages.py, beside this file
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'public'
@@ -153,6 +158,8 @@ def prepare():
                 })
     search_entries.extend(abi_search_entries(abi))
     (PUBLIC / 'search.json').write_text(json.dumps(search_entries, indent=2, ensure_ascii=False) + '\n')
+    # Crawlable pages per ABI and per syscall name; build output like api/, never committed.
+    pages = static_pages.generate(PUBLIC, notes)
 
     paths = [ROOT / p for p in ROOT_FILES]
     paths.append(ROOT / 'docs/reference-preview.png')
@@ -166,6 +173,9 @@ def prepare():
         if not path.is_file() or path.is_symlink():
             continue
         if any(p in {'__pycache__', 'downloads'} or p.startswith('.') and p not in {'.github', '.gitignore', '.ruby-version'} for p in relative.parts):
+            continue
+        # Reproducible from scripts/static_pages.py and the bundled data.
+        if relative.parts[0] == 'public' and relative.parts[1] in static_pages.OUTPUT_DIRS:
             continue
         if path.suffix in {'.pyc', '.pem', '.key'} or path.name.startswith('.env'):
             continue
@@ -186,7 +196,7 @@ def prepare():
                     info.mode = 0o644
                     archive.addfile(info, io.BytesIO(body))
     os.replace(temporary, ARCHIVE)
-    print('Prepared static API and source archive ({} files, {} bytes).'.format(len(selected), ARCHIVE.stat().st_size))
+    print('Prepared static API, {} static pages and source archive ({} files, {} bytes).'.format(pages['pages'], len(selected), ARCHIVE.stat().st_size))
 
 
 if __name__ == '__main__':

@@ -17,7 +17,8 @@ async function openPage(t, options = {}) {
   await page.route('https://cloud.umami.is/**', route => route.abort());
   await page.route(`${base}**`, route => {
     const pathname = new URL(route.request().url()).pathname.slice(new URL(base).pathname.length);
-    return route.fulfill({ path: fileURLToPath(new URL(pathname || 'index.html', site)) });
+    // A directory address is its index document, as on the static host.
+    return route.fulfill({ path: fileURLToPath(new URL(pathname.replace(/(^|\/)$/, '$1index.html'), site)) });
   });
   return page;
 }
@@ -368,4 +369,63 @@ test('a removed detail fragment survives hash navigation while comparison data i
   await received;
   await page.locator('[id="detail-v1.0:16:chown"]').waitFor();
   assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v1.0:16:chown');
+});
+
+test('an open call names the tab and links to its permanent page in the reader\'s language', async t => {
+  const page = await openPage(t);
+  await page.goto(`${base}?arch=x64&kernel=v7.3&lang=en`);
+  await page.waitForFunction(() => document.title === 'x86-64 · Linux 7.3 · System Call Reference');
+  await page.locator('[data-call="v7.3:257:openat"]').click();
+  assert.equal(await page.title(), 'openat (257) · x86-64 · Linux 7.3 · System Call Reference');
+  const permanent = page.locator('.detail-row').getByRole('link', { name: 'Permanent page for this call (all ABIs)' });
+  assert.equal(await permanent.getAttribute('href'), '/syscall-test/call/openat/');
+  await page.locator('[data-call="v7.3:257:openat"]').click();
+  assert.equal(await page.title(), 'x86-64 · Linux 7.3 · System Call Reference');
+
+  // A linked detail is named as soon as its table arrives, in the selected language and ABI.
+  await page.goto(`${base}?arch=arm64&kernel=v7.3&lang=tr#sys-v7.3%3A56%3Aopenat`);
+  await page.locator('.detail-row').waitFor();
+  assert.equal(await page.title(), 'openat (56) · AArch64 · Linux 7.3 · Sistem Çağrıları Referansı');
+  assert.equal(await page.locator('.detail-row a[href$="/tr/call/openat/"]').count(), 1);
+  await page.goto(`${base}?lang=tr`);
+  await page.waitForFunction(() => document.querySelector('[data-static-page="call/"]').getAttribute('href') === '/syscall-test/tr/call/');
+  assert.equal(await page.locator('[data-static-page="arch/arm64/"]').getAttribute('href'), '/syscall-test/tr/arch/arm64/');
+});
+
+test('generated pages are readable without JavaScript and fit a phone', async t => {
+  const page = await openPage(t, { javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  await page.goto(base);
+  // Crawlable links: present in the served HTML, not rendered by the application.
+  assert.equal(await page.locator('.static-links a[href="/syscall-test/arch/x64/"]').count(), 1);
+  assert.equal(await page.locator('.static-links a[href="/syscall-test/call/"]').count(), 1);
+  assert.equal(await page.locator('.static-links a').count(), 13);
+
+  await page.goto(`${base}call/openat/`);
+  assert.equal(await page.title(), 'openat — Linux system call numbers by architecture (Linux 7.3)');
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://zaryob.github.io/syscall/call/openat/');
+  assert.equal(await page.locator('link[hreflang="tr"]').getAttribute('href'), 'https://zaryob.github.io/syscall/tr/call/openat/');
+  assert.equal(await page.locator('link[hreflang="x-default"]').getAttribute('href'), 'https://zaryob.github.io/syscall/call/openat/');
+  const crumbs = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+  assert.equal(crumbs['@type'], 'BreadcrumbList');
+  assert.deepEqual(crumbs.itemListElement.map(item => item.item), ['https://zaryob.github.io/syscall/', 'https://zaryob.github.io/syscall/call/', 'https://zaryob.github.io/syscall/call/openat/']);
+  const row = page.locator('.static-numbers tbody tr', { has: page.getByRole('link', { name: 'AArch64', exact: true }) });
+  assert.deepEqual((await row.locator('td').allTextContents()).slice(0, 2), ['56', '0x38']);
+  // The wide table scrolls inside its own region; the page itself does not.
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  assert.equal(await page.locator('.static-scroll').first().evaluate(node => node.scrollWidth > node.clientWidth), true);
+
+  await page.goto(`${base}tr/arch/arm64/`);
+  assert.equal(await page.locator('html').getAttribute('lang'), 'tr');
+  assert.equal(await page.locator('h1').textContent(), 'AArch64 Linux sistem çağrısı tablosu Linux 7.3');
+  assert.equal(await page.locator('tbody th#openat a').getAttribute('href'), '../../../tr/call/openat/');
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+});
+
+test('choosing a language on a generated page opens its translation', async t => {
+  const page = await openPage(t);
+  await page.goto(`${base}call/openat/`);
+  await page.locator('#console-language-select').selectOption('tr');
+  await page.locator('html[lang="tr"]').waitFor({ state: 'attached' });
+  assert.equal(new URL(page.url()).pathname, '/syscall-test/tr/call/openat/');
+  assert.equal(await page.locator('h1 code').textContent(), 'openat');
 });

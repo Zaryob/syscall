@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- SPDX-License-Identifier: GPL-2.0-only -->
-<html lang="en">
+<html lang="{{ page.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +14,10 @@
   {% assign page_canonical = 'https://zaryob.github.io/syscall' | append: page.url %}
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ page_canonical }}">
+  {% comment %}Generated pages (scripts/static_pages.py) exist once per language and name each other.{% endcomment %}
+  {% for alternate in page.alternates %}<link rel="alternate" hreflang="{{ alternate.lang }}" href="https://zaryob.github.io/syscall{{ alternate.url }}">
+  {% if alternate.lang == 'en' %}<link rel="alternate" hreflang="x-default" href="https://zaryob.github.io/syscall{{ alternate.url }}">
+  {% endif %}{% endfor %}
   <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
   <meta property="og:description" content="{{ page_description | escape }}">
   <meta property="og:url" content="{{ page_canonical }}">
@@ -25,6 +29,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://zaryob.github.io/syscall/assets/syscall-social.png">
   <meta name="twitter:image:alt" content="Linux System Call Reference: syscall numbers, C signatures, and ABI conventions">
+  {% if page.breadcrumbs %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{% for crumb in page.breadcrumbs %}
+      { "@type": "ListItem", "position": {{ forloop.index }}, "name": {{ crumb.name | jsonify }}, "item": {{ 'https://zaryob.github.io/syscall' | append: crumb.url | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}
+    ]
+  }
+  </script>
+  {% else %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,11 +56,18 @@
     }
   }
   </script>
+  {% endif %}
   <title>{{ page.title | default: site.title | escape }}</title>
   <link rel="stylesheet" href="{{ '/assets/console/theme.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/console/syscall.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/static-pages.css' | relative_url }}">
+  {% if page.static_page %}
+  {% comment %}Plain HTML pages: readable without JavaScript; the script only translates the footer notice.{% endcomment %}
+  <script type="module" src="{{ '/static-page.js' | relative_url }}"></script>
+  {% else %}
   {% assign page_script = page.script | default: 'app.js' %}
   <script type="module" src="{{ '/' | append: page_script | relative_url }}"></script>
+  {% endif %}
 </head>
 <body class="console-site console-syscall">
   <a class="skip-link" href="#main"><span data-i18n="Skip to content">Skip to content</span></a>
@@ -53,6 +75,7 @@
   <main id="main" tabindex="-1">
 {{ content }}
   </main>
+  {% include console-suite.html %}
   <footer><p><span data-i18n="Free software. Plain HTML. Useful data.">Free software. Plain HTML. Useful data.</span></p><p><a href="{{ '/licensing.txt' | relative_url }}"><span data-i18n="License &amp; source notices">License &amp; source notices</span></a> · <a href="{{ '/licenses/GPL-2.0-only.txt' | relative_url }}"><span data-i18n="GPL version 2">GPL version 2</span></a> · <a href="{{ '/downloads/syscall-reference-source.tar.gz' | relative_url }}"><span data-i18n="Download source">Download source</span></a> · <a href="{{ '/licenses/Linux-syscall-note.txt' | relative_url }}"><span data-i18n="Linux syscall exception">Linux syscall exception</span></a></p><p><span data-i18n="Linux source:">Linux source:</span> <a href="https://www.kernel.org/">kernel.org</a> · <span data-i18n="Manual pages:">Manual pages:</span> <a href="https://www.kernel.org/doc/man-pages/">Linux man-pages project</a> · <a href="#main"><span data-i18n="Back to top ↑">Back to top ↑</span></a></p><p class="small" data-syscall-copy="analytics">This page loads the third-party Umami Cloud script and sends visit analytics. Syscall search runs in your browser. <a href="https://docs.umami.is/docs/collect-data">Umami data collection</a>.</p>
 </footer>
 </body>

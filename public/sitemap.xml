@@ -6,7 +6,8 @@ permalink: /sitemap.xml
 {% assign site_origin = site.url | default: 'https://zaryob.github.io' %}
 {% assign site_root = '/' | relative_url | prepend: site_origin %}
 {% comment %}
-Each page has one canonical URL and only that URL is listed. Views inside a
+Each page has one canonical URL and only that URL is listed: the application,
+its sections, and the generated pages per ABI and per syscall name. Views inside a
 page (?arch=, ?q=, ?lang=) are client-side states of it and would contradict
 the canonical link in the layout.
 {% endcomment %}
@@ -19,11 +20,16 @@ the canonical link in the layout.
   </url>
   {% assign listed_pages = site.pages | where: 'sitemap', true | sort: 'url' %}
   {% for listed in listed_pages %}
+  {% if listed.static_page %}
+  {% comment %}Generated per ABI and per syscall name. No lastmod: a re-import renews the snapshot date without changing most of these pages.{% endcomment %}
+  <url><loc>{{ listed.url | relative_url | prepend: site_origin }}</loc></url>
+  {% else %}
   <url>
     <loc>{{ listed.url | relative_url | prepend: site_origin }}</loc>
     {% if site.data.syscall_release.abi_updated %}<lastmod>{{ site.data.syscall_release.abi_updated }}</lastmod>{% endif %}
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  {% endif %}
   {% endfor %}
 </urlset>

@@ -21,6 +21,14 @@ title: Linux System Call Reference
       <ul id="architecture-links" class="architecture-links"></ul>
       <p id="library-error" class="error" role="alert" hidden></p>
       <noscript><p><a href="{{ latest_table | relative_url }}"><span data-i18n="the x86-64 table as JSON">the x86-64 table as JSON</span></a></p></noscript>
+      {% comment %}Crawlable links to the pages scripts/static_pages.py generates; app.js points them at the reader's language.{% endcomment %}
+      <nav class="static-links" aria-labelledby="static-links-title">
+        <strong id="static-links-title" data-syscall-copy="staticPages">Plain HTML tables for the newest bundled release, one page per ABI:</strong>
+        <ul>{% for arch in site.data.syscall_release.architectures %}
+          <li><a data-static-page="arch/{{ arch.id }}/" href="{{ '/arch/' | append: arch.id | append: '/' | relative_url }}">{{ arch.label }}</a></li>{% endfor %}
+          <li><a data-static-page="call/" href="{{ '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">All system calls A–Z</span></a></li>
+        </ul>
+      </nav>
       <nav class="reference-links" aria-label="Reference sections" data-i18n-aria-label="Reference sections">
         <a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a>
         <a href="#api">JSON API</a>

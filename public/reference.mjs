@@ -10,6 +10,9 @@ export const releaseLabel = version => version.slice(1) + (['v6.18', 'v6.12', 'v
 export function referenceCopy(language) {
   return language === 'tr' ? {
     notCatalogued: 'Listelenmedi',
+    staticPages: 'Her ABI için düz HTML tablosu (en yeni kayıtlı sürüm):',
+    staticIndex: 'A’dan Z’ye tüm sistem çağrıları',
+    staticCall: 'Bu çağrının kalıcı sayfası (tüm ABI’ler)',
     secondResult: 'DÖNÜŞ2',
     clobber: 'Bozulan',
     configuration: 'Bu ABI için bildirimi mimarinin Kconfig seçimleri belirler:',
@@ -21,6 +24,9 @@ export function referenceCopy(language) {
     analytics: 'Bu sayfa üçüncü taraf Umami Cloud betiğini yükler ve ziyaret analitiği gönderir. Sistem çağrısı araması tarayıcıda yapılır. <a href="https://docs.umami.is/docs/collect-data">Umami veri toplama açıklaması</a>.',
   } : {
     notCatalogued: 'Not catalogued',
+    staticPages: 'Plain HTML tables for the newest bundled release, one page per ABI:',
+    staticIndex: 'All system calls A–Z',
+    staticCall: 'Permanent page for this call (all ABIs)',
     secondResult: 'RET2',
     clobber: 'Clobber',
     configuration: 'The architecture’s Kconfig selections determine the declaration for this ABI:',
