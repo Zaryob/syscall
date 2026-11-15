@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readRoute, routeURL } from '../public/navigation.mjs';
 
-test('URL round trip preserves bilingual search, view, flags and removed detail identity under a baseurl', () => {
+test('URL round trip preserves bilingual search, flags and removed detail identity under a baseurl', () => {
   const address = 'https://example.org/syscall-test/?lang=tr&arch=x86&kernel=v7.3&compare=v1.0&q=dosya+tanıtıcısı&hex=1&all=1&view=args#sys-v1.0%3A16%3Achown';
   const route = readRoute(address);
   assert.equal(route.tableView, true);
@@ -19,6 +19,15 @@ test('history parsing resets omitted state and tolerates legacy and malformed fr
   assert.equal(readRoute('https://example.org/#sys-%FF').state.expanded, '');
   assert.equal(readRoute('https://example.org/?arch=x64#conventions').tableView, false);
   assert.deepEqual(readRoute('https://example.org/').state, {
-    arch:'x64', kernel:null, compare:'', query:'', hex:false, all:false, view:'summary', expanded:'',
+    arch:'x64', kernel:null, compare:'', query:'', hex:false, all:false, expanded:'',
   });
+});
+
+test('old overview and argument links converge to the single argument table', () => {
+  for (const view of ['summary','args']) {
+    const address = `https://example.org/?arch=x64&view=${view}`;
+    const route = readRoute(address);
+    assert.equal(route.tableView, true);
+    assert.equal(new URL(routeURL(address,'/',route.state),address).searchParams.has('view'),false);
+  }
 });

@@ -37,10 +37,7 @@ title: Linux System Call Reference
       <p id="library-error" class="error" role="alert" hidden></p>
       <noscript><p><a href="{{ latest_table | relative_url }}"><span data-i18n="the x86-64 table as JSON">the x86-64 table as JSON</span></a></p></noscript>
       {% comment %}Crawlable links to the pages scripts/static_pages.py generates; app.js points them at the reader's language.{% endcomment %}
-      <nav class="static-links" aria-labelledby="static-links-title">
-        <strong id="static-links-title" data-syscall-copy="staticPages">Plain HTML tables for the newest bundled release, one page per ABI:</strong>
-        <p><a data-static-page="call/" href="{{ '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">All system calls A–Z</span></a></p>
-      </nav>
+      <nav class="static-links" aria-label="System call index"><a data-static-page="call/" href="{{ '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">All system calls A–Z</span></a></nav>
       <nav class="reference-links" aria-label="Reference sections" data-i18n-aria-label="Reference sections">
         <a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a>
         <a href="#api">JSON API</a>
@@ -69,7 +66,7 @@ title: Linux System Call Reference
 
     <section id="api" tabindex="-1" class="documentation" aria-labelledby="api-title">
       <div class="doc-heading">
-        <h2 id="api-title"><span data-i18n="A reference for programs, too">A reference for programs, too</span></h2>
+        <h2 id="api-title" data-syscall-copy="apiTitle">JSON reference</h2>
         <a href="#architectures"><span data-i18n="Architectures">Architectures</span> ↑</a>
       </div>
       <p><span data-i18n="The same data is published as static JSON files. No account, key, or running API server is needed.">The same data is published as static JSON files. No account, key, or running API server is needed.</span></p>
@@ -88,17 +85,10 @@ title: Linux System Call Reference
 
     <section id="sources" tabindex="-1" class="documentation" aria-labelledby="sources-title">
       <div class="doc-heading">
-        <h2 id="sources-title"><span data-i18n="About this little reference">About this little reference</span></h2>
+        <h2 id="sources-title" data-syscall-copy="sourcesTitle">Sources and method</h2>
         <a href="#architectures"><span data-i18n="Architectures">Architectures</span> ↑</a>
       </div>
-      <nav class="reference-links" aria-label="Reference sections" data-i18n-aria-label="Reference sections">
-        <a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a>
-        <a href="#api">JSON API</a>
-        <a href="{{ '/errno/' | relative_url }}"><span data-i18n="errno values">errno values</span></a>
-        <a href="{{ '/signals/' | relative_url }}"><span data-i18n="Signals">Signals</span></a>
-        <a href="{{ '/ioctl/' | relative_url }}"><span data-i18n="ioctl requests">ioctl requests</span></a>
-      </nav>
-      <p><span data-i18n="The tables are generated from">The tables are generated from</span> <a href="https://github.com/torvalds/linux"><span data-i18n="the Linux kernel source">the Linux kernel source</span></a><span data-i18n=". Architecture-specific">. Architecture-specific</span> <code>.tbl</code> <span data-i18n="files supply numbers and entry points.">files supply numbers and entry points.</span> <code>include/linux/syscalls.h</code>, <code>compat.h</code><span data-i18n=", and architecture headers supply C declarations. ABI selection follows the kernel’s">, and architecture headers supply C declarations. ABI selection follows the kernel’s</span> <code>Makefile.syscalls</code><span data-i18n=". Register conventions are documented in">. Register conventions are documented in</span> <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">Linux man-pages</a>.</p>
+      <div class="source-intro" data-syscall-copy="sourceIntro"><p>The tables are generated from the <a href="https://github.com/torvalds/linux">Linux kernel source</a>. Architecture-specific <code>.tbl</code> files supply call numbers and entry points.</p><p>C declarations come from <code>include/linux/syscalls.h</code>, <code>compat.h</code>, and architecture headers. ABI selection follows the kernel’s <code>Makefile.syscalls</code>. Register conventions are documented in <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">Linux man-pages</a>.</p></div>
       <details class="source-notes"><summary data-syscall-copy="sourceDetails">Scope and limits of these snapshots</summary>      <p><span data-i18n="The short explanations are maintained separately from the kernel tables. They describe typical uses; follow the manual and the selected kernel source for flags, limits and ABI differences.">The short explanations are maintained separately from the kernel tables. They describe typical uses; follow the manual and the selected kernel source for flags, limits and ABI differences.</span></p>
       <p><span data-i18n="The details panel shows arguments as a table and offers a downloadable C template. Call numbers and declarations come from the selected kernel snapshot; valid pointers, flags and object lifetimes cannot be inferred from prototypes alone. Templates for write and getpid provide hand-written usage examples; other supported 64-bit calls get a TODO skeleton. Unresolved signatures, unimplemented slots and 32-bit ABIs do not get speculative code.">The details panel shows arguments as a table and offers a downloadable C template. Call numbers and declarations come from the selected kernel snapshot; valid pointers, flags and object lifetimes cannot be inferred from prototypes alone. Templates for write and getpid provide hand-written usage examples; other supported 64-bit calls get a TODO skeleton. Unresolved signatures, unimplemented slots and 32-bit ABIs do not get speculative code.</span></p>
       <p><span data-i18n="Each release is a separate snapshot. Comparison marks differences between those snapshots; it does not claim the exact release in which a call first appeared. Configuration-dependent calls and assembly-only signatures require consulting the linked source. Related calls can share a manual page; some entries have no manual page.">Each release is a separate snapshot. Comparison marks differences between those snapshots; it does not claim the exact release in which a call first appeared. Configuration-dependent calls and assembly-only signatures require consulting the linked source. Related calls can share a manual page; some entries have no manual page.</span></p>
@@ -123,15 +113,7 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
         <label class="release-field"><span data-i18n="Architecture">Architecture</span> <span class="console-select"><select id="architecture-picker" disabled aria-label="Architecture" data-i18n-aria-label="Architecture"></select></span></label>
         <label class="release-field"><span data-i18n="Kernel release">Kernel release</span> <span class="console-select"><select id="kernel" aria-describedby="release-help" disabled aria-label="Kernel release" data-i18n-aria-label="Kernel release"></select></span></label>
       </div>
-      <div class="view-bar">
-        <div id="table-views" class="view-switch" role="group" aria-label="Table view" data-i18n-aria-label="Table view">
-          <button type="button" data-view="summary" aria-pressed="true" aria-controls="syscall-table"><span data-i18n="Overview">Overview</span></button>
-          <button type="button" data-view="args" aria-pressed="false" aria-controls="syscall-table"><span data-i18n="Arguments">Arguments</span></button>
-        </div>
-        <div class="table-actions">
-          <a id="download" hidden href="{{ '/data/manifest.json' | relative_url }}" download><span data-i18n="Download JSON ↓">Download JSON ↓</span></a>
-        </div>
-      </div>
+      <div class="table-actions"><p class="syntax-legend" data-syscall-copy="syntaxLegend">C types · parameters</p><a id="download" hidden href="{{ '/data/manifest.json' | relative_url }}" download><span data-i18n="Download JSON ↓">Download JSON ↓</span></a></div>
       <details id="advanced-options" class="advanced-options"><summary data-syscall-copy="advancedOptions">More filters and release notes</summary><div class="advanced-options__body"><label class="release-field"><span data-i18n="Compare with">Compare with</span> <span class="console-select"><select id="compare" aria-describedby="compare-help" disabled aria-label="Compare with" data-i18n-aria-label="Compare with"><option value="" data-i18n="None">None</option></select></span></label>
       <p id="compare-help" class="small" data-syscall-copy="compareHelp" hidden></p>
       <p id="release-help" class="small" data-syscall-copy="releaseHelp"></p>
@@ -140,8 +122,8 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
         <label><input type="checkbox" id="hex"> <span data-i18n="Hex numbers">Hex numbers</span></label>
         <label><input type="checkbox" id="show-unimplemented"> <span data-i18n="Include unimplemented">Include unimplemented</span></label>
       </div>
-      </div></details>
       <div id="convention-strip" class="convention-strip" hidden></div>
+      </div></details>
       <div class="table-toolbar">
         <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">Loading…</span></p>
         <span id="scroll-hint" class="small" hidden><span data-i18n="Scroll for ARG1–ARG6 →">Scroll for ARG1–ARG6 →</span></span>
@@ -154,12 +136,12 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
       <p id="abi-note" class="notice" hidden><span data-i18n="Arguments below are C prototype parameters, not a register-by-register assembly recipe. On 32-bit ABIs, 64-bit values may occupy multiple registers and require alignment; assembly wrappers may reorder them. See">Arguments below are C prototype parameters, not a register-by-register assembly recipe. On 32-bit ABIs, 64-bit values may occupy multiple registers and require alignment; assembly wrappers may reorder them. See</span> <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">syscall(2)</a>.</p>
       <div id="error" class="error" role="alert" hidden></div>
       <div id="table-scroll" class="table-scroll" tabindex="0" role="region" aria-label="System call table; scroll horizontally on narrow screens" data-i18n-aria-label="System call table; scroll horizontally on narrow screens">
-        <table id="syscall-table" data-view="summary">
+        <table id="syscall-table" data-view="args">
           <caption class="console-sr-only"><span data-i18n="System calls for the selected architecture and kernel release">System calls for the selected architecture and kernel release</span></caption>
-          <thead><tr><th scope="col" aria-sort="ascending"><button id="sort-number"><span data-i18n="No.">No.</span> <span aria-hidden="true">↑</span></button></th><th scope="col"><button id="sort-name"><span data-i18n="System call">System call</span></button></th><th scope="col" class="summary-heading"><span data-i18n="What it does">What it does</span></th><th scope="col" class="argument-heading" hidden>ARG1<code id="arg-register-0"></code></th><th scope="col" class="argument-heading" hidden>ARG2<code id="arg-register-1"></code></th><th scope="col" class="argument-heading" hidden>ARG3<code id="arg-register-2"></code></th><th scope="col" class="argument-heading" hidden>ARG4<code id="arg-register-3"></code></th><th scope="col" class="argument-heading" hidden>ARG5<code id="arg-register-4"></code></th><th scope="col" class="argument-heading" hidden>ARG6<code id="arg-register-5"></code></th></tr></thead>
+          <thead><tr><th scope="col" aria-sort="ascending"><button id="sort-number"><span data-i18n="No.">No.</span> <span aria-hidden="true">↑</span></button></th><th scope="col"><button id="sort-name"><span data-i18n="System call">System call</span></button></th><th scope="col" class="argument-heading">ARG1<code id="arg-register-0"></code></th><th scope="col" class="argument-heading">ARG2<code id="arg-register-1"></code></th><th scope="col" class="argument-heading">ARG3<code id="arg-register-2"></code></th><th scope="col" class="argument-heading">ARG4<code id="arg-register-3"></code></th><th scope="col" class="argument-heading">ARG5<code id="arg-register-4"></code></th><th scope="col" class="argument-heading">ARG6<code id="arg-register-5"></code></th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
       <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No system calls match this search.">No system calls match this search.</span> <button type="button" id="reset-search"><span data-i18n="Clear search">Clear search</span></button></p>
-      <p id="args-footnote" class="table-footnote" hidden><span data-i18n="ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.">ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.</span></p>
+      <p id="args-footnote" class="table-footnote"><span data-i18n="ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.">ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.</span></p>
     </section>

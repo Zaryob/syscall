@@ -13,7 +13,7 @@ export function readRoute(address) {
     state: {
       arch: p.get('arch') || 'x64', kernel: p.get('kernel'), compare: p.get('compare') || '',
       query: p.get('q') || p.get('highlight') || '', hex: p.get('hex') === '1', all: p.get('all') === '1',
-      view: p.get('view') === 'args' ? 'args' : 'summary', expanded,
+      expanded,
     },
   };
 }
@@ -24,7 +24,6 @@ export function routeURL(address, root, state, updateDetail = false) {
   if (url.searchParams.has('lang')) p.set('lang', url.searchParams.get('lang'));
   if (state.compare) p.set('compare', state.compare);
   if (state.query) p.set('q', state.query);
-  if (state.view === 'args') p.set('view', 'args');
   if (state.hex) p.set('hex', '1');
   if (state.all) p.set('all', '1');
   const hash = updateDetail || url.hash.startsWith('#sys-')

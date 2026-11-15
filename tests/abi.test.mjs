@@ -171,7 +171,7 @@ test('both languages define the same copy, and every UI key of the new pages is 
   for (const match of script.matchAll(/\bt\('([^']+)'/g)) used.add(match[1]);
   assert.ok(used.size > 40);
   for (const key of used) assert.ok(translated.has(key), `Missing Turkish UI string: ${key}`);
-  // The landing page leads to every section from both of its section navigations.
+  // The landing page leads to every section once, from the navigation under the architecture list.
   const landing = await readFile(file('index.html'), 'utf8');
-  for (const section of ['errno', 'signals', 'ioctl']) assert.equal(landing.split(`{{ '/${section}/' | relative_url }}`).length - 1, 2, section);
+  for (const section of ['errno', 'signals', 'ioctl']) assert.equal(landing.split(`{{ '/${section}/' | relative_url }}`).length - 1, 1, section);
 });

@@ -5,6 +5,7 @@ import { buildExample } from './examples.mjs';
 import { syscallNote } from './notes.mjs';
 import { readRoute, routeURL } from './navigation.mjs';
 import { referenceCopy, secondResult, releaseLabel } from './reference.mjs';
+import { formatCArgument, formatCDeclaration } from './c-syntax.mjs';
 
 const { t, apply: applyLanguage } = window.ZaryobI18n;
 const $ = id => document.getElementById(id);
@@ -114,23 +115,10 @@ function renderReferenceCopy() {
     node.innerHTML = copy[node.dataset.syscallCopy];
   });
 }
-function renderView() {
-  const args = state.view === 'args';
-  $('syscall-table').dataset.view = state.view;
-  $('syscall-table').querySelectorAll('.argument-heading').forEach(th => { th.hidden = !args; });
-  $('syscall-table').querySelector('.summary-heading').hidden = args;
-  $('table-views').querySelectorAll('button').forEach(button => {
-    button.setAttribute('aria-pressed', String(button.dataset.view === state.view));
-  });
-  $('scroll-hint').hidden = $('args-footnote').hidden = !args;
-  $('convention-strip').hidden = !args || !snapshot;
-  $('abi-note').hidden = !args || snapshot?.calling_convention.bits !== 32;
-}
-function setView(view) {
-  if (state.view === view) return;
-  state.view = view;
-  $('table-scroll').scrollLeft = 0;
-  renderRows(); saveURL(false, 'push');
+function renderConventions() {
+  $('scroll-hint').hidden = !snapshot;
+  $('convention-strip').hidden = !snapshot;
+  $('abi-note').hidden = snapshot?.calling_convention.bits !== 32;
 }
 function updateSelects() {
   const picker = $('architecture-picker');
@@ -184,7 +172,7 @@ function detailHTML(row, id) {
   const data = row._change === 'removed' ? previous : snapshot;
   const c = data.calling_convention;
   const regInfo = row.arguments === null ? '<p class="muted"><span data-i18n="Argument details are not resolved in the imported headers.">Argument details are not resolved in the imported headers.</span></p>' : row.arguments.length
-    ? `<table class="argument-table"><caption>${esc(t('Arguments to {name}', { name: row.name }))}</caption><thead><tr><th scope="col"><span data-i18n="Position">Position</span></th><th scope="col"><span data-i18n="Kernel C declaration">Kernel C declaration</span></th><th scope="col"><span data-i18n="Register">Register</span></th></tr></thead><tbody>${row.arguments.map((arg, i) => `<tr><th scope="row">ARG${i + 1}</th><td><code>${esc(arg)}</code></td><td><code>${c.bits === 64 ? esc(c.registers[i]) : t("ABI-dependent")}</code></td></tr>`).join('')}</tbody></table>${c.bits === 32 ? '<p class="small"><span data-i18n="These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.">These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.</span></p>' : ''}` : '<p class="muted"><span data-i18n="This syscall has no C arguments.">This syscall has no C arguments.</span></p>';
+    ? `<table class="argument-table"><caption>${esc(t('Arguments to {name}', { name: row.name }))}</caption><thead><tr><th scope="col"><span data-i18n="Position">Position</span></th><th scope="col"><span data-i18n="Kernel C declaration">Kernel C declaration</span></th><th scope="col"><span data-i18n="Register">Register</span></th></tr></thead><tbody>${row.arguments.map((arg, i) => `<tr><th scope="row">ARG${i + 1}</th><td><code>${formatCArgument(arg)}</code></td><td><code>${c.bits === 64 ? esc(c.registers[i]) : t("ABI-dependent")}</code></td></tr>`).join('')}</tbody></table>${c.bits === 32 ? '<p class="small"><span data-i18n="These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.">These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.</span></p>' : ''}` : '<p class="muted"><span data-i18n="This syscall has no C arguments.">This syscall has no C arguments.</span></p>';
   const example = buildExample(row, data);
   const exampleHTML = example.code
     ? `<details class="example-panel"><summary>${example.kind === 'example' ? t("C usage example") : t("Generate a C skeleton")}</summary><p>${esc(t(example.reason))}</p><pre><code>${esc(example.code)}</code></pre><p><button class="text-button" data-example="${row.number}" data-kernel="${kernel}">${esc(t('Download C {kind}', { kind: t(example.kind === 'example' ? 'example' : 'skeleton') }))}</button> · <a href="https://man7.org/linux/man-pages/man2/syscall.2.html"><span data-i18n="About the libc syscall() interface">About the libc syscall() interface</span></a></p></details>`
@@ -198,7 +186,7 @@ function detailHTML(row, id) {
     ? `<a href="${esc(manual)}">${esc(t('Read {name}({section})', { name: manualName, section: manualSection }))}</a>`
     : `<span class="muted">${window.ZaryobI18n.language === 'tr' ? 'Bu girdi için man sayfası bağlantısı yok.' : 'No manual link is available for this entry.'}</span>`;
   const signatureHTML = !signature ? `<p class="muted">${esc(t(unresolvedLabels[row.signature_status] ?? 'C declaration not resolved in the imported headers.'))}</p>`
-    : `<div class="signature console-declaration"><code>${esc(signature)}</code><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><span class="console-sr-only" role="status"></span></div>`;
+    : `<div class="signature console-declaration"><code>${formatCDeclaration(signature)}</code><button type="button" data-copy-signature aria-label="${esc(t('Copy C declaration'))}">${esc(t('Copy'))}</button><span class="console-sr-only" role="status"></span></div>`;
   const raw = datasetPath(kernel, `${state.arch}.json`);
   const before = row._before;
   const permalink = referenceURL({ arch: state.arch, kernel, ...(row.status === 'unimplemented' ? { all: '1' } : {}) }, rowHash(id));
@@ -217,7 +205,7 @@ function detailHTML(row, id) {
     row.oabi_entry && `${esc(t('OABI entry point'))} <code>${esc(row.oabi_entry)}</code>`,
     row.noreturn && esc(t('This syscall does not return.')),
   ].filter(Boolean);
-  return `<tr class="detail-row" id="detail-${esc(id)}"><td colspan="${state.view === 'args' ? 8 : 3}">
+  return `<tr class="detail-row" id="detail-${esc(id)}"><td colspan="8">
     <div class="detail-content">
       <h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3>
       <p class="detail-description">${description(row, kernel)}</p>
@@ -273,7 +261,7 @@ function highlightMatch(text, q) {
 }
 
 function renderRows() {
-  renderView();
+  renderConventions();
   if (!snapshot) return;
   if (comparison) {
     $('diff-note').textContent = t('Compared with Linux {version}: {added} added, {removed} removed, {changed} changed entries. Changes include reserved or unimplemented slots. Unchanged entries remain visible for context.', { version: state.compare.slice(1), added: comparison.added.length, removed: comparison.removed.length, changed: comparison.changed.length });
@@ -285,14 +273,11 @@ function renderRows() {
   rows.sort((a, b) => state.direction * (state.sort === 'number' ? a.number - b.number : a.name.localeCompare(b.name)));
   $('rows').innerHTML = rows.map(row => {
     const id = esc(rowId(row));
-    const args = state.view === 'summary' ? '' : row.arguments === null ? '<td colspan="6" class="muted"><span data-i18n="not resolved">not resolved</span></td>' : Array.from({ length: 6 }, (_, i) => `<td class="arg-cell">${row.arguments[i] ? `<code>${esc(row.arguments[i])}</code>` : '<span class="muted" aria-label="no argument" data-i18n-aria-label="no argument">—</span>'}</td>`).join('');
+    const args = row.arguments === null ? '<td colspan="6" class="muted"><span data-i18n="not resolved">not resolved</span></td>' : Array.from({ length: 6 }, (_, i) => `<td class="arg-cell">${row.arguments[i] ? `<code>${formatCArgument(row.arguments[i])}</code>` : '<span class="muted" aria-label="no argument" data-i18n-aria-label="no argument">—</span>'}</td>`).join('');
     const badge = row._change ? `<span class="badge ${row._change}">${esc(t(row._change))}</span>` : row.status === 'unimplemented' ? '<span class="badge unimplemented"><span data-i18n="unimplemented">unimplemented</span></span>' : '';
-    const trailing = state.view === 'args'
-      ? args
-      : `<td class="row-description${noteFor(row) ? '' : ' muted'}">${description(row, row._change === 'removed' ? state.compare : state.kernel)}</td>`;
     return `<tr class="syscall-row" id="sys-${id}"><td class="call-number">${nr(row.number)}</td>
       <th scope="row" class="call-identity"><button class="call-name" data-call="${id}" aria-expanded="false">
-        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button>${badge}</th>${trailing}</tr>`;
+        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button>${badge}</th>${args}</tr>`;
   }).join('');
   $('results').textContent = t('{count} of {total} entries', { count: rows.length, total: eligible.length });
   applyLanguage($('rows'));
@@ -346,7 +331,7 @@ async function refresh(historyMode = 'replace') {
   $('syscall-table').setAttribute('aria-busy', 'true');
   // Remove the previous table immediately so a failed load cannot masquerade as the selected release.
   snapshot = previous = null;
-  renderView();
+  renderConventions();
   $('rows').replaceChildren();
   $('empty').hidden = true;
   $('diff-note').hidden = true;
@@ -422,10 +407,6 @@ $('retry-compare').addEventListener('click', () => {
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
 });
-$('table-views').addEventListener('click', event => {
-  const button = event.target.closest('[data-view]');
-  if (button) setView(button.dataset.view);
-});
 $('search').addEventListener('input', () => {
   state.query = $('search').value; state.expanded = '';
   renderRows(); saveURL();
@@ -487,7 +468,7 @@ function renderLibrary() {
     return [arch.id, esc(referenceURL({ arch: arch.id, kernel }))];
   }));
   $('architecture-links').innerHTML = manifest.architectures.map(arch =>
-    `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a><a class="static-table-link" data-static-page="arch/${esc(arch.id)}/" href="${esc(staticPage(`arch/${arch.id}/`))}" aria-label="${esc(arch.label)} · ${esc(referenceCopy(window.ZaryobI18n.language).staticTable)}">${esc(referenceCopy(window.ZaryobI18n.language).staticTable)}</a></li>`
+    `<li><a href="${links.get(arch.id)}">${esc(arch.label)}</a></li>`
   ).join('');
   document.querySelectorAll('[data-static-page]').forEach(link => { link.href = staticPage(link.dataset.staticPage); });
   $('convention-rows').innerHTML = manifest.architectures.map(a =>

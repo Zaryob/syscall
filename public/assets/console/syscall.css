@@ -213,11 +213,6 @@
 .console-syscall .convention-strip { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 14px; }
 .console-syscall .convention-strip code { font-size: inherit; }
 .console-syscall .convention-strip strong { margin-inline-end: 3px; }
-.console-syscall .view-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; margin-bottom: 10px; }
-.console-syscall .view-switch { display: inline-flex; background: var(--paper); border: 1px solid var(--control-border); }
-.console-syscall .view-switch button { border: 0; min-height: 36px; padding: 4px 12px; font-size: var(--text-sm); color: var(--muted); }
-.console-syscall .view-switch button + button { border-inline-start: 1px solid var(--line); }
-.console-syscall .view-switch button[aria-pressed=true] { background: var(--surface); color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
 .console-syscall #scroll-hint { font-size: var(--text-xs); }
 
 /* Explicit column tracks keep the two sticky cells aligned with their headers. */
@@ -230,7 +225,7 @@
   border-collapse: separate;
   border-spacing: 0;
 }
-#syscall-table[data-view=args] { min-width: 80rem; }
+#syscall-table[data-view=args] { min-width: 70rem; }
 #syscall-table > thead > tr > th:first-child { width: var(--number-width); }
 #syscall-table > thead > tr > th:nth-child(2) { width: var(--name-width); }
 #syscall-table > thead > tr > th { border-bottom: 1px solid var(--line); }
@@ -385,9 +380,8 @@
 .console-syscall .console-hero__inner { padding-inline: 0; }
 .console-syscall .console-hero .console-hero__lead { margin: 16px 0 0; }
 
-.console-syscall .architecture-links li { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.console-syscall .architecture-links li { display: grid; grid-template-columns: minmax(0,1fr); align-items: center; border-bottom: 1px solid var(--line); }
 .console-syscall .architecture-links a { border: 0; }
-.console-syscall .architecture-links .static-table-link { font-size: var(--text-xs); color: var(--muted); }
 .console-syscall .advanced-options { margin: 0 0 12px; border-block: 1px solid var(--line); }
 .console-syscall .advanced-options > summary, .source-notes > summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--accent); font-size: var(--text-sm); }
 .console-syscall .advanced-options__body { padding: 8px 0 12px; }
@@ -399,3 +393,20 @@
   .console-syscall .lookup-bar { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .console-syscall .lookup-bar .release-field:first-of-type { grid-column: auto; }
 }
+
+.console-syscall .architecture-links { grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); column-gap: 28px; }
+.console-syscall .architecture-links a { text-decoration: none; }
+.console-syscall .architecture-links a::after { content: '/'; color: var(--muted); }
+.console-syscall .architecture-links a:hover { background: transparent; color: var(--info); text-decoration: underline; }
+.console-syscall .source-intro { max-width: 75ch; font: var(--text-prose)/var(--line-prose) var(--font-prose); }
+.console-syscall .static-links { margin-block: 16px 22px; font-size: var(--text-sm); }
+.console-syscall .table-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-bottom: 12px; font-size: var(--text-sm); }
+.console-syscall .syntax-legend { margin: 0; font-size: var(--text-xs); }
+.console-syscall .c-type { color: var(--info); }
+.console-syscall .c-name { color: var(--success); }
+.console-syscall .c-call, .console-syscall .c-pointer { color: var(--accent); }
+.console-syscall .c-qualifier { color: var(--muted); }
+/* Sections reached through a hash take focus for screen readers; do not draw a ring around the whole section. */
+.console-syscall section[tabindex="-1"]:focus { outline: none; }
+/* Arguments read as source text, not as separate chips. */
+.console-syscall #syscall-table .arg-cell code, .console-syscall .argument-table code { padding: 0; border: 0; background: transparent; }

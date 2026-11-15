@@ -311,11 +311,15 @@ test('ABI notes, LTS labels and analytics render in TR/EN without mobile page ov
   assert.match(await page.locator('#convention-strip').textContent(), /DÖNÜŞ2.*Bozulan/);
 });
 
-test('view and number-format steps restore controls and rendered cells through history', async t => {
+test('the single argument table keeps filters and data consistent through history', async t => {
   const page = await openPage(t);
-  await page.goto(`${base}?arch=x64&kernel=v7.3&q=read&lang=en`);
+  await page.goto(`${base}?arch=x64&kernel=v7.3&q=read&lang=en&view=summary`);
   await ready(page);
-  await page.locator('[data-view="args"]').click();
+  assert.equal(await page.locator('#table-views').count(), 0);
+  assert.equal(await page.locator('.summary-heading').count(), 0);
+  assert.equal(await page.locator('#syscall-table thead th').count(), 8);
+  assert.equal((await selection(page)).view, 'args');
+  assert.equal(new URL(page.url()).searchParams.has('view'), false);
   await page.locator('#hex').check();
   await page.locator('#show-unimplemented').check();
   await page.goBack(); await ready(page);
@@ -326,8 +330,6 @@ test('view and number-format steps restore controls and rendered cells through h
   assert.equal((await selection(page)).hex, false);
   assert.equal((await selection(page)).view, 'args');
   assert.doesNotMatch(await page.locator('.call-number').first().textContent(), /^0x/);
-  await page.goBack(); await ready(page);
-  assert.equal((await selection(page)).view, 'summary');
   await page.goForward(); await ready(page);
   assert.equal((await selection(page)).view, 'args');
 });
@@ -390,7 +392,9 @@ test('an open call names the tab and links to its permanent page in the reader\'
   assert.equal(await page.locator('.detail-row a[href$="/tr/call/openat/"]').count(), 1);
   await page.goto(`${base}?lang=tr`);
   await page.waitForFunction(() => document.querySelector('[data-static-page="call/"]').getAttribute('href') === '/syscall-test/tr/call/');
-  assert.equal(await page.locator('[data-static-page="arch/arm64/"]').getAttribute('href'), '/syscall-test/tr/arch/arm64/');
+  const architecture=new URL(await page.locator('#architecture-links a').filter({hasText:'AArch64'}).getAttribute('href'),base);
+  assert.equal(architecture.searchParams.get('arch'),'arm64');
+  assert.equal(architecture.searchParams.get('lang'),'tr');
 });
 
 test('generated pages are readable without JavaScript and fit a phone', async t => {
@@ -445,4 +449,30 @@ test('compact lookup reaches real rows before the fold and restores active advan
   assert.notEqual(await page.locator('#advanced-options').getAttribute('open'), null);
   assert.equal(await page.locator('#hex').isChecked(), true);
   assert.match(await page.locator('#rows tr').first().textContent(), /0x0/);
+});
+
+test('architecture links are single entries with a usable no-script fallback', async t => {
+  const page = await openPage(t);
+  await page.goto(`${base}?lang=en`);
+  const links=page.locator('#architecture-links a');
+  await links.first().waitFor();
+  assert.equal(await links.count(),12);
+  assert.equal(await page.locator('.static-table-link').count(),0);
+  await links.filter({hasText:'x86-64'}).click();
+  await ready(page);
+  assert.equal(await page.locator('#syscall-table thead th').count(),8);
+  assert.equal(await page.locator('.row-description').count(),0);
+  await page.locator('.call-name').first().click();
+  assert.ok(await page.locator('.detail-description').textContent());
+});
+
+test('source paragraphs keep sentence boundaries in both languages', async t => {
+  const page=await openPage(t);
+  await page.goto(`${base}?lang=tr#sources`);
+  const intro=page.locator('.source-intro');
+  assert.match(await intro.textContent(), /kodundan üretilir\. Mimariye özgü/);
+  assert.match(await intro.textContent(), /Makefile.syscalls dosyasını izler\. Yazmaç/);
+  await page.locator('[data-console-language]').selectOption('en');
+  assert.match(await intro.textContent(), /kernel source\. Architecture-specific/);
+  assert.match(await intro.textContent(), /Makefile.syscalls\. Register/);
 });
