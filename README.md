@@ -82,7 +82,7 @@ curl -s 'http://127.0.0.1:5173/data/v7.3/x64.json' \
   | jq '.syscalls[] | select(.name == "read")'
 ```
 
-Static endpoints return whole files; query parameters do not filter them. On a project site, prefix paths with the configured base URL, such as `/syscall`.
+`/data/<release>/` is a stable address: it always mirrors the release's active revision, which `version_paths` in `data/manifest.json` names. Static endpoints return whole files; query parameters do not filter them. On a project site, prefix paths with the configured base URL, such as `/syscall`.
 
 <details>
 <summary>Optional local HTTP API</summary>
@@ -99,7 +99,7 @@ Set `HOST` and `PORT` to override the listener. This process serves JSON and dat
 
 ## Data provenance
 
-Numbers and entry points come from Linux syscall tables. MIPS table indices are relative; the importer adds the ABI base from the kernel’s UAPI `unistd.h`. C declarations come from kernel headers. The table follows the Linux userspace ABI rather than the CPU model: both Intel Core and AMD Ryzen running x86-64 Linux use `x64`. Each snapshot includes original source files, SPDX identifiers, and SHA-256 hashes in its source manifest.
+Numbers and entry points come from Linux syscall tables. MIPS table indices are relative; the importer adds the ABI base from the kernel’s UAPI `unistd.h`. C declarations come from kernel headers. Where a header offers alternatives under `CONFIG_CLONE_BACKWARDS*`, `CONFIG_OLD_SIGSUSPEND*`, `CONFIG_OLD_SIGACTION`, or `CONFIG_ARCH_SPLIT_ARG64`, the importer reads the `select` statements in the architecture's `Kconfig` and records the deciding symbols in `signature_source.configuration`. A few architecture C files supply `SYSCALL_DEFINE` signatures that the headers lack (`mmap` on arm64, RISC-V and LoongArch; `sigaction` and `sigsuspend` on MIPS o32). Entry points with a `COND_SYSCALL` fallback in `kernel/sys_ni.c` carry `enosys_fallback`. The table follows the Linux userspace ABI rather than the CPU model: both Intel Core and AMD Ryzen running x86-64 Linux use `x64`. Each snapshot includes original source files, SPDX identifiers, and SHA-256 hashes in its source manifest.
 
 Regenerate data with the Python standard library; no kernel build is required:
 
@@ -116,9 +116,9 @@ python3 scripts/sync_kernel.py --refs v7.3 --output /tmp/syscall-data
 
 The importer supports the bundled historical layouts and the current kernel tables. Historical layouts use the Clang or GCC preprocessor. Downloads are cached in `.cache/`. The importer validates the tables and source hashes for all requested releases before publishing them with one manifest update.
 
-Reimporting a published release creates a new snapshot under `data/revisions/`. The manifest's `version_paths` and the static API index point to the active revision. Earlier download URLs continue to serve their original snapshots.
+Reimporting a published release creates a new snapshot under `data/revisions/`. The manifest's `version_paths` and the static API index point to the active revision, and the importer then refreshes `data/<release>/` as an exact copy of it. Revision directories are never rewritten, so earlier revision URLs continue to serve their original snapshots.
 
-**Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; configuration-dependent declarations are marked ambiguous. A table entry does not guarantee availability in every kernel configuration. PowerPC 32 and MIPS o32 show native table entry points; a 64-bit kernel may dispatch the same number through a compatibility entry point. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
+**Read the data with its limits in mind:** signatures are kernel declarations, so they may differ from libc wrappers. Missing signatures remain unresolved; declarations that the architecture's `Kconfig` cannot decide are marked configuration-dependent. A table entry does not guarantee availability in every kernel configuration: `enosys_fallback` marks entry points that return `ENOSYS` unless the matching option or architecture code is built, and the bundled inputs cannot show whether a given architecture implements such a call. PowerPC 32 and MIPS o32 show native table entry points; a 64-bit kernel may dispatch the same number through a compatibility entry point. Comparisons describe the bundled snapshots, not the first release that introduced a syscall. ARM private calls, OABI, and x32 are outside the current scope.
 
 C skeletons require review of pointers, flags, object lifetimes, and error handling. They include a blocking `#error` until reviewed; unresolved signatures, unimplemented slots, and 32-bit ABIs do not get speculative code.
 
@@ -159,13 +159,17 @@ explicit unavailable state and retains the kernel-source reference.
 
 Refresh page availability with `python3 scripts/sync_manual_pages.py`, or compare
 it without writing with `python3 scripts/sync_manual_pages.py --check`, before
-regenerating snapshots. Kernel imports themselves remain usable offline with
+regenerating snapshots. The check also fails when an alias points to a page
+that is absent from the catalog. Kernel imports themselves remain usable offline with
 a local tree and the checked-in catalog. Page-name metadata does not embed the
 manual text, and does not promise that a remote URL will stay available forever.
 
 `prepare_site.py` uses the manifest's latest release and active revision for the
-search index, static examples and download links. Search URLs are relative to
-the application root; the sitemap enumerates the manifest's architecture list.
+search index, static examples and download links. The search index takes its
+English and Turkish descriptions from `notes.mjs` and lists calls that only
+other ABIs have under the first ABI that provides them. Search URLs are relative
+to the application root. The sitemap lists only the canonical root URL, because
+every architecture and language view is a state of that one document.
 Run preparation before Jekyll when building directly rather than via npm.
 
 ## Navigation and ABI reference notes

@@ -6,20 +6,44 @@ C interface declarations extracted from Linux source. Every snapshot records
 its release tag, source paths, original SPDX identifiers, and SHA-256 file hashes.
 The exact input text is bundled in `public/data/<release>/sources/`; its complete
 original copyright and license notices have not been edited. The file listing
-is `public/data/<release>/sources.json`. Linux is maintained by
+is `public/data/<release>/sources.json`, and that per-file record is
+authoritative: the summary below only restates it. Linux is maintained by
 Linus Torvalds and its contributors: https://github.com/torvalds/linux.
 
 Original source notices:
 
-- `include/linux/syscalls.h`: GPL-2.0-only; original credits include Randy
-  Dunlap (2004) and Open Source Development Labs (2004).
-- `include/linux/compat.h`: GPL-2.0. Architecture syscall headers:
-  GPL-2.0-only, including the original Jaswinder Singh Rajput (2008) notice
-  in `arch/x86/include/asm/syscalls.h`.
-- Linux syscall `.tbl` files: GPL-2.0 WITH Linux-syscall-note, as stated in
-  the respective source files. The syscall note is available at
+- `include/linux/syscalls.h`: SPDX `GPL-2.0-only` from v5.19; original credits
+  include Randy Dunlap (2004) and Open Source Development Labs (2004).
+- `include/linux/compat.h`, `kernel/sys_ni.c` and the top-level `Makefile`:
+  SPDX `GPL-2.0` from v4.15.
+- Architecture syscall headers: SPDX `GPL-2.0-only` for
+  `arch/x86/include/asm/syscalls.h` (from v5.19, with the original Jaswinder
+  Singh Rajput 2008 notice), `arch/arm/include/asm/syscalls.h`,
+  `arch/mips/include/asm/syscalls.h` and the arm64 and RISC-V `asm/unistd.h`
+  (v5.19 and v6.6); SPDX `GPL-2.0` for `arch/powerpc/include/asm/syscalls.h`;
+  SPDX `GPL-2.0+` for `arch/loongarch/include/asm/unistd.h`.
+- Syscall `.tbl` files: SPDX `GPL-2.0 WITH Linux-syscall-note` for the MIPS,
+  PowerPC and s390 tables in every bundled release, and for the x86 and ARM
+  tables, `scripts/syscall.tbl` and `arch/arm64/tools/syscall_64.tbl` from
+  v6.12. The x86 tables in v3.7–v6.6 and the ARM table in v4.15–v6.6 have no
+  SPDX line and are recorded with the `COPYING` fallback described below.
+  UAPI `unistd.h` headers carry `GPL-2.0 WITH Linux-syscall-note` where they
+  have an SPDX line. The syscall note is available at
   https://github.com/torvalds/linux/blob/v7.3/LICENSES/exceptions/Linux-syscall-note.
-- Kernel Makefiles: GPL-2.0.
+- `Makefile.syscalls` files and the architecture `Kconfig` files: SPDX
+  `GPL-2.0`, except `arch/arm64/Kconfig` and `arch/riscv/Kconfig`, which are
+  `GPL-2.0-only` from v5.19.
+- Architecture C files read for `SYSCALL_DEFINE` signatures: SPDX `GPL-2.0`
+  for `arch/x86/kernel/sys_x86_64.c`; `GPL-2.0-only` for
+  `arch/arm64/kernel/sys.c`, `arch/riscv/kernel/sys_riscv.c` and
+  `arch/riscv/kernel/sys_hwprobe.c`; `GPL-2.0+` for
+  `arch/loongarch/kernel/syscall.c`.
+- Files without an SPDX line are recorded as `license_identifier:
+  GPL-2.0-only` with `license_basis: COPYING`, which refers to the release's
+  bundled `COPYING` and is not an upstream SPDX expression. This covers every
+  input of v1.0–v3.7, the remaining pre-SPDX inputs of v4.15, the tables named
+  above, and `arch/mips/kernel/signal.c` (v5.19–v7.3), whose own notice places
+  it under the GNU General Public License and refers to `COPYING`.
 
 The full upstream `COPYING`, `LICENSES/preferred/GPL-2.0`, and
 `LICENSES/exceptions/Linux-syscall-note` accompany each snapshot. Reference

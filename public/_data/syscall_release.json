@@ -1,6 +1,7 @@
 {
   "latest": "v7.3",
-  "latest_path": "revisions/v7.3/bcbad8d2a6b441b48f70431ec3bf3bb1",
+  "latest_path": "revisions/v7.3/3819fd666b2e4463a30e2d4af8ee92e7",
+  "updated": "2026-11-14",
   "architectures": [
     {
       "id": "x64",

@@ -9,7 +9,7 @@
   ],
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-02T20:40:31.855154+00:00",
+    "generated_at": "2026-11-14T11:09:18.108020+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [],
     "generator": "scripts/sync_kernel.py",
@@ -117,6 +117,14 @@
       "path": "include/uapi/asm-generic/unistd.h",
       "sha256": "d54a800dabe50cf53dfb59d180755ffdaa88c7a1752e3e068046d6d7c6389aa6",
       "bundled_path": "sources/include/uapi/asm-generic/unistd.h",
+      "license_identifier": "GPL-2.0-only",
+      "license_basis": "COPYING",
+      "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+    },
+    {
+      "path": "kernel/sys_ni.c",
+      "sha256": "b184452e1260be55f16e2158ea0c431003ecb33e1ffdf55058aa2701d273d54b",
+      "bundled_path": "sources/kernel/sys_ni.c",
       "license_identifier": "GPL-2.0-only",
       "license_basis": "COPYING",
       "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."

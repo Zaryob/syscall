@@ -152,9 +152,10 @@ function renderMetadata() {
   const c = snapshot.calling_convention;
   $('table-title').textContent = t('{arch} system calls', { arch: c.label });
   document.title = `${c.label} · Linux ${state.kernel.slice(1)} · ${t('System Call Reference')}`;
+  const copy = referenceCopy(window.ZaryobI18n.language);
   const conventions = [[t('ENTRY'), c.instruction], ['NR', c.nr], [t('RETURN'), c.result],
-    [t('Argument locations'), argumentLocations(c).join(' · ')], ['RET2', secondResult(state.arch)]];
-  if (state.arch === 'x64') conventions.push(['Clobber', 'rcx, r11']);
+    [t('Argument locations'), argumentLocations(c).join(' · ')], [copy.secondResult, secondResult(state.arch)]];
+  if (state.arch === 'x64') conventions.push([copy.clobber, 'rcx, r11']);
   if (c.error_flag) conventions.push([t('Error flag'), c.error_flag]);
   $('convention-strip').innerHTML = conventions.map(([label, value]) =>
     `<span><strong>${esc(label)}</strong> <code>${esc(value)}</code></span>`).join('');
@@ -195,6 +196,11 @@ function detailHTML(row, id) {
     ${before.declaration ? `<code>${esc(before.declaration)}</code>`
       : `<code>${esc(before.entry)}</code>, ${esc(before.arguments === null ? t('signature unresolved') : before.arguments.join(', ') || 'void')}`}</p>` : '';
   const reasons = row._reasons?.map(reason => t(changeLabels[reason])).join(' · ');
+  const copy = referenceCopy(window.ZaryobI18n.language);
+  const selection = row.signature_source?.configuration;
+  const selectionHTML = selection ? `<p class="small">${esc(copy.configuration)} ${Object.entries(selection.symbols).map(([symbol, enabled]) =>
+    `<code>${esc(symbol)}=${enabled ? 'y' : 'n'}</code>`).join(' ')} · <a href="${esc(sourceLink({ path: selection.path, line: 1 }, kernel))}">${esc(selection.path)}</a></p>` : '';
+  const fallbackHTML = row.enosys_fallback ? `<p class="small">${esc(copy.fallback)} <a href="${esc(sourceLink(row.enosys_fallback, kernel))}">${esc(row.enosys_fallback.path)}:${row.enosys_fallback.line}</a></p>` : '';
   const entryMetadata = [
     row.compat_entry && `${esc(t('Compatibility entry point'))} <code>${esc(row.compat_entry)}</code>`,
     row.oabi_entry && `${esc(t('OABI entry point'))} <code>${esc(row.oabi_entry)}</code>`,
@@ -204,14 +210,14 @@ function detailHTML(row, id) {
     <div class="detail-content">
       <h3>${esc(row.name)} <span class="normal">/ ${esc(state.arch)} / Linux ${kernel.slice(1)}</span></h3>
       <p class="detail-description">${description(row, kernel)}</p>
-      ${signatureHTML}${regInfo}
+      ${signatureHTML}${selectionHTML}${regInfo}
       <p><strong><span data-i18n="Entry point:">Entry point:</span></strong> <code>${esc(row.entry || t('none'))}</code>
         · <strong><span data-i18n="Number:">Number:</span></strong> ${row.number} / 0x${row.number.toString(16)}
         · <strong>ABI:</strong> <code>${esc(row.abi)}</code></p>
       ${entryMetadata.length ? `<p>${entryMetadata.join(' · ')}</p>` : ''}
       ${reasons ? `<p><strong>${esc(t('Changes:'))}</strong> ${esc(reasons)}</p>` : ''}
       ${row.status === 'unimplemented' ? '<p><span data-i18n="This table slot has no implementation. It must not be treated as an available syscall.">This table slot has no implementation. It must not be treated as an available syscall.</span></p>' : ''}
-      ${row.signature_note && !row.signature_status ? `<p>${esc(t(row.signature_note))}</p>` : ''}${previousSignature}
+      ${row.signature_note && !row.signature_status ? `<p>${esc(t(row.signature_note))}</p>` : ''}${fallbackHTML}${previousSignature}
       <p><strong><span data-i18n="Kernel table:">Kernel table:</span></strong> ${source}${declaration}</p>
       <p>${manualHTML}
         · <button class="text-button" data-export="${row.number}" data-kernel="${kernel}"><span data-i18n="Download entry JSON">Download entry JSON</span></button>

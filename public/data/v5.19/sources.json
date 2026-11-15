@@ -17,7 +17,7 @@
   ],
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-04T14:13:49.369319+00:00",
+    "generated_at": "2026-11-14T11:09:21.803812+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [
       "sources/LICENSES/preferred/GPL-2.0",
@@ -55,12 +55,24 @@
       "spdx_license_identifier": "GPL-2.0"
     },
     {
+      "path": "arch/arm/Kconfig",
+      "sha256": "2ba5d64ffa0317cfad789cf976770440963da2a8be879c33619625d1ad55a815",
+      "bundled_path": "sources/arch/arm/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "arch/arm/tools/syscall.tbl",
       "sha256": "d243ff52108bd7027e914b85a017526e7a771c332559dffecdaa54b8addfd356",
       "bundled_path": "sources/arch/arm/tools/syscall.tbl",
       "license_identifier": "GPL-2.0-only",
       "license_basis": "COPYING",
       "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+    },
+    {
+      "path": "arch/arm64/Kconfig",
+      "sha256": "cd5eb3def010d478311ee4b79a69877ebe8441a8cdce05303d334ca9fde15ba3",
+      "bundled_path": "sources/arch/arm64/Kconfig",
+      "spdx_license_identifier": "GPL-2.0-only"
     },
     {
       "path": "arch/arm64/include/asm/unistd.h",
@@ -75,6 +87,18 @@
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
     },
     {
+      "path": "arch/arm64/kernel/sys.c",
+      "sha256": "58b4d8988435feb7542f5730d2002981421ef016de2053a0bec2ee6e87c54c44",
+      "bundled_path": "sources/arch/arm64/kernel/sys.c",
+      "spdx_license_identifier": "GPL-2.0-only"
+    },
+    {
+      "path": "arch/loongarch/Kconfig",
+      "sha256": "2f11e72359fce27aafc8c85a99081459778d9bb499b6f67eefb92fa10e80a68c",
+      "bundled_path": "sources/arch/loongarch/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "arch/loongarch/include/asm/unistd.h",
       "sha256": "3740b9159ef9d799f75009dec9748570407413f2097e672705f7a3199c452ba1",
       "bundled_path": "sources/arch/loongarch/include/asm/unistd.h",
@@ -87,10 +111,30 @@
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
     },
     {
+      "path": "arch/loongarch/kernel/syscall.c",
+      "sha256": "fdc514fcf049105fadee62bdc67713bd4a1c4fda7cd4fa768ae8e1343989f55d",
+      "bundled_path": "sources/arch/loongarch/kernel/syscall.c",
+      "spdx_license_identifier": "GPL-2.0+"
+    },
+    {
+      "path": "arch/mips/Kconfig",
+      "sha256": "8f13f9bac64b1948f649681aa141b47fd754bc2bf578a475386015ed9ebc892f",
+      "bundled_path": "sources/arch/mips/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "arch/mips/include/uapi/asm/unistd.h",
       "sha256": "3ddb054ab3643d8b4003ce7802ca887d13920897007c432af875aaf357f43e7a",
       "bundled_path": "sources/arch/mips/include/uapi/asm/unistd.h",
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+    },
+    {
+      "path": "arch/mips/kernel/signal.c",
+      "sha256": "61f5320e2c8cac1fce21591f178008c94adafb2857e18f2411bd0bf1ea098f0e",
+      "bundled_path": "sources/arch/mips/kernel/signal.c",
+      "license_identifier": "GPL-2.0-only",
+      "license_basis": "COPYING",
+      "license_note": "No SPDX identifier; the file's own notice places it under the GNU General Public License and refers to the release COPYING."
     },
     {
       "path": "arch/mips/kernel/syscalls/syscall_n32.tbl",
@@ -111,6 +155,12 @@
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
     },
     {
+      "path": "arch/powerpc/Kconfig",
+      "sha256": "624caa0a2157aefd4b7b9455cc7d314d2095bb63498111ef1349ee2f0864a3d7",
+      "bundled_path": "sources/arch/powerpc/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "arch/powerpc/include/asm/syscalls.h",
       "sha256": "93ac127deaa1b500bd80afb55e7719f34003a48958af8102037fd4d78366d1ab",
       "bundled_path": "sources/arch/powerpc/include/asm/syscalls.h",
@@ -121,6 +171,12 @@
       "sha256": "006adce948167db8a6c6dc37faadeb8e534a8effcc11aef5d9d0176b85bdf153",
       "bundled_path": "sources/arch/powerpc/kernel/syscalls/syscall.tbl",
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+    },
+    {
+      "path": "arch/riscv/Kconfig",
+      "sha256": "c37f25f52b6a92e3eda651dce109ffc821259e25f0f65fa617d0b219015ab680",
+      "bundled_path": "sources/arch/riscv/Kconfig",
+      "spdx_license_identifier": "GPL-2.0-only"
     },
     {
       "path": "arch/riscv/include/asm/unistd.h",
@@ -135,10 +191,28 @@
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
     },
     {
+      "path": "arch/riscv/kernel/sys_riscv.c",
+      "sha256": "4e4b9467d7b895c1f2be68031c8de11e51dbce4268dbdfe2762cb1fdcb8253e2",
+      "bundled_path": "sources/arch/riscv/kernel/sys_riscv.c",
+      "spdx_license_identifier": "GPL-2.0-only"
+    },
+    {
+      "path": "arch/s390/Kconfig",
+      "sha256": "3ea078477f4cbe20b97548f3b0f655ba938eb55b94ddb8f142cef4c4ff40374b",
+      "bundled_path": "sources/arch/s390/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
+    },
+    {
       "path": "arch/s390/kernel/syscalls/syscall.tbl",
       "sha256": "a117b993cd5bc2087bb71d78640a76db7d70bffcfdeee514350b1292abae0448",
       "bundled_path": "sources/arch/s390/kernel/syscalls/syscall.tbl",
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+    },
+    {
+      "path": "arch/x86/Kconfig",
+      "sha256": "88a8c4022d9a11c659893927b377cc5611004e255bf70209b016c2cf024b8faf",
+      "bundled_path": "sources/arch/x86/Kconfig",
+      "spdx_license_identifier": "GPL-2.0"
     },
     {
       "path": "arch/x86/entry/syscalls/syscall_32.tbl",
@@ -185,6 +259,12 @@
       "sha256": "d66d575161ba8c07a8ff4dcbf3c772afdc83a234844c815821b3932891938f01",
       "bundled_path": "sources/include/uapi/asm-generic/unistd.h",
       "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+    },
+    {
+      "path": "kernel/sys_ni.c",
+      "sha256": "fbba3ac363049fa8c9f0800a47b6a1a9426e49eeb36d0afb5575a2ed06ead2c0",
+      "bundled_path": "sources/kernel/sys_ni.c",
+      "spdx_license_identifier": "GPL-2.0"
     }
   ]
 }

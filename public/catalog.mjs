@@ -24,7 +24,9 @@ export function searchSyscalls(rows, query = '') {
   const q = normalize(query.trim());
   if (!q) return rows;
   const nr = parseSyscallNumber(q);
-  if (nr !== null) return rows.filter(row => row.number === nr);
+  // A number also appears in names such as pread64 or stat64; keep those reachable.
+  if (nr !== null) return rows.filter(row => row.number === nr
+    || [row.name, row.entry].some(text => text && normalize(text).includes(q)));
   return rows.filter(row => {
     const note = row.status === 'unimplemented' ? undefined : syscallNote(row.name);
     return [row.name, row.entry, ...(row.arguments ?? []), note?.en, note?.tr]

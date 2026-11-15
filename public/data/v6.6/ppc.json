@@ -328,7 +328,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 23
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/time.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/time.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 315
+      }
     },
     {
       "number": 14,
@@ -396,7 +400,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 28
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lchown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
     },
     {
       "number": 17,
@@ -412,7 +416,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 29
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/break.2.html"
+      "man_url": null
     },
     {
       "number": 18,
@@ -545,7 +549,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 39
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 98
+      }
     },
     {
       "number": 24,
@@ -585,7 +593,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 41
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/stime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 316
+      }
     },
     {
       "number": 26,
@@ -695,7 +707,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 50
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/utime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/utime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 317
+      }
     },
     {
       "number": 31,
@@ -711,7 +727,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 52
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/stty.2.html"
+      "man_url": null
     },
     {
       "number": 32,
@@ -727,7 +743,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 53
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/gtty.2.html"
+      "man_url": null
     },
     {
       "number": 33,
@@ -786,7 +802,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 56
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftime.2.html"
+      "man_url": null
     },
     {
       "number": 36,
@@ -972,7 +988,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 65
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/prof.2.html"
+      "man_url": null
     },
     {
       "number": 45,
@@ -1014,7 +1030,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 67
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 96
+      }
     },
     {
       "number": 47,
@@ -1074,7 +1094,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 70
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/geteuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html"
     },
     {
       "number": 50,
@@ -1093,7 +1113,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 71
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getegid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html"
     },
     {
       "number": 51,
@@ -1114,7 +1134,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 72
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 78
+      }
     },
     {
       "number": 52,
@@ -1136,7 +1160,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 73
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/umount2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/umount.2.html"
     },
     {
       "number": 53,
@@ -1152,7 +1176,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 74
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lock.2.html"
+      "man_url": null
     },
     {
       "number": 54,
@@ -1216,7 +1240,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 77
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mpx.2.html"
+      "man_url": null
     },
     {
       "number": 57,
@@ -1254,7 +1278,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 79
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ulimit.2.html"
+      "man_url": null
     },
     {
       "number": 59,
@@ -1362,7 +1386,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 86
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html"
     },
     {
       "number": 64,
@@ -1381,7 +1405,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 87
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getppid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html"
     },
     {
       "number": 65,
@@ -1462,7 +1486,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 93
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sgetmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sgetmask.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 343
+      }
     },
     {
       "number": 69,
@@ -1483,7 +1511,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 94
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ssetmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ssetmask.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 344
+      }
     },
     {
       "number": 70,
@@ -1505,7 +1537,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 95
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 97
+      }
     },
     {
       "number": 71,
@@ -1527,7 +1563,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 96
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 95
+      }
     },
     {
       "number": 72,
@@ -1535,19 +1575,27 @@
       "name": "sigsuspend",
       "entry": "sys_sigsuspend",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
+      "arguments": [
+        "old_sigset_t mask"
+      ],
+      "declaration": "asmlinkage long sys_sigsuspend(old_sigset_t mask);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
-        "line": 1065
+        "line": 1065,
+        "configuration": {
+          "path": "arch/powerpc/Kconfig",
+          "symbols": {
+            "CONFIG_OLD_SIGSUSPEND": true,
+            "CONFIG_OLD_SIGSUSPEND3": false
+          }
+        }
       },
-      "signature_note": "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI.",
+      "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 97
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html",
-      "signature_status": "configuration_dependent"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html"
     },
     {
       "number": 73,
@@ -1614,7 +1662,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 104
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setrlimit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html"
     },
     {
       "number": 76,
@@ -1728,7 +1776,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 111
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 106
+      }
     },
     {
       "number": 81,
@@ -1750,7 +1802,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 112
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 105
+      }
     },
     {
       "number": 82,
@@ -1861,7 +1917,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 121
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/uselib.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/uselib.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 312
+      }
     },
     {
       "number": 87,
@@ -1883,7 +1943,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 122
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 175
+      }
     },
     {
       "number": 88,
@@ -1939,16 +2003,25 @@
       "name": "mmap",
       "entry": "sys_mmap",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned long addr",
+        "size_t len",
+        "unsigned long prot",
+        "unsigned long flags",
+        "unsigned long fd",
+        "off_t offset"
+      ],
+      "declaration": "long sys_mmap(unsigned long addr, size_t len, unsigned long prot, unsigned long flags, unsigned long fd, off_t offset);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 55
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html"
     },
     {
       "number": 91,
@@ -1970,7 +2043,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munmap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html"
     },
     {
       "number": 92,
@@ -2016,7 +2089,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html"
     },
     {
       "number": 94,
@@ -2038,7 +2111,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchmod.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html"
     },
     {
       "number": 95,
@@ -2061,7 +2134,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 132
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
     },
     {
       "number": 96,
@@ -2122,7 +2195,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/profil.2.html"
+      "man_url": null
     },
     {
       "number": 99,
@@ -2184,7 +2257,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioperm.2.html"
+      "man_url": null
     },
     {
       "number": 102,
@@ -2207,7 +2280,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socketcall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socketcall.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 266
+      }
     },
     {
       "number": 103,
@@ -2230,7 +2307,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 94
+      }
     },
     {
       "number": 104,
@@ -2254,7 +2335,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setitimer.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html"
     },
     {
       "number": 105,
@@ -2323,7 +2404,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 144
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html"
     },
     {
       "number": 108,
@@ -2346,7 +2427,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 145
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html"
     },
     {
       "number": 109,
@@ -2383,7 +2464,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 149
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/iopl.2.html"
+      "man_url": null
     },
     {
       "number": 111,
@@ -2418,7 +2499,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 151
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/idle.2.html"
+      "man_url": null
     },
     {
       "number": 113,
@@ -2434,7 +2515,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 152
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/vm86.2.html"
+      "man_url": null
     },
     {
       "number": 114,
@@ -2480,7 +2561,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 154
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 176
+      }
     },
     {
       "number": 116,
@@ -2529,7 +2614,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 156
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ipc.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ipc.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 350
+      }
     },
     {
       "number": 118,
@@ -2559,16 +2648,18 @@
       "entry": "sys_sigreturn",
       "compat_entry": "compat_sys_sigreturn",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [],
+      "declaration": "long sys_sigreturn(void);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 64
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 158
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html"
     },
     {
       "number": 120,
@@ -2576,19 +2667,30 @@
       "name": "clone",
       "entry": "sys_clone",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
+      "arguments": [
+        "unsigned long",
+        "unsigned long",
+        "int __user *",
+        "unsigned long",
+        "int __user *"
+      ],
+      "declaration": "asmlinkage long sys_clone(unsigned long, unsigned long, int __user *, unsigned long, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
-        "line": 767
+        "line": 767,
+        "configuration": {
+          "path": "arch/powerpc/Kconfig",
+          "symbols": {
+            "CONFIG_CLONE_BACKWARDS": true
+          }
+        }
       },
-      "signature_note": "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI.",
+      "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 161
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
-      "signature_status": "configuration_dependent"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html"
     },
     {
       "number": 121,
@@ -2647,7 +2749,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 164
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/modify_ldt.2.html"
+      "man_url": null
     },
     {
       "number": 124,
@@ -2668,7 +2770,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 165
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/adjtimex.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/adjtimex.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 318
+      }
     },
     {
       "number": 125,
@@ -2691,7 +2797,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 168
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 177
+      }
     },
     {
       "number": 126,
@@ -2731,7 +2841,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 172
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/create_module.2.html"
+      "man_url": null
     },
     {
       "number": 128,
@@ -2754,7 +2864,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 173
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 92
+      }
     },
     {
       "number": 129,
@@ -2776,7 +2890,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 174
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 93
+      }
     },
     {
       "number": 130,
@@ -2792,7 +2910,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 175
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_kernel_syms.2.html"
+      "man_url": null
     },
     {
       "number": 131,
@@ -2816,7 +2934,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 176
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 69
+      }
     },
     {
       "number": 132,
@@ -2837,7 +2959,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 177
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html"
     },
     {
       "number": 133,
@@ -2858,7 +2980,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 178
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html"
     },
     {
       "number": 134,
@@ -2874,7 +2996,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 179
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bdflush.2.html"
+      "man_url": null
     },
     {
       "number": 135,
@@ -2897,7 +3019,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 180
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sysfs.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sysfs.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 347
+      }
     },
     {
       "number": 136,
@@ -2935,7 +3061,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 184
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/afs_syscall.2.html"
+      "man_url": null
     },
     {
       "number": 138,
@@ -2956,7 +3082,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 185
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setfsuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setfsuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 103
+      }
     },
     {
       "number": 139,
@@ -2977,7 +3107,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 186
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setfsgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setfsgid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 104
+      }
     },
     {
       "number": 140,
@@ -3002,7 +3136,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 187
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/_llseek.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/llseek.2.html"
     },
     {
       "number": 141,
@@ -3074,7 +3208,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 190
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/flock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/flock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 68
+      }
     },
     {
       "number": 144,
@@ -3097,7 +3235,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 191
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msync.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 178
+      }
     },
     {
       "number": 145,
@@ -3185,7 +3327,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 195
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fdatasync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fsync.2.html"
     },
     {
       "number": 149,
@@ -3201,7 +3343,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 196
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/_sysctl.2.html"
+      "man_url": null
     },
     {
       "number": 150,
@@ -3223,7 +3365,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 197
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 179
+      }
     },
     {
       "number": 151,
@@ -3245,7 +3391,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 198
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munlock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 180
+      }
     },
     {
       "number": 152,
@@ -3266,7 +3416,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 199
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlockall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlockall.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 181
+      }
     },
     {
       "number": 153,
@@ -3285,7 +3439,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 200
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munlockall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/munlockall.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 182
+      }
     },
     {
       "number": 154,
@@ -3456,7 +3614,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 208
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sched_rr_get_interval.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sched_rr_get_interval.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 319
+      }
     },
     {
       "number": 162,
@@ -3478,7 +3640,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 211
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/nanosleep.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/nanosleep.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 320
+      }
     },
     {
       "number": 163,
@@ -3503,7 +3669,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 214
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mremap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mremap.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 163
+      }
     },
     {
       "number": 164,
@@ -3526,7 +3696,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 215
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 99
+      }
     },
     {
       "number": 165,
@@ -3549,7 +3723,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 216
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 100
+      }
     },
     {
       "number": 166,
@@ -3565,7 +3743,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 217
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/query_module.2.html"
+      "man_url": null
     },
     {
       "number": 167,
@@ -3604,7 +3782,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 219
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/nfsservctl.2.html"
+      "man_url": null
     },
     {
       "number": 169,
@@ -3627,7 +3805,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 220
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setresgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 101
+      }
     },
     {
       "number": 170,
@@ -3650,7 +3832,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 221
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getresgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 102
+      }
     },
     {
       "number": 171,
@@ -3684,16 +3870,18 @@
       "entry": "sys_rt_sigreturn",
       "compat_entry": "compat_sys_rt_sigreturn",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [],
+      "declaration": "long sys_rt_sigreturn(void);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 69
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 223
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigreturn.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html"
     },
     {
       "number": 173,
@@ -3718,7 +3906,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 224
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigaction.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigaction.2.html"
     },
     {
       "number": 174,
@@ -3743,7 +3931,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 225
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigprocmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigprocmask.2.html"
     },
     {
       "number": 175,
@@ -3766,7 +3954,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 226
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigpending.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigpending.2.html"
     },
     {
       "number": 176,
@@ -3791,7 +3979,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 227
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigtimedwait.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigtimedwait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 321
+      }
     },
     {
       "number": 177,
@@ -3838,7 +4030,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 230
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigsuspend.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html"
     },
     {
       "number": 179,
@@ -3847,16 +4039,25 @@
       "entry": "sys_ppc_pread64",
       "compat_entry": "compat_sys_ppc_pread64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned int fd",
+        "char __user *ubuf",
+        "compat_size_t count",
+        "u32 reg6",
+        "u32 pos1",
+        "u32 pos2"
+      ],
+      "declaration": "long sys_ppc_pread64(unsigned int fd, char __user *ubuf, compat_size_t count, u32 reg6, u32 pos1, u32 pos2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 93
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 231
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pread64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/pread.2.html"
     },
     {
       "number": 180,
@@ -3865,16 +4066,25 @@
       "entry": "sys_ppc_pwrite64",
       "compat_entry": "compat_sys_ppc_pwrite64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned int fd",
+        "const char __user *ubuf",
+        "compat_size_t count",
+        "u32 reg6",
+        "u32 pos1",
+        "u32 pos2"
+      ],
+      "declaration": "long sys_ppc_pwrite64(unsigned int fd, const char __user *ubuf, compat_size_t count, u32 reg6, u32 pos1, u32 pos2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 96
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 233
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwrite64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/pwrite.2.html"
     },
     {
       "number": 181,
@@ -3941,7 +4151,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 237
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 79
+      }
     },
     {
       "number": 184,
@@ -3963,7 +4177,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 238
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/capset.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 80
+      }
     },
     {
       "number": 185,
@@ -4027,7 +4245,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 243
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpmsg.2.html"
+      "man_url": null
     },
     {
       "number": 188,
@@ -4043,7 +4261,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 244
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/putpmsg.2.html"
+      "man_url": null
     },
     {
       "number": 189,
@@ -4094,16 +4312,24 @@
       "entry": "sys_ppc_readahead",
       "compat_entry": "compat_sys_ppc_readahead",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "int fd",
+        "u32 r4",
+        "u32 offset1",
+        "u32 offset2",
+        "u32 count"
+      ],
+      "declaration": "long sys_ppc_readahead(int fd, u32 r4, u32 offset1, u32 offset2, u32 count);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 99
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 247
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/readahead.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/readahead.2.html"
     },
     {
       "number": 192,
@@ -4112,16 +4338,25 @@
       "entry": "sys_mmap2",
       "compat_entry": "compat_sys_mmap2",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned long addr",
+        "size_t len",
+        "unsigned long prot",
+        "unsigned long flags",
+        "unsigned long fd",
+        "unsigned long pgoff"
+      ],
+      "declaration": "long sys_mmap2(unsigned long addr, size_t len, unsigned long prot, unsigned long flags, unsigned long fd, unsigned long pgoff);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 58
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 249
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mmap2.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap2.2.html"
     },
     {
       "number": 193,
@@ -4130,16 +4365,23 @@
       "entry": "sys_ppc_truncate64",
       "compat_entry": "compat_sys_ppc_truncate64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "const char __user *path",
+        "u32 reg4",
+        "unsigned long len1",
+        "unsigned long len2"
+      ],
+      "declaration": "long sys_ppc_truncate64(const char __user *path, u32 reg4, unsigned long len1, unsigned long len2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 101
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 250
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/truncate64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate64.2.html"
     },
     {
       "number": 194,
@@ -4148,16 +4390,23 @@
       "entry": "sys_ppc_ftruncate64",
       "compat_entry": "compat_sys_ppc_ftruncate64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned int fd",
+        "u32 reg4",
+        "unsigned long len1",
+        "unsigned long len2"
+      ],
+      "declaration": "long sys_ppc_ftruncate64(unsigned int fd, u32 reg4, unsigned long len1, unsigned long len2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 103
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 251
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate64.2.html"
     },
     {
       "number": 195,
@@ -4248,7 +4497,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 255
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_read.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_read.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 261
+      }
     },
     {
       "number": 199,
@@ -4273,7 +4526,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 256
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_write.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_write.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 262
+      }
     },
     {
       "number": 200,
@@ -4296,7 +4553,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 257
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_iobase.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pciconfig_iobase.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 263
+      }
     },
     {
       "number": 201,
@@ -4312,7 +4573,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 258
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/multiplexer.2.html"
+      "man_url": null
     },
     {
       "number": 202,
@@ -4335,7 +4596,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 259
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getdents64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getdents.2.html"
     },
     {
       "number": 203,
@@ -4404,7 +4665,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 262
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/madvise.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/madvise.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 184
+      }
     },
     {
       "number": 206,
@@ -4427,7 +4692,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 263
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mincore.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mincore.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 183
+      }
     },
     {
       "number": 207,
@@ -4776,7 +5045,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 278
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futex.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futex.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 84
+      }
     },
     {
       "number": 222,
@@ -4824,7 +5097,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 282
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sched_getaffinity.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sched_setaffinity.2.html"
     },
     {
       "number": 225,
@@ -4840,7 +5113,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 284
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/tuxcall.2.html"
+      "man_url": null
     },
     {
       "number": 226,
@@ -4888,7 +5161,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 286
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_setup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_setup.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 39
+      }
     },
     {
       "number": 228,
@@ -4909,7 +5186,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 287
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_destroy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_destroy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 41
+      }
     },
     {
       "number": 229,
@@ -4934,7 +5215,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 288
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_getevents.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_getevents.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 45
+      }
     },
     {
       "number": 230,
@@ -4958,7 +5243,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 291
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_submit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_submit.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 42
+      }
     },
     {
       "number": 231,
@@ -4981,7 +5270,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 292
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_cancel.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_cancel.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 44
+      }
     },
     {
       "number": 232,
@@ -5011,16 +5304,25 @@
       "entry": "sys_ppc32_fadvise64",
       "compat_entry": "compat_sys_ppc32_fadvise64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "int fd",
+        "u32 unused",
+        "u32 offset1",
+        "u32 offset2",
+        "size_t len",
+        "int advice"
+      ],
+      "declaration": "long sys_ppc32_fadvise64(int fd, u32 unused, u32 offset1, u32 offset2, size_t len, int advice);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 105
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 294
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fadvise64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/posix_fadvise.2.html"
     },
     {
       "number": 234,
@@ -5065,7 +5367,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 297
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lookup_dcookie.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/lookup_dcookie.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 54
+      }
     },
     {
       "number": 236,
@@ -5086,7 +5392,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 298
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 298
+      }
     },
     {
       "number": 237,
@@ -5110,7 +5420,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 299
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 58
+      }
     },
     {
       "number": 238,
@@ -5134,7 +5448,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 300
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 308
+      }
     },
     {
       "number": 239,
@@ -5159,7 +5477,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 301
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/remap_file_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/remap_file_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 187
+      }
     },
     {
       "number": 240,
@@ -5207,7 +5529,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 303
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 323
+      }
     },
     {
       "number": 242,
@@ -5229,7 +5555,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 306
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timer_gettime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 324
+      }
     },
     {
       "number": 243,
@@ -5293,7 +5623,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 311
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_settime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 325
+      }
     },
     {
       "number": 246,
@@ -5315,7 +5649,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 314
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 326
+      }
     },
     {
       "number": 247,
@@ -5337,7 +5675,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 317
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_getres.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 327
+      }
     },
     {
       "number": 248,
@@ -5361,7 +5703,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 320
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_nanosleep.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_nanosleep.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 328
+      }
     },
     {
       "number": 249,
@@ -5370,16 +5716,22 @@
       "entry": "sys_swapcontext",
       "compat_entry": "compat_sys_swapcontext",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "struct ucontext __user *old_ctx",
+        "struct ucontext __user *new_ctx",
+        "long ctx_size"
+      ],
+      "declaration": "long sys_swapcontext(struct ucontext __user *old_ctx, struct ucontext __user *new_ctx, long ctx_size);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 53
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 323
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapcontext.2.html",
-      "signature_status": "not_found"
+      "man_url": null
     },
     {
       "number": 250,
@@ -5424,7 +5776,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 325
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/utimes.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/utimes.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 329
+      }
     },
     {
       "number": 252,
@@ -5480,16 +5836,25 @@
       "name": "fadvise64_64",
       "entry": "sys_ppc_fadvise64_64",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "int fd",
+        "int advice",
+        "u32 offset_high",
+        "u32 offset_low",
+        "u32 len_high",
+        "u32 len_low"
+      ],
+      "declaration": "long sys_ppc_fadvise64_64(int fd, int advice, u32 offset_high, u32 offset_low, u32 len_high, u32 len_low);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 141
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 330
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fadvise64_64.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/fadvise64_64.2.html"
     },
     {
       "number": 255,
@@ -5497,16 +5862,24 @@
       "name": "rtas",
       "entry": "sys_rtas",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "struct rtas_args __user *uargs"
+      ],
+      "declaration": "long sys_rtas(struct rtas_args __user *uargs);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 44
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 332
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rtas.2.html",
-      "signature_status": "not_found"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 286
+      }
     },
     {
       "number": 256,
@@ -5515,16 +5888,22 @@
       "entry": "sys_debug_setcontext",
       "compat_entry": "sys_ni_syscall",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "struct ucontext __user *ctx",
+        "int ndbg",
+        "struct sig_dbg_op __user *dbg"
+      ],
+      "declaration": "long sys_debug_setcontext(struct ucontext __user *ctx, int ndbg, struct sig_dbg_op __user *dbg);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 65
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 333
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sys_debug_setcontext.2.html",
-      "signature_status": "not_found"
+      "man_url": null
     },
     {
       "number": 258,
@@ -5548,7 +5927,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 337
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/migrate_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/migrate_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 191
+      }
     },
     {
       "number": 259,
@@ -5574,7 +5957,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 338
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mbind.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mbind.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 188
+      }
     },
     {
       "number": 260,
@@ -5599,7 +5986,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 339
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_mempolicy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_mempolicy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 189
+      }
     },
     {
       "number": 261,
@@ -5622,7 +6013,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 340
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 190
+      }
     },
     {
       "number": 262,
@@ -5647,7 +6042,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 341
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_open.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_open.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 107
+      }
     },
     {
       "number": 263,
@@ -5668,7 +6067,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 342
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_unlink.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_unlink.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 109
+      }
     },
     {
       "number": 264,
@@ -5693,7 +6096,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 343
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedsend.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_send.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 111
+      }
     },
     {
       "number": 265,
@@ -5718,7 +6125,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 345
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedreceive.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_receive.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 113
+      }
     },
     {
       "number": 266,
@@ -5741,7 +6152,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 347
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_notify.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_notify.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 114
+      }
     },
     {
       "number": 267,
@@ -5765,7 +6180,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 348
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_getsetattr.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_getsetattr.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 116
+      }
     },
     {
       "number": 268,
@@ -5790,7 +6209,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 349
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kexec_load.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kexec_load.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 90
+      }
     },
     {
       "number": 269,
@@ -5815,7 +6238,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 350
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/add_key.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/add_key.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 164
+      }
     },
     {
       "number": 270,
@@ -5839,7 +6266,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 351
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/request_key.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/request_key.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 165
+      }
     },
     {
       "number": 271,
@@ -5865,7 +6296,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 352
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/keyctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/keyctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 166
+      }
     },
     {
       "number": 272,
@@ -5891,7 +6326,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 353
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/waitid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/wait.2.html"
     },
     {
       "number": 273,
@@ -5914,7 +6349,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 354
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_set.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_set.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 66
+      }
     },
     {
       "number": 274,
@@ -5936,7 +6375,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 355
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_get.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_get.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 67
+      }
     },
     {
       "number": 275,
@@ -5955,7 +6398,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 356
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 299
+      }
     },
     {
       "number": 276,
@@ -5978,7 +6425,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 357
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_add_watch.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_add_watch.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 64
+      }
     },
     {
       "number": 277,
@@ -6000,7 +6451,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 358
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 65
+      }
     },
     {
       "number": 278,
@@ -6023,7 +6478,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 359
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/spu_run.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/spu_run.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 287
+      }
     },
     {
       "number": 279,
@@ -6047,7 +6506,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 360
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/spu_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/spu_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 288
+      }
     },
     {
       "number": 280,
@@ -6074,7 +6537,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 361
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pselect6.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 331
+      }
     },
     {
       "number": 281,
@@ -6100,7 +6567,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 363
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ppoll.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/poll.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 333
+      }
     },
     {
       "number": 282,
@@ -6243,7 +6714,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 370
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mkdirat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mkdir.2.html"
     },
     {
       "number": 288,
@@ -6292,7 +6763,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 372
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchownat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
     },
     {
       "number": 290,
@@ -6315,7 +6786,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 373
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futimesat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futimesat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 330
+      }
     },
     {
       "number": 291,
@@ -6362,7 +6837,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 379
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/unlinkat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/unlink.2.html"
     },
     {
       "number": 293,
@@ -6386,7 +6861,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 380
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/renameat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html"
     },
     {
       "number": 294,
@@ -6458,7 +6933,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 383
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/readlinkat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readlink.2.html"
     },
     {
       "number": 297,
@@ -6528,7 +7003,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 386
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 87
+      }
     },
     {
       "number": 300,
@@ -6551,7 +7030,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 387
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_robust_list.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 85
+      }
     },
     {
       "number": 301,
@@ -6577,7 +7060,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 388
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/move_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/move_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 192
+      }
     },
     {
       "number": 302,
@@ -6627,7 +7114,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 390
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_pwait.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 59
+      }
     },
     {
       "number": 304,
@@ -6651,7 +7142,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 391
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/utimensat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/utimensat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 335
+      }
     },
     {
       "number": 305,
@@ -6675,7 +7170,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 394
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/signalfd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/signalfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 301
+      }
     },
     {
       "number": 306,
@@ -6697,7 +7196,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 395
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 73
+      }
     },
     {
       "number": 307,
@@ -6718,7 +7221,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 396
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/eventfd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/eventfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 300
+      }
     },
     {
       "number": 308,
@@ -6727,16 +7234,25 @@
       "entry": "sys_ppc_sync_file_range2",
       "compat_entry": "compat_sys_ppc_sync_file_range2",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "int fd",
+        "unsigned int flags",
+        "unsigned int offset1",
+        "unsigned int offset2",
+        "unsigned int nbytes1",
+        "unsigned int nbytes2"
+      ],
+      "declaration": "long sys_ppc_sync_file_range2(int fd, unsigned int flags, unsigned int offset1, unsigned int offset2, unsigned int nbytes1, unsigned int nbytes2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 107
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 397
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sync_file_range2.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/sync_file_range2.2.html"
     },
     {
       "number": 309,
@@ -6745,16 +7261,25 @@
       "entry": "sys_ppc_fallocate",
       "compat_entry": "compat_sys_fallocate",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "int fd",
+        "int mode",
+        "u32 offset1",
+        "u32 offset2",
+        "u32 len1",
+        "u32 len2"
+      ],
+      "declaration": "long sys_ppc_fallocate(int fd, int mode, u32 offset1, u32 offset2, u32 len1, u32 len2);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 112
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 400
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fallocate.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/fallocate.2.html"
     },
     {
       "number": 310,
@@ -6762,16 +7287,26 @@
       "name": "subpage_prot",
       "entry": "sys_subpage_prot",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned long addr",
+        "unsigned long len",
+        "u32 __user *map"
+      ],
+      "declaration": "long sys_subpage_prot(unsigned long addr, unsigned long len, u32 __user *map);",
+      "signature_source": {
+        "path": "arch/powerpc/include/asm/syscalls.h",
+        "line": 71
+      },
       "signature_note": null,
       "source": {
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 402
       },
       "man_url": "https://man7.org/linux/man-pages/man2/subpage_prot.2.html",
-      "signature_status": "not_found"
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 289
+      }
     },
     {
       "number": 311,
@@ -6795,7 +7330,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 403
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_settime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 75
+      }
     },
     {
       "number": 312,
@@ -6817,7 +7356,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 406
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_gettime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 77
+      }
     },
     {
       "number": 313,
@@ -6842,7 +7385,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 409
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/signalfd4.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/signalfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 71
+      }
     },
     {
       "number": 314,
@@ -6864,7 +7411,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 410
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/eventfd2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/eventfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 56
+      }
     },
     {
       "number": 315,
@@ -6885,7 +7436,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 411
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create1.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 57
+      }
     },
     {
       "number": 316,
@@ -6908,7 +7463,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 412
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup3.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html"
     },
     {
       "number": 317,
@@ -6930,7 +7485,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 413
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pipe2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pipe.2.html"
     },
     {
       "number": 318,
@@ -6951,7 +7506,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 414
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init1.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 63
+      }
     },
     {
       "number": 319,
@@ -6976,7 +7535,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 415
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/perf_event_open.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/perf_event_open.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 196
+      }
     },
     {
       "number": 320,
@@ -7002,7 +7565,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 416
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/preadv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readv.2.html"
     },
     {
       "number": 321,
@@ -7028,7 +7591,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 417
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwritev.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/writev.2.html"
     },
     {
       "number": 322,
@@ -7075,7 +7638,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 419
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_init.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_init.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 208
+      }
     },
     {
       "number": 324,
@@ -7101,7 +7668,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 420
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_mark.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_mark.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 209
+      }
     },
     {
       "number": 325,
@@ -7125,7 +7696,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 421
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/prlimit64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html"
     },
     {
       "number": 326,
@@ -7148,7 +7719,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 422
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socket.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socket.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 143
+      }
     },
     {
       "number": 327,
@@ -7171,7 +7746,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 423
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bind.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/bind.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 145
+      }
     },
     {
       "number": 328,
@@ -7194,7 +7773,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 424
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/connect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/connect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 148
+      }
     },
     {
       "number": 329,
@@ -7216,7 +7799,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 425
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/listen.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/listen.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 146
+      }
     },
     {
       "number": 330,
@@ -7239,7 +7826,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 426
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 147
+      }
     },
     {
       "number": 331,
@@ -7262,7 +7853,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 427
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getsockname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockname.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 149
+      }
     },
     {
       "number": 332,
@@ -7285,7 +7880,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 428
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpeername.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpeername.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 150
+      }
     },
     {
       "number": 333,
@@ -7309,7 +7908,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 429
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socketpair.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socketpair.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 144
+      }
     },
     {
       "number": 334,
@@ -7333,7 +7936,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 430
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 311
+      }
     },
     {
       "number": 335,
@@ -7359,7 +7966,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 431
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendto.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 155
+      }
     },
     {
       "number": 336,
@@ -7384,7 +7995,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 432
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 309
+      }
     },
     {
       "number": 337,
@@ -7411,7 +8026,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 433
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvfrom.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 157
+      }
     },
     {
       "number": 338,
@@ -7433,7 +8052,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 434
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shutdown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shutdown.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 156
+      }
     },
     {
       "number": 339,
@@ -7459,7 +8082,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 435
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setsockopt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 151
+      }
     },
     {
       "number": 340,
@@ -7485,7 +8112,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 436
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 153
+      }
     },
     {
       "number": 341,
@@ -7509,7 +8140,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 437
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 159
+      }
     },
     {
       "number": 342,
@@ -7533,7 +8168,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 438
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 161
+      }
     },
     {
       "number": 343,
@@ -7559,7 +8198,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 439
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 199
+      }
     },
     {
       "number": 344,
@@ -7583,7 +8226,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 442
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/accept4.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 197
+      }
     },
     {
       "number": 345,
@@ -7608,7 +8255,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 443
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/name_to_handle_at.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/name_to_handle_at.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 212
+      }
     },
     {
       "number": 346,
@@ -7632,7 +8283,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 444
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/open_by_handle_at.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/open_by_handle_at.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 213
+      }
     },
     {
       "number": 347,
@@ -7654,7 +8309,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 445
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_adjtime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_adjtime.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 336
+      }
     },
     {
       "number": 348,
@@ -7675,7 +8334,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 448
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/syncfs.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sync.2.html"
     },
     {
       "number": 349,
@@ -7700,7 +8359,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 449
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendmmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sendmmsg.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 216
+      }
     },
     {
       "number": 350,
@@ -7748,7 +8411,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 451
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 218
+      }
     },
     {
       "number": 352,
@@ -7774,7 +8441,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 452
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_writev.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 220
+      }
     },
     {
       "number": 353,
@@ -7797,7 +8468,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 453
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/finit_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 226
+      }
     },
     {
       "number": 354,
@@ -7822,7 +8497,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 454
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kcmp.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kcmp.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 224
+      }
     },
     {
       "number": 355,
@@ -7894,7 +8573,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 457
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/renameat2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html"
     },
     {
       "number": 358,
@@ -7917,7 +8596,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 458
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/seccomp.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/seccomp.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 229
+      }
     },
     {
       "number": 359,
@@ -7962,7 +8645,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 460
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/memfd_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/memfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 231
+      }
     },
     {
       "number": 361,
@@ -7985,7 +8672,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 461
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bpf.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/bpf.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 234
+      }
     },
     {
       "number": 362,
@@ -8011,7 +8702,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 462
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 237
+      }
     },
     {
       "number": 363,
@@ -8027,7 +8722,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 463
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/switch_endian.2.html"
+      "man_url": null
     },
     {
       "number": 364,
@@ -8048,7 +8743,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 466
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/userfaultfd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/userfaultfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 239
+      }
     },
     {
       "number": 365,
@@ -8071,7 +8770,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 467
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/membarrier.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/membarrier.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 242
+      }
     },
     {
       "number": 378,
@@ -8094,7 +8797,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 469
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlock2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock2.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 244
+      }
     },
     {
       "number": 379,
@@ -8120,7 +8827,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 470
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/copy_file_range.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/copy_file_range.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 246
+      }
     },
     {
       "number": 380,
@@ -8147,7 +8858,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 471
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/preadv2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readv.2.html"
     },
     {
       "number": 381,
@@ -8174,7 +8885,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 472
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwritev2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/writev.2.html"
     },
     {
       "number": 382,
@@ -8199,7 +8910,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 473
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kexec_file_load.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kexec_file_load.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 276
+      }
     },
     {
       "number": 383,
@@ -8246,7 +8961,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 475
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_alloc.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_alloc.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 250
+      }
     },
     {
       "number": 385,
@@ -8267,7 +8986,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 476
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_free.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_free.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 251
+      }
     },
     {
       "number": 386,
@@ -8291,7 +9014,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 477
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_mprotect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_mprotect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 249
+      }
     },
     {
       "number": 387,
@@ -8315,7 +9042,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 478
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rseq.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 375
+      }
     },
     {
       "number": 388,
@@ -8342,7 +9073,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 479
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_pgetevents.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 47
+      }
     },
     {
       "number": 393,
@@ -8365,7 +9100,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 483
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 127
+      }
     },
     {
       "number": 394,
@@ -8390,7 +9129,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 484
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 129
+      }
     },
     {
       "number": 395,
@@ -8413,7 +9156,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 485
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 135
+      }
     },
     {
       "number": 396,
@@ -8437,7 +9184,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 486
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 137
+      }
     },
     {
       "number": 397,
@@ -8461,7 +9212,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 487
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 140
+      }
     },
     {
       "number": 398,
@@ -8482,7 +9237,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 488
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmdt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 142
+      }
     },
     {
       "number": 399,
@@ -8504,7 +9263,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 489
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 118
+      }
     },
     {
       "number": 400,
@@ -8529,7 +9292,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 490
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgsnd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 125
+      }
     },
     {
       "number": 401,
@@ -8555,7 +9322,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 491
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgrcv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 123
+      }
     },
     {
       "number": 402,
@@ -8579,7 +9350,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 492
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 120
+      }
     },
     {
       "number": 403,
@@ -8602,7 +9377,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 493
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
     },
     {
       "number": 404,
@@ -8625,7 +9400,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 494
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_settime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
     },
     {
       "number": 405,
@@ -8648,7 +9423,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 495
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_adjtime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_adjtime.2.html"
     },
     {
       "number": 406,
@@ -8671,7 +9446,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 496
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_getres_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
     },
     {
       "number": 407,
@@ -8696,7 +9471,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 497
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_nanosleep_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_nanosleep.2.html"
     },
     {
       "number": 408,
@@ -8719,7 +9494,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 498
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timer_gettime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html"
     },
     {
       "number": 409,
@@ -8744,7 +9519,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 499
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html"
     },
     {
       "number": 410,
@@ -8767,7 +9542,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 500
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_gettime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 76
+      }
     },
     {
       "number": 411,
@@ -8792,7 +9571,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 501
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_settime64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 74
+      }
     },
     {
       "number": 412,
@@ -8817,7 +9600,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 502
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/utimensat_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/utimensat.2.html"
     },
     {
       "number": 413,
@@ -8844,7 +9627,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 503
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pselect6_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html"
     },
     {
       "number": 414,
@@ -8870,7 +9653,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 504
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ppoll_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/poll.2.html"
     },
     {
       "number": 416,
@@ -8897,7 +9680,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 505
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_pgetevents_time64.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 48
+      }
     },
     {
       "number": 417,
@@ -8923,7 +9710,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 506
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 198
+      }
     },
     {
       "number": 418,
@@ -8949,7 +9740,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 507
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedsend_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_send.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 110
+      }
     },
     {
       "number": 419,
@@ -8975,7 +9770,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 508
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedreceive_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_receive.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 112
+      }
     },
     {
       "number": 420,
@@ -9000,7 +9799,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 509
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semtimedop_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semtimedop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 132
+      }
     },
     {
       "number": 421,
@@ -9025,7 +9828,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 510
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigtimedwait_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigtimedwait.2.html"
     },
     {
       "number": 422,
@@ -9052,7 +9855,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 511
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futex_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futex.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 83
+      }
     },
     {
       "number": 423,
@@ -9075,7 +9882,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 512
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sched_rr_get_interval_time64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sched_rr_get_interval.2.html"
     },
     {
       "number": 424,
@@ -9121,7 +9928,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 514
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 51
+      }
     },
     {
       "number": 426,
@@ -9147,7 +9958,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 515
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 52
+      }
     },
     {
       "number": 427,
@@ -9171,7 +9986,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 516
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 53
+      }
     },
     {
       "number": 428,
@@ -9356,7 +10175,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 524
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone3.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 82
+      }
     },
     {
       "number": 436,
@@ -9450,7 +10273,7 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 528
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/faccessat2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/access.2.html"
     },
     {
       "number": 440,
@@ -9475,7 +10298,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 529
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_madvise.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_madvise.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 185
+      }
     },
     {
       "number": 441,
@@ -9502,7 +10329,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 530
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_pwait2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 61
+      }
     },
     {
       "number": 442,
@@ -9551,7 +10382,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 532
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/quotactl_fd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/quotactl_fd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 70
+      }
     },
     {
       "number": 444,
@@ -9574,7 +10409,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 533
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 168
+      }
     },
     {
       "number": 445,
@@ -9598,7 +10437,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 534
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_add_rule.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_add_rule.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 169
+      }
     },
     {
       "number": 446,
@@ -9620,7 +10463,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 535
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_restrict_self.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_restrict_self.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 170
+      }
     },
     {
       "number": 448,
@@ -9642,7 +10489,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 537
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_mrelease.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 186
+      }
     },
     {
       "number": 449,
@@ -9667,7 +10518,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 538
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futex_waitv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futex_waitv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 89
+      }
     },
     {
       "number": 450,
@@ -9691,7 +10546,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 539
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy_home_node.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 193
+      }
     },
     {
       "number": 451,
@@ -9715,7 +10574,11 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 540
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/cachestat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/cachestat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 194
+      }
     },
     {
       "number": 452,
@@ -9739,13 +10602,13 @@
         "path": "arch/powerpc/kernel/syscalls/syscall.tbl",
         "line": 541
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchmodat2.2.html"
+      "man_url": null
     }
   ],
   "license": "GPL-2.0-only",
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-04T14:14:11.358193+00:00",
+    "generated_at": "2026-11-14T11:09:20.800830+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [
       "sources/LICENSES/preferred/GPL-2.0",
@@ -9784,6 +10647,12 @@
         "spdx_license_identifier": "GPL-2.0"
       },
       {
+        "path": "arch/arm/Kconfig",
+        "sha256": "ba026ac05f7ed53a73c4e0083c3993987d9751db56515191aa949cfae0ef49f9",
+        "bundled_path": "sources/arch/arm/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/arm/include/asm/syscalls.h",
         "sha256": "c2e43cb284cb9b2bbf3bd70a3c38d4fe9a968ed7e6376640e32892e789a37c0f",
         "bundled_path": "sources/arch/arm/include/asm/syscalls.h",
@@ -9798,6 +10667,12 @@
         "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
       },
       {
+        "path": "arch/arm64/Kconfig",
+        "sha256": "bfa342955a0747ea30850bcf0ce49a43a15be2e0c9a6bbe36287a631bf88041d",
+        "bundled_path": "sources/arch/arm64/Kconfig",
+        "spdx_license_identifier": "GPL-2.0-only"
+      },
+      {
         "path": "arch/arm64/include/asm/unistd.h",
         "sha256": "db119d1fb243083f3710b512942b799afcf2832ca1e0d12518d1d24f1ca6fa7b",
         "bundled_path": "sources/arch/arm64/include/asm/unistd.h",
@@ -9808,6 +10683,18 @@
         "sha256": "a1d29b1442eab1f7fc50184df7ad7271c9d48fa1dabd0e413e88017a26a245cc",
         "bundled_path": "sources/arch/arm64/include/uapi/asm/unistd.h",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/arm64/kernel/sys.c",
+        "sha256": "58b4d8988435feb7542f5730d2002981421ef016de2053a0bec2ee6e87c54c44",
+        "bundled_path": "sources/arch/arm64/kernel/sys.c",
+        "spdx_license_identifier": "GPL-2.0-only"
+      },
+      {
+        "path": "arch/loongarch/Kconfig",
+        "sha256": "6bcb7c5a36591eeee5c0e19a1b4379b3219ef9e8eba80897c5b9a7ff8b693d8b",
+        "bundled_path": "sources/arch/loongarch/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
       },
       {
         "path": "arch/loongarch/include/asm/unistd.h",
@@ -9822,10 +10709,30 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/loongarch/kernel/syscall.c",
+        "sha256": "2170e49dc3be4433a2f5f6a37a732b7432e06f73d67f1bfc8cfed3a7c7e8944a",
+        "bundled_path": "sources/arch/loongarch/kernel/syscall.c",
+        "spdx_license_identifier": "GPL-2.0+"
+      },
+      {
+        "path": "arch/mips/Kconfig",
+        "sha256": "b614d7cc41d3e0c99d92e4605e36160c37c92d8fde19e2454168ddec871b26e5",
+        "bundled_path": "sources/arch/mips/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/mips/include/uapi/asm/unistd.h",
         "sha256": "3ddb054ab3643d8b4003ce7802ca887d13920897007c432af875aaf357f43e7a",
         "bundled_path": "sources/arch/mips/include/uapi/asm/unistd.h",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/kernel/signal.c",
+        "sha256": "61f5320e2c8cac1fce21591f178008c94adafb2857e18f2411bd0bf1ea098f0e",
+        "bundled_path": "sources/arch/mips/kernel/signal.c",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "No SPDX identifier; the file's own notice places it under the GNU General Public License and refers to the release COPYING."
       },
       {
         "path": "arch/mips/kernel/syscalls/syscall_n32.tbl",
@@ -9846,6 +10753,12 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/powerpc/Kconfig",
+        "sha256": "0fb8e2065d8e38da85e3f9af87d699088a064fa6cc83f4093d616228d5a1c565",
+        "bundled_path": "sources/arch/powerpc/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/powerpc/include/asm/syscalls.h",
         "sha256": "8adde1d66cf77a2b1fd5741b162bfb204e618c818804c659e7e6ff09e8927682",
         "bundled_path": "sources/arch/powerpc/include/asm/syscalls.h",
@@ -9856,6 +10769,12 @@
         "sha256": "1398cb3e33725aec213608c0f6f9cfd8bd4bbbe8d07b593c5ebe3d45cd0e0431",
         "bundled_path": "sources/arch/powerpc/kernel/syscalls/syscall.tbl",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/riscv/Kconfig",
+        "sha256": "b9b5789ee5d16de6b314d19d0de2fc634df30ddef5cc44f6dc148fff19d6a861",
+        "bundled_path": "sources/arch/riscv/Kconfig",
+        "spdx_license_identifier": "GPL-2.0-only"
       },
       {
         "path": "arch/riscv/include/asm/unistd.h",
@@ -9870,10 +10789,28 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/riscv/kernel/sys_riscv.c",
+        "sha256": "32616a9e5e7e59b8b615f0c8d19f83bfa9b270aaa96d690caec80cf84db17047",
+        "bundled_path": "sources/arch/riscv/kernel/sys_riscv.c",
+        "spdx_license_identifier": "GPL-2.0-only"
+      },
+      {
+        "path": "arch/s390/Kconfig",
+        "sha256": "c8042e97310477f266ea56fbb7cfc90b11a60ff8d0f0d9bb6dc4a8b2150e0c87",
+        "bundled_path": "sources/arch/s390/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/s390/kernel/syscalls/syscall.tbl",
         "sha256": "7a181dee81d20939179daec0f1c8de0fdbbec22e9e2c40b8a611363b0f598f9b",
         "bundled_path": "sources/arch/s390/kernel/syscalls/syscall.tbl",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/x86/Kconfig",
+        "sha256": "90299c1d7f5664e0e1fef0016d3f9566e23955d9839978a2f646d0a6f5eed41b",
+        "bundled_path": "sources/arch/x86/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
       },
       {
         "path": "arch/x86/entry/syscalls/syscall_32.tbl",
@@ -9920,6 +10857,12 @@
         "sha256": "026f4f7efe79d01bdcaacab2be80d14b15396839bd2f80957c8ad72357e459f9",
         "bundled_path": "sources/include/uapi/asm-generic/unistd.h",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "kernel/sys_ni.c",
+        "sha256": "f63a14052104483f4affabfed5dfb452e1e1c771c72baa528c9147ac02ae79f8",
+        "bundled_path": "sources/kernel/sys_ni.c",
+        "spdx_license_identifier": "GPL-2.0"
       }
     ]
   }

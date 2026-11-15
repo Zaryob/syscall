@@ -93,6 +93,17 @@ gerçek çağrı numarası bulunur. Ortak tabloyu kullanan mimarilerde `Makefile
 `syscall_abis_64` ekleri okunur. C argümanları `include/linux/syscalls.h`,
 `include/linux/compat.h` ve mimariye ait `asm/syscalls.h` dosyalarından alınır.
 Giriş sembolüyle tam eşleşme aranır; farklı bir ABI’den benzer isimli imza seçilmez.
+Başlık `CONFIG_CLONE_BACKWARDS*`, `CONFIG_OLD_SIGSUSPEND*`, `CONFIG_OLD_SIGACTION`
+veya `CONFIG_ARCH_SPLIT_ARG64` altında birden çok bildirim içeriyorsa importer
+mimarinin `Kconfig` dosyasındaki `select` satırlarını okur ve belirleyici
+simgeleri `signature_source.configuration` alanına yazar. Kconfig ile karar
+verilemeyen bildirimler “yapılandırmaya bağlı” olarak kalır. Başlıklarda
+bulunmayan birkaç imza mimarinin C dosyasındaki `SYSCALL_DEFINE` satırından
+alınır (arm64, RISC-V ve LoongArch için `mmap`; MIPS o32 için `sigaction` ve
+`sigsuspend`). `kernel/sys_ni.c` içinde `COND_SYSCALL` yedeği bulunan giriş
+noktaları `enosys_fallback` alanını taşır: ilgili seçenek veya mimari desteği
+derlenmemişse çağrı `ENOSYS` döner. Depodaki girdiler bir mimarinin böyle bir
+çağrıyı gerçekten uygulayıp uygulamadığını göstermez.
 
 İndirilen kaynaklar `.cache/` içinde saklanır (Git’e dahil değildir).
 Tekrar indirmek için ilgili `.cache/<tag>/` dizinini kaldırabilirsiniz.
@@ -105,8 +116,11 @@ Yerel ağaçtan üretilen veride varsa Git commit’i de kaydedilir; özetler ye
 değişiklikleri kapsar. İstenen tüm sürümlerin tabloları ve kaynak hash’leri
 doğrulandıktan sonra manifest tek işlemde güncellenir. Yayımlanmış bir sürümü
 yeniden içe aktarmak `data/revisions/` altında yeni bir veri kümesi oluşturur.
-Manifestteki `version_paths` ve statik API dizini etkin revizyonu gösterir.
-Önceki indirme adresleri kendi veri kümelerini sunmaya devam eder.
+Manifestteki `version_paths` ve statik API dizini etkin revizyonu gösterir;
+importer ardından `data/<sürüm>/` dizinini etkin revizyonun birebir kopyası
+olarak yeniler. Bu yüzden `/data/v7.3/x64.json` her zaman güncel veriyi sunar.
+Revizyon dizinleri yeniden yazılmaz; önceki revizyon adresleri kendi veri
+kümelerini sunmaya devam eder.
 
 ## Statik JSON API
 
@@ -205,14 +219,18 @@ korunur. Karşılığı olmayan sayfalarda `man_url: null` üretilir; arayüz du
 açıkça belirtir ve çekirdek kaynağına erişimi korur.
 
 Sayfa listesini `python3 scripts/sync_manual_pages.py` ile yenileyebilir,
-`--check` ile yazmadan karşılaştırabilirsiniz. Ardından snapshot'ları yeniden
-üretin. Yerel Linux ağacı ve depodaki sayfa kataloğuyla çekirdek içe aktarımı
+`--check` ile yazmadan karşılaştırabilirsiniz; denetim, katalogda bulunmayan
+bir sayfayı gösteren takma adlarda da hata verir. Ardından veri kümelerini
+yeniden üretin. Yerel Linux ağacı ve depodaki sayfa kataloğuyla çekirdek içe aktarımı
 çevrimdışı çalışır. Katalog man metinlerini içermez; uzak bağlantıların süresiz
 olarak erişilebilir kalacağını garanti etmez.
 
 `prepare_site.py`, arama indeksi, statik örnekler ve indirme bağlantıları için
-manifestteki son sürümü ve etkin revizyonu kullanır. Arama URL'leri uygulama
-köküne görelidir; sitemap mimarileri manifestten alır. npm yerine Jekyll'i
+manifestteki son sürümü ve etkin revizyonu kullanır. Arama indeksi İngilizce ve
+Türkçe açıklamaları `notes.mjs` dosyasından alır; yalnız başka ABI’lerde bulunan
+çağrıları onları sunan ilk ABI altında listeler. Arama URL'leri uygulama köküne
+görelidir. Sitemap yalnız kanonik kök adresi içerir; mimari ve dil görünümleri
+aynı belgenin durumlarıdır. npm yerine Jekyll'i
 doğrudan çalıştırırken önce hazırlama betiğini çalıştırın.
 
 ## Gezinme ve ABI başvuru notları
@@ -225,9 +243,9 @@ eski bekleyen veri yüklemeleri sonraki seçimi değiştiremez.
 Çağrı kuralları tablosu RET2 ve x86-64 komutunun bozduğu yazmaçları gösterir;
 notlar eax/w8 numaralandırmasını, PPC sc ve özellik denetimli PPC64 scv 0 farkını
 açıklar. Kısa tablo tam bir assembly yazmaç koruma sözleşmesi değildir. Bu editoryal
-notlar değişmez snapshot metaverisini değiştirmez. LTS işaretleri
+notlar değişmez veri kümesi metaverisini değiştirmez. LTS işaretleri
 [kernel.org](https://www.kernel.org/category/releases.html) verisine göre
-7 Kasım 2026 tarihlidir; kayıtlı snapshot bakım yaması içermez.
+7 Kasım 2026 tarihlidir; kayıtlı veri kümesi bakım yaması içermez.
 
 Sistem çağrısı araması tarayıcıda çalışır. Sayfa ayrıca üçüncü taraf Umami Cloud
 betiğini (`cloud.umami.is/script.js`) yükler ve ziyaret analitiği gönderir.

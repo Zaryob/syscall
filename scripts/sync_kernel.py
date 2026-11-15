@@ -46,6 +46,36 @@ ARCHES = {
 EXTENDED_TABLES_FROM = (5, 19)
 MIPS_HEADER = "arch/mips/include/uapi/asm/unistd.h"
 MIPS_SIM = {"o32": "_MIPS_SIM_ABI32", "n32": "_MIPS_SIM_NABI32", "n64": "_MIPS_SIM_ABI64"}
+# Kconfig symbols fixed by the definition of each ABI. PowerPC 32 and MIPS o32
+# describe the native 32-bit kernel, matching the table entry points shown.
+KCONFIG_FACTS = {
+    "x64": {"X86": True, "X86_64": True, "X86_32": False, "64BIT": True},
+    "x86": {"X86": True, "X86_32": True, "X86_64": False, "64BIT": False},
+    "arm64": {"ARM64": True, "64BIT": True},
+    "arm": {"ARM": True, "64BIT": False},
+    "riscv64": {"RISCV": True, "64BIT": True, "32BIT": False},
+    "loongarch64": {"LOONGARCH": True, "64BIT": True, "32BIT": False},
+    "ppc64": {"PPC": True, "PPC64": True, "PPC32": False, "64BIT": True},
+    "ppc": {"PPC": True, "PPC32": True, "PPC64": False, "64BIT": False},
+    "s390x": {"S390": True, "64BIT": True},
+    "mips-o32": {"MIPS": True, "32BIT": True, "64BIT": False},
+    "mips-n32": {"MIPS": True, "64BIT": True, "32BIT": False},
+    "mips-n64": {"MIPS": True, "64BIT": True, "32BIT": False},
+}
+# Promptless symbols that an architecture enables only with "select" in its
+# Kconfig; they choose between alternative declarations in the shared headers.
+SELECTED_SYMBOLS = {"CLONE_BACKWARDS", "CLONE_BACKWARDS3", "OLD_SIGSUSPEND", "OLD_SIGSUSPEND3", "OLD_SIGACTION", "ARCH_SPLIT_ARG64"}
+# Architecture C files whose SYSCALL_DEFINEn() headers supply declarations that
+# the headers do not provide for that ABI.
+DEFINITION_FILES = {
+    "x64": ["arch/x86/kernel/sys_x86_64.c"],
+    "arm64": ["arch/arm64/kernel/sys.c"],
+    "riscv64": ["arch/riscv/kernel/sys_riscv.c", "arch/riscv/kernel/sys_hwprobe.c"],
+    "loongarch64": ["arch/loongarch/kernel/syscall.c"],
+    "mips-o32": ["arch/mips/kernel/signal.c"],
+}
+FALLBACK_PATH = "kernel/sys_ni.c"
+AMBIGUOUS_NOTE = "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI."
 
 # Mainline releases: in 2.6.x the third component was the mainline release;
 # since 3.0 the third component denotes maintenance/patch releases instead.
@@ -73,7 +103,7 @@ LEGACY_PATHS = {
     "arch/x86/kernel/syscall_table_32.S", "arch/x86/kernel/syscall_table_64.S",
     "arch/i386/kernel/syscall_table.S", "arch/i386/kernel/entry.S", "arch/i386/kernel/sys_call.S",
     "kernel/sys_call.S", "kernel/entry.S", "arch/arm/kernel/calls.S",
-    "kernel/sched.c", "arch/riscv/include/uapi/asm/syscalls.h", "arch/riscv/include/uapi/asm/Kbuild",
+    "kernel/sched.c", "kernel/sys_ni.c", "arch/riscv/include/uapi/asm/syscalls.h", "arch/riscv/include/uapi/asm/Kbuild",
     "arch/arm/include/asm/unistd.h", "arch/arm/include/asm/syscalls.h",
     "arch/arm64/include/asm/unistd.h", "arch/arm64/include/uapi/asm/unistd.h",
     "arch/arm64/include/asm/syscalls.h", "include/asm-generic/unistd.h",
@@ -83,7 +113,7 @@ LEGACY_PATHS = {
     "arch/arm/tools/syscall.tbl", "arch/riscv/include/asm/unistd.h",
     "arch/riscv/include/uapi/asm/unistd.h", "arch/riscv/include/asm/syscalls.h",
     "arch/loongarch/include/asm/unistd.h", "arch/loongarch/include/uapi/asm/unistd.h",
-    "arch/loongarch/include/asm/syscalls.h",
+    "arch/loongarch/include/asm/syscalls.h", "arch/arm64/Kconfig", "arch/riscv/Kconfig",
 }
 
 
@@ -129,6 +159,9 @@ def source_licenses(files, ref=None):
                 # Reviewed historical kernel inputs predate SPDX conversion. The
                 # original file and release COPYING are retained without edits.
                 record.update(license_identifier="GPL-2.0-only", license_basis="COPYING", license_note="Historical kernel input without an SPDX identifier; see the original notices and release COPYING.")
+            elif "COPYING" in files and re.search(r"subject to the terms and conditions of the GNU General Public\s+(?:\*\s+)?License\.\s+See the file \"COPYING\"", info["text"]):
+                # Some current files still carry the pre-SPDX kernel notice only.
+                record.update(license_identifier="GPL-2.0-only", license_basis="COPYING", license_note="No SPDX identifier; the file's own notice places it under the GNU General Public License and refers to the release COPYING.")
             else:
                 raise ValueError("Missing SPDX license identifier in {}; review the source license before importing".format(path))
             allowed = {
@@ -246,40 +279,274 @@ def split_c_arguments(body):
     return [*arguments, body[start:].strip()]
 
 
+def tristate(expression, lookup):
+    """Evaluate !, && and || over symbols whose value may be unknown (None)."""
+    tokens = re.findall(r"&&|\|\||\w+|\S", expression)
+    position = 0
+
+    def take():
+        nonlocal position
+        position += 1
+        return tokens[position - 1] if position <= len(tokens) else None
+
+    def primary():
+        token = take()
+        if token == "!":
+            value = primary()
+            return None if value is None else not value
+        if token == "(":
+            value = either()
+            if take() != ")":
+                raise ValueError(expression)
+            return value
+        if token is None or not re.fullmatch(r"\w+", token):
+            raise ValueError(expression)
+        return lookup(token)
+
+    def both():
+        values = [primary()]
+        while position < len(tokens) and tokens[position] == "&&":
+            take()
+            values.append(primary())
+        return False if False in values else None if None in values else True
+
+    def either():
+        values = [both()]
+        while position < len(tokens) and tokens[position] == "||":
+            take()
+            values.append(both())
+        return True if True in values else None if None in values else False
+
+    try:
+        value = either()
+    except ValueError:
+        return None
+    # Comparisons, strings and arithmetic are outside this evaluator.
+    return value if position == len(tokens) else None
+
+
+def conditional_lines(clean):
+    """List, for every source line, the preprocessor conditions enclosing it."""
+    stack, lines = [], []
+    for raw in clean.split("\n"):
+        directive = re.match(r"\s*#\s*(ifdef|ifndef|if|elif|else|endif)\b(.*)", raw)
+        if directive:
+            kind, rest = directive[1], directive[2].strip()
+            rest = re.sub(r"\b(?:defined|IS_ENABLED)\s*\(\s*(\w+)\s*\)|\bdefined\s+(\w+)", lambda m: m[1] or m[2], rest)
+            if kind == "if":
+                stack.append(([], rest))
+            elif kind in {"ifdef", "ifndef"}:
+                stack.append(([], ("!" if kind == "ifndef" else "") + rest))
+            elif kind in {"elif", "else"} and stack:
+                earlier, current = stack.pop()
+                stack.append((earlier + [current], rest if kind == "elif" else None))
+            elif kind == "endif" and stack:
+                stack.pop()
+        lines.append(tuple(
+            " && ".join(["!({})".format(e) for e in earlier] + (["({})".format(current)] if current else []))
+            for earlier, current in stack
+        ))
+    return lines
+
+
+def add_declaration(result, symbol, record, conditions):
+    """Keep every alternative; the target configuration is applied per ABI."""
+    alternative = {**record, "conditions": conditions}
+    if symbol not in result:
+        result[symbol] = {**record, "alternatives": [alternative]}
+        return
+    entry = result[symbol]
+    entry["alternatives"].append(alternative)
+    # Headers contain CONFIG_* alternatives (notably clone argument order).
+    # Without a kernel configuration, conflicting declarations are ambiguous.
+    if entry["declaration"] != record["declaration"]:
+        entry.update(arguments=None, declaration=None, note=AMBIGUOUS_NOTE)
+    else:
+        entry.update(record)
+
+
 def parse_prototypes(text, path):
     result = {}
     clean = strip_comments(text)
+    conditions = conditional_lines(clean)
     pattern = r"^[ \t]*(?:asmlinkage\s+)?(?:[A-Z_]+\s+)?(?:(?:unsigned\s+)?(?:long|int|short|char)|void|ssize_t|off_t|caddr_t|clock_t|pid_t|\w+_t)\s+((?:compat_)?sys_\w+)\s*\(([^;{}]*?)\)\s*;"
     for m in re.finditer(pattern, clean, re.S | re.M):
         body = re.sub(r"\s+", " ", m[2]).strip()
         args = [] if body == "void" else split_c_arguments(body)
         declaration = re.sub(r"\s+", " ", clean[m.start():m.start(2)]).strip()
         declaration += (", ".join(args) if args else body) + ");"
-        # Headers contain CONFIG_* alternatives (notably clone argument order).
-        # Without a kernel configuration, conflicting declarations are ambiguous.
-        if m[1] in result and result[m[1]]["declaration"] != declaration:
-            result[m[1]]["arguments"] = None
-            result[m[1]]["declaration"] = None
-            result[m[1]]["note"] = "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI."
-            continue
-        result[m[1]] = {"arguments": args, "declaration": declaration, "path": path, "line": clean[:m.start()].count("\n") + 1}
+        record = {"arguments": args, "declaration": declaration, "path": path, "line": clean[:m.start()].count("\n") + 1}
+        add_declaration(result, m[1], record, conditions[clean[:m.start(1)].count("\n")])
     return result
 
 
-def mmap_prototype(text, path):
+def parse_definitions(text, path):
+    """Read SYSCALL_DEFINEn() headers from an architecture's own C source."""
+    result = {}
     clean = strip_comments(text)
-    matches = list(re.finditer(r"^\s*SYSCALL_DEFINE6\(mmap\s*,([^()]*)\)\s*\{", clean, re.M))
-    if len(matches) != 1:
-        return {}
-    match = matches[0]
-    parts = split_c_arguments(re.sub(r"\s+", " ", match[1]))
-    if len(parts) != 12 or not all(parts):
-        raise ValueError("Unsupported x86-64 mmap definition in " + path)
-    args = ["{} {}".format(kind, name) for kind, name in zip(parts[::2], parts[1::2])]
-    return {"sys_mmap": {
-        "arguments": args, "declaration": "asmlinkage long sys_mmap({});".format(", ".join(args)),
-        "path": path, "line": clean[:match.start(1)].count("\n") + 1, "kind": "syscall_macro",
-    }}
+    conditions = conditional_lines(clean)
+    for m in re.finditer(r"^[ \t]*(COMPAT_)?SYSCALL_DEFINE([0-6])\(\s*(\w+)\s*((?:,[^()]*)?)\)\s*\{", clean, re.M):
+        parts = split_c_arguments(re.sub(r"\s+", " ", m[4][1:]))
+        if len(parts) != 2 * int(m[2]) or not all(parts):
+            raise ValueError("Unsupported {} definition in {}".format(m[3], path))
+        args = [kind + ("" if kind.endswith("*") else " ") + name for kind, name in zip(parts[::2], parts[1::2])]
+        symbol = ("compat_sys_" if m[1] else "sys_") + m[3]
+        line = clean[:m.start()].count("\n")
+        record = {
+            "arguments": args, "declaration": "asmlinkage long {}({});".format(symbol, ", ".join(args) or "void"),
+            "path": path, "line": line + 1, "kind": "syscall_macro",
+        }
+        add_declaration(result, symbol, record, conditions[line])
+    return result
+
+
+def fallback_entries(text, path):
+    """Entry points for which kernel/sys_ni.c provides an ENOSYS fallback."""
+    result = {}
+    clean = strip_comments(text)
+    for m in re.finditer(r"^[ \t]*(?:cond_syscall\(\s*(\w+)\s*\)|COND_SYSCALL(_COMPAT)?\(\s*(\w+)\s*\))\s*;", clean, re.M):
+        symbol = m[1] or ("compat_sys_" if m[2] else "sys_") + m[3]
+        result.setdefault(symbol, {"path": path, "line": clean[:m.start()].count("\n") + 1})
+    return result
+
+
+def parse_kconfig(text):
+    """Collect select statements and the promptless defaults they depend on."""
+    selects, blocks = {}, {}
+    frames = []
+    block = header = help_indent = None
+    for number, raw in enumerate(text.expandtabs().splitlines(), 1):
+        line = raw.rstrip() if '"' in raw else raw.split("#", 1)[0].rstrip()
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip())
+        if help_indent is not None:
+            if help_indent < 0:
+                help_indent = indent
+                continue
+            if indent >= help_indent:
+                continue
+            help_indent = None
+        keyword, _, rest = line.strip().partition(" ")
+        rest = rest.strip()
+        if keyword in {"config", "menuconfig"}:
+            block = {"name": rest, "prompt": False, "defaults": [], "depends": [], "frames": tuple(frames)}
+            blocks.setdefault(rest, []).append(block)
+            header = None
+        elif keyword in {"menu", "choice"}:
+            frames.append([])
+            block, header = None, frames[-1]
+        elif keyword == "if":
+            frames.append([rest])
+            block = header = None
+        elif keyword in {"endif", "endmenu", "endchoice"}:
+            if frames:
+                frames.pop()
+            block = header = None
+        elif keyword in {"source", "comment", "mainmenu"}:
+            block = header = None
+        elif keyword in {"help", "---help---"}:
+            help_indent = -1
+        elif keyword == "depends" and rest.startswith("on "):
+            target = block["depends"] if block else header
+            if target is not None:
+                target.append(rest[3:].strip())
+        elif block is not None:
+            if keyword == "select":
+                match = re.fullmatch(r"(\w+)(?:\s+if\s+(.+))?", rest)
+                if match:
+                    selects.setdefault(match[1], []).append({"line": number, "owner": block, "condition": match[2]})
+            elif keyword == "prompt" or keyword in {"bool", "tristate", "string", "int", "hex"} and rest:
+                block["prompt"] = True
+            elif keyword in {"def_bool", "def_tristate", "default"}:
+                match = re.fullmatch(r"(.+?)(?:\s+if\s+(.+))?", rest)
+                block["defaults"].append((match[1], match[2]))
+    return selects, blocks
+
+
+class Configuration:
+    """Target ABI configuration, derived from the architecture's Kconfig."""
+
+    def __init__(self, source, arch):
+        self.source = source
+        self.facts = KCONFIG_FACTS[arch]
+        self.path = "arch/{}/Kconfig".format(ARCHES[arch]["kernel"])
+        self.parsed = None
+
+    def macro(self, name):
+        # Only the reviewed select-only symbols decide between declarations.
+        symbol = name.removeprefix("CONFIG_")
+        return self.symbol(symbol) if symbol != name and symbol in SELECTED_SYMBOLS else None
+
+    def symbol(self, name, depth=0):
+        if name in self.facts:
+            return self.facts[name]
+        if name in {"y", "n"}:
+            return name == "y"
+        if depth > 8:
+            return None
+        if self.parsed is None:
+            text = self.source.read(self.path, optional=True)
+            self.parsed = parse_kconfig(text) if text else False
+        if not self.parsed:
+            return None
+        selects, blocks = self.parsed
+
+        def lookup(other):
+            return self.symbol(other, depth + 1)
+
+        def every(expressions):
+            values = [tristate(e, lookup) for e in expressions]
+            return False if False in values else None if None in values else True
+
+        def enabled(block):
+            return every(block["depends"] + [e for frame in block["frames"] for e in frame])
+
+        def default(block):
+            if block["prompt"]:
+                return None
+            visible = enabled(block)
+            if visible is False:
+                return False
+            for value, condition in block["defaults"]:
+                applies = tristate(condition, lookup) if condition else True
+                if applies is None:
+                    return None
+                if applies:
+                    return every([value]) if visible else None
+            return False
+
+        values = [default(block) for block in blocks.get(name, [])]
+        for select in selects.get(name, []):
+            owner = select["owner"]
+            values.append(every([owner["name"], *([select["condition"]] if select["condition"] else []), *(e for frame in owner["frames"] for e in frame)]))
+        if not values:
+            # Selected symbols are defined once in arch/Kconfig without a prompt.
+            return False if name in SELECTED_SYMBOLS else None
+        return True if True in values else None if None in values else False
+
+    def prototype(self, prototype):
+        """Return the declaration this ABI's configuration enables, if any."""
+        if not prototype:
+            return None
+        used = {}
+
+        def lookup(name):
+            value = self.macro(name)
+            if value is not None:
+                used[name] = value
+            return value
+
+        live = [a for a in prototype["alternatives"] if not any(tristate(c, lookup) is False for c in a["conditions"])]
+        if len(live) == len(prototype["alternatives"]):
+            return prototype
+        if not live:
+            return None
+        chosen = {k: v for k, v in live[-1].items() if k != "conditions"}
+        if len({a["declaration"] for a in live}) != 1:
+            chosen.update(arguments=None, declaration=None, note=AMBIGUOUS_NOTE)
+        chosen["configuration"] = {"path": self.path, "symbols": dict(sorted(used.items()))}
+        return chosen
 
 
 def parse_table(text, abis, offset=0, secondary_entry="compat_entry"):
@@ -526,6 +793,7 @@ def generate(ref, tree, output):
     common = {}
     for path in ["include/linux/syscalls.h", "include/linux/compat.h"]:
         common.update(parse_prototypes(source.read(path, optional=version_key(ref) < (2, 6, 0)), path))
+    fallbacks = fallback_entries(source.read(FALLBACK_PATH, optional=True), FALLBACK_PATH)
     snapshots = {}
     for arch, config in ARCHES.items():
         table_path, rows = architecture_rows(source, arch)
@@ -537,13 +805,15 @@ def generate(ref, tree, output):
         # Early x86-64 headers contain architecture-specific prototypes too.
         if table_path.endswith(".h"):
             prototypes.update(parse_prototypes(source.read(table_path), table_path))
-        if arch == "x64" and version_key(ref) >= (5, 19) and "sys_mmap" not in prototypes:
-            mmap_path = "arch/x86/kernel/sys_x86_64.c"
-            prototypes.update(mmap_prototype(source.read(mmap_path, optional=True), mmap_path))
+        definitions = {}
+        if version_key(ref) >= (5, 19):
+            for path in DEFINITION_FILES.get(arch, []):
+                definitions.update(parse_definitions(source.read(path, optional=True), path))
+        configuration = Configuration(source, arch)
         for row in rows:
             symbol = row["entry"] or ""
             # Assembly wrappers have no C prototype; do not substitute another ABI.
-            prototype = prototypes.get(symbol)
+            prototype = configuration.prototype(prototypes.get(symbol)) or configuration.prototype(definitions.get(symbol))
             unavailable = symbol in {"", "-", "sys_ni_syscall", "compat_sys_ni_syscall"}
             row.update(
                 status="unimplemented" if unavailable else "defined",
@@ -554,8 +824,11 @@ def generate(ref, tree, output):
                 source={"path": row.pop("path", table_path), "line": row.pop("line")},
                 man_url=manual_url(row["name"]) if not unavailable else None,
             )
-            if row["signature_source"] and prototype.get("kind"):
-                row["signature_source"]["kind"] = prototype["kind"]
+            for key in ["kind", "configuration"]:
+                if row["signature_source"] and prototype.get(key):
+                    row["signature_source"][key] = prototype[key]
+            if not unavailable and symbol in fallbacks:
+                row["enosys_fallback"] = dict(fallbacks[symbol])
             if not unavailable and row["arguments"] is None:
                 if prototype and prototype.get("note"):
                     row["signature_status"] = "configuration_dependent"
@@ -654,8 +927,9 @@ def publish_snapshots(output, staged, refs):
                 if ref in availability and same_snapshot(staged / ref, active, staged_architectures[ref]):
                     continue
                 if target.exists() or ref in availability:
-                    # Keep every previously published path readable for clients
-                    # that are still using the previous manifest.
+                    # Revisions are immutable, so clients still using the previous
+                    # manifest keep reading the revision it names. data/<release>/
+                    # is refreshed afterwards as a mirror of the active revision.
                     target = output / "revisions" / ref / uuid4().hex
                     target.parent.mkdir(parents=True, exist_ok=True)
                     paths[ref] = target.relative_to(output).as_posix()
@@ -663,6 +937,7 @@ def publish_snapshots(output, staged, refs):
                 published.append(target)
                 availability[ref] = staged_architectures[ref]
             if not published:
+                mirror_active(output, paths)
                 return
             releases = sorted(availability, key=version_key, reverse=True)
             atomic_json(manifest_path, {
@@ -675,6 +950,28 @@ def publish_snapshots(output, staged, refs):
             for folder in published:
                 shutil.rmtree(folder)
             raise
+        mirror_active(output, paths)
+
+
+def mirror_active(output, paths):
+    """Keep data/<release>/ identical to the release's active revision."""
+    def files(root):
+        return {p.relative_to(root).as_posix(): p for p in root.rglob("*") if p.is_file()} if root.is_dir() else {}
+
+    for ref, active in sorted(paths.items()):
+        source, target = output / active, output / ref
+        if source == target:
+            continue
+        current, wanted = files(target), files(source)
+        if current.keys() == wanted.keys() and all(current[k].read_bytes() == wanted[k].read_bytes() for k in wanted):
+            continue
+        staging = output / (".tmp-mirror-" + uuid4().hex)
+        retired = output / (".tmp-retired-" + uuid4().hex)
+        shutil.copytree(source, staging)
+        if target.exists():
+            target.rename(retired)
+        staging.rename(target)
+        shutil.rmtree(retired, ignore_errors=True)
 
 
 def same_snapshot(staged, active, architectures):

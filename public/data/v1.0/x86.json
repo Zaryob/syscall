@@ -632,7 +632,7 @@
         "path": "kernel/sched.c",
         "line": 127
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftime.2.html",
+      "man_url": null,
       "signature_status": "not_found"
     },
     {
@@ -870,7 +870,7 @@
         "path": "kernel/sched.c",
         "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/geteuid.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html",
       "signature_status": "not_found"
     },
     {
@@ -887,7 +887,7 @@
         "path": "kernel/sched.c",
         "line": 129
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getegid.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1023,7 +1023,7 @@
         "path": "kernel/sched.c",
         "line": 130
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ulimit.2.html",
+      "man_url": null,
       "signature_status": "not_found"
     },
     {
@@ -1108,7 +1108,7 @@
         "path": "kernel/sched.c",
         "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup2.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1125,7 +1125,7 @@
         "path": "kernel/sched.c",
         "line": 131
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getppid.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1312,7 +1312,7 @@
         "path": "kernel/sched.c",
         "line": 134
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setrlimit.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1414,7 +1414,7 @@
         "path": "kernel/sched.c",
         "line": 135
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgroups.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1584,7 +1584,7 @@
         "path": "kernel/sched.c",
         "line": 137
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munmap.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1618,7 +1618,7 @@
         "path": "kernel/sched.c",
         "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1635,7 +1635,7 @@
         "path": "kernel/sched.c",
         "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchmod.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1652,7 +1652,7 @@
         "path": "kernel/sched.c",
         "line": 138
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchown.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1703,7 +1703,7 @@
         "path": "kernel/sched.c",
         "line": 139
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/profil.2.html",
+      "man_url": null,
       "signature_status": "not_found"
     },
     {
@@ -1805,7 +1805,7 @@
         "path": "kernel/sched.c",
         "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setitimer.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1856,7 +1856,7 @@
         "path": "kernel/sched.c",
         "line": 140
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lstat.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
       "signature_status": "not_found"
     },
     {
@@ -1873,7 +1873,7 @@
         "path": "kernel/sched.c",
         "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fstat.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html",
       "signature_status": "not_found"
     },
     {
@@ -2264,7 +2264,7 @@
         "path": "kernel/sched.c",
         "line": 145
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html"
+      "man_url": null
     },
     {
       "number": 132,
@@ -2280,7 +2280,7 @@
         "path": "kernel/sched.c",
         "line": 146
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpgid.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html",
       "signature_status": "not_found"
     },
     {
@@ -2297,7 +2297,7 @@
         "path": "kernel/sched.c",
         "line": 146
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchdir.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html",
       "signature_status": "not_found"
     },
     {
@@ -2314,13 +2314,13 @@
         "path": "kernel/sched.c",
         "line": 146
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bdflush.2.html"
+      "man_url": null
     }
   ],
   "license": "GPL-2.0-only",
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-02T20:40:19.414613+00:00",
+    "generated_at": "2026-11-14T11:09:11.183155+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [],
     "generator": "scripts/sync_kernel.py",

@@ -27,6 +27,7 @@ class PrepareTests(unittest.TestCase):
                 {'number': 0, 'name': 'read', 'status': 'defined', 'declaration': 'long sys_read(void);'},
                 {'number': 1, 'name': 'unused', 'status': 'unimplemented'},
             ]}))
+            (public / 'notes.mjs').write_text("const entries = [\n  ['read', 'Read bytes.', 'Bayt okur.'],\n];\n")
             with patch.multiple(prepare, ROOT=root, PUBLIC=public, ARCHIVE=public / 'downloads/source.tar.gz'):
                 prepare.prepare()
             metadata = json.loads((public / '_data/syscall_release.json').read_text())
@@ -34,8 +35,27 @@ class PrepareTests(unittest.TestCase):
             self.assertEqual(metadata['latest_path'], 'revisions/v9.0/fixture')
             entries = json.loads((public / 'search.json').read_text())
             self.assertEqual(len(entries), 2)
+            self.assertEqual({e['lang']: e['description'] for e in entries},
+                             {'tr': 'Bayt okur. — long sys_read(void);', 'en': 'Read bytes. — long sys_read(void);'})
             for entry in entries:
                 url = urlsplit(entry['url'])
                 self.assertEqual(url.path, '')
                 self.assertEqual(parse_qs(url.query)['kernel'], ['v9.0'])
                 self.assertEqual(url.fragment, 'sys-v9.0:0:read')
+
+    def test_search_index_is_bilingual_covers_other_abis_and_has_no_empty_description(self):
+        notes = prepare.editorial_notes()
+        self.assertGreater(len(notes), 200)
+        entries = json.loads((prepare.PUBLIC / 'search.json').read_text())
+        by_key = {(e['title'], e['lang']): e for e in entries}
+        self.assertEqual(len(by_key), len(entries))
+        self.assertTrue(all(e['description'] for e in entries))
+        self.assertTrue(by_key[('sys_read', 'tr')]['description'].startswith(notes['read']['tr']))
+        self.assertNotEqual(by_key[('sys_read', 'tr')]['description'], by_key[('sys_read', 'en')]['description'])
+        for name in ['mmap2', 'socketcall', '_llseek']:
+            self.assertIn('arch=', by_key[('sys_' + name, 'en')]['url'])
+            self.assertNotIn('arch=x64', by_key[('sys_' + name, 'en')]['url'])
+
+
+if __name__ == '__main__':
+    unittest.main()

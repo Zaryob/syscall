@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-only
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -12,7 +13,103 @@ sync = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sync)
 
 
+manual = importlib.util.spec_from_file_location("sync_manual_pages", Path(__file__).resolve().parents[1] / "scripts/sync_manual_pages.py")
+manual_pages = importlib.util.module_from_spec(manual)
+manual.loader.exec_module(manual_pages)
+
+
+def tree_digest(root):
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*')) if p.is_file()}
+
+
+class StubSource:
+    def __init__(self, files):
+        self.files = files
+
+    def read(self, path, optional=False):
+        return self.files.get(path, '')
+
+
 class ImportTests(unittest.TestCase):
+    def test_release_directories_mirror_the_active_revisions(self):
+        data = sync.ROOT / 'public/data'
+        manifest = json.loads((data / 'manifest.json').read_text())
+        for ref in manifest['versions']:
+            with self.subTest(ref=ref):
+                active = data / manifest.get('version_paths', {}).get(ref, ref)
+                self.assertEqual(tree_digest(data / ref), tree_digest(active))
+
+    def test_every_manual_alias_targets_a_cataloged_page(self):
+        self.assertEqual(manual_pages.alias_errors(sync.MANUAL_CATALOG), [])
+        broken = {'sections': {'2': ['exit'], '3': []}, 'aliases': {'exit': '_exit', 'mq_timedsend': 'mq_send.3'}}
+        self.assertEqual(manual_pages.alias_errors(broken), ['exit -> _exit(2)', 'mq_timedsend -> mq_send(3)'])
+        self.assertEqual(sync.manual_url('exit'), 'https://man7.org/linux/man-pages/man2/exit.2.html')
+
+    def test_kconfig_selects_choose_between_guarded_declarations(self):
+        header = ('#ifdef CONFIG_CLONE_BACKWARDS\nasmlinkage long sys_clone(unsigned long, int __user *, unsigned long);\n#else\n'
+                  '#ifdef CONFIG_CLONE_BACKWARDS3\nasmlinkage long sys_clone(int, unsigned long);\n#else\n'
+                  'asmlinkage long sys_clone(unsigned long, int __user *);\n#endif\n#endif\n'
+                  '#if defined(CONFIG_ARCH_SPLIT_ARG64)\nasmlinkage long sys_fanotify_mark(unsigned int mask_1, unsigned int mask_2);\n#else\n'
+                  'asmlinkage long sys_fanotify_mark(u64 mask);\n#endif\n'
+                  '#ifdef CONFIG_OLD_SIGSUSPEND\nasmlinkage long sys_sigsuspend(old_sigset_t mask);\n#endif\n'
+                  '#ifdef CONFIG_OLD_SIGSUSPEND3\nasmlinkage long sys_sigsuspend(int unused1, int unused2, old_sigset_t mask);\n#endif\n'
+                  '#ifdef CONFIG_OLD_SIGACTION\nasmlinkage long sys_sigaction(int, const struct old_sigaction __user *);\n#endif\n'
+                  '#ifdef CONFIG_COMPAT\nasmlinkage long sys_other(int a);\n#else\nasmlinkage long sys_other(long a);\n#endif\n')
+        prototypes = sync.parse_prototypes(header, 'include/linux/syscalls.h')
+        self.assertIsNone(prototypes['sys_clone']['arguments'])
+        x86 = ('config X86_32\n\tdef_bool y\n\tdepends on !64BIT\n\tselect CLONE_BACKWARDS\n\tselect ARCH_SPLIT_ARG64\n\tselect OLD_SIGACTION\n'
+               'config X86\n\tdef_bool y\n\thelp\n\t  Prose that may say\n\t  select CLONE_BACKWARDS3\n'
+               'config IA32_EMULATION\n\tbool "IA32 Emulation"\n\tselect CLONE_BACKWARDS3 if EXPERT = y\n'
+               'config COMPAT_32\n\tdef_bool y\n\tdepends on IA32_EMULATION || X86_32\n\tselect OLD_SIGSUSPEND3\n')
+        native = sync.Configuration(StubSource({'arch/x86/Kconfig': x86}), 'x86')
+        clone = native.prototype(prototypes['sys_clone'])
+        self.assertEqual(clone['arguments'], ['unsigned long', 'int __user *', 'unsigned long'])
+        self.assertEqual(clone['configuration'], {'path': 'arch/x86/Kconfig', 'symbols': {'CONFIG_CLONE_BACKWARDS': True}})
+        self.assertEqual(native.prototype(prototypes['sys_fanotify_mark'])['arguments'], ['unsigned int mask_1', 'unsigned int mask_2'])
+        self.assertEqual(len(native.prototype(prototypes['sys_sigsuspend'])['arguments']), 3)
+        self.assertIs(native.prototype(prototypes['sys_sigaction']), prototypes['sys_sigaction'])
+        # An undecidable select keeps the declaration configuration-dependent.
+        wide = sync.Configuration(StubSource({'arch/x86/Kconfig': x86}), 'x64')
+        self.assertIsNone(wide.prototype(prototypes['sys_clone'])['arguments'])
+        self.assertEqual(wide.prototype(prototypes['sys_fanotify_mark'])['arguments'], ['u64 mask'])
+        # Without selects the #else branches apply and unselected declarations are dropped.
+        plain = sync.Configuration(StubSource({'arch/mips/Kconfig': 'config MIPS\n\tbool\n\tdefault y\n\tselect CLONE_BACKWARDS\n'}), 'mips-o32')
+        self.assertIsNone(plain.prototype(prototypes['sys_sigaction']))
+        self.assertIsNone(plain.prototype(prototypes['sys_sigsuspend']))
+        self.assertEqual(plain.prototype(prototypes['sys_clone'])['line'], 2)
+        # Symbols outside the reviewed list, or a missing Kconfig, change nothing.
+        self.assertIsNone(plain.prototype(prototypes['sys_other'])['arguments'])
+        missing = sync.Configuration(StubSource({}), 'arm')
+        self.assertIs(missing.prototype(prototypes['sys_clone']), prototypes['sys_clone'])
+
+    def test_architecture_definitions_and_enosys_fallbacks_are_parsed(self):
+        text = ('#ifdef CONFIG_TRAD_SIGNALS\nSYSCALL_DEFINE3(sigaction, int, sig, const struct sigaction __user *, act,\n'
+                '\tstruct sigaction __user *, oact)\n{\n}\n#endif\nSYSCALL_DEFINE0(getpid)\n{\n}\n'
+                'COMPAT_SYSCALL_DEFINE1(old, int, value)\n{\n}\n')
+        result = sync.parse_definitions(text, 'arch/mips/kernel/signal.c')
+        self.assertEqual(result['sys_sigaction']['declaration'], 'asmlinkage long sys_sigaction(int sig, const struct sigaction __user *act, struct sigaction __user *oact);')
+        self.assertEqual((result['sys_sigaction']['line'], result['sys_sigaction']['kind']), (2, 'syscall_macro'))
+        self.assertEqual(result['sys_getpid']['arguments'], [])
+        self.assertIn('compat_sys_old', result)
+        with self.assertRaises(ValueError):
+            sync.parse_definitions('SYSCALL_DEFINE2(bad, int, a)\n{\n}\n', 'x.c')
+        fallbacks = sync.fallback_entries('#define cond_syscall(x) x\ncond_syscall(sys_old);\n/* COND_SYSCALL(hidden); */\nCOND_SYSCALL(uselib);\nCOND_SYSCALL_COMPAT(io_setup);\n', 'kernel/sys_ni.c')
+        self.assertEqual(fallbacks, {'sys_old': {'path': 'kernel/sys_ni.c', 'line': 2}, 'sys_uselib': {'path': 'kernel/sys_ni.c', 'line': 4}, 'compat_sys_io_setup': {'path': 'kernel/sys_ni.c', 'line': 5}})
+
+    def test_active_data_resolves_abi_determined_declarations(self):
+        data = sync.ROOT / 'public/data/v7.3'
+        def row(arch, name):
+            return next(r for r in json.loads((data / (arch + '.json')).read_text())['syscalls'] if r['name'] == name)
+        self.assertEqual(row('x64', 'clone')['arguments'], ['unsigned long', 'unsigned long', 'int __user *', 'int __user *', 'unsigned long'])
+        self.assertEqual(row('arm64', 'clone')['arguments'], ['unsigned long', 'unsigned long', 'int __user *', 'unsigned long', 'int __user *'])
+        self.assertEqual(len(row('x64', 'fanotify_mark')['arguments']), 5)
+        self.assertEqual(len(row('x86', 'fanotify_mark')['arguments']), 6)
+        self.assertEqual(row('mips-o32', 'sigaction')['arguments'][1], 'const struct sigaction __user *act')
+        self.assertEqual(row('arm64', 'mmap')['signature_source']['path'], 'arch/arm64/kernel/sys.c')
+        self.assertEqual(row('arm', 'uselib')['enosys_fallback']['path'], 'kernel/sys_ni.c')
+        self.assertNotIn('enosys_fallback', row('x64', 'read'))
+        self.assertTrue(row('x64', 'exit')['man_url'].endswith('/man2/exit.2.html'))
+
     def test_table_filters_abi_without_losing_unimplemented_slots(self):
         table = "# header\n0 common read sys_read\n1 64 write sys_write\n2 x32 compat compat_sys_read\n3 common reserved\n4 common unavailable sys_ni_syscall\n"
         rows = sync.parse_table(table, ["common", "64"])
@@ -96,6 +193,7 @@ class ImportTests(unittest.TestCase):
         self.assertIsNone(result['sys_clone']['arguments'])
         self.assertIsNone(result['sys_clone']['declaration'])
         self.assertIn('configuration', result['sys_clone']['note'])
+        self.assertEqual(len(result['sys_clone']['alternatives']), 3)
 
     def test_mainline_filter_distinguishes_major_and_2_6_releases_from_maintenance(self):
         # 1.0 baseline
@@ -194,8 +292,10 @@ class ImportTests(unittest.TestCase):
             folder = output / revised['version_paths']['v7.3']
             active = json.loads((folder / 'x64.json').read_text())
             self.assertIn('ssize_t sys_read(', active['syscalls'][0]['declaration'])
-            self.assertEqual((output / 'v7.3/x64.json').read_bytes(), old_table)
-            self.assertEqual((output / 'v7.3/sources.json').read_bytes(), old_sources)
+            # data/<release>/ follows the active revision; it is not a stale copy.
+            self.assertNotEqual((output / 'v7.3/x64.json').read_bytes(), old_table)
+            self.assertEqual(tree_digest(output / 'v7.3'), tree_digest(folder))
+            self.assertFalse(list(output.glob('.tmp-*')))
 
     def test_batch_failure_does_not_publish_a_successful_release(self):
         with tempfile.TemporaryDirectory() as directory:

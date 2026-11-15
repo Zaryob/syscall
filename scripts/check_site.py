@@ -17,6 +17,7 @@ class Links(HTMLParser):
         super().__init__()
         self.urls = []
         self.site_root = None
+        self.canonical = None
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -25,6 +26,8 @@ class Links(HTMLParser):
                 self.urls.append(attrs[attr])
         if tag == 'meta' and attrs.get('name') == 'site-root':
             self.site_root = attrs.get('content')
+        if tag == 'link' and attrs.get('rel') == 'canonical':
+            self.canonical = attrs.get('href')
 
 
 def check(site, baseurl):
@@ -61,8 +64,14 @@ def check(site, baseurl):
     architectures = [arch['id'] for arch in manifest['architectures']]
     sitemap = ET.parse(site / 'sitemap.xml')
     locations = [element.text for element in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-    for arch in architectures:
-        assert any(urlsplit(url).query == 'arch=' + arch for url in locations), 'Sitemap missing ABI: ' + arch
+    # The layout declares one canonical URL; the sitemap must not list others.
+    assert parser.canonical and not urlsplit(parser.canonical).query, 'Missing or parameterized canonical URL'
+    assert locations, 'Empty sitemap'
+    for url in locations:
+        parsed = urlsplit(url)
+        assert parsed.path == base and not parsed.query and not parsed.fragment, 'Sitemap URL contradicts the canonical URL: ' + url
+        if urlsplit(parser.canonical).path == base:
+            assert url == parser.canonical, 'Sitemap URL differs from the canonical URL: ' + url
     api_index = json.loads((site / 'api/v1/index.json').read_text())
     expected_tables = {
         (version, arch): '../../data/{}/{}.json'.format(paths.get(version, version), arch)

@@ -11,9 +11,20 @@ import urllib.request
 CATALOG = Path(__file__).resolve().parents[1] / 'sources/manual-pages.json'
 
 
+def alias_errors(catalog):
+    """List aliases whose target page is absent from the catalog sections."""
+    errors = []
+    for name, target in sorted(catalog['aliases'].items()):
+        page, _, section = target.partition('.')
+        section = section or '2'
+        if page not in catalog['sections'].get(section, []):
+            errors.append('{} -> {}({})'.format(name, page, section))
+    return errors
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check', action='store_true', help='Compare page names without writing')
+    parser.add_argument('--check', action='store_true', help='Compare page names and alias targets without writing')
     args = parser.parse_args()
     catalog = json.loads(CATALOG.read_text())
     sections, sources = {}, []
@@ -33,9 +44,15 @@ def main():
     if args.check:
         if sections != catalog['sections']:
             raise SystemExit('Manual-page catalog changed; refresh it before regenerating tables.')
-        print('Manual-page catalog matches the upstream page names.')
+        broken = alias_errors(catalog)
+        if broken:
+            raise SystemExit('Manual-page aliases without a cataloged target: ' + ', '.join(broken))
+        print('Manual-page catalog matches the upstream page names; every alias target exists.')
         return
     catalog.update(sections=sections, sources=sources)
+    broken = alias_errors(catalog)
+    if broken:
+        raise SystemExit('Manual-page aliases without a cataloged target: ' + ', '.join(broken))
     CATALOG.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + '\n')
     print('Updated manual-page names; regenerate kernel snapshots to apply new links.')
 

@@ -67,6 +67,8 @@ test('search finds exact decimal/hex numbers and matches declaration text', () =
   assert.deepEqual(searchSyscalls(rows, ' FileName '), [rows[1]]);
   assert.deepEqual(searchSyscalls(rows, 'sys_read'), [rows[0]]);
   assert.deepEqual(searchSyscalls(rows, 'nosuchcall'), []);
+  const numbered = [...rows, { number: 17, name: 'pread64', entry: 'sys_pread64', arguments: [] }, { number: 64, name: 'semget', entry: 'sys_semget', arguments: ['u64 key'] }, { number: 4, name: 'stat', entry: 'sys_newstat', arguments: ['struct stat64 *buf'] }];
+  assert.deepEqual(searchSyscalls(numbered, '64').map(row => row.name), ['pread64', 'semget']);
 });
 
 test('diff detects number reuse, removed entries, and ABI signature changes', () => {

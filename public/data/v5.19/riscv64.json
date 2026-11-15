@@ -44,7 +44,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 34
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_setup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_setup.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 39
+      }
     },
     {
       "number": 1,
@@ -65,7 +69,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 36
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_destroy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_destroy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 41
+      }
     },
     {
       "number": 2,
@@ -88,7 +96,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 38
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_submit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_submit.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 42
+      }
     },
     {
       "number": 3,
@@ -111,7 +123,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 40
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_cancel.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_cancel.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 44
+      }
     },
     {
       "number": 4,
@@ -136,7 +152,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 43
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_getevents.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_getevents.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 46
+      }
     },
     {
       "number": 5,
@@ -463,7 +483,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 78
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/lookup_dcookie.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/lookup_dcookie.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 60
+      }
     },
     {
       "number": 19,
@@ -485,7 +509,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 82
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/eventfd2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/eventfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 64
+      }
     },
     {
       "number": 20,
@@ -506,7 +534,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 86
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create1.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 67
+      }
     },
     {
       "number": 21,
@@ -530,7 +562,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 88
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 68
+      }
     },
     {
       "number": 22,
@@ -556,7 +592,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 90
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_pwait.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 69
+      }
     },
     {
       "number": 23,
@@ -600,7 +640,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 96
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/dup3.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/dup.2.html"
     },
     {
       "number": 25,
@@ -644,7 +684,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 102
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init1.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_init.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 77
+      }
     },
     {
       "number": 27,
@@ -667,7 +711,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 104
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_add_watch.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_add_watch.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 78
+      }
     },
     {
       "number": 28,
@@ -689,7 +737,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 106
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 79
+      }
     },
     {
       "number": 29,
@@ -735,7 +787,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 114
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_set.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_set.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 84
+      }
     },
     {
       "number": 31,
@@ -757,7 +813,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 116
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_get.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/ioprio_get.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 85
+      }
     },
     {
       "number": 32,
@@ -779,7 +839,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 120
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/flock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/flock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 88
+      }
     },
     {
       "number": 33,
@@ -826,7 +890,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 126
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mkdirat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mkdir.2.html"
     },
     {
       "number": 35,
@@ -849,7 +913,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 128
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/unlinkat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/unlink.2.html"
     },
     {
       "number": 36,
@@ -919,7 +983,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 141
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/umount2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/umount.2.html"
     },
     {
       "number": 40,
@@ -982,7 +1046,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 149
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/nfsservctl.2.html"
+      "man_url": null
     },
     {
       "number": 43,
@@ -1070,7 +1134,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 163
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ftruncate.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/truncate.2.html"
     },
     {
       "number": 47,
@@ -1159,7 +1223,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 172
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchdir.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chdir.2.html"
     },
     {
       "number": 51,
@@ -1202,7 +1266,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 176
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchmod.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chmod.2.html"
     },
     {
       "number": 53,
@@ -1250,7 +1314,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 180
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchownat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
     },
     {
       "number": 55,
@@ -1273,7 +1337,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 182
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fchown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/chown.2.html"
     },
     {
       "number": 56,
@@ -1359,7 +1423,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 192
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pipe2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pipe.2.html"
     },
     {
       "number": 60,
@@ -1383,7 +1447,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 196
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/quotactl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 101
+      }
     },
     {
       "number": 61,
@@ -1406,7 +1474,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 200
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getdents64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getdents.2.html"
     },
     {
       "number": 62,
@@ -1545,7 +1613,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 214
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pread64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pread.2.html"
     },
     {
       "number": 68,
@@ -1569,7 +1637,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 216
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwrite64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pwrite.2.html"
     },
     {
       "number": 69,
@@ -1594,7 +1662,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 218
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/preadv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readv.2.html"
     },
     {
       "number": 70,
@@ -1619,7 +1687,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 220
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwritev.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/writev.2.html"
     },
     {
       "number": 71,
@@ -1669,7 +1737,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 229
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pselect6.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/select.2.html"
     },
     {
       "number": 73,
@@ -1694,7 +1762,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 231
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/ppoll.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/poll.2.html"
     },
     {
       "number": 74,
@@ -1718,7 +1786,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 236
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/signalfd4.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/signalfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 113
+      }
     },
     {
       "number": 75,
@@ -1816,7 +1888,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 248
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/readlinkat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readlink.2.html"
     },
     {
       "number": 79,
@@ -1840,7 +1912,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 251
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/newfstatat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html"
     },
     {
       "number": 80,
@@ -1862,7 +1934,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 253
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fstat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/stat.2.html"
     },
     {
       "number": 81,
@@ -1923,7 +1995,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 262
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fdatasync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fsync.2.html"
     },
     {
       "number": 84,
@@ -1969,7 +2041,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 275
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 123
+      }
     },
     {
       "number": 86,
@@ -1993,7 +2069,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 279
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_settime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 124
+      }
     },
     {
       "number": 87,
@@ -2015,7 +2095,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 282
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_gettime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 126
+      }
     },
     {
       "number": 88,
@@ -2060,7 +2144,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 293
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/acct.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 132
+      }
     },
     {
       "number": 90,
@@ -2082,7 +2170,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 297
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 135
+      }
     },
     {
       "number": 91,
@@ -2104,7 +2196,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 299
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/capset.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/capget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 136
+      }
     },
     {
       "number": 92,
@@ -2192,7 +2288,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 311
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/waitid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/wait.2.html"
     },
     {
       "number": 96,
@@ -2260,7 +2356,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 322
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futex.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futex.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 147
+      }
     },
     {
       "number": 99,
@@ -2282,7 +2382,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 326
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_robust_list.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 149
+      }
     },
     {
       "number": 100,
@@ -2305,7 +2409,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 329
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_robust_list.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 151
+      }
     },
     {
       "number": 101,
@@ -2372,7 +2480,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 341
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setitimer.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getitimer.2.html"
     },
     {
       "number": 104,
@@ -2396,7 +2504,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 345
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kexec_load.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kexec_load.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 160
+      }
     },
     {
       "number": 105,
@@ -2419,7 +2531,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 349
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 164
+      }
     },
     {
       "number": 106,
@@ -2441,7 +2557,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 351
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/delete_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 165
+      }
     },
     {
       "number": 107,
@@ -2486,7 +2606,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 358
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/timer_gettime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/timer_settime.2.html"
     },
     {
       "number": 109,
@@ -2574,7 +2694,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 370
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_settime.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
     },
     {
       "number": 113,
@@ -2618,7 +2738,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 374
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clock_getres.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html"
     },
     {
       "number": 115,
@@ -2665,7 +2785,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 382
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/syslog.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 170
+      }
     },
     {
       "number": 117,
@@ -2823,7 +2947,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 402
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sched_getaffinity.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sched_setaffinity.2.html"
     },
     {
       "number": 124,
@@ -3036,7 +3160,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 427
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigsuspend.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigsuspend.2.html"
     },
     {
       "number": 134,
@@ -3060,7 +3184,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 429
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigaction.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigaction.2.html"
     },
     {
       "number": 135,
@@ -3084,7 +3208,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 431
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigprocmask.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigprocmask.2.html"
     },
     {
       "number": 136,
@@ -3106,7 +3230,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 433
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigpending.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sigpending.2.html"
     },
     {
       "number": 137,
@@ -3169,7 +3293,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 443
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rt_sigreturn.2.html",
+      "man_url": "https://man7.org/linux/man-pages/man2/sigreturn.2.html",
       "signature_status": "not_found"
     },
     {
@@ -3261,7 +3385,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 453
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setregid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 177
+      }
     },
     {
       "number": 144,
@@ -3282,7 +3410,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 455
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setgid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 178
+      }
     },
     {
       "number": 145,
@@ -3304,7 +3436,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 457
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setreuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 179
+      }
     },
     {
       "number": 146,
@@ -3325,7 +3461,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 459
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 180
+      }
     },
     {
       "number": 147,
@@ -3348,7 +3488,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 461
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 181
+      }
     },
     {
       "number": 148,
@@ -3371,7 +3515,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 463
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 182
+      }
     },
     {
       "number": 149,
@@ -3394,7 +3542,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 465
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setresgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 183
+      }
     },
     {
       "number": 150,
@@ -3417,7 +3569,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 467
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getresgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getresuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 184
+      }
     },
     {
       "number": 151,
@@ -3438,7 +3594,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 469
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setfsuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setfsuid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 185
+      }
     },
     {
       "number": 152,
@@ -3459,7 +3619,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 471
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setfsgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setfsgid.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 186
+      }
     },
     {
       "number": 153,
@@ -3523,7 +3687,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 477
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpgid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/setpgid.2.html"
     },
     {
       "number": 156,
@@ -3585,7 +3749,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 483
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 188
+      }
     },
     {
       "number": 159,
@@ -3607,7 +3775,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 485
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setgroups.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgroups.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 187
+      }
     },
     {
       "number": 160,
@@ -3716,7 +3888,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 498
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setrlimit.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html"
     },
     {
       "number": 165,
@@ -3910,7 +4082,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 524
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getppid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpid.2.html"
     },
     {
       "number": 174,
@@ -3948,7 +4120,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 528
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/geteuid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getuid.2.html"
     },
     {
       "number": 176,
@@ -3986,7 +4158,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 532
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getegid.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getgid.2.html"
     },
     {
       "number": 178,
@@ -4050,7 +4222,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 540
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_open.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_open.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 195
+      }
     },
     {
       "number": 181,
@@ -4071,7 +4247,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 542
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_unlink.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_unlink.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 197
+      }
     },
     {
       "number": 182,
@@ -4096,7 +4276,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 545
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedsend.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_send.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 198
+      }
     },
     {
       "number": 183,
@@ -4121,7 +4305,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 548
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_timedreceive.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man3/mq_receive.3.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 200
+      }
     },
     {
       "number": 184,
@@ -4143,7 +4331,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 551
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_notify.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_notify.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 202
+      }
     },
     {
       "number": 185,
@@ -4166,7 +4358,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 553
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mq_getsetattr.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mq_getsetattr.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 204
+      }
     },
     {
       "number": 186,
@@ -4188,7 +4384,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 557
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 208
+      }
     },
     {
       "number": 187,
@@ -4211,7 +4411,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 559
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 210
+      }
     },
     {
       "number": 188,
@@ -4236,7 +4440,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 561
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgrcv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 213
+      }
     },
     {
       "number": 189,
@@ -4260,7 +4468,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 563
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msgsnd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msgop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 215
+      }
     },
     {
       "number": 190,
@@ -4283,7 +4495,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 567
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 219
+      }
     },
     {
       "number": 191,
@@ -4307,7 +4523,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 569
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 221
+      }
     },
     {
       "number": 192,
@@ -4331,7 +4551,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 572
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semtimedop.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semtimedop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 224
+      }
     },
     {
       "number": 193,
@@ -4354,7 +4578,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 575
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/semop.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/semop.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 226
+      }
     },
     {
       "number": 194,
@@ -4377,7 +4605,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 579
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmget.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmget.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 229
+      }
     },
     {
       "number": 195,
@@ -4400,7 +4632,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 581
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 231
+      }
     },
     {
       "number": 196,
@@ -4423,7 +4659,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 583
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 234
+      }
     },
     {
       "number": 197,
@@ -4444,7 +4684,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 585
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shmdt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shmat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 236
+      }
     },
     {
       "number": 198,
@@ -4467,7 +4711,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 589
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socket.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socket.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 239
+      }
     },
     {
       "number": 199,
@@ -4491,7 +4739,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 591
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/socketpair.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/socketpair.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 240
+      }
     },
     {
       "number": 200,
@@ -4514,7 +4766,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 593
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bind.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/bind.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 241
+      }
     },
     {
       "number": 201,
@@ -4536,7 +4792,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 595
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/listen.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/listen.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 242
+      }
     },
     {
       "number": 202,
@@ -4559,7 +4819,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 597
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 243
+      }
     },
     {
       "number": 203,
@@ -4582,7 +4846,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 599
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/connect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/connect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 244
+      }
     },
     {
       "number": 204,
@@ -4605,7 +4873,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 601
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getsockname.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockname.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 245
+      }
     },
     {
       "number": 205,
@@ -4628,7 +4900,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 603
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getpeername.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getpeername.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 246
+      }
     },
     {
       "number": 206,
@@ -4654,7 +4930,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 605
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendto.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 251
+      }
     },
     {
       "number": 207,
@@ -4680,7 +4960,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 607
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvfrom.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 253
+      }
     },
     {
       "number": 208,
@@ -4705,7 +4989,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 609
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/setsockopt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 247
+      }
     },
     {
       "number": 209,
@@ -4730,7 +5018,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 611
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getsockopt.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 249
+      }
     },
     {
       "number": 210,
@@ -4752,7 +5044,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 613
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/shutdown.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/shutdown.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 252
+      }
     },
     {
       "number": 211,
@@ -4775,7 +5071,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 615
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/send.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 255
+      }
     },
     {
       "number": 212,
@@ -4798,7 +5098,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 617
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 257
+      }
     },
     {
       "number": 213,
@@ -4864,7 +5168,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 627
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munmap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html"
     },
     {
       "number": 216,
@@ -4889,7 +5193,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 629
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mremap.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mremap.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 263
+      }
     },
     {
       "number": 217,
@@ -4914,7 +5222,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 633
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/add_key.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/add_key.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 266
+      }
     },
     {
       "number": 218,
@@ -4938,7 +5250,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 635
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/request_key.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/request_key.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 267
+      }
     },
     {
       "number": 219,
@@ -4963,7 +5279,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 637
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/keyctl.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/keyctl.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 268
+      }
     },
     {
       "number": 220,
@@ -4971,19 +5291,30 @@
       "name": "clone",
       "entry": "sys_clone",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
+      "arguments": [
+        "unsigned long",
+        "unsigned long",
+        "int __user *",
+        "unsigned long",
+        "int __user *"
+      ],
+      "declaration": "asmlinkage long sys_clone(unsigned long, unsigned long, int __user *, unsigned long, int __user *);",
       "signature_source": {
         "path": "include/linux/syscalls.h",
-        "line": 883
+        "line": 883,
+        "configuration": {
+          "path": "arch/riscv/Kconfig",
+          "symbols": {
+            "CONFIG_CLONE_BACKWARDS": true
+          }
+        }
       },
-      "signature_note": "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI.",
+      "signature_note": null,
       "source": {
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 641
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
-      "signature_status": "configuration_dependent"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html"
     },
     {
       "number": 221,
@@ -5014,16 +5345,26 @@
       "name": "mmap",
       "entry": "sys_mmap",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "unsigned long addr",
+        "unsigned long len",
+        "unsigned long prot",
+        "unsigned long flags",
+        "unsigned long fd",
+        "off_t offset"
+      ],
+      "declaration": "asmlinkage long sys_mmap(unsigned long addr, unsigned long len, unsigned long prot, unsigned long flags, unsigned long fd, off_t offset);",
+      "signature_source": {
+        "path": "arch/riscv/kernel/sys_riscv.c",
+        "line": 30,
+        "kind": "syscall_macro"
+      },
       "signature_note": null,
       "source": {
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 646
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/mmap.2.html"
     },
     {
       "number": 223,
@@ -5047,7 +5388,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 649
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fadvise64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/posix_fadvise.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 279
+      }
     },
     {
       "number": 224,
@@ -5069,7 +5414,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 654
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapon.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 282
+      }
     },
     {
       "number": 225,
@@ -5090,7 +5439,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 656
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/swapoff.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 283
+      }
     },
     {
       "number": 226,
@@ -5113,7 +5466,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 658
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mprotect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 284
+      }
     },
     {
       "number": 227,
@@ -5136,7 +5493,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 660
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/msync.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/msync.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 285
+      }
     },
     {
       "number": 228,
@@ -5158,7 +5519,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 662
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 286
+      }
     },
     {
       "number": 229,
@@ -5180,7 +5545,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 664
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munlock.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 287
+      }
     },
     {
       "number": 230,
@@ -5201,7 +5570,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 666
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlockall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlockall.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 288
+      }
     },
     {
       "number": 231,
@@ -5220,7 +5593,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 668
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/munlockall.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/munlockall.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 289
+      }
     },
     {
       "number": 232,
@@ -5243,7 +5620,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 670
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mincore.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mincore.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 290
+      }
     },
     {
       "number": 233,
@@ -5266,7 +5647,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 672
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/madvise.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/madvise.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 291
+      }
     },
     {
       "number": 234,
@@ -5291,7 +5676,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 674
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/remap_file_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/remap_file_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 294
+      }
     },
     {
       "number": 235,
@@ -5317,7 +5706,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 676
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mbind.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mbind.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 295
+      }
     },
     {
       "number": 236,
@@ -5342,7 +5735,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 678
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/get_mempolicy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/get_mempolicy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 296
+      }
     },
     {
       "number": 237,
@@ -5365,7 +5762,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 680
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 297
+      }
     },
     {
       "number": 238,
@@ -5389,7 +5790,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 682
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/migrate_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/migrate_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 298
+      }
     },
     {
       "number": 239,
@@ -5415,7 +5820,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 684
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/move_pages.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/move_pages.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 299
+      }
     },
     {
       "number": 240,
@@ -5464,7 +5873,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 691
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/perf_event_open.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/perf_event_open.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 302
+      }
     },
     {
       "number": 242,
@@ -5488,7 +5901,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 693
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/accept4.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/accept.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 303
+      }
     },
     {
       "number": 243,
@@ -5513,7 +5930,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 696
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/recvmmsg.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 304
+      }
     },
     {
       "number": 259,
@@ -5521,16 +5942,23 @@
       "name": "riscv_flush_icache",
       "entry": "sys_riscv_flush_icache",
       "status": "defined",
-      "arguments": null,
-      "declaration": null,
-      "signature_source": null,
+      "arguments": [
+        "uintptr_t start",
+        "uintptr_t end",
+        "uintptr_t flags"
+      ],
+      "declaration": "asmlinkage long sys_riscv_flush_icache(uintptr_t start, uintptr_t end, uintptr_t flags);",
+      "signature_source": {
+        "path": "arch/riscv/kernel/sys_riscv.c",
+        "line": 65,
+        "kind": "syscall_macro"
+      },
       "signature_note": null,
       "source": {
         "path": "arch/riscv/include/uapi/asm/unistd.h",
         "line": 45
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/riscv_flush_icache.2.html",
-      "signature_status": "not_found"
+      "man_url": "https://man7.org/linux/man-pages/man2/riscv_flush_icache.2.html"
     },
     {
       "number": 260,
@@ -5578,7 +6006,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 710
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/prlimit64.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/getrlimit.2.html"
     },
     {
       "number": 262,
@@ -5600,7 +6028,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 712
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_init.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_init.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 314
+      }
     },
     {
       "number": 263,
@@ -5625,7 +6057,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 714
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_mark.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/fanotify_mark.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 315
+      }
     },
     {
       "number": 264,
@@ -5650,7 +6086,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 716
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/name_to_handle_at.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/name_to_handle_at.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 318
+      }
     },
     {
       "number": 265,
@@ -5673,7 +6113,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 718
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/open_by_handle_at.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/open_by_handle_at.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 319
+      }
     },
     {
       "number": 266,
@@ -5716,7 +6160,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 724
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/syncfs.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sync.2.html"
     },
     {
       "number": 268,
@@ -5762,7 +6206,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 728
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/sendmmsg.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/sendmmsg.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 322
+      }
     },
     {
       "number": 270,
@@ -5788,7 +6236,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 730
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 324
+      }
     },
     {
       "number": 271,
@@ -5814,7 +6266,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 732
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_writev.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_vm_readv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 326
+      }
     },
     {
       "number": 272,
@@ -5839,7 +6295,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 734
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kcmp.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kcmp.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 330
+      }
     },
     {
       "number": 273,
@@ -5862,7 +6322,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 736
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/finit_module.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/init_module.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 332
+      }
     },
     {
       "number": 274,
@@ -5934,7 +6398,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 742
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/renameat2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/rename.2.html"
     },
     {
       "number": 277,
@@ -5957,7 +6421,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 744
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/seccomp.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/seccomp.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 335
+      }
     },
     {
       "number": 278,
@@ -6002,7 +6470,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 748
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/memfd_create.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/memfd_create.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 337
+      }
     },
     {
       "number": 280,
@@ -6025,7 +6497,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 750
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/bpf.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/bpf.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 340
+      }
     },
     {
       "number": 281,
@@ -6050,7 +6526,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 752
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/execveat.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 343
+      }
     },
     {
       "number": 282,
@@ -6071,7 +6551,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 754
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/userfaultfd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/userfaultfd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 345
+      }
     },
     {
       "number": 283,
@@ -6094,7 +6578,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 756
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/membarrier.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/membarrier.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 348
+      }
     },
     {
       "number": 284,
@@ -6117,7 +6605,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 758
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/mlock2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/mlock2.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 350
+      }
     },
     {
       "number": 285,
@@ -6143,7 +6635,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 760
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/copy_file_range.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/copy_file_range.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 352
+      }
     },
     {
       "number": 286,
@@ -6169,7 +6665,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 762
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/preadv2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/readv.2.html"
     },
     {
       "number": 287,
@@ -6195,7 +6691,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 764
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pwritev2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/writev.2.html"
     },
     {
       "number": 288,
@@ -6219,7 +6715,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 766
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_mprotect.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_mprotect.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 355
+      }
     },
     {
       "number": 289,
@@ -6241,7 +6741,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 768
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_alloc.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_alloc.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 356
+      }
     },
     {
       "number": 290,
@@ -6262,7 +6766,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 770
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/pkey_free.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/pkey_free.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 357
+      }
     },
     {
       "number": 291,
@@ -6313,7 +6821,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 775
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_pgetevents.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 48
+      }
     },
     {
       "number": 293,
@@ -6337,7 +6849,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 778
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/rseq.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 480
+      }
     },
     {
       "number": 294,
@@ -6362,7 +6878,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 780
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/kexec_file_load.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/kexec_file_load.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 382
+      }
     },
     {
       "number": 424,
@@ -6408,7 +6928,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 828
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 51
+      }
     },
     {
       "number": 426,
@@ -6434,7 +6958,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 830
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 52
+      }
     },
     {
       "number": 427,
@@ -6458,7 +6986,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 832
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 53
+      }
     },
     {
       "number": 428,
@@ -6643,7 +7175,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 849
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/clone3.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 144
+      }
     },
     {
       "number": 436,
@@ -6737,7 +7273,7 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 859
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/faccessat2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/access.2.html"
     },
     {
       "number": 440,
@@ -6762,7 +7298,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 861
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_madvise.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/process_madvise.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 292
+      }
     },
     {
       "number": 441,
@@ -6788,7 +7328,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 863
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/epoll_pwait2.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 71
+      }
     },
     {
       "number": 442,
@@ -6837,7 +7381,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 867
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/quotactl_fd.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/quotactl_fd.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 102
+      }
     },
     {
       "number": 444,
@@ -6860,7 +7408,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 870
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_create_ruleset.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 272
+      }
     },
     {
       "number": 445,
@@ -6884,7 +7436,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 872
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_add_rule.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_add_rule.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 273
+      }
     },
     {
       "number": 446,
@@ -6906,7 +7462,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 874
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/landlock_restrict_self.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/landlock_restrict_self.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 274
+      }
     },
     {
       "number": 447,
@@ -6927,7 +7487,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 878
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/memfd_secret.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/memfd_secret.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 360
+      }
     },
     {
       "number": 448,
@@ -6949,7 +7513,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 881
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/process_mrelease.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 293
+      }
     },
     {
       "number": 449,
@@ -6974,7 +7542,11 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 884
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/futex_waitv.2.html"
+      "man_url": "https://man7.org/linux/man-pages/man2/futex_waitv.2.html",
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 153
+      }
     },
     {
       "number": 450,
@@ -6998,13 +7570,17 @@
         "path": "include/uapi/asm-generic/unistd.h",
         "line": 887
       },
-      "man_url": "https://man7.org/linux/man-pages/man2/set_mempolicy_home_node.2.html"
+      "man_url": null,
+      "enosys_fallback": {
+        "path": "kernel/sys_ni.c",
+        "line": 300
+      }
     }
   ],
   "license": "GPL-2.0-only",
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-04T14:13:49.369319+00:00",
+    "generated_at": "2026-11-14T11:09:21.803812+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [
       "sources/LICENSES/preferred/GPL-2.0",
@@ -7043,12 +7619,24 @@
         "spdx_license_identifier": "GPL-2.0"
       },
       {
+        "path": "arch/arm/Kconfig",
+        "sha256": "2ba5d64ffa0317cfad789cf976770440963da2a8be879c33619625d1ad55a815",
+        "bundled_path": "sources/arch/arm/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/arm/tools/syscall.tbl",
         "sha256": "d243ff52108bd7027e914b85a017526e7a771c332559dffecdaa54b8addfd356",
         "bundled_path": "sources/arch/arm/tools/syscall.tbl",
         "license_identifier": "GPL-2.0-only",
         "license_basis": "COPYING",
         "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+      },
+      {
+        "path": "arch/arm64/Kconfig",
+        "sha256": "cd5eb3def010d478311ee4b79a69877ebe8441a8cdce05303d334ca9fde15ba3",
+        "bundled_path": "sources/arch/arm64/Kconfig",
+        "spdx_license_identifier": "GPL-2.0-only"
       },
       {
         "path": "arch/arm64/include/asm/unistd.h",
@@ -7063,6 +7651,18 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/arm64/kernel/sys.c",
+        "sha256": "58b4d8988435feb7542f5730d2002981421ef016de2053a0bec2ee6e87c54c44",
+        "bundled_path": "sources/arch/arm64/kernel/sys.c",
+        "spdx_license_identifier": "GPL-2.0-only"
+      },
+      {
+        "path": "arch/loongarch/Kconfig",
+        "sha256": "2f11e72359fce27aafc8c85a99081459778d9bb499b6f67eefb92fa10e80a68c",
+        "bundled_path": "sources/arch/loongarch/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/loongarch/include/asm/unistd.h",
         "sha256": "3740b9159ef9d799f75009dec9748570407413f2097e672705f7a3199c452ba1",
         "bundled_path": "sources/arch/loongarch/include/asm/unistd.h",
@@ -7075,10 +7675,30 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/loongarch/kernel/syscall.c",
+        "sha256": "fdc514fcf049105fadee62bdc67713bd4a1c4fda7cd4fa768ae8e1343989f55d",
+        "bundled_path": "sources/arch/loongarch/kernel/syscall.c",
+        "spdx_license_identifier": "GPL-2.0+"
+      },
+      {
+        "path": "arch/mips/Kconfig",
+        "sha256": "8f13f9bac64b1948f649681aa141b47fd754bc2bf578a475386015ed9ebc892f",
+        "bundled_path": "sources/arch/mips/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/mips/include/uapi/asm/unistd.h",
         "sha256": "3ddb054ab3643d8b4003ce7802ca887d13920897007c432af875aaf357f43e7a",
         "bundled_path": "sources/arch/mips/include/uapi/asm/unistd.h",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/mips/kernel/signal.c",
+        "sha256": "61f5320e2c8cac1fce21591f178008c94adafb2857e18f2411bd0bf1ea098f0e",
+        "bundled_path": "sources/arch/mips/kernel/signal.c",
+        "license_identifier": "GPL-2.0-only",
+        "license_basis": "COPYING",
+        "license_note": "No SPDX identifier; the file's own notice places it under the GNU General Public License and refers to the release COPYING."
       },
       {
         "path": "arch/mips/kernel/syscalls/syscall_n32.tbl",
@@ -7099,6 +7719,12 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/powerpc/Kconfig",
+        "sha256": "624caa0a2157aefd4b7b9455cc7d314d2095bb63498111ef1349ee2f0864a3d7",
+        "bundled_path": "sources/arch/powerpc/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/powerpc/include/asm/syscalls.h",
         "sha256": "93ac127deaa1b500bd80afb55e7719f34003a48958af8102037fd4d78366d1ab",
         "bundled_path": "sources/arch/powerpc/include/asm/syscalls.h",
@@ -7109,6 +7735,12 @@
         "sha256": "006adce948167db8a6c6dc37faadeb8e534a8effcc11aef5d9d0176b85bdf153",
         "bundled_path": "sources/arch/powerpc/kernel/syscalls/syscall.tbl",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/riscv/Kconfig",
+        "sha256": "c37f25f52b6a92e3eda651dce109ffc821259e25f0f65fa617d0b219015ab680",
+        "bundled_path": "sources/arch/riscv/Kconfig",
+        "spdx_license_identifier": "GPL-2.0-only"
       },
       {
         "path": "arch/riscv/include/asm/unistd.h",
@@ -7123,10 +7755,28 @@
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
       },
       {
+        "path": "arch/riscv/kernel/sys_riscv.c",
+        "sha256": "4e4b9467d7b895c1f2be68031c8de11e51dbce4268dbdfe2762cb1fdcb8253e2",
+        "bundled_path": "sources/arch/riscv/kernel/sys_riscv.c",
+        "spdx_license_identifier": "GPL-2.0-only"
+      },
+      {
+        "path": "arch/s390/Kconfig",
+        "sha256": "3ea078477f4cbe20b97548f3b0f655ba938eb55b94ddb8f142cef4c4ff40374b",
+        "bundled_path": "sources/arch/s390/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
+      },
+      {
         "path": "arch/s390/kernel/syscalls/syscall.tbl",
         "sha256": "a117b993cd5bc2087bb71d78640a76db7d70bffcfdeee514350b1292abae0448",
         "bundled_path": "sources/arch/s390/kernel/syscalls/syscall.tbl",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "arch/x86/Kconfig",
+        "sha256": "88a8c4022d9a11c659893927b377cc5611004e255bf70209b016c2cf024b8faf",
+        "bundled_path": "sources/arch/x86/Kconfig",
+        "spdx_license_identifier": "GPL-2.0"
       },
       {
         "path": "arch/x86/entry/syscalls/syscall_32.tbl",
@@ -7173,6 +7823,12 @@
         "sha256": "d66d575161ba8c07a8ff4dcbf3c772afdc83a234844c815821b3932891938f01",
         "bundled_path": "sources/include/uapi/asm-generic/unistd.h",
         "spdx_license_identifier": "GPL-2.0 WITH Linux-syscall-note"
+      },
+      {
+        "path": "kernel/sys_ni.c",
+        "sha256": "fbba3ac363049fa8c9f0800a47b6a1a9426e49eeb36d0afb5575a2ed06ead2c0",
+        "bundled_path": "sources/kernel/sys_ni.c",
+        "spdx_license_identifier": "GPL-2.0"
       }
     ]
   }

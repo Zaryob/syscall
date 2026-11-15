@@ -574,7 +574,6 @@
     "epoll_pwait": "epoll_wait",
     "epoll_pwait2": "epoll_wait",
     "eventfd2": "eventfd",
-    "exit": "_exit",
     "faccessat2": "access",
     "fadvise64": "posix_fadvise",
     "fchdir": "chdir",

@@ -6,6 +6,7 @@ import io
 import json
 import os
 from pathlib import Path
+import re
 import tarfile
 import tempfile
 from urllib.parse import urlencode
@@ -15,6 +16,19 @@ PUBLIC = ROOT / 'public'
 ARCHIVE = PUBLIC / 'downloads/syscall-reference-source.tar.gz'
 ROOT_FILES = ['.gitignore', '.ruby-version', '_config.yml', 'Gemfile', 'Gemfile.lock', 'package.json', 'package-lock.json', 'server.mjs', 'LICENSE', 'LICENSING.md', 'README.md', 'README.tr.md', 'THIRD_PARTY_NOTICES.md']
 SOURCE_DIRS = ['public', 'scripts', 'sources', 'tests', 'LICENSES', '.github']
+
+
+def editorial_notes():
+    """Read the summaries in notes.mjs without requiring Node.js."""
+    path = PUBLIC / 'notes.mjs'
+    if not path.is_file():
+        return {}
+    text = path.read_text()
+    literal = r"'([^'\\]*)'"
+    rows = re.findall(r"^\s*\[{0},\s*{0},\s*{0}(?:,\s*{0})?\],?\s*$".format(literal), text, re.M)
+    if len(rows) != len(re.findall(r"^\s*\['", text, re.M)):
+        raise ValueError('Unrecognized entry in notes.mjs')
+    return {name: {'en': english, 'tr': turkish} for name, english, turkish, _ in rows}
 
 
 def prepare():
@@ -28,10 +42,13 @@ def prepare():
     latest_path = paths.get(latest, latest)
     release_data = PUBLIC / '_data/syscall_release.json'
     release_data.parent.mkdir(parents=True, exist_ok=True)
-    release_data.write_text(json.dumps({
-        'latest': latest, 'latest_path': latest_path,
-        'architectures': manifest['architectures'],
-    }, indent=2, ensure_ascii=False) + '\n')
+    release = {'latest': latest, 'latest_path': latest_path}
+    sources_path = PUBLIC / 'data' / latest_path / 'sources.json'
+    if sources_path.is_file():
+        # Date of the active latest snapshot, used as the sitemap's lastmod.
+        release['updated'] = json.loads(sources_path.read_bytes())['licensing']['generated_at'][:10]
+    release['architectures'] = manifest['architectures']
+    release_data.write_text(json.dumps(release, indent=2, ensure_ascii=False) + '\n')
     api = PUBLIC / 'api/v1'
     api.mkdir(parents=True, exist_ok=True)
     indexes = {
@@ -56,23 +73,32 @@ def prepare():
     x64_path = PUBLIC / 'data' / latest_path / 'x64.json'
     if not x64_path.is_file():
         raise ValueError('Latest x64 snapshot missing: ' + str(x64_path))
-    if x64_path.is_file():
-        x64_data = json.loads(x64_path.read_bytes())
-        search_entries = []
-        for s in x64_data.get('syscalls', []):
-            if not s.get('name') or s.get('status') == 'unimplemented':
+    notes = editorial_notes()
+    labels = {arch['id']: arch.get('label', arch['id']) for arch in manifest['architectures']}
+    fallback = {'en': '{label} system call {number}', 'tr': '{label} sistem çağrısı {number}'}
+    search_entries = []
+    listed = set()
+    # x86-64 first; other ABIs add the calls it lacks (mmap2, socketcall, _llseek, ...).
+    for arch in sorted(availability.get(latest, architectures), key=lambda arch: arch != 'x64'):
+        table_path = PUBLIC / 'data' / latest_path / (arch + '.json')
+        if not table_path.is_file():
+            continue
+        for s in json.loads(table_path.read_bytes()).get('syscalls', []):
+            if not s.get('name') or s.get('status') == 'unimplemented' or s['name'] in listed:
                 continue
             name = s['name']
+            listed.add(name)
             decl = s.get('declaration') or ', '.join(s.get('arguments') or [])
             for lang in ['tr', 'en']:
+                summary = notes.get(name, {}).get(lang)
                 search_entries.append({
                     'lang': lang,
                     'title': f'sys_{name}',
-                    'url': '?' + urlencode({'arch': 'x64', 'kernel': latest, 'q': name, 'highlight': name}) + f'#sys-{latest}:{s["number"]}:{name}',
+                    'url': '?' + urlencode({'arch': arch, 'kernel': latest, 'q': name, 'highlight': name}) + f'#sys-{latest}:{s["number"]}:{name}',
                     'type': 'syscall/',
-                    'description': decl,
+                    'description': ' — '.join(part for part in [summary, decl] if part) or fallback[lang].format(label=labels.get(arch, arch), number=s['number']),
                 })
-        (PUBLIC / 'search.json').write_text(json.dumps(search_entries, indent=2, ensure_ascii=False) + '\n')
+    (PUBLIC / 'search.json').write_text(json.dumps(search_entries, indent=2, ensure_ascii=False) + '\n')
 
     paths = [ROOT / p for p in ROOT_FILES]
     paths.append(ROOT / 'docs/reference-preview.png')

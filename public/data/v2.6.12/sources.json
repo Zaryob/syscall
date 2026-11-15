@@ -7,7 +7,7 @@
   ],
   "licensing": {
     "generated_file": "GPL-2.0-only",
-    "generated_at": "2026-11-02T20:58:02.833393+00:00",
+    "generated_at": "2026-11-14T11:09:15.212301+00:00",
     "upstream_notice": "sources/COPYING",
     "upstream_license_texts": [],
     "generator": "scripts/sync_kernel.py",
@@ -67,6 +67,14 @@
       "path": "include/linux/syscalls.h",
       "sha256": "4215d99186a3ba09f0022cc62a7100bb629fdd87a701fe5be0c9323b80080aa3",
       "bundled_path": "sources/include/linux/syscalls.h",
+      "license_identifier": "GPL-2.0-only",
+      "license_basis": "COPYING",
+      "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."
+    },
+    {
+      "path": "kernel/sys_ni.c",
+      "sha256": "10c174311c845b04241948fc5672423b87e68f66bdaad057a0e1bee4494ce8e2",
+      "bundled_path": "sources/kernel/sys_ni.c",
       "license_identifier": "GPL-2.0-only",
       "license_basis": "COPYING",
       "license_note": "Historical kernel input without an SPDX identifier; see the original notices and release COPYING."

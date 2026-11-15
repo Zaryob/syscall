@@ -271,18 +271,21 @@ test('ABI notes, LTS labels and analytics render in TR/EN without mobile page ov
   assert.match(await rows.filter({hasText:'PowerPC 32'}).textContent(), /cr0.SO/);
   assert.match(await rows.filter({hasText:'MIPS n64'}).textContent(), /v1/);
   assert.match(await rows.filter({hasText:'x86-64'}).textContent(), /rdx.*rcx, r11/);
-  assert.match(await page.locator('#conventions [data-syscall-copy]').textContent(), /PPC_FEATURE2_SCV/);
+  assert.match(await page.locator('#conventions [data-syscall-copy="abiNotes"]').textContent(), /PPC_FEATURE2_SCV/);
+  assert.equal(await page.locator('#conventions th[data-syscall-copy="clobber"]').textContent(), 'Clobber');
   assert.match(await page.locator('footer').textContent(), /visit analytics/);
   await page.locator('[data-console-menu]').click();
   await page.locator('[data-console-language]').selectOption('tr');
   await page.locator('[data-console-menu]').click();
-  assert.match(await page.locator('#conventions [data-syscall-copy]').textContent(), /alt 32/);
+  assert.match(await page.locator('#conventions [data-syscall-copy="abiNotes"]').textContent(), /alt 32/);
+  assert.equal(await page.locator('#conventions th[data-syscall-copy="clobber"]').textContent(), 'Bozulan');
   assert.match(await page.locator('footer').textContent(), /ziyaret analitiği/);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.goto(`${base}?arch=x64&lang=tr`);
   await ready(page);
   assert.equal(await page.locator('#kernel option').filter({hasText:'LTS'}).count(), 3);
   assert.match(await page.locator('#release-help').textContent(), /7 Kasım 2026/);
+  assert.match(await page.locator('#convention-strip').textContent(), /DÖNÜŞ2.*Bozulan/);
 });
 
 test('view and number-format steps restore controls and rendered cells through history', async t => {
