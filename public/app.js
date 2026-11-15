@@ -114,6 +114,7 @@ function renderReferenceCopy() {
   document.querySelectorAll('[data-syscall-copy]').forEach(node => {
     node.innerHTML = copy[node.dataset.syscallCopy];
   });
+  document.querySelectorAll('[data-syscall-copy-label]').forEach(node => node.setAttribute('aria-label', copy[node.dataset.syscallCopyLabel]));
 }
 function renderConventions() {
   $('scroll-hint').hidden = !snapshot;
@@ -463,6 +464,7 @@ $('rows').addEventListener('click', async event => {
   signature.querySelector('[role="status"]').textContent = result;
 });
 function renderLibrary() {
+  document.title = t('Linux System Call Reference');
   const links = new Map(manifest.architectures.map(arch => {
     const kernel = manifest.versions.find(version => availableArchitectures(manifest, version).includes(arch.id));
     return [arch.id, esc(referenceURL({ arch: arch.id, kernel }))];
@@ -522,7 +524,6 @@ async function restoreFromURL() {
       $('show-unimplemented').checked = state.all;
     } else {
       snapshot = previous = null;
-      document.title = t('Linux System Call Reference');
       renderLibrary();
     }
   } finally {

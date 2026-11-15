@@ -17,7 +17,7 @@ title: Linux System Call Reference
           <p class="index-line"><a href="?arch=x64#reference"><strong><span data-i18n="x86-64 Table →">x86-64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="?arch=arm64#reference"><strong><span data-i18n="ARM64 Table →">ARM64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="#architectures"><span data-i18n="All architectures ↓">All architectures ↓</span></a><span aria-hidden="true"> · </span><a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a><span aria-hidden="true"> · </span><a href="#sources"><span data-i18n="How this reference is made">How this reference is made</span></a></p>
         </div>
         <figure class="console-hero__panel">
-          <figcaption class="console-hero__panel-head"><span>x86-64</span><a href="{{ '/arch/x64/' | relative_url }}">syscall table →</a></figcaption>
+          <figcaption class="console-hero__panel-head"><span>x86-64</span><a href="{{ '/arch/x64/' | relative_url }}" data-syscall-copy="heroTableLink">syscall table →</a></figcaption>
 <div class="console-hero__screen"><span class="h-dim"> nr  name    rdi      rsi      rdx</span>
 <span class="h-num">  0</span>  <a href="{{ '/call/read/' | relative_url }}">read</a>    fd       buf      count
 <span class="h-num">  1</span>  <a href="{{ '/call/write/' | relative_url }}">write</a>   fd       buf      count
@@ -37,7 +37,7 @@ title: Linux System Call Reference
       <p id="library-error" class="error" role="alert" hidden></p>
       <noscript><p><a href="{{ latest_table | relative_url }}"><span data-i18n="the x86-64 table as JSON">the x86-64 table as JSON</span></a></p></noscript>
       {% comment %}Crawlable links to the pages scripts/static_pages.py generates; app.js points them at the reader's language.{% endcomment %}
-      <nav class="static-links" aria-label="System call index"><a data-static-page="call/" href="{{ '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">All system calls A–Z</span></a></nav>
+      <nav class="static-links" aria-label="System call index" data-syscall-copy-label="staticIndexLabel"><a data-static-page="call/" href="{{ '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">All system calls A–Z</span></a></nav>
       <nav class="reference-links" aria-label="Reference sections" data-i18n-aria-label="Reference sections">
         <a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a>
         <a href="#api">JSON API</a>
