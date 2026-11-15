@@ -8,12 +8,28 @@ title: Linux System Call Reference
 {% assign latest_table = '/data/' | append: latest_path | append: '/x64.json' %}
 {% assign latest_sources = '/data/' | append: latest_path | append: '/sources.json' %}
   <div id="library">
-    <section class="introduction" aria-labelledby="title">
-      <p class="eyebrow"><span data-i18n="~/syscall · the GNU/Linux programmer’s bookshelf">~/syscall · the GNU/Linux programmer’s bookshelf</span></p>
-      <h1 id="title"><span data-i18n="Linux System Call Reference">Linux System Call Reference</span></h1>
-      <p class="lede"><span data-i18n="The small interface between your program and the kernel.">The small interface between your program and the kernel.</span></p>
-      <p><span data-i18n="System call numbers, C signatures, and calling conventions, collected directly from Linux source.">System call numbers, C signatures, and calling conventions, collected directly from Linux source.</span><br class="wide-only"> <span data-i18n="Choose an architecture, look up a call, and follow it back to the kernel.">Choose an architecture, look up a call, and follow it back to the kernel.</span></p>
-      <p class="index-line"><a href="?arch=x64#reference"><strong><span data-i18n="x86-64 Table →">x86-64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="?arch=arm64#reference"><strong><span data-i18n="ARM64 Table →">ARM64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="#architectures"><span data-i18n="All architectures ↓">All architectures ↓</span></a><span aria-hidden="true"> · </span><a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a><span aria-hidden="true"> · </span><a href="#sources"><span data-i18n="How this reference is made">How this reference is made</span></a></p>
+    <section class="console-hero console-hero--syscall" aria-labelledby="title">
+      <div class="console-hero__inner">
+        <p class="console-hero__prompt" aria-hidden="true"><b>zaryob</b><i>:</i>~/syscall <b>$</b><span class="console-hero__cursor"></span></p>
+        <div class="console-hero__copy">
+          <h1 id="title" class="console-hero__title"><span data-i18n="Linux System Call Reference">Linux System Call Reference</span></h1>
+          <p class="console-hero__lead"><span data-i18n="The small interface between your program and the kernel.">The small interface between your program and the kernel.</span></p>
+          <p class="console-hero__more"><span data-i18n="System call numbers, C signatures, and calling conventions, collected directly from Linux source.">System call numbers, C signatures, and calling conventions, collected directly from Linux source.</span><br class="wide-only"> <span data-i18n="Choose an architecture, look up a call, and follow it back to the kernel.">Choose an architecture, look up a call, and follow it back to the kernel.</span></p>
+          <p class="index-line"><a href="?arch=x64#reference"><strong><span data-i18n="x86-64 Table →">x86-64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="?arch=arm64#reference"><strong><span data-i18n="ARM64 Table →">ARM64 Table →</span></strong></a><span aria-hidden="true"> · </span><a href="#architectures"><span data-i18n="All architectures ↓">All architectures ↓</span></a><span aria-hidden="true"> · </span><a href="#conventions"><span data-i18n="Calling conventions">Calling conventions</span></a><span aria-hidden="true"> · </span><a href="#sources"><span data-i18n="How this reference is made">How this reference is made</span></a></p>
+        </div>
+        <figure class="console-hero__panel">
+          <figcaption class="console-hero__panel-head"><span>x86-64</span><a href="{{ '/arch/x64/' | relative_url }}">syscall table →</a></figcaption>
+<div class="console-hero__screen"><span class="h-dim"> nr  name    rdi      rsi      rdx</span>
+<span class="h-num">  0</span>  <a href="{{ '/call/read/' | relative_url }}">read</a>    fd       buf      count
+<span class="h-num">  1</span>  <a href="{{ '/call/write/' | relative_url }}">write</a>   fd       buf      count
+<span class="h-num">  9</span>  <a href="{{ '/call/mmap/' | relative_url }}">mmap</a>    addr     len      prot
+<span class="h-num"> 59</span>  <a href="{{ '/call/execve/' | relative_url }}">execve</a>  filename argv     envp
+<span class="h-num">257</span>  <a href="{{ '/call/openat/' | relative_url }}">openat</a>  dfd      filename flags
+
+<span class="h-dim">mov</span>  eax, 257     <span class="h-dim">; openat</span>
+<span class="h-dim">syscall</span></div>
+        </figure>
+      </div>
     </section>
 
     <section id="architectures" tabindex="-1" aria-labelledby="architectures-title">

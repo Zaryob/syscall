@@ -389,3 +389,9 @@
 }
 /* Symbol names (EOWNERDEAD, SIGHUP) stay on one line; the table scrolls instead. */
 .console-syscall .abi-table tbody th > code { white-space: nowrap; overflow-wrap: normal; }
+/* Landing hero (shared console-hero component) */
+.console-syscall .console-hero__more { margin: 14px 0 0; max-width: 62ch; font-size: var(--text-base); }
+.console-syscall .console-hero .index-line { margin: 20px 0 0; font-size: var(--text-sm); }
+.console-syscall .console-hero__panel-head a { color: var(--accent); }
+.console-syscall .console-hero__inner { padding-inline: 0; }
+.console-syscall .console-hero .console-hero__lead { margin: 16px 0 0; }
