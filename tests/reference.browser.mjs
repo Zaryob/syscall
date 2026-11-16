@@ -671,6 +671,32 @@ test('architecture pages jump by number range and filter rows, and keep the rang
   assert.equal(await plain.locator('#n-200 td').first().textContent(), '200');
 });
 
+test('without JavaScript, architecture-page fragments land just below the site header', async t => {
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true], [{ width: 900, height: 800 }, false], [{ width: 1440, height: 900 }, false]]) {
+    for (const fragment of ['openat', 'n-200']) {
+      const page = await openPage(t, { javaScriptEnabled: false, viewport, reducedMotion: 'reduce' });
+      if (zoom) {
+        // Larger text: load, enlarge, then follow the fragment.
+        await page.goto(`${base}arch/x64/`);
+        await page.evaluate(id => {
+          document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>');
+          location.hash = id;
+        }, fragment);
+      } else {
+        await page.goto(`${base}arch/x64/#${fragment}`);
+      }
+      const where = await page.evaluate(id => ({
+        target: document.getElementById(id).getBoundingClientRect().top,
+        header: document.querySelector('.console-header').getBoundingClientRect().bottom,
+        gap: parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75,
+      }), fragment);
+      const label = `${viewport.width}px${zoom ? ' at 200%' : ''} #${fragment}`;
+      assert.ok(where.target >= where.header, `${label}: row at ${where.target} under a header ending at ${where.header}`);
+      assert.ok(where.target - where.header <= where.gap + 4, `${label}: ${Math.round(where.target - where.header)}px below the header`);
+    }
+  }
+});
+
 test('the range bar fades the side that hides ranges and keeps the target range in view on phones', async t => {
   const bar = page => page.evaluate(() => {
     const nav = document.querySelector('.static-ranges');
