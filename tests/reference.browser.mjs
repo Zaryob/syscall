@@ -671,6 +671,30 @@ test('architecture pages jump by number range and filter rows, and keep the rang
   assert.equal(await plain.locator('#n-200 td').first().textContent(), '200');
 });
 
+test('generated-page fragments land .75rem below the measured site header, and row permalinks stay clear of it', async t => {
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 390, height: 844 }, true], [{ width: 1440, height: 900 }, false], [{ width: 1440, height: 900 }, true]]) {
+    const page = await openPage(t, { viewport, isMobile: viewport.width < 800, hasTouch: viewport.width < 800, reducedMotion: 'reduce' });
+    if (zoom) await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+    const label = `${viewport.width}px${zoom ? ' at 200%' : ''}`;
+    await page.goto(`${base}call/openat/`);
+    // The header is measured again once the larger text applies.
+    await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--console-header-height') === `${Math.ceil(document.querySelector('.console-header').getBoundingClientRect().height)}px`);
+    for (const id of ['declaration-title', 'manual-title']) {
+      await page.evaluate(fragment => { location.hash = fragment; }, id);
+      const where = await page.evaluate(fragment => ({
+        gap: document.getElementById(fragment).getBoundingClientRect().top - document.querySelector('.console-header').getBoundingClientRect().bottom,
+        want: parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75,
+      }), id);
+      assert.ok(Math.abs(where.gap - where.want) <= 2, `${label} #${id}: ${Math.round(where.gap)}px below the header, want ${where.want}px`);
+    }
+    // The application opens a row permalink and centres it; it must not end up under the header.
+    await page.goto(`${base}?arch=x64&lang=en#sys-v7.3:257:openat`);
+    await page.locator('.detail-row').waitFor();
+    const row = await page.evaluate(() => document.getElementById('sys-v7.3:257:openat').getBoundingClientRect().top - document.querySelector('.console-header').getBoundingClientRect().bottom);
+    assert.ok(row >= 0, `${label}: row permalink ${Math.round(row)}px below the header`);
+  }
+});
+
 test('without JavaScript, architecture-page fragments land just below the site header', async t => {
   for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true], [{ width: 900, height: 800 }, false], [{ width: 1440, height: 900 }, false]]) {
     for (const fragment of ['openat', 'n-200']) {
