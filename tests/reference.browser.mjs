@@ -615,7 +615,11 @@ test('phones pin only the name column, show the number in the name cell and keep
   let layout = await pinned(phone);
   assert.equal(layout.numberColumn, 'none');
   assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 390px`);
-  assert.deepEqual((await nameLines(phone, 'inotify_add_watch')).lines, ['inotify_', 'add_watch']);
+  // Line breaks fall after underscores, never mid-word; where exactly depends on the platform's glyph widths.
+  const watchLines = (await nameLines(phone, 'inotify_add_watch')).lines;
+  assert.equal(watchLines.join(''), 'inotify_add_watch');
+  assert.ok(watchLines.length >= 2, `inotify_add_watch fits on one line: ${watchLines.join(' / ')}`);
+  assert.ok(watchLines.slice(0, -1).every(line => line.endsWith('_')), `inotify_add_watch breaks mid-word: ${watchLines.join(' / ')}`);
   const openat = phone.locator('#rows tr[id$=":openat"]');
   assert.equal(await openat.locator('.call-identity .inline-number').textContent(), '#257');
   assert.equal(await openat.locator('.call-identity .inline-number').isVisible(), true);
