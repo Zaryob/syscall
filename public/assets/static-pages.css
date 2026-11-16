@@ -97,16 +97,15 @@ html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 5
 .static-jump-ready .console-syscall .static-ranges { position: sticky; z-index: 5; top: calc(var(--static-header) + var(--static-filter)); }
 .static-filter-sticky .console-syscall .static-filter { position: sticky; z-index: 5; top: var(--static-header); background: var(--paper); }
 /* With the script, fragments land 8px below the measured header plus the sticky block. Without it the bar is not
-   sticky, and the site header keeps a row for its tools below the prompt (theme.css), so the page's scroll padding
-   follows that taller header: border and padding, the prompt row (44px, or one line of larger text) and the tools row,
-   plus the theme's .75rem gap. */
+   sticky, and theme.css hides the header tools that need the script, so on compact screens the header is one row:
+   its border and padding (25px) and the prompt row (44px, or one line of larger text), plus the theme's .75rem gap. */
 /* Name cells: the generated table's heading row does not stick (above), so they need no room for it. */
 .console-syscall .static-table tbody th[id] { scroll-margin-top: 0; }
 @media (scripting: none) {
   html:has(.static-page) { scroll-padding-top: calc(75px + .75rem); }
-  @media (max-width: 1180px) { html:has(.static-page) { scroll-padding-top: calc(62px + max(44px, 2rem) + .75rem); } }
-  @media (max-width: 560px) { html:has(.static-page) { scroll-padding-top: calc(74px + max(44px, 1.6875rem) + .75rem); } }
-  @media (max-width: 380px) { html:has(.static-page) { scroll-padding-top: calc(72px + max(44px, 1.5rem) + .75rem); } }
+  @media (max-width: 1180px) { html:has(.static-page) { scroll-padding-top: calc(25px + max(44px, 2rem) + .75rem); } }
+  @media (max-width: 560px) { html:has(.static-page) { scroll-padding-top: calc(25px + max(44px, 1.6875rem) + .75rem); } }
+  @media (max-width: 380px) { html:has(.static-page) { scroll-padding-top: calc(25px + max(44px, 1.5rem) + .75rem); } }
 }
 html.static-jump-ready { scroll-padding-top: calc(var(--static-header) + 8px); }
 .static-jump-ready .console-syscall .static-calls tbody :is(tr, th)[id] { scroll-margin-top: calc(var(--static-filter) + var(--static-ranges)); }
