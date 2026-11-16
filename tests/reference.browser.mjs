@@ -455,6 +455,32 @@ test('compact lookup reaches real rows before the fold and restores active advan
   assert.match(await page.locator('#rows tr').first().textContent(), /0x0/);
 });
 
+test('a vertical swipe over the table scrolls the page on phones and keeps the heading row under the site header', async t => {
+  const swipe = (page, gesture) => page.context().newCDPSession(page).then(cdp => cdp.send('Input.synthesizeScrollGesture', { gestureSourceType: 'touch', preventFling: true, speed: 1200, ...gesture }));
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+    const page = await openPage(t, { viewport, isMobile: true, hasTouch: true });
+    await page.goto(`${base}?arch=x64&lang=en`);
+    await page.locator('#rows tr').first().waitFor();
+    const scroller = page.locator('#table-scroll');
+    await scroller.evaluate(element => element.scrollIntoView({ block: 'start', behavior: 'instant' }));
+    const start = await page.evaluate(() => scrollY);
+    await swipe(page, { x: viewport.width / 2, y: viewport.height - 60, yDistance: -Math.round(viewport.height / 2) });
+    const moved = await page.evaluate(() => scrollY) - start;
+    assert.ok(moved > viewport.height / 3, `page moved ${moved}px in ${viewport.width}x${viewport.height}`);
+    assert.equal(await scroller.evaluate(element => element.scrollTop), 0);
+    await page.waitForFunction(() => {
+      const heading = document.querySelector('#syscall-table thead th').getBoundingClientRect().top;
+      return Math.abs(heading - document.querySelector('.console-header').getBoundingClientRect().bottom) < 1;
+    });
+    await swipe(page, { x: viewport.width - 40, y: viewport.height - 60, xDistance: -200 });
+    assert.ok(await scroller.evaluate(element => element.scrollLeft) > 100, 'argument columns still scroll sideways');
+  }
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  await desktop.goto(`${base}?arch=x64&lang=en`);
+  await desktop.locator('#rows tr').first().waitFor();
+  assert.equal(await desktop.locator('#table-scroll').evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`);
+});
+
 test('advanced options start closed on desktop and open for any active option', async t => {
   const page = await openPage(t, { viewport: { width: 1440, height: 900 } });
   const panel = page.locator('#advanced-options');
