@@ -443,6 +443,7 @@ test('compact lookup reaches real rows before the fold and restores active advan
   await page.goto(`${base}?arch=x64&lang=en`);
   await page.locator('#rows tr').first().waitFor();
   assert.equal(await page.locator('#advanced-options').getAttribute('open'), null);
+  assert.equal(await page.locator('#convention-strip').isVisible(), false);
   const row = await page.locator('#rows tr').first().boundingBox();
   assert.ok(row.y < 800, `first row starts at ${row.y}px`);
   await page.locator('#advanced-options > summary').click();
@@ -460,6 +461,8 @@ test('advanced options start closed on desktop and open for any active option', 
   await page.goto(`${base}?arch=x64&lang=en`);
   await ready(page);
   assert.equal(await panel.getAttribute('open'), null);
+  assert.equal(await page.locator('#convention-strip').isVisible(), true);
+  assert.match(await page.locator('#convention-strip').textContent(), /ENTRY.*NR.*RETURN.*Argument locations.*RET2.*Clobber/);
   await page.goto(`${base}?arch=x86&kernel=v7.3&compare=v6.6&lang=en`);
   await ready(page);
   assert.notEqual(await panel.getAttribute('open'), null);

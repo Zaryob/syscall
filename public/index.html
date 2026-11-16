@@ -117,13 +117,15 @@ python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to
       <details id="advanced-options" class="advanced-options"><summary data-syscall-copy="advancedOptions">More filters and release notes</summary><div class="advanced-options__body"><label class="release-field"><span data-i18n="Compare with">Compare with</span> <span class="console-select"><select id="compare" aria-describedby="compare-help" disabled aria-label="Compare with" data-i18n-aria-label="Compare with"><option value="" data-i18n="None">None</option></select></span></label>
       <p id="compare-help" class="small" data-syscall-copy="compareHelp" hidden></p>
       <p id="release-help" class="small" data-syscall-copy="releaseHelp"></p>
-      <details class="small"><summary><span data-i18n="Calling conventions">Calling conventions</span></summary><div data-syscall-copy="abiNotes"></div></details>
       <div class="table-filters">
         <label><input type="checkbox" id="hex"> <span data-i18n="Hex numbers">Hex numbers</span></label>
         <label><input type="checkbox" id="show-unimplemented"> <span data-i18n="Include unimplemented">Include unimplemented</span></label>
       </div>
-      <div id="convention-strip" class="convention-strip" hidden></div>
       </div></details>
+      <div class="convention-info">
+        <details class="small"><summary><span data-i18n="Calling conventions">Calling conventions</span></summary><div data-syscall-copy="abiNotes"></div></details>
+        <div id="convention-strip" class="convention-strip" hidden></div>
+      </div>
       <div class="table-toolbar">
         <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">Loading…</span></p>
         <span id="scroll-hint" class="small" hidden><span data-i18n="Scroll for ARG1–ARG6 →">Scroll for ARG1–ARG6 →</span></span>

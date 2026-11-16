@@ -383,10 +383,12 @@
 .console-syscall .advanced-options > summary, .source-notes > summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--accent); font-size: var(--text-sm); }
 .console-syscall .advanced-options__body { padding: 8px 0 12px; }
 .console-syscall .advanced-options .release-field { max-width: 20rem; margin-bottom: 16px; }
-.console-syscall .advanced-options p { font-family: var(--font-prose); font-size: var(--text-base); line-height: var(--line-prose); }
+.console-syscall :is(.advanced-options, .convention-info) p { font-family: var(--font-prose); font-size: var(--text-base); line-height: var(--line-prose); }
 .console-syscall .documentation > p, .console-syscall .source-notes { font-family: var(--font-prose); font-size: var(--text-prose); line-height: var(--line-prose); }
 .console-syscall .signature.console-declaration { background: var(--paper); }
+/* Register and ABI notes stay visible on wide screens; on phones they follow the panel, as before. */
 @media (max-width: 760px) {
+  .console-syscall .advanced-options:not([open]) + .convention-info { display: none; }
   .console-syscall .lookup-bar { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .console-syscall .lookup-bar .release-field:first-of-type { grid-column: auto; }
 }
