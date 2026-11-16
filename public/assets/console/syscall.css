@@ -393,7 +393,6 @@
 
 .console-syscall .architecture-links { grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); column-gap: 28px; }
 .console-syscall .architecture-links a { text-decoration: none; }
-.console-syscall .architecture-links a::after { content: '/'; color: var(--muted); }
 .console-syscall .architecture-links a:hover { background: transparent; color: var(--info); text-decoration: underline; }
 .console-syscall .source-intro { max-width: 75ch; font: var(--text-prose)/var(--line-prose) var(--font-prose); }
 .console-syscall .static-links { margin-block: 16px 22px; font-size: var(--text-sm); }
