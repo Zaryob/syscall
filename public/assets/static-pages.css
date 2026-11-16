@@ -110,3 +110,5 @@ html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 5
 }
 html.static-jump-ready { scroll-padding-top: calc(var(--static-header) + 8px); }
 .static-jump-ready .console-syscall .static-calls tbody :is(tr, th)[id] { scroll-margin-top: calc(var(--static-filter) + var(--static-ranges)); }
+/* With large text on a phone the release note no longer fits one line; let it wrap instead of widening the page. */
+@media (max-width: 560px) { .console-syscall .static-release { white-space: normal; } }
