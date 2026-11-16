@@ -287,11 +287,13 @@
 #syscall-table .argument-table :is(th, td):first-child { width: 74px; }
 #syscall-table .argument-table :is(th, td):last-child { width: 116px; }
 
-/* Phones, portrait and landscape: the page scrolls the table vertically, so a swipe over it never gets trapped
-   in an inner box. The box still scrolls sideways for ARG1-ARG6; app.js keeps the heading row under the site header. */
+/* Phones, portrait and landscape: the page scrolls every table vertically, so a swipe over one never gets trapped
+   in an inner box. Boxes still scroll sideways for wide columns; table-head.mjs keeps each heading row under the
+   site header. */
 @media (max-width: 760px), (max-height: 500px) {
-  .console-syscall #table-scroll { max-height: none; }
-  #syscall-table > thead > tr > th { transform: translateY(var(--head-offset, 0px)); }
+  .console-syscall .table-scroll { max-height: none; }
+  .console-syscall .table-scroll > table > thead > tr > th { transform: translateY(var(--head-offset, 0px)); }
+  .console-syscall .conventions-table > thead > tr > th { background: var(--surface); }
 }
 
 @media (max-width: 760px) {

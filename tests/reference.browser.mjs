@@ -481,6 +481,41 @@ test('a vertical swipe over the table scrolls the page on phones and keeps the h
   assert.equal(await desktop.locator('#table-scroll').evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`);
 });
 
+test('the calling-convention, errno, signal and ioctl tables scroll with the page on phones', async t => {
+  const swipe = (page, gesture) => page.context().newCDPSession(page).then(cdp => cdp.send('Input.synthesizeScrollGesture', { gestureSourceType: 'touch', preventFling: true, speed: 1200, ...gesture }));
+  const tables = [['?lang=en', 'Calling conventions'], ['errno/?arch=x64&lang=en', 'errno values for the selected architecture'], ['signals/?arch=x64&lang=en', 'Signals for the selected architecture'], ['ioctl/?arch=x64&lang=en', 'ioctl commands for the selected architecture'], ['ioctl/?arch=x64&lang=en', 'Registered magic numbers']];
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+    for (const [address, label] of tables) {
+      const page = await openPage(t, { viewport, isMobile: true, hasTouch: true });
+      await page.goto(base + address);
+      const scroller = page.locator(`.table-scroll[aria-label="${label}"]`);
+      await scroller.locator('tbody tr').nth(8).waitFor();
+      await scroller.evaluate(element => element.scrollIntoView({ block: 'start', behavior: 'instant' }));
+      const start = await page.evaluate(() => scrollY);
+      await swipe(page, { x: viewport.width / 2, y: viewport.height - 60, yDistance: -Math.round(viewport.height / 2) });
+      const moved = await page.evaluate(() => scrollY) - start;
+      assert.ok(moved > viewport.height / 3, `${label}: page moved ${moved}px in ${viewport.width}x${viewport.height}`);
+      assert.equal(await scroller.evaluate(element => element.scrollTop), 0, label);
+      await page.waitForFunction(element => {
+        const heading = element.querySelector('thead th').getBoundingClientRect().top;
+        return Math.abs(heading - document.querySelector('.console-header').getBoundingClientRect().bottom) < 1;
+      }, await scroller.elementHandle());
+      if (viewport.width < 600) {
+        await swipe(page, { x: viewport.width - 40, y: viewport.height - 60, xDistance: -200 });
+        assert.ok(await scroller.evaluate(element => element.scrollLeft) > 100, `${label}: wide columns still scroll sideways`);
+      }
+    }
+  }
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  for (const [address, label] of tables) {
+    await desktop.goto(base + address);
+    const scroller = desktop.locator(`.table-scroll[aria-label="${label}"]`);
+    await scroller.locator('tbody tr').first().waitFor();
+    assert.equal(await scroller.evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`, label);
+    assert.equal(await scroller.evaluate(element => element.querySelector('table').style.getPropertyValue('--head-offset')), '', label);
+  }
+});
+
 test('submitting a search leaves the field and brings the count and first result into view', async t => {
   const page = await openPage(t, { viewport: { width: 390, height: 500 }, isMobile: true, hasTouch: true });
   const inView = () => page.evaluate(() => {
