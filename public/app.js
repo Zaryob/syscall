@@ -422,8 +422,20 @@ $('retry-compare').addEventListener('click', () => {
   renderComparisonStatus();
   finishComparison(requestId, getSnapshot(state.compare, state.arch).catch(() => null));
 });
+// Enter or the keyboard's Search key: leave the field (closing the on-screen keyboard) for the first result,
+// open it when it is the only match, and bring the count and that row into view.
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
+  const rows = $('rows').querySelectorAll('.syscall-row');
+  const firstCall = rows[0]?.querySelector('[data-call]');
+  if (rows.length === 1) { setExpanded(firstCall.dataset.call); saveURL(true, 'push'); }
+  if (firstCall) firstCall.focus({ preventScroll: true });
+  else $('search').blur();
+  const view = window.visualViewport;
+  const bottom = view ? view.offsetTop + view.height : innerHeight;
+  const header = document.querySelector('.console-header')?.getBoundingClientRect().bottom ?? 0;
+  const first = (rows[0] ?? $('empty')).getBoundingClientRect();
+  if (first.bottom > bottom || $('results').getBoundingClientRect().top < header) $('results').scrollIntoView({ block: 'start' });
 });
 $('search').addEventListener('input', () => {
   state.query = $('search').value; state.expanded = '';

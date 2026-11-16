@@ -481,6 +481,38 @@ test('a vertical swipe over the table scrolls the page on phones and keeps the h
   assert.equal(await desktop.locator('#table-scroll').evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`);
 });
 
+test('submitting a search leaves the field and brings the count and first result into view', async t => {
+  const page = await openPage(t, { viewport: { width: 390, height: 500 }, isMobile: true, hasTouch: true });
+  const inView = () => page.evaluate(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    const results = document.getElementById('results').getBoundingClientRect();
+    const row = document.querySelector('#rows .syscall-row').getBoundingClientRect();
+    return results.top >= header && row.bottom <= innerHeight;
+  });
+  await page.goto(`${base}?arch=x64&kernel=v7.3&lang=en`);
+  await page.locator('#rows tr').first().waitFor();
+  await page.locator('#search').fill('openat');
+  assert.match(await page.locator('#results').textContent(), /^2 of \d+ entries$/);
+  assert.equal(await inView(), false);
+  await page.locator('#search').press('Enter');
+  await page.waitForFunction(() => document.activeElement !== document.getElementById('search'));
+  assert.equal(await page.evaluate(() => document.activeElement.dataset.call), 'v7.3:257:openat');
+  await page.waitForFunction(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    const results = document.getElementById('results').getBoundingClientRect();
+    return results.top >= header && document.querySelector('#rows .syscall-row').getBoundingClientRect().bottom <= innerHeight;
+  });
+  assert.equal(await page.locator('.detail-row').count(), 0);
+
+  await page.locator('#search').fill('openat2');
+  await page.locator('#search').press('Enter');
+  await page.locator('.detail-row').waitFor();
+  assert.equal(await page.locator('[data-call="v7.3:437:openat2"]').getAttribute('aria-expanded'), 'true');
+  assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v7.3:437:openat2');
+  await page.waitForFunction(() => document.getElementById('results').getBoundingClientRect().top >= document.querySelector('.console-header').getBoundingClientRect().bottom);
+  assert.equal(await inView(), true);
+});
+
 test('advanced options start closed on desktop and open for any active option', async t => {
   const page = await openPage(t, { viewport: { width: 1440, height: 900 } });
   const panel = page.locator('#advanced-options');
