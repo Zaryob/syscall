@@ -455,25 +455,49 @@ test('compact lookup reaches real rows before the fold and restores active advan
   assert.match(await page.locator('#rows tr').first().textContent(), /0x0/);
 });
 
+// On a phone a vertical swipe over a table must move the page, never an inner box. Headless Chromium on Linux
+// ignores synthetic touch scroll gestures (Input.synthesizeScrollGesture), so the wheel stands in for the finger:
+// the box must not be a vertical scroll container, nothing under the finger may forbid vertical panning, a wheel
+// over the table must move the page while the box stays at the top, and a sideways wheel must still scroll the box.
+async function scrollsWithPage(page, scroller, label, { sideways = true } = {}) {
+  const { width, height } = page.viewportSize();
+  const at = [width / 2, height - 60];
+  await scroller.evaluate(element => element.scrollIntoView({ block: 'start', behavior: 'instant' }));
+  const box = await scroller.evaluate((element, [x, y]) => {
+    const target = document.elementFromPoint(x, y);
+    const pans = [];
+    for (let node = target; node; node = node.parentElement) pans.push(getComputedStyle(node).touchAction);
+    return { maxHeight: getComputedStyle(element).maxHeight, scrollHeight: element.scrollHeight, clientHeight: element.clientHeight, inside: element.contains(target), pans };
+  }, at);
+  const where = `${label} in ${width}x${height}`;
+  assert.equal(box.maxHeight, 'none', `${where}: max-height`);
+  assert.ok(box.scrollHeight <= box.clientHeight, `${where}: the box scrolls vertically (${box.scrollHeight} > ${box.clientHeight})`);
+  assert.ok(box.inside, `${where}: the swipe starts over the table`);
+  assert.ok(box.pans.every(value => /^(auto|manipulation)$|pan-y/.test(value)), `${where}: touch-action ${box.pans.join(' < ')}`);
+  const start = await page.evaluate(() => scrollY);
+  await page.mouse.move(...at);
+  await page.mouse.wheel(0, Math.round(height / 2));
+  await page.waitForFunction(goal => scrollY > goal, start + height / 3, { timeout: 2000 }).catch(() => {});
+  const moved = await page.evaluate(() => scrollY) - start;
+  assert.ok(moved > height / 3, `${where}: page moved ${moved}px`);
+  assert.equal(await scroller.evaluate(element => element.scrollTop), 0, where);
+  await page.waitForFunction(element => {
+    const heading = element.querySelector('thead th').getBoundingClientRect().top;
+    return Math.abs(heading - document.querySelector('.console-header').getBoundingClientRect().bottom) < 1;
+  }, await scroller.elementHandle());
+  if (!sideways) return;
+  await page.mouse.move(width - 40, height - 60);
+  await page.mouse.wheel(200, 0);
+  await page.waitForFunction(element => element.scrollLeft > 100, await scroller.elementHandle(), { timeout: 2000 }).catch(() => {});
+  assert.ok(await scroller.evaluate(element => element.scrollLeft) > 100, `${where}: wide columns still scroll sideways`);
+}
+
 test('a vertical swipe over the table scrolls the page on phones and keeps the heading row under the site header', async t => {
-  const swipe = (page, gesture) => page.context().newCDPSession(page).then(cdp => cdp.send('Input.synthesizeScrollGesture', { gestureSourceType: 'touch', preventFling: true, speed: 1200, ...gesture }));
   for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
     const page = await openPage(t, { viewport, isMobile: true, hasTouch: true });
     await page.goto(`${base}?arch=x64&lang=en`);
     await page.locator('#rows tr').first().waitFor();
-    const scroller = page.locator('#table-scroll');
-    await scroller.evaluate(element => element.scrollIntoView({ block: 'start', behavior: 'instant' }));
-    const start = await page.evaluate(() => scrollY);
-    await swipe(page, { x: viewport.width / 2, y: viewport.height - 60, yDistance: -Math.round(viewport.height / 2) });
-    const moved = await page.evaluate(() => scrollY) - start;
-    assert.ok(moved > viewport.height / 3, `page moved ${moved}px in ${viewport.width}x${viewport.height}`);
-    assert.equal(await scroller.evaluate(element => element.scrollTop), 0);
-    await page.waitForFunction(() => {
-      const heading = document.querySelector('#syscall-table thead th').getBoundingClientRect().top;
-      return Math.abs(heading - document.querySelector('.console-header').getBoundingClientRect().bottom) < 1;
-    });
-    await swipe(page, { x: viewport.width - 40, y: viewport.height - 60, xDistance: -200 });
-    assert.ok(await scroller.evaluate(element => element.scrollLeft) > 100, 'argument columns still scroll sideways');
+    await scrollsWithPage(page, page.locator('#table-scroll'), 'Syscall table');
   }
   const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
   await desktop.goto(`${base}?arch=x64&lang=en`);
