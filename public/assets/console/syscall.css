@@ -296,12 +296,21 @@
   .console-syscall .conventions-table > thead > tr > th { background: var(--surface); }
 }
 
+/* The narrow-screen copies of the number and its sort control; wide screens keep the number column. */
+#syscall-table .narrow-sort, #syscall-table .inline-number { display: none; }
+
+/* Phones: only the name column stays pinned so the arguments keep most of the box at any text size. The number
+   moves into the name cell (#257) and its sort control into the name heading. The name column follows the box
+   width, not the text size, and never takes more than about a third of it. */
 @media (max-width: 760px) {
-  #syscall-table { --number-width: 3rem; --name-width: clamp(7rem, 34vw, 11rem); }
-  #syscall-table[data-view=args] { min-width: calc(var(--number-width) + var(--name-width) + 672px); }
+  #syscall-table { --number-width: 0px; --name-width: min(36cqw, 11rem); }
+  #syscall-table > thead > tr > th:first-child, #syscall-table .call-number { display: none; }
+  #syscall-table .narrow-sort { display: inline; }
+  #syscall-table .inline-number { display: block; margin-top: 1px; color: var(--muted); font-size: var(--text-xs); font-weight: normal; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  #syscall-table[data-view=args] { min-width: calc(var(--name-width) + 672px); }
   #syscall-table :is(th, td) { padding: 7px 8px; }
   #syscall-table :is(.argument-heading, .arg-cell) { min-width: 0; }
-  #syscall-table > thead > tr > th:nth-child(2) { white-space: normal; }
+  #syscall-table > thead > tr > th:nth-child(2) { white-space: normal; overflow-wrap: anywhere; }
   #syscall-table .call-identity .badge { display: table; margin: 3px 0; }
   #syscall-table .detail-content { padding: 12px; }
   #syscall-table .argument-table :is(th, td):first-child { width: 54px; }
