@@ -505,6 +505,27 @@ test('a vertical swipe over the table scrolls the page on phones and keeps the h
   assert.equal(await desktop.locator('#table-scroll').evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`);
 });
 
+test('the calling-convention, errno, signal and ioctl tables scroll with the page on phones', async t => {
+  const tables = [['?lang=en', 'Calling conventions'], ['errno/?arch=x64&lang=en', 'errno values for the selected architecture'], ['signals/?arch=x64&lang=en', 'Signals for the selected architecture'], ['ioctl/?arch=x64&lang=en', 'ioctl commands for the selected architecture'], ['ioctl/?arch=x64&lang=en', 'Registered magic numbers']];
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+    for (const [address, label] of tables) {
+      const page = await openPage(t, { viewport, isMobile: true, hasTouch: true });
+      await page.goto(base + address);
+      const scroller = page.locator(`.table-scroll[aria-label="${label}"]`);
+      await scroller.locator('tbody tr').nth(8).waitFor();
+      await scrollsWithPage(page, scroller, label, { sideways: viewport.width < 600 });
+    }
+  }
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  for (const [address, label] of tables) {
+    await desktop.goto(base + address);
+    const scroller = desktop.locator(`.table-scroll[aria-label="${label}"]`);
+    await scroller.locator('tbody tr').first().waitFor();
+    assert.equal(await scroller.evaluate(element => getComputedStyle(element).maxHeight), `${900 - 120}px`, label);
+    assert.equal(await scroller.evaluate(element => element.querySelector('table').style.getPropertyValue('--head-offset')), '', label);
+  }
+});
+
 test('submitting a search leaves the field and brings the count and first result into view', async t => {
   const page = await openPage(t, { viewport: { width: 390, height: 500 }, isMobile: true, hasTouch: true });
   const inView = () => page.evaluate(() => {

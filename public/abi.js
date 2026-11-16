@@ -6,6 +6,7 @@ import {
 import { abiCopy } from './abi-copy.mjs';
 import { withBase } from './paths.mjs';
 import { referenceCopy } from './reference.mjs';
+import { keepTableHeadsVisible } from './table-head.mjs';
 
 const { t, apply: applyLanguage } = window.ZaryobI18n;
 const $ = id => document.getElementById(id);
@@ -17,6 +18,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;
 const copy = () => abiCopy(window.ZaryobI18n.language);
 const state = readAbiRoute(location.href);
 let manifest, data, registry, release, restoring = false;
+keepTableHeadsVisible(document.querySelectorAll('.table-scroll > table'));
 
 async function getJSON(url) {
   const response = await fetch(url);
