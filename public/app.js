@@ -413,15 +413,19 @@ $('retry-compare').addEventListener('click', () => {
   renderComparisonStatus();
   finishComparison(requestId, getSnapshot(state.compare, state.arch).catch(() => null));
 });
-// Enter or the keyboard's Search key: leave the field (closing the on-screen keyboard) for the first result,
-// open it when it is the only match, and bring the count and that row into view.
+// Enter or the keyboard's Search key: open the first result when it is the only match and bring the count and that
+// row into view. On touch screens and narrow windows the field is also left (closing the on-screen keyboard) for
+// the first result; with a mouse and keyboard the field keeps focus so the search can go on.
+const touchSearch = matchMedia('(hover: none) and (pointer: coarse), (max-width: 759.98px)');
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
   const rows = $('rows').querySelectorAll('.syscall-row');
   const firstCall = rows[0]?.querySelector('[data-call]');
   if (rows.length === 1) { setExpanded(firstCall.dataset.call); saveURL(true, 'push'); }
-  if (firstCall) firstCall.focus({ preventScroll: true });
-  else $('search').blur();
+  if (touchSearch.matches) {
+    if (firstCall) firstCall.focus({ preventScroll: true });
+    else $('search').blur();
+  }
   const view = window.visualViewport;
   const bottom = view ? view.offsetTop + view.height : innerHeight;
   const header = document.querySelector('.console-header')?.getBoundingClientRect().bottom ?? 0;

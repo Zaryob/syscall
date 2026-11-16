@@ -527,7 +527,7 @@ test('the calling-convention, errno, signal and ioctl tables scroll with the pag
   }
 });
 
-test('submitting a search leaves the field and brings the count and first result into view', async t => {
+test('submitting a search brings the count and first result into view, leaving the field only on phones', async t => {
   const page = await openPage(t, { viewport: { width: 390, height: 500 }, isMobile: true, hasTouch: true });
   const inView = () => page.evaluate(() => {
     const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
@@ -557,6 +557,33 @@ test('submitting a search leaves the field and brings the count and first result
   assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v7.3:437:openat2');
   await page.waitForFunction(() => document.getElementById('results').getBoundingClientRect().top >= document.querySelector('.console-header').getBoundingClientRect().bottom);
   assert.equal(await inView(), true);
+
+  // With a mouse and keyboard the field keeps focus; the results still come into view under the header.
+  const desktop = await openPage(t, { viewport: { width: 1280, height: 520 } });
+  const resultsInView = () => desktop.evaluate(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    const results = document.getElementById('results').getBoundingClientRect();
+    return results.top >= header && document.querySelector('#rows .syscall-row').getBoundingClientRect().bottom <= innerHeight;
+  });
+  await desktop.goto(`${base}?arch=x64&kernel=v7.3&lang=en`);
+  await desktop.locator('#rows tr').first().waitFor();
+  await desktop.locator('#search').fill('openat');
+  assert.equal(await resultsInView(), false);
+  await desktop.locator('#search').press('Enter');
+  await desktop.waitForFunction(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    return document.getElementById('results').getBoundingClientRect().top >= header && document.querySelector('#rows .syscall-row').getBoundingClientRect().bottom <= innerHeight;
+  });
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), 'search');
+  assert.equal(await desktop.locator('.detail-row').count(), 0);
+  await desktop.locator('#search').fill('openat2');
+  await desktop.locator('#search').press('Enter');
+  await desktop.locator('.detail-row').waitFor();
+  assert.equal(await desktop.locator('[data-call="v7.3:437:openat2"]').getAttribute('aria-expanded'), 'true');
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), 'search');
+  // Typing goes on in the same field.
+  await desktop.keyboard.press('Backspace');
+  assert.equal(await desktop.locator('#search').inputValue(), 'openat');
 });
 
 // The text of each rendered line of a name in the syscall table.
