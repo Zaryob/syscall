@@ -55,8 +55,8 @@
 .console-syscall .static-letters a:hover { background: var(--surface); }
 .console-syscall .static-names { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 0 20px; margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
 .console-syscall .static-names a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); }
-/* Fragments stop .75rem below the sticky site header, as on the other sites: static-page.js measures the header into
-   the theme's --console-header-height; the rem values are the theme's fallbacks until it has. */
+/* Fragments stop .75rem below the sticky site header, as on the other sites: the theme (console/theme.js) measures the
+   header into --console-header-height; the rem values are its fallbacks until it has. */
 html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 5.25rem) + .75rem); }
 @media (max-width: 1180px) { html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 4.25rem) + .75rem); } }
 
