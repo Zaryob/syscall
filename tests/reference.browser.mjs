@@ -482,7 +482,8 @@ async function scrollsWithPage(page, scroller, label, { sideways = true } = {}) 
   assert.ok(moved > height / 3, `${where}: page moved ${moved}px`);
   assert.equal(await scroller.evaluate(element => element.scrollTop), 0, where);
   await page.waitForFunction(element => {
-    const heading = element.querySelector('thead th').getBoundingClientRect().top;
+    // The first heading cell shown: the number column is hidden on phones once the name cell carries the number.
+    const heading = [...element.querySelectorAll('thead th')].find(cell => cell.getClientRects().length).getBoundingClientRect().top;
     return Math.abs(heading - document.querySelector('.console-header').getBoundingClientRect().bottom) < 1;
   }, await scroller.elementHandle());
   if (!sideways) return;
@@ -556,6 +557,58 @@ test('submitting a search leaves the field and brings the count and first result
   assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v7.3:437:openat2');
   await page.waitForFunction(() => document.getElementById('results').getBoundingClientRect().top >= document.querySelector('.console-header').getBoundingClientRect().bottom);
   assert.equal(await inView(), true);
+});
+
+test('phones pin only the name column, show the number in the name cell and keep sorting by number', async t => {
+  const pinned = page => page.evaluate(() => {
+    const box = document.getElementById('table-scroll').getBoundingClientRect();
+    const name = document.querySelector('#syscall-table thead th:nth-child(2)').getBoundingClientRect();
+    return { share: (name.right - box.left) / box.width, numberColumn: getComputedStyle(document.querySelector('#syscall-table thead th')).display };
+  });
+  const phone = await openPage(t, { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  await phone.goto(`${base}?arch=x64&lang=en`);
+  await ready(phone);
+  let layout = await pinned(phone);
+  assert.equal(layout.numberColumn, 'none');
+  assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 390px`);
+  const openat = phone.locator('#rows tr[id$=":openat"]');
+  assert.equal(await openat.locator('.call-identity .inline-number').textContent(), '#257');
+  assert.equal(await openat.locator('.call-identity .inline-number').isVisible(), true);
+  // The number sort stays a real, labelled button that keyboards and screen readers reach.
+  const sortNumber = phone.getByRole('button', { name: /^No\./ });
+  assert.equal(await sortNumber.count(), 1);
+  await sortNumber.focus();
+  await phone.keyboard.press('Enter');
+  assert.match(await sortNumber.textContent(), /↓/);
+  assert.equal(await phone.locator('#syscall-table thead th').first().getAttribute('aria-sort'), 'descending');
+  const numbers = await phone.locator('#rows .inline-number').evaluateAll(cells => cells.slice(0, 3).map(cell => Number(cell.textContent.slice(1))));
+  assert.ok(numbers[0] > numbers[1] && numbers[1] > numbers[2], `descending numbers ${numbers}`);
+  await phone.getByRole('button', { name: /^System call/ }).click();
+  assert.equal(await phone.locator('#syscall-table thead th').nth(1).getAttribute('aria-sort'), 'ascending');
+  assert.match(await sortNumber.textContent(), /^No\.$/);
+  await phone.locator('#advanced-options > summary').click();
+  await phone.locator('#hex').check();
+  assert.equal(await openat.locator('.inline-number').textContent(), '#0x101');
+  // The row still opens its details and keeps its permalink.
+  await openat.locator('.call-name').click();
+  await phone.locator('.detail-row').waitFor();
+  assert.equal(decodeURIComponent(new URL(phone.url()).hash), '#sys-v7.3:257:openat');
+
+  const small = await openPage(t, { viewport: { width: 320, height: 568 }, isMobile: true, hasTouch: true });
+  await small.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+  await small.goto(`${base}?arch=x64&lang=en`);
+  await ready(small);
+  layout = await pinned(small);
+  assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 320px and 200% text`);
+  assert.equal(await small.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  await desktop.goto(`${base}?arch=x64&lang=en`);
+  await ready(desktop);
+  assert.equal((await pinned(desktop)).numberColumn, 'table-cell');
+  assert.equal(await desktop.locator('#rows .inline-number').first().isVisible(), false);
+  assert.equal(await desktop.locator('#sort-number-narrow').isVisible(), false);
+  assert.equal(await desktop.locator('#rows tr[id$=":openat"] .call-number').textContent(), '257');
 });
 
 test('advanced options start closed on desktop and open for any active option', async t => {

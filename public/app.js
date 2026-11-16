@@ -279,7 +279,7 @@ function renderRows() {
     const badge = row._change ? `<span class="badge ${row._change}">${esc(t(row._change))}</span>` : row.status === 'unimplemented' ? '<span class="badge unimplemented"><span data-i18n="unimplemented">unimplemented</span></span>' : '';
     return `<tr class="syscall-row" id="sys-${id}"><td class="call-number">${nr(row.number)}</td>
       <th scope="row" class="call-identity"><button class="call-name" data-call="${id}" aria-expanded="false">
-        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button>${badge}</th>${args}</tr>`;
+        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button><span class="inline-number">#${nr(row.number)}</span>${badge}</th>${args}</tr>`;
   }).join('');
   $('results').textContent = t('{count} of {total} entries', { count: rows.length, total: eligible.length });
   applyLanguage($('rows'));
@@ -292,6 +292,8 @@ function renderRows() {
     button.parentElement.setAttribute('aria-sort', active ? (state.direction === 1 ? 'ascending' : 'descending') : 'none');
     button.textContent = `${t(sort === 'number' ? 'No.' : 'System call')}${active ? (state.direction === 1 ? ' ↑' : ' ↓') : ''}`;
   }
+  // Narrow screens hide the number column; its sort control lives in the name heading with the same label.
+  $('sort-number-narrow').textContent = $('sort-number').textContent;
 }
 
 keepTableHeadsVisible(document.querySelectorAll('.table-scroll > table'));
@@ -431,6 +433,7 @@ $('clear').addEventListener('click', resetSearch);
 $('reset-search').addEventListener('click', resetSearch);
 $('hex').addEventListener('change', () => { state.hex = $('hex').checked; renderRows(); saveURL(false, 'push'); });
 $('show-unimplemented').addEventListener('change', () => { state.all = $('show-unimplemented').checked; renderRows(); saveURL(false, 'push'); });
+$('sort-number-narrow').addEventListener('click', () => $('sort-number').click());
 for (const sort of ['number', 'name']) $(`sort-${sort}`).addEventListener('click', () => {
   state.direction = state.sort === sort ? -state.direction : 1; state.sort = sort; renderRows();
 });
