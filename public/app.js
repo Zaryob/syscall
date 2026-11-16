@@ -293,6 +293,24 @@ function renderRows() {
   }
 }
 
+// Phones scroll the table with the page (see syscall.css); keep its heading row just under the sticky site header.
+const pageScrolledTable = matchMedia('(max-width: 760px), (max-height: 500px)');
+let headFrame = 0;
+function placeTableHead() {
+  headFrame = 0;
+  const table = $('syscall-table');
+  if (!pageScrolledTable.matches) { table.style.removeProperty('--head-offset'); return; }
+  const top = document.querySelector('.console-header')?.getBoundingClientRect().bottom ?? 0;
+  const box = table.getBoundingClientRect();
+  const offset = Math.min(Math.max(top - box.top, 0), Math.max(box.height - table.tHead.offsetHeight, 0));
+  table.style.setProperty('--head-offset', `${offset}px`);
+}
+const scheduleTableHead = () => { headFrame ||= requestAnimationFrame(placeTableHead); };
+addEventListener('scroll', scheduleTableHead, { passive: true });
+addEventListener('resize', scheduleTableHead);
+pageScrolledTable.addEventListener('change', scheduleTableHead);
+new ResizeObserver(scheduleTableHead).observe($('syscall-table'));
+
 function renderComparisonStatus() {
   $('compare-status').hidden = !comparisonLoad;
   $('retry-compare').hidden = comparisonLoad !== 'failed';
@@ -405,8 +423,20 @@ $('retry-compare').addEventListener('click', () => {
   renderComparisonStatus();
   finishComparison(requestId, getSnapshot(state.compare, state.arch).catch(() => null));
 });
+// Enter or the keyboard's Search key: leave the field (closing the on-screen keyboard) for the first result,
+// open it when it is the only match, and bring the count and that row into view.
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
+  const rows = $('rows').querySelectorAll('.syscall-row');
+  const firstCall = rows[0]?.querySelector('[data-call]');
+  if (rows.length === 1) { setExpanded(firstCall.dataset.call); saveURL(true, 'push'); }
+  if (firstCall) firstCall.focus({ preventScroll: true });
+  else $('search').blur();
+  const view = window.visualViewport;
+  const bottom = view ? view.offsetTop + view.height : innerHeight;
+  const header = document.querySelector('.console-header')?.getBoundingClientRect().bottom ?? 0;
+  const first = (rows[0] ?? $('empty')).getBoundingClientRect();
+  if (first.bottom > bottom || $('results').getBoundingClientRect().top < header) $('results').scrollIntoView({ block: 'start' });
 });
 $('search').addEventListener('input', () => {
   state.query = $('search').value; state.expanded = '';
