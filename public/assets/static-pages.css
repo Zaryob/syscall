@@ -74,13 +74,23 @@
 .console-syscall .static-filter label { color: var(--muted); }
 .console-syscall .static-filter input { flex: 1 1 12rem; min-width: 0; max-width: 32rem; font-size: max(16px, var(--text-sm)); }
 .console-syscall .static-filter [role=status] { white-space: nowrap; }
-.console-syscall .static-ranges { display: flex; align-items: baseline; gap: 4px 8px; margin: 0 0 10px; padding: 4px 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--text-sm); }
+.console-syscall .static-ranges { position: relative; display: flex; overflow: hidden; overflow: clip; align-items: baseline; gap: 4px 8px; margin: 0 0 10px; padding: 4px 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--text-sm); }
 .console-syscall .static-ranges > span { flex: none; color: var(--muted); }
-.console-syscall .static-ranges ul { display: flex; flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+/* The ranges and the filter link share one line that scrolls sideways when it does not fit; the label stays put.
+   The bar clips, so that line never widens a phone's layout viewport while the text size changes. */
+.console-syscall .static-ranges-scroll { display: flex; flex: 1 1 auto; align-items: baseline; gap: 4px 8px; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+.console-syscall .static-ranges ul { display: flex; flex: none; margin: 0; padding: 0; list-style: none; }
 .console-syscall .static-ranges li + li::before { content: "·"; content: "·" / ""; margin: 0 8px; color: var(--muted); }
 .console-syscall .static-ranges a { display: inline-block; padding: 4px 0; font-variant-numeric: tabular-nums; }
 .console-syscall .static-ranges .static-filter-link { flex: none; margin-inline-start: auto; white-space: nowrap; }
 .console-syscall .static-ranges .static-filter-link[hidden] { display: none; }
+/* static-page.js fades the edge of the line that hides ranges, as the theme does for sideways-scrolling code. */
+.console-syscall .static-ranges::before, .console-syscall .static-ranges::after { content: ""; position: absolute; top: 0; bottom: 0; width: clamp(16px, 8%, 40px); opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+.console-syscall .static-ranges::before { left: var(--ranges-start, 0); background: linear-gradient(to right, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset 2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-syscall .static-ranges::after { right: var(--ranges-end, 0); background: linear-gradient(to left, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset -2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-syscall .static-ranges--fade-start::before, .console-syscall .static-ranges--fade-end::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .console-syscall .static-ranges::before, .console-syscall .static-ranges::after { transition: none; } }
+@media print { .console-syscall .static-ranges::before, .console-syscall .static-ranges::after { display: none; } }
 .static-jump-ready .console-syscall .static-ranges { position: sticky; z-index: 5; top: calc(var(--static-header) + var(--static-filter)); }
 .static-filter-sticky .console-syscall .static-filter { position: sticky; z-index: 5; top: var(--static-header); background: var(--paper); }
 /* With the script, fragments land 8px below the measured header plus the sticky block; without it, the bar is not

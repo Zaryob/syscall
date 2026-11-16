@@ -671,6 +671,47 @@ test('architecture pages jump by number range and filter rows, and keep the rang
   assert.equal(await plain.locator('#n-200 td').first().textContent(), '200');
 });
 
+test('the range bar fades the side that hides ranges and keeps the target range in view on phones', async t => {
+  const bar = page => page.evaluate(() => {
+    const nav = document.querySelector('.static-ranges');
+    const scroller = nav.querySelector('.static-ranges-scroll');
+    const box = scroller.getBoundingClientRect();
+    const shown = [...nav.querySelectorAll('ul a')].filter(link => { const r = link.getBoundingClientRect(); return r.left >= box.left - 1 && r.right <= box.right + 1; });
+    const fade = side => { const style = getComputedStyle(nav, side); return { on: style.opacity === '1', ground: style.backgroundImage, edge: style.boxShadow }; };
+    const tops = new Set([...nav.querySelectorAll('ul a, .static-filter-link:not([hidden])')].map(link => Math.round(link.getBoundingClientRect().top)));
+    return { hidden: scroller.scrollWidth - scroller.clientWidth, shown: shown.map(link => link.getAttribute('href')), start: fade('::before'), end: fade('::after'), lines: tops.size, height: nav.offsetHeight };
+  });
+  const surface = 'rgb(32, 36, 43)';
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true]]) {
+    const page = await openPage(t, { viewport, isMobile: true, hasTouch: true, colorScheme: 'dark', reducedMotion: 'reduce' });
+    if (zoom) await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+    await page.goto(`${base}arch/x64/`);
+    let where = await bar(page);
+    const label = `${viewport.width}px${zoom ? ' at 200%' : ''}`;
+    assert.ok(where.hidden > 0, `${label}: the ranges overflow`);
+    assert.ok(where.end.on && !where.start.on, `${label}: only the end fades at first`);
+    assert.match(where.end.ground, new RegExp(surface.replace(/[()]/g, '\\$&')));
+    assert.match(where.end.edge, /inset/);
+    assert.equal(where.lines, 1, `${label}: one line`);
+    assert.ok(where.height <= viewport.height * 0.15, `${label}: bar ${where.height}px`);
+    // A fragment for a later range, or a name in it, scrolls that range into the bar.
+    await page.goto(`${base}arch/x64/#n-400`);
+    await page.waitForFunction(() => document.querySelector('.static-ranges').classList.contains('static-ranges--fade-start'));
+    where = await bar(page);
+    assert.ok(where.shown.includes('#n-400'), `${label}: shown ${where.shown}`);
+    assert.ok(where.start.on, `${label}: the start fades once ranges hide there`);
+    await page.goto(`${base}arch/x64/#openat`);
+    await page.waitForFunction(() => document.querySelector('.static-ranges-scroll').scrollLeft > 0);
+    assert.ok((await bar(page)).shown.includes('#n-200'), `${label}: openat's range is shown`);
+  }
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  await desktop.goto(`${base}arch/x64/#n-400`);
+  const wide = await bar(desktop);
+  assert.equal(wide.hidden, 0);
+  assert.deepEqual(wide.shown, ['#n-0', '#n-100', '#n-200', '#n-300', '#n-400']);
+  assert.ok(!wide.start.on && !wide.end.on);
+});
+
 test('advanced options start closed on desktop and open for any active option', async t => {
   const page = await openPage(t, { viewport: { width: 1440, height: 900 } });
   const panel = page.locator('#advanced-options');
