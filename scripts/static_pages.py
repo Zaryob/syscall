@@ -417,8 +417,8 @@ class Writer:
                     '<input id="static-filter" type="search" autocomplete="off" spellcheck="false" placeholder="{hint}" aria-describedby="static-filter-count">'
                     '<span id="static-filter-count" class="small" role="status"></span></form>\n'.format(
                         count=escape(t['filter_count']), label=escape(t['filter']), more=escape(t['filter_more']), hint=escape(t['filter_hint'])))
-        body.append('<nav class="static-ranges" aria-label="{nav}"><span aria-hidden="true">{jump}:</span><ul>{links}</ul>'
-                    '<a class="static-filter-link" href="#static-filter" hidden>{label}<span class="console-sr-only">{more}</span><span aria-hidden="true"> ↑</span></a></nav>\n'.format(
+        body.append('<nav class="static-ranges" aria-label="{nav}"><span aria-hidden="true">{jump}:</span><div class="static-ranges-scroll"><ul>{links}</ul>'
+                    '<a class="static-filter-link" href="#static-filter" hidden>{label}<span class="console-sr-only">{more}</span><span aria-hidden="true"> ↑</span></a></div></nav>\n'.format(
                         nav=escape(t['jump_nav']), jump=escape(t['jump']), label=escape(t['filter']), more=escape(t['filter_more']),
                         links=''.join('<li><a href="#n-{}">{}–{}</a></li>'.format(start, start, max(numbers)) for start, numbers in ranges.items())))
         body.append('<div class="table-scroll static-scroll" tabindex="0" role="region" aria-label="{}"><table class="abi-table static-table static-calls"><caption class="console-sr-only">{}</caption>'.format(escape(t['table_region']), escape(caption)))

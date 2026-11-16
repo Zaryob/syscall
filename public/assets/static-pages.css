@@ -55,7 +55,10 @@
 .console-syscall .static-letters a:hover { background: var(--surface); }
 .console-syscall .static-names { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 0 20px; margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
 .console-syscall .static-names a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); }
-.console-syscall .static-page :is(h2, h3)[id] { scroll-margin-top: 70px; }
+/* Fragments stop .75rem below the sticky site header, as on the other sites: static-page.js measures the header into
+   the theme's --console-header-height; the rem values are the theme's fallbacks until it has. */
+html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 5.25rem) + .75rem); }
+@media (max-width: 1180px) { html:has(.static-page) { scroll-padding-top: calc(var(--console-header-height, 4.25rem) + .75rem); } }
 
 .console-syscall .static-sections { margin: 36px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
 /* Links from the application's landing page to the generated pages. */
@@ -74,17 +77,38 @@
 .console-syscall .static-filter label { color: var(--muted); }
 .console-syscall .static-filter input { flex: 1 1 12rem; min-width: 0; max-width: 32rem; font-size: max(16px, var(--text-sm)); }
 .console-syscall .static-filter [role=status] { white-space: nowrap; }
-.console-syscall .static-ranges { display: flex; align-items: baseline; gap: 4px 8px; margin: 0 0 10px; padding: 4px 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--text-sm); }
+.console-syscall .static-ranges { position: relative; display: flex; overflow: hidden; overflow: clip; align-items: baseline; gap: 4px 8px; margin: 0 0 10px; padding: 4px 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--text-sm); }
 .console-syscall .static-ranges > span { flex: none; color: var(--muted); }
-.console-syscall .static-ranges ul { display: flex; flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+/* The ranges and the filter link share one line that scrolls sideways when it does not fit; the label stays put.
+   The bar clips, so that line never widens a phone's layout viewport while the text size changes. */
+.console-syscall .static-ranges-scroll { display: flex; flex: 1 1 auto; align-items: baseline; gap: 4px 8px; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+.console-syscall .static-ranges ul { display: flex; flex: none; margin: 0; padding: 0; list-style: none; }
 .console-syscall .static-ranges li + li::before { content: "·"; content: "·" / ""; margin: 0 8px; color: var(--muted); }
 .console-syscall .static-ranges a { display: inline-block; padding: 4px 0; font-variant-numeric: tabular-nums; }
 .console-syscall .static-ranges .static-filter-link { flex: none; margin-inline-start: auto; white-space: nowrap; }
 .console-syscall .static-ranges .static-filter-link[hidden] { display: none; }
+/* static-page.js fades the edge of the line that hides ranges, as the theme does for sideways-scrolling code. */
+.console-syscall .static-ranges::before, .console-syscall .static-ranges::after { content: ""; position: absolute; top: 0; bottom: 0; width: clamp(16px, 8%, 40px); opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+.console-syscall .static-ranges::before { left: var(--ranges-start, 0); background: linear-gradient(to right, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset 2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-syscall .static-ranges::after { right: var(--ranges-end, 0); background: linear-gradient(to left, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset -2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-syscall .static-ranges--fade-start::before, .console-syscall .static-ranges--fade-end::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .console-syscall .static-ranges::before, .console-syscall .static-ranges::after { transition: none; } }
+@media print { .console-syscall .static-ranges::before, .console-syscall .static-ranges::after { display: none; } }
 .static-jump-ready .console-syscall .static-ranges { position: sticky; z-index: 5; top: calc(var(--static-header) + var(--static-filter)); }
 .static-filter-sticky .console-syscall .static-filter { position: sticky; z-index: 5; top: var(--static-header); background: var(--paper); }
-/* With the script, fragments land 8px below the measured header plus the sticky block; without it, the bar is not
-   sticky and range rows get the same margin as name anchors. */
-.console-syscall .static-calls tbody tr[id] { scroll-margin-top: 60px; }
+/* With the script, fragments land 8px below the measured header plus the sticky block. Without it the bar is not
+   sticky, and the site header keeps a row for its tools below the prompt (theme.css), so the page's scroll padding
+   follows that taller header: border and padding, the prompt row (44px, or one line of larger text) and the tools row,
+   plus the theme's .75rem gap. */
+/* Name cells: the generated table's heading row does not stick (above), so they need no room for it. */
+.console-syscall .static-table tbody th[id] { scroll-margin-top: 0; }
+@media (scripting: none) {
+  html:has(.static-page) { scroll-padding-top: calc(75px + .75rem); }
+  @media (max-width: 1180px) { html:has(.static-page) { scroll-padding-top: calc(62px + max(44px, 2rem) + .75rem); } }
+  @media (max-width: 560px) { html:has(.static-page) { scroll-padding-top: calc(74px + max(44px, 1.6875rem) + .75rem); } }
+  @media (max-width: 380px) { html:has(.static-page) { scroll-padding-top: calc(72px + max(44px, 1.5rem) + .75rem); } }
+}
 html.static-jump-ready { scroll-padding-top: calc(var(--static-header) + 8px); }
 .static-jump-ready .console-syscall .static-calls tbody :is(tr, th)[id] { scroll-margin-top: calc(var(--static-filter) + var(--static-ranges)); }
+/* With large text on a phone the release note no longer fits one line; let it wrap instead of widening the page. */
+@media (max-width: 560px) { .console-syscall .static-release { white-space: normal; } }

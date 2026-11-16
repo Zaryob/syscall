@@ -262,6 +262,10 @@ function highlightMatch(text, q) {
   return esc(text).replace(regex, '<mark class="console-highlight">$1</mark>');
 }
 
+// A narrow name column wraps a long name after an underscore (inotify_ / add_ / watch) before it splits a word.
+// The markup holds no underscore besides the name's own.
+const breakAfterUnderscores = html => html.replaceAll('_', '_<wbr>');
+
 function renderRows() {
   renderConventions();
   if (!snapshot) return;
@@ -279,7 +283,7 @@ function renderRows() {
     const badge = row._change ? `<span class="badge ${row._change}">${esc(t(row._change))}</span>` : row.status === 'unimplemented' ? '<span class="badge unimplemented"><span data-i18n="unimplemented">unimplemented</span></span>' : '';
     return `<tr class="syscall-row" id="sys-${id}"><td class="call-number">${nr(row.number)}</td>
       <th scope="row" class="call-identity"><button class="call-name" data-call="${id}" aria-expanded="false">
-        <span aria-hidden="true">▸</span><span>${highlightMatch(row.name, state.query)}</span></button><span class="inline-number">#${nr(row.number)}</span>${badge}</th>${args}</tr>`;
+        <span aria-hidden="true">▸</span><span>${breakAfterUnderscores(highlightMatch(row.name, state.query))}</span></button><span class="inline-number">#${nr(row.number)}</span>${badge}</th>${args}</tr>`;
   }).join('');
   $('results').textContent = t('{count} of {total} entries', { count: rows.length, total: eligible.length });
   applyLanguage($('rows'));
@@ -410,15 +414,19 @@ $('retry-compare').addEventListener('click', () => {
   renderComparisonStatus();
   finishComparison(requestId, getSnapshot(state.compare, state.arch).catch(() => null));
 });
-// Enter or the keyboard's Search key: leave the field (closing the on-screen keyboard) for the first result,
-// open it when it is the only match, and bring the count and that row into view.
+// Enter or the keyboard's Search key: open the first result when it is the only match and bring the count and that
+// row into view. On touch screens and narrow windows the field is also left (closing the on-screen keyboard) for
+// the first result; with a mouse and keyboard the field keeps focus so the search can go on.
+const touchSearch = matchMedia('(hover: none) and (pointer: coarse), (max-width: 759.98px)');
 $('search-form').addEventListener('submit', event => {
   event.preventDefault();
   const rows = $('rows').querySelectorAll('.syscall-row');
   const firstCall = rows[0]?.querySelector('[data-call]');
   if (rows.length === 1) { setExpanded(firstCall.dataset.call); saveURL(true, 'push'); }
-  if (firstCall) firstCall.focus({ preventScroll: true });
-  else $('search').blur();
+  if (touchSearch.matches) {
+    if (firstCall) firstCall.focus({ preventScroll: true });
+    else $('search').blur();
+  }
   const view = window.visualViewport;
   const bottom = view ? view.offsetTop + view.height : innerHeight;
   const header = document.querySelector('.console-header')?.getBoundingClientRect().bottom ?? 0;

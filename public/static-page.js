@@ -12,6 +12,20 @@ function renderCopy() {
 renderCopy();
 window.ZaryobLanguage.subscribe(renderCopy);
 
+// Fragments stop just below the sticky site header (static-pages.css), whose height changes with the text size,
+// wrapping and width. Same measurement as the shared theme's; the open phone menu is not part of the bar.
+const siteHeader = document.querySelector('.console-header');
+if (siteHeader) {
+  const measureHeader = () => {
+    if (siteHeader.querySelector('.console-nav.is-open')) return;
+    const position = getComputedStyle(siteHeader).position;
+    const height = position === 'sticky' || position === 'fixed' ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty('--console-header-height', `${height}px`);
+  };
+  measureHeader();
+  new ResizeObserver(measureHeader).observe(siteHeader);
+}
+
 // Architecture pages (scripts/static_pages.py): the number-range bar is plain links and stays sticky under the site
 // header; this reveals the row filter above it. Both stay in view while they take at most 15% of the window height;
 // otherwise the filter scrolls with the page and a link in the bar brings it back.
@@ -23,6 +37,8 @@ if (filterForm && rangeBar) {
   const status = filterForm.querySelector('[role=status]');
   const searchLink = rangeBar.querySelector('.static-filter-link');
   const rows = [...document.querySelectorAll('.static-calls tbody tr')];
+  const scroller = rangeBar.querySelector('.static-ranges-scroll');
+  const rangeLinks = [...rangeBar.querySelectorAll('ul a')];
   const keys = rows.map(row => {
     const [number, hex] = row.querySelectorAll('.abi-number');
     return { number: number.textContent, hex: hex.textContent.toLowerCase(), name: row.querySelector('th code').textContent.toLowerCase() };
@@ -47,9 +63,48 @@ if (filterForm && rangeBar) {
   });
   // A range or name fragment must not point at a row the filter hides.
   rangeBar.querySelector('ul').addEventListener('click', event => { if (event.target.closest('a')) clearFilter(); });
+  // On a narrow screen the ranges scroll sideways: fade the edge that hides some, and keep the range of the target
+  // row, or of the rows under the bar, in view.
+  const fade = () => {
+    const hidden = scroller.scrollWidth - scroller.clientWidth;
+    rangeBar.style.setProperty('--ranges-start', `${scroller.offsetLeft}px`);
+    rangeBar.style.setProperty('--ranges-end', `${rangeBar.clientWidth - scroller.offsetLeft - scroller.clientWidth}px`);
+    rangeBar.classList.toggle('static-ranges--fade-start', hidden > 1 && scroller.scrollLeft > 1);
+    rangeBar.classList.toggle('static-ranges--fade-end', hidden > 1 && scroller.scrollLeft < hidden - 1);
+  };
+  const startOf = link => document.getElementById(link.hash.slice(1));
+  let shownRange = null;
+  const showRange = link => {
+    shownRange = link;
+    if (!link) return;
+    const box = scroller.getBoundingClientRect();
+    const item = link.getBoundingClientRect();
+    const edge = Math.min(40, Math.max(16, rangeBar.clientWidth * 0.08));
+    if (item.left < box.left + edge) scroller.scrollLeft -= box.left + edge - item.left;
+    else if (item.right > box.right - edge) scroller.scrollLeft += item.right - box.right + edge;
+  };
+  const rangeOf = row => rangeLinks.findLast(link => {
+    const start = startOf(link);
+    return start && (start === row || start.compareDocumentPosition(row) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+  const showTarget = () => {
+    const row = document.getElementById(decodeURIComponent(location.hash.slice(1)))?.closest('.static-calls tr');
+    if (row) showRange(rangeOf(row));
+  };
+  let spying = false;
+  const spy = () => {
+    spying = false;
+    // A fragment lands a few pixels below the bar; that row counts as under it.
+    const line = rangeBar.getBoundingClientRect().bottom + 16;
+    const current = rangeLinks.findLast(link => { const start = startOf(link); return start && !start.hidden && start.getBoundingClientRect().top <= line; }) ?? rangeLinks[0];
+    if (current !== shownRange) showRange(current);
+  };
+  scroller.addEventListener('scroll', fade, { passive: true });
+  addEventListener('scroll', () => { if (!spying) { spying = true; requestAnimationFrame(spy); } }, { passive: true });
   addEventListener('hashchange', () => {
     const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
     if (target?.closest('tr[hidden]')) { clearFilter(); target.scrollIntoView(); }
+    showTarget();
   });
   searchLink.addEventListener('click', event => {
     event.preventDefault();
@@ -65,8 +120,12 @@ if (filterForm && rangeBar) {
     root.style.setProperty('--static-filter', both ? `${filterForm.offsetHeight}px` : '0px');
     root.style.setProperty('--static-ranges', `${rangeBar.offsetHeight}px`);
     searchLink.hidden = both;
+    // A new text size or width moves the ranges; keep the shown one in view.
+    showRange(shownRange);
+    fade();
   };
   place();
+  showTarget();
   addEventListener('resize', place);
   new ResizeObserver(place).observe(rangeBar);
 }

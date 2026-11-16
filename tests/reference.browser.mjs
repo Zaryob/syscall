@@ -527,7 +527,7 @@ test('the calling-convention, errno, signal and ioctl tables scroll with the pag
   }
 });
 
-test('submitting a search leaves the field and brings the count and first result into view', async t => {
+test('submitting a search brings the count and first result into view, leaving the field only on phones', async t => {
   const page = await openPage(t, { viewport: { width: 390, height: 500 }, isMobile: true, hasTouch: true });
   const inView = () => page.evaluate(() => {
     const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
@@ -557,6 +557,50 @@ test('submitting a search leaves the field and brings the count and first result
   assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v7.3:437:openat2');
   await page.waitForFunction(() => document.getElementById('results').getBoundingClientRect().top >= document.querySelector('.console-header').getBoundingClientRect().bottom);
   assert.equal(await inView(), true);
+
+  // With a mouse and keyboard the field keeps focus; the results still come into view under the header.
+  const desktop = await openPage(t, { viewport: { width: 1280, height: 520 } });
+  const resultsInView = () => desktop.evaluate(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    const results = document.getElementById('results').getBoundingClientRect();
+    return results.top >= header && document.querySelector('#rows .syscall-row').getBoundingClientRect().bottom <= innerHeight;
+  });
+  await desktop.goto(`${base}?arch=x64&kernel=v7.3&lang=en`);
+  await desktop.locator('#rows tr').first().waitFor();
+  await desktop.locator('#search').fill('openat');
+  assert.equal(await resultsInView(), false);
+  await desktop.locator('#search').press('Enter');
+  await desktop.waitForFunction(() => {
+    const header = document.querySelector('.console-header').getBoundingClientRect().bottom;
+    return document.getElementById('results').getBoundingClientRect().top >= header && document.querySelector('#rows .syscall-row').getBoundingClientRect().bottom <= innerHeight;
+  });
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), 'search');
+  assert.equal(await desktop.locator('.detail-row').count(), 0);
+  await desktop.locator('#search').fill('openat2');
+  await desktop.locator('#search').press('Enter');
+  await desktop.locator('.detail-row').waitFor();
+  assert.equal(await desktop.locator('[data-call="v7.3:437:openat2"]').getAttribute('aria-expanded'), 'true');
+  assert.equal(await desktop.evaluate(() => document.activeElement.id), 'search');
+  // Typing goes on in the same field.
+  await desktop.keyboard.press('Backspace');
+  assert.equal(await desktop.locator('#search').inputValue(), 'openat');
+});
+
+// The text of each rendered line of a name in the syscall table.
+const nameLines = (page, name) => page.locator(`#rows tr[id$=":${name}"] .call-name > span:last-child`).evaluate(span => {
+  const lines = [];
+  const walker = document.createTreeWalker(span, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    for (let i = 0; i < node.length; i++) {
+      const range = document.createRange();
+      range.setStart(node, i);
+      range.setEnd(node, i + 1);
+      const top = Math.round(range.getBoundingClientRect().top);
+      if (!lines.length || lines.at(-1).top !== top) lines.push({ top, text: '' });
+      lines.at(-1).text += node.data[i];
+    }
+  }
+  return { html: span.innerHTML, lines: lines.map(line => line.text) };
 });
 
 test('phones pin only the name column, show the number in the name cell and keep sorting by number', async t => {
@@ -571,6 +615,11 @@ test('phones pin only the name column, show the number in the name cell and keep
   let layout = await pinned(phone);
   assert.equal(layout.numberColumn, 'none');
   assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 390px`);
+  // Line breaks fall after underscores, never mid-word; where exactly depends on the platform's glyph widths.
+  const watchLines = (await nameLines(phone, 'inotify_add_watch')).lines;
+  assert.equal(watchLines.join(''), 'inotify_add_watch');
+  assert.ok(watchLines.length >= 2, `inotify_add_watch fits on one line: ${watchLines.join(' / ')}`);
+  assert.ok(watchLines.slice(0, -1).every(line => line.endsWith('_')), `inotify_add_watch breaks mid-word: ${watchLines.join(' / ')}`);
   const openat = phone.locator('#rows tr[id$=":openat"]');
   assert.equal(await openat.locator('.call-identity .inline-number').textContent(), '#257');
   assert.equal(await openat.locator('.call-identity .inline-number').isVisible(), true);
@@ -599,7 +648,12 @@ test('phones pin only the name column, show the number in the name cell and keep
   await small.goto(`${base}?arch=x64&lang=en`);
   await ready(small);
   layout = await pinned(small);
-  assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 320px and 200% text`);
+  // Large text widens the column toward nine characters of a name, but never past half of the box.
+  assert.ok(layout.share > 0.37 && layout.share <= 0.501, `name column takes ${Math.round(layout.share * 100)}% of the box at 320px and 200% text`);
+  // Long names break after an underscore before they split a word: half the old six lines at this size.
+  const watch = await nameLines(small, 'inotify_add_watch');
+  assert.equal(watch.html, 'inotify_<wbr>add_<wbr>watch');
+  assert.ok(watch.lines.length <= 3, `inotify_add_watch over ${watch.lines.length} lines: ${watch.lines.join(' / ')}`);
   assert.equal(await small.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 
   const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
@@ -669,6 +723,97 @@ test('architecture pages jump by number range and filter rows, and keep the rang
   const header = await plain.locator('.console-header').boundingBox();
   assert.ok(row.y >= header.y + header.height, `row at ${row.y} under a ${header.height}px header`);
   assert.equal(await plain.locator('#n-200 td').first().textContent(), '200');
+});
+
+test('generated-page fragments land .75rem below the measured site header, and row permalinks stay clear of it', async t => {
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 390, height: 844 }, true], [{ width: 1440, height: 900 }, false], [{ width: 1440, height: 900 }, true]]) {
+    const page = await openPage(t, { viewport, isMobile: viewport.width < 800, hasTouch: viewport.width < 800, reducedMotion: 'reduce' });
+    if (zoom) await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+    const label = `${viewport.width}px${zoom ? ' at 200%' : ''}`;
+    await page.goto(`${base}call/openat/`);
+    // The header is measured again once the larger text applies.
+    await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--console-header-height') === `${Math.ceil(document.querySelector('.console-header').getBoundingClientRect().height)}px`);
+    for (const id of ['declaration-title', 'manual-title']) {
+      await page.evaluate(fragment => { location.hash = fragment; }, id);
+      const where = await page.evaluate(fragment => ({
+        gap: document.getElementById(fragment).getBoundingClientRect().top - document.querySelector('.console-header').getBoundingClientRect().bottom,
+        want: parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75,
+      }), id);
+      assert.ok(Math.abs(where.gap - where.want) <= 2, `${label} #${id}: ${Math.round(where.gap)}px below the header, want ${where.want}px`);
+    }
+    // The application opens a row permalink and centres it; it must not end up under the header.
+    await page.goto(`${base}?arch=x64&lang=en#sys-v7.3:257:openat`);
+    await page.locator('.detail-row').waitFor();
+    const row = await page.evaluate(() => document.getElementById('sys-v7.3:257:openat').getBoundingClientRect().top - document.querySelector('.console-header').getBoundingClientRect().bottom);
+    assert.ok(row >= 0, `${label}: row permalink ${Math.round(row)}px below the header`);
+  }
+});
+
+test('without JavaScript, architecture-page fragments land just below the site header', async t => {
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true], [{ width: 900, height: 800 }, false], [{ width: 1440, height: 900 }, false]]) {
+    for (const fragment of ['openat', 'n-200']) {
+      const page = await openPage(t, { javaScriptEnabled: false, viewport, reducedMotion: 'reduce' });
+      if (zoom) {
+        // Larger text: load, enlarge, then follow the fragment.
+        await page.goto(`${base}arch/x64/`);
+        await page.evaluate(id => {
+          document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>');
+          location.hash = id;
+        }, fragment);
+      } else {
+        await page.goto(`${base}arch/x64/#${fragment}`);
+      }
+      const where = await page.evaluate(id => ({
+        target: document.getElementById(id).getBoundingClientRect().top,
+        header: document.querySelector('.console-header').getBoundingClientRect().bottom,
+        gap: parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75,
+      }), fragment);
+      const label = `${viewport.width}px${zoom ? ' at 200%' : ''} #${fragment}`;
+      assert.ok(where.target >= where.header, `${label}: row at ${where.target} under a header ending at ${where.header}`);
+      assert.ok(where.target - where.header <= where.gap + 4, `${label}: ${Math.round(where.target - where.header)}px below the header`);
+    }
+  }
+});
+
+test('the range bar fades the side that hides ranges and keeps the target range in view on phones', async t => {
+  const bar = page => page.evaluate(() => {
+    const nav = document.querySelector('.static-ranges');
+    const scroller = nav.querySelector('.static-ranges-scroll');
+    const box = scroller.getBoundingClientRect();
+    const shown = [...nav.querySelectorAll('ul a')].filter(link => { const r = link.getBoundingClientRect(); return r.left >= box.left - 1 && r.right <= box.right + 1; });
+    const fade = side => { const style = getComputedStyle(nav, side); return { on: style.opacity === '1', ground: style.backgroundImage, edge: style.boxShadow }; };
+    const tops = new Set([...nav.querySelectorAll('ul a, .static-filter-link:not([hidden])')].map(link => Math.round(link.getBoundingClientRect().top)));
+    return { hidden: scroller.scrollWidth - scroller.clientWidth, shown: shown.map(link => link.getAttribute('href')), start: fade('::before'), end: fade('::after'), lines: tops.size, height: nav.offsetHeight };
+  });
+  const surface = 'rgb(32, 36, 43)';
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true]]) {
+    const page = await openPage(t, { viewport, isMobile: true, hasTouch: true, colorScheme: 'dark', reducedMotion: 'reduce' });
+    if (zoom) await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+    await page.goto(`${base}arch/x64/`);
+    let where = await bar(page);
+    const label = `${viewport.width}px${zoom ? ' at 200%' : ''}`;
+    assert.ok(where.hidden > 0, `${label}: the ranges overflow`);
+    assert.ok(where.end.on && !where.start.on, `${label}: only the end fades at first`);
+    assert.match(where.end.ground, new RegExp(surface.replace(/[()]/g, '\\$&')));
+    assert.match(where.end.edge, /inset/);
+    assert.equal(where.lines, 1, `${label}: one line`);
+    assert.ok(where.height <= viewport.height * 0.15, `${label}: bar ${where.height}px`);
+    // A fragment for a later range, or a name in it, scrolls that range into the bar.
+    await page.goto(`${base}arch/x64/#n-400`);
+    await page.waitForFunction(() => document.querySelector('.static-ranges').classList.contains('static-ranges--fade-start'));
+    where = await bar(page);
+    assert.ok(where.shown.includes('#n-400'), `${label}: shown ${where.shown}`);
+    assert.ok(where.start.on, `${label}: the start fades once ranges hide there`);
+    await page.goto(`${base}arch/x64/#openat`);
+    await page.waitForFunction(() => document.querySelector('.static-ranges-scroll').scrollLeft > 0);
+    assert.ok((await bar(page)).shown.includes('#n-200'), `${label}: openat's range is shown`);
+  }
+  const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
+  await desktop.goto(`${base}arch/x64/#n-400`);
+  const wide = await bar(desktop);
+  assert.equal(wide.hidden, 0);
+  assert.deepEqual(wide.shown, ['#n-0', '#n-100', '#n-200', '#n-300', '#n-400']);
+  assert.ok(!wide.start.on && !wide.end.on);
 });
 
 test('advanced options start closed on desktop and open for any active option', async t => {

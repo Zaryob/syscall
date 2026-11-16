@@ -301,9 +301,10 @@
 
 /* Phones: only the name column stays pinned so the arguments keep most of the box at any text size. The number
    moves into the name cell (#257) and its sort control into the name heading. The name column follows the box
-   width, not the text size, and never takes more than about a third of it. */
+   width and takes about a third of it, but keeps room for nine characters of a name (plus the marker, gap and
+   padding) as long as that stays within half of the box; names break after an underscore first (app.js). */
 @media (max-width: 760px) {
-  #syscall-table { --number-width: 0px; --name-width: min(36cqw, 11rem); }
+  #syscall-table { --number-width: 0px; --name-width: min(max(min(36cqw, 11rem), calc(10ch + 21px)), 50cqw); }
   #syscall-table > thead > tr > th:first-child, #syscall-table .call-number { display: none; }
   #syscall-table .narrow-sort { display: inline; }
   #syscall-table .inline-number { display: block; margin-top: 1px; color: var(--muted); font-size: var(--text-xs); font-weight: normal; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
