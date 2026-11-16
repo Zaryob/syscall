@@ -559,6 +559,23 @@ test('submitting a search leaves the field and brings the count and first result
   assert.equal(await inView(), true);
 });
 
+// The text of each rendered line of a name in the syscall table.
+const nameLines = (page, name) => page.locator(`#rows tr[id$=":${name}"] .call-name > span:last-child`).evaluate(span => {
+  const lines = [];
+  const walker = document.createTreeWalker(span, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    for (let i = 0; i < node.length; i++) {
+      const range = document.createRange();
+      range.setStart(node, i);
+      range.setEnd(node, i + 1);
+      const top = Math.round(range.getBoundingClientRect().top);
+      if (!lines.length || lines.at(-1).top !== top) lines.push({ top, text: '' });
+      lines.at(-1).text += node.data[i];
+    }
+  }
+  return { html: span.innerHTML, lines: lines.map(line => line.text) };
+});
+
 test('phones pin only the name column, show the number in the name cell and keep sorting by number', async t => {
   const pinned = page => page.evaluate(() => {
     const box = document.getElementById('table-scroll').getBoundingClientRect();
@@ -571,6 +588,7 @@ test('phones pin only the name column, show the number in the name cell and keep
   let layout = await pinned(phone);
   assert.equal(layout.numberColumn, 'none');
   assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 390px`);
+  assert.deepEqual((await nameLines(phone, 'inotify_add_watch')).lines, ['inotify_', 'add_watch']);
   const openat = phone.locator('#rows tr[id$=":openat"]');
   assert.equal(await openat.locator('.call-identity .inline-number').textContent(), '#257');
   assert.equal(await openat.locator('.call-identity .inline-number').isVisible(), true);
@@ -599,7 +617,12 @@ test('phones pin only the name column, show the number in the name cell and keep
   await small.goto(`${base}?arch=x64&lang=en`);
   await ready(small);
   layout = await pinned(small);
-  assert.ok(layout.share <= 0.37, `name column takes ${Math.round(layout.share * 100)}% of the box at 320px and 200% text`);
+  // Large text widens the column toward nine characters of a name, but never past half of the box.
+  assert.ok(layout.share > 0.37 && layout.share <= 0.501, `name column takes ${Math.round(layout.share * 100)}% of the box at 320px and 200% text`);
+  // Long names break after an underscore before they split a word: half the old six lines at this size.
+  const watch = await nameLines(small, 'inotify_add_watch');
+  assert.equal(watch.html, 'inotify_<wbr>add_<wbr>watch');
+  assert.ok(watch.lines.length <= 3, `inotify_add_watch over ${watch.lines.length} lines: ${watch.lines.join(' / ')}`);
   assert.equal(await small.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 
   const desktop = await openPage(t, { viewport: { width: 1440, height: 900 } });
