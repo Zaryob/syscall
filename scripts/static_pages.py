@@ -56,6 +56,12 @@ TEXT = {
         'unimplemented': 'unimplemented',
         'other_abis': 'Other ABIs',
         'json': 'This table as JSON',
+        'jump': 'Jump to',
+        'jump_nav': 'Jump to a system call number range',
+        'filter': 'Search',
+        'filter_more': ' this table',
+        'filter_hint': 'name or number, e.g. openat or 257',
+        'filter_count': '{shown} / {total} rows',
         'sections': 'Reference sections',
         'tables': 'Interactive system call tables',
         'errno': 'errno values',
@@ -152,6 +158,12 @@ TEXT = {
         'unimplemented': 'gerçeklenmemiş',
         'other_abis': 'Diğer ABI’ler',
         'json': 'Bu tablonun JSON hâli',
+        'jump': 'Atla',
+        'jump_nav': 'Sistem çağrısı numarası aralığına atla',
+        'filter': 'Ara',
+        'filter_more': ' (bu tabloda)',
+        'filter_hint': 'ad ya da numara, ör. openat veya 257',
+        'filter_count': '{shown} / {total} satır',
         'sections': 'Referans bölümleri',
         'tables': 'Etkileşimli sistem çağrısı tabloları',
         'errno': 'errno değerleri',
@@ -396,18 +408,34 @@ class Writer:
             ' {} <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">syscall(2)</a>.'.format(escape(t['bits32'])) if c.get('bits') == 32 else ''))
         caption = t['table_caption'].format(label=label, release=self.release)
         body.append('<section aria-labelledby="table-heading"><h2 id="table-heading">{}</h2>\n'.format(escape(caption)))
+        # Jump aids: a row filter that static-page.js reveals, and plain number-range links that work without a script.
+        # The first row of each hundred carries the range's fragment.
+        ranges = {}
+        for row in rows:
+            ranges.setdefault(row['number'] // 100 * 100, []).append(row['number'])
+        body.append('<form class="static-filter" role="search" hidden data-count="{count}"><label for="static-filter">{label}<span class="console-sr-only">{more}</span><span aria-hidden="true">:</span></label>'
+                    '<input id="static-filter" type="search" autocomplete="off" spellcheck="false" placeholder="{hint}" aria-describedby="static-filter-count">'
+                    '<span id="static-filter-count" class="small" role="status"></span></form>\n'.format(
+                        count=escape(t['filter_count']), label=escape(t['filter']), more=escape(t['filter_more']), hint=escape(t['filter_hint'])))
+        body.append('<nav class="static-ranges" aria-label="{nav}"><span aria-hidden="true">{jump}:</span><ul>{links}</ul>'
+                    '<a class="static-filter-link" href="#static-filter" hidden>{label}<span class="console-sr-only">{more}</span><span aria-hidden="true"> ↑</span></a></nav>\n'.format(
+                        nav=escape(t['jump_nav']), jump=escape(t['jump']), label=escape(t['filter']), more=escape(t['filter_more']),
+                        links=''.join('<li><a href="#n-{}">{}–{}</a></li>'.format(start, start, max(numbers)) for start, numbers in ranges.items())))
         body.append('<div class="table-scroll static-scroll" tabindex="0" role="region" aria-label="{}"><table class="abi-table static-table static-calls"><caption class="console-sr-only">{}</caption>'.format(escape(t['table_region']), escape(caption)))
         body.append('<thead><tr>' + ''.join('<th scope="col">{}</th>'.format(escape(t[key])) for key in ['no', 'hex', 'call', 'arguments', 'what']) + '</tr></thead>\n<tbody>\n')
-        seen = set()
+        seen, range_rows = set(), set()
         for row in rows:
             name = row['name']
+            start = row['number'] // 100 * 100
+            range_id = '' if start in range_rows else ' id="n-{}"'.format(start)
+            range_rows.add(start)
             note = self.notes.get(name, {}).get(lang) if defined(row) else None
             # The first row of a name carries the fragment that the syscall page links to.
             anchor = '' if name in seen else ' id="{}"'.format(escape(name))
             seen.add(name)
             badge = '' if defined(row) else ' <span class="badge unimplemented">{}</span>'.format(escape(t['unimplemented']))
-            body.append('<tr><td class="abi-number">{}</td><td class="abi-number">0x{:x}</td><th scope="row"{}><a href="{}call/{}/"><code>{}</code></a>{}</th><td>{}</td><td>{}</td></tr>\n'.format(
-                row['number'], row['number'], anchor, escape(home), escape(name), escape(name), badge,
+            body.append('<tr{}><td class="abi-number">{}</td><td class="abi-number">0x{:x}</td><th scope="row"{}><a href="{}call/{}/"><code>{}</code></a>{}</th><td>{}</td><td>{}</td></tr>\n'.format(
+                range_id, row['number'], row['number'], anchor, escape(home), escape(name), escape(name), badge,
                 self.arguments(row, lang), escape(note) if note else '<span class="muted">—</span>'))
         body.append('</tbody></table></div>\n')
         body.append('<p class="small">{} <a href="{}data/{}/{}.json">{}</a></p></section>\n'.format(

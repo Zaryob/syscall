@@ -160,6 +160,22 @@ class StaticPageTests(unittest.TestCase):
         for value in ['syscall', 'rax', 'rdi, rsi, rdx, r10, r8, r9']:
             self.assertIn('<code>{}</code>'.format(value), text)
 
+    def test_abi_pages_link_each_number_range_to_its_first_row(self):
+        for lang, prefix in [('en', ''), ('tr', 'tr/')]:
+            for arch, table in self.tables.items():
+                text = self.read('{}arch/{}/'.format(prefix, arch))
+                numbers = [entry['number'] for entry in table['syscalls']]
+                starts = sorted({number // 100 * 100 for number in numbers})
+                links = re.findall(r'<li><a href="#n-(\d+)">(\d+)–(\d+)</a></li>', text)
+                self.assertEqual([(int(a), int(b), int(c)) for a, b, c in links],
+                                 [(start, start, max(n for n in numbers if n // 100 * 100 == start)) for start in starts], arch)
+                for start in starts:
+                    first = next(number for number in numbers if number // 100 * 100 == start)
+                    self.assertIn('<tr id="n-{}"><td class="abi-number">{}</td>'.format(start, first), text)
+                # The filter needs the script, so the page ships it hidden; the range links work without it.
+                self.assertIn('<form class="static-filter" role="search" hidden', text)
+                self.assertIn('<a class="static-filter-link" href="#static-filter" hidden>{}<span'.format('Search' if lang == 'en' else 'Ara'), text)
+
     def test_every_internal_link_resolves(self):
         pages = {path for paths in self.result['paths'].values() for path in paths}
         ids = {path: Page(self.read(path)).ids for path in pages}

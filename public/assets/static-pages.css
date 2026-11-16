@@ -65,3 +65,26 @@
 @media (max-width: 560px) {
   .console-syscall .static-names { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
 }
+
+/* Architecture pages: a row filter (shown by static-page.js) and number-range links above the table. The range bar
+   sticks under the site header once the script knows the header height; the filter sticks with it only while both
+   together take at most 15% of the window height. */
+.console-syscall .static-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0; padding-bottom: 6px; font-size: var(--text-sm); }
+.console-syscall .static-filter[hidden] { display: none; }
+.console-syscall .static-filter label { color: var(--muted); }
+.console-syscall .static-filter input { flex: 1 1 12rem; min-width: 0; max-width: 32rem; font-size: max(16px, var(--text-sm)); }
+.console-syscall .static-filter [role=status] { white-space: nowrap; }
+.console-syscall .static-ranges { display: flex; align-items: baseline; gap: 4px 8px; margin: 0 0 10px; padding: 4px 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--text-sm); }
+.console-syscall .static-ranges > span { flex: none; color: var(--muted); }
+.console-syscall .static-ranges ul { display: flex; flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; list-style: none; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+.console-syscall .static-ranges li + li::before { content: "·"; content: "·" / ""; margin: 0 8px; color: var(--muted); }
+.console-syscall .static-ranges a { display: inline-block; padding: 4px 0; font-variant-numeric: tabular-nums; }
+.console-syscall .static-ranges .static-filter-link { flex: none; margin-inline-start: auto; white-space: nowrap; }
+.console-syscall .static-ranges .static-filter-link[hidden] { display: none; }
+.static-jump-ready .console-syscall .static-ranges { position: sticky; z-index: 5; top: calc(var(--static-header) + var(--static-filter)); }
+.static-filter-sticky .console-syscall .static-filter { position: sticky; z-index: 5; top: var(--static-header); background: var(--paper); }
+/* With the script, fragments land 8px below the measured header plus the sticky block; without it, the bar is not
+   sticky and range rows get the same margin as name anchors. */
+.console-syscall .static-calls tbody tr[id] { scroll-margin-top: 60px; }
+html.static-jump-ready { scroll-padding-top: calc(var(--static-header) + 8px); }
+.static-jump-ready .console-syscall .static-calls tbody :is(tr, th)[id] { scroll-margin-top: calc(var(--static-filter) + var(--static-ranges)); }
