@@ -12,19 +12,8 @@ function renderCopy() {
 renderCopy();
 window.ZaryobLanguage.subscribe(renderCopy);
 
-// Fragments stop just below the sticky site header (static-pages.css), whose height changes with the text size,
-// wrapping and width. Same measurement as the shared theme's; the open phone menu is not part of the bar.
-const siteHeader = document.querySelector('.console-header');
-if (siteHeader) {
-  const measureHeader = () => {
-    if (siteHeader.querySelector('.console-nav.is-open')) return;
-    const position = getComputedStyle(siteHeader).position;
-    const height = position === 'sticky' || position === 'fixed' ? Math.ceil(siteHeader.getBoundingClientRect().height) : 0;
-    document.documentElement.style.setProperty('--console-header-height', `${height}px`);
-  };
-  measureHeader();
-  new ResizeObserver(measureHeader).observe(siteHeader);
-}
+// Fragments stop just below the sticky site header (static-pages.css); the shared theme (console/theme.js) measures
+// its height into --console-header-height, following text size, wrapping and width.
 
 // Architecture pages (scripts/static_pages.py): the number-range bar is plain links and stays sticky under the site
 // header; this reveals the row filter above it. Both stay in view while they take at most 15% of the window height;
