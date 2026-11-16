@@ -611,6 +611,66 @@ test('phones pin only the name column, show the number in the name cell and keep
   assert.equal(await desktop.locator('#rows tr[id$=":openat"] .call-number').textContent(), '257');
 });
 
+test('architecture pages jump by number range and filter rows, and keep the range links without JavaScript', async t => {
+  const big = page => page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.head.insertAdjacentHTML('beforeend', '<style>html { font-size: 200% !important }</style>')));
+  const landing = page => page.evaluate(() => ({
+    target: document.getElementById('n-200').getBoundingClientRect().top,
+    bar: document.querySelector('.static-ranges').getBoundingClientRect().bottom,
+    header: document.querySelector('.console-header').getBoundingClientRect().bottom,
+    both: document.documentElement.classList.contains('static-filter-sticky'),
+    sticky: (document.documentElement.classList.contains('static-filter-sticky') ? document.querySelector('.static-filter').offsetHeight : 0) + document.querySelector('.static-ranges').offsetHeight,
+  }));
+  for (const [viewport, zoom] of [[{ width: 390, height: 844 }, false], [{ width: 320, height: 568 }, true], [{ width: 1440, height: 900 }, false]]) {
+    const page = await openPage(t, { viewport, isMobile: viewport.width < 800, hasTouch: viewport.width < 800, reducedMotion: 'reduce' });
+    if (zoom) await big(page);
+    await page.goto(`${base}tr/arch/x64/`);
+    await page.locator('.static-calls tbody tr').nth(150).scrollIntoViewIfNeeded();
+    await page.getByRole('navigation', { name: 'Sistem çağrısı numarası aralığına atla' }).getByRole('link', { name: '200–299' }).click();
+    await page.waitForFunction(() => location.hash === '#n-200');
+    const where = await landing(page);
+    // The row lands just below the sticky block, which stays small.
+    assert.ok(where.target >= where.bar && where.target - where.bar <= 12, `${viewport.width}px: row at ${where.target}, bar ends at ${where.bar}`);
+    assert.ok(where.sticky <= viewport.height * 0.15, `${viewport.width}px: sticky block ${where.sticky}px`);
+    const searchLink = page.locator('.static-filter-link');
+    assert.equal(await searchLink.isVisible(), !where.both);
+    if (!where.both) {
+      await searchLink.click();
+      assert.equal(await page.evaluate(() => document.activeElement.id), 'static-filter');
+    }
+  }
+
+  const page = await openPage(t, { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  await page.goto(`${base}arch/x64/`);
+  const filter = page.getByRole('searchbox', { name: 'Search this table' });
+  const rows = page.locator('.static-calls tbody tr:not([hidden])');
+  const total = await rows.count();
+  await filter.fill('openat');
+  assert.deepEqual(await rows.locator('th code').allTextContents(), ['openat', 'openat2']);
+  assert.equal(await page.getByRole('status').textContent(), `2 / ${total} rows`);
+  await filter.fill('0x101');
+  assert.deepEqual(await rows.locator('th code').allTextContents(), ['openat']);
+  await filter.press('Enter');
+  assert.equal(await page.evaluate(() => document.activeElement.textContent), 'openat');
+  // A range link clears the filter so its row exists.
+  await page.locator('.static-ranges a[href="#n-200"]').click();
+  assert.equal(await rows.count(), total);
+  assert.equal(await page.getByRole('status').textContent(), '');
+  await page.goto(`${base}tr/arch/x64/`);
+  await page.getByRole('searchbox', { name: 'Ara (bu tabloda)' }).fill('257');
+  assert.equal(await page.getByRole('status').textContent(), `1 / ${total} satır`);
+
+  const plain = await openPage(t, { javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  await plain.goto(`${base}tr/arch/x64/`);
+  assert.equal(await plain.locator('.static-filter').isVisible(), false);
+  assert.equal(await plain.locator('.static-filter-link').isVisible(), false);
+  assert.deepEqual(await plain.locator('.static-ranges li a').evaluateAll(links => links.map(link => link.getAttribute('href'))), ['#n-0', '#n-100', '#n-200', '#n-300', '#n-400']);
+  await plain.locator('.static-ranges a[href="#n-200"]').click();
+  const row = await plain.locator('#n-200').boundingBox();
+  const header = await plain.locator('.console-header').boundingBox();
+  assert.ok(row.y >= header.y + header.height, `row at ${row.y} under a ${header.height}px header`);
+  assert.equal(await plain.locator('#n-200 td').first().textContent(), '200');
+});
+
 test('advanced options start closed on desktop and open for any active option', async t => {
   const page = await openPage(t, { viewport: { width: 1440, height: 900 } });
   const panel = page.locator('#advanced-options');
