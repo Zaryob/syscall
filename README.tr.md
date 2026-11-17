@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-2.0-only -->
 # Linux System Call Reference
 
-[English](README.md) · **Türkçe**
+[English](README.md) · **Türkçe** · [Siteyi aç](https://zaryob.github.io/syscall/)
 
 Linux kaynaklarından üretilen, aranabilir sistem çağrısı tabloları: C imzaları,
 register kuralları ve sürüm karşılaştırmaları. Arayüz Türkçe/İngilizce dil seçimi

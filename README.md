@@ -12,7 +12,7 @@ Find what a Linux syscall does, inspect its C arguments, and follow the entry ba
 [![Linux ABIs: 12](https://img.shields.io/badge/Linux_ABIs-12-d6b879)](public/data/manifest.json)
 [![Static site: Jekyll](https://img.shields.io/badge/static_site-Jekyll-d6b879)](_config.yml)
 
-[Get started](#get-started) · [JSON API](#json-api) · [Data provenance](#data-provenance) · [Türkçe](README.tr.md)
+[Open the reference](https://zaryob.github.io/syscall/) · [Get started](#get-started) · [JSON API](#json-api) · [Data provenance](#data-provenance) · [Türkçe](README.tr.md)
 
 </div>
 
