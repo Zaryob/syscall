@@ -46,6 +46,7 @@ class Links(HTMLParser):
 
 # Pages besides the site root, each with its own canonical URL and sitemap entry.
 SECTION_PAGES = ['errno/', 'signals/', 'ioctl/']
+APPLICATION_PAGES = ['errno/', 'signals/', 'ioctl/', 'tr/', 'tr/errno/', 'tr/signals/', 'tr/ioctl/']
 
 
 def check_page(site, base, relative):
@@ -115,7 +116,7 @@ def check(site, baseurl):
     site = site.resolve()
     base = '/' + baseurl.strip('/') + '/' if baseurl.strip('/') else '/'
     parser = check_page(site, base, '')
-    sections = {relative: check_page(site, base, relative) for relative in SECTION_PAGES}
+    sections = {relative: check_page(site, base, relative) for relative in APPLICATION_PAGES}
     link_count = len(parser.urls) + sum(len(section.urls) for section in sections.values())
     for module in ['app.js', 'catalog.mjs', 'paths.mjs', 'examples.mjs', 'abi.js', 'abi.mjs', 'abi-copy.mjs']:
         text = (site / module).read_text()
@@ -151,6 +152,9 @@ def check(site, baseurl):
     # The landing page must lead to every section.
     for relative in SECTION_PAGES + ['call/'] + [path for path in static if path.startswith('arch/')]:
         assert any(urlsplit(url).path == base + relative for url in parser.urls), 'Landing page does not link to ' + relative
+    parser_tr = sections['tr/']
+    for relative in ['tr/' + p for p in SECTION_PAGES] + ['tr/call/'] + [path for path in static if path.startswith('tr/arch/')]:
+        assert any(urlsplit(url).path == base + relative for url in parser_tr.urls), 'Turkish landing page does not link to ' + relative
     assert '/api/v1/syscalls/' not in (site / 'abi.js').read_text(), 'Section pages depend on the Node API'
     abi = check_abi(site)
     api_index = json.loads((site / 'api/v1/index.json').read_text())

@@ -168,6 +168,7 @@ test('real Back/Forward restores selections, typed searches, language, flags and
   await page.locator('#search').fill('read');
   assert.equal(await page.evaluate(() => history.length), length, 'typing replaces, not pushes');
   await page.locator('[data-console-language]').selectOption('en');
+  await ready(page);
   const comparison = await selection(page);
   await page.locator('[data-call="v6.12:63:read"]').click();
   await page.locator('.detail-row').waitFor();
