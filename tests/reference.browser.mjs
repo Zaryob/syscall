@@ -430,6 +430,10 @@ test('generated pages are readable without JavaScript and fit a phone', async t 
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   assert.equal(await page.locator('.static-scroll').first().evaluate(node => node.scrollWidth > node.clientWidth), true);
 
+  // The releases table links each defined architecture to its interactive view.
+  const openat30Link = page.locator('.static-releases tr', { hasText: 'Linux 3.0' }).getByRole('link', { name: 'i386' });
+  assert.equal(await openat30Link.getAttribute('href'), '../../?arch=x86&kernel=v3.0#sys-v3.0%3A295%3Aopenat');
+
   await page.goto(`${base}tr/arch/arm64/`);
   assert.equal(await page.locator('html').getAttribute('lang'), 'tr');
   assert.equal(await page.locator('h1').textContent(), 'AArch64 Linux sistem çağrısı tablosu Linux 7.3');
@@ -444,6 +448,18 @@ test('choosing a language on a generated page opens its translation', async t =>
   await page.locator('html[lang="tr"]').waitFor({ state: 'attached' });
   assert.equal(new URL(page.url()).pathname, '/syscall-test/tr/call/openat/');
   assert.equal(await page.locator('h1 code').textContent(), 'openat');
+});
+
+test('clicking an ABI in the releases table opens the interactive table for that kernel release', async t => {
+  const page = await openPage(t);
+  await page.goto(`${base}call/eventfd2/`);
+  const i386Link = page.locator('.static-releases tr', { hasText: 'Linux 3.0' }).getByRole('link', { name: 'i386' });
+  await i386Link.click();
+  await page.locator('#rows tr').first().waitFor();
+  assert.equal(new URL(page.url()).searchParams.get('arch'), 'x86');
+  assert.equal(new URL(page.url()).searchParams.get('kernel'), 'v3.0');
+  assert.equal(decodeURIComponent(new URL(page.url()).hash), '#sys-v3.0:328:eventfd2');
+  assert.equal(await page.locator('#detail-v3\\.0\\:328\\:eventfd2').isVisible(), true);
 });
 
 test('compact lookup reaches real rows before the fold and restores active advanced filters', async t => {

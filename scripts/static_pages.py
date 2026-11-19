@@ -339,14 +339,15 @@ class Writer:
         text = (source['path'].rsplit('/', 1)[-1] if short else source['path']) + (':{}'.format(source['line']) if source.get('line') else '')
         return '<a href="{}">{}</a>'.format(escape(self.source_url(root, self.latest, source)), escape(text))
 
-    def interactive(self, root, lang, arch, row=None):
-        query = 'arch={}&kernel={}'.format(quote(arch, safe=''), quote(self.latest, safe=''))
+    def interactive(self, root, lang, arch, row=None, version=None):
+        kernel = version or self.latest
+        query = 'arch={}&kernel={}'.format(quote(arch, safe=''), quote(kernel, safe=''))
         home = root + ('tr/' if lang == 'tr' else '')
         if row is None:
             return home + '?' + query + '#reference'
         if not defined(row):
             query += '&all=1'
-        return home + '?' + query + '#sys-' + quote('{}:{}:{}'.format(self.latest, row['number'], row['name']), safe='')
+        return home + '?' + query + '#sys-' + quote('{}:{}:{}'.format(kernel, row['number'], row['name']), safe='')
 
     def write(self, lang, path, title, description, crumbs, body):
         """One Jekyll document. JSON strings are valid YAML; Liquid is off for the generated body."""
@@ -501,7 +502,10 @@ class Writer:
                 '<p class="small">{} {}</p>'.format(escape(t['configuration']), ' · '.join(selections)) if selections else ''))
         return ''.join(parts) + '<p class="small">{}</p>\n'.format(escape(t['libc']))
 
-    def release_rows(self, lang, name):
+    def release_rows(self, lang, name, root=None):
+        if root is None:
+            path = ('tr/' if lang == 'tr' else '') + 'call/{}/'.format(name)
+            root = '../' * path.count('/')
         t = TEXT[lang]
         current = self.data['history'].get(name, {}).get(self.latest, {})
         out = []
@@ -511,9 +515,15 @@ class Writer:
             if not present:
                 cell = '<span class="muted">{}</span>'.format(escape(t['none']))
             else:
-                cell = ' · '.join(
-                    escape(self.labels[arch]) + ('' if present[arch] == current.get(arch) else ' <code>{}</code>'.format(', '.join(str(number) for number in present[arch])))
-                    for arch in bundled if arch in present)
+                items = []
+                for arch in bundled:
+                    if arch in present:
+                        numbers = present[arch]
+                        row = {'number': numbers[0], 'name': name}
+                        href = self.interactive(root, lang, arch, row, version=version)
+                        suffix = '' if numbers == current.get(arch) else ' <code>{}</code>'.format(', '.join(str(number) for number in numbers))
+                        items.append('<a href="{}">{}{}</a>'.format(escape(href), escape(self.labels[arch]), suffix))
+                cell = ' · '.join(items)
             out.append('<tr><th scope="row">Linux {}</th><td class="abi-number">{}</td><td>{}</td></tr>\n'.format(escape(version[1:]), len(bundled), cell))
         return ''.join(out)
 
@@ -610,7 +620,7 @@ class Writer:
             body.append('<p class="static-introduced"><strong>{}</strong> {}</p>\n'.format(escape(t['first_appeared']), escape(intro_text)))
         body.append('<div class="table-scroll static-scroll" tabindex="0" role="region" aria-label="{}"><table class="abi-table static-table static-releases"><caption class="console-sr-only">{}</caption>'.format(escape(caption), escape(caption)))
         body.append('<thead><tr>' + ''.join('<th scope="col">{}</th>'.format(escape(t[key])) for key in ['release', 'bundled', 'defined_on']) + '</tr></thead>\n<tbody>\n')
-        body.append(self.release_rows(lang, name))
+        body.append(self.release_rows(lang, name, root=root))
         note_template = t['releases_note_introduced'] if intro_text else t['releases_note']
         body.append('</tbody></table></div>\n<p class="small">{}</p></section>\n'.format(escape(note_template.format(release=self.release))))
         self.write(lang, path, title, description, [(t['site'], ''), (t['index_crumb'], 'call/'), (name, 'call/{}/'.format(name))], ''.join(body))

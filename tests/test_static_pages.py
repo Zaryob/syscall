@@ -131,11 +131,17 @@ class StaticPageTests(unittest.TestCase):
         self.assertIn('<strong>First appeared:</strong> Linux 2.6.16', self.read('call/openat/'))
         self.assertIn('İlk olarak Linux 2.6.16 sürümünde eklendi.', self.read('tr/call/openat/'))
         self.assertIn('<strong>İlk kez eklendiği sürüm:</strong> Linux 2.6.16', self.read('tr/call/openat/'))
-        self.assertIn('x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64 · LoongArch 64 · PowerPC 64 · PowerPC 32 · IBM Z (s390x) · MIPS o32 · MIPS n32 · MIPS n64', self.read('call/openat/'))
-        self.assertIn('x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64', self.read('call/openat/'))
-        self.assertIn('x86-64 · i386', self.read('call/openat/'))
+        page = Page(self.read('call/openat/'))
+        release_rows = {row[0]: row[2] for row in page.rows if len(row) == 3 and row[0].startswith('Linux ')}
+        self.assertEqual(release_rows['Linux 7.3'], 'x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64 · LoongArch 64 · PowerPC 64 · PowerPC 32 · IBM Z (s390x) · MIPS o32 · MIPS n32 · MIPS n64')
+        self.assertEqual(release_rows['Linux 4.15'], 'x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64')
+        self.assertEqual(release_rows['Linux 2.6.16'], 'x86-64 · i386')
         self.assertNotIn('all 12', self.read('call/openat/'))
         self.assertNotIn('tümü (12)', self.read('tr/call/openat/'))
+        self.assertIn('<a href="../../?arch=x86&amp;kernel=v3.0#sys-v3.0%3A295%3Aopenat">i386</a>', self.read('call/openat/'))
+        self.assertIn('<a href="../../../tr/?arch=x86&amp;kernel=v3.0#sys-v3.0%3A295%3Aopenat">i386</a>', self.read('tr/call/openat/'))
+        self.assertIn('<a href="../../?arch=x86&amp;kernel=v3.0#sys-v3.0%3A328%3Aeventfd2">i386</a>', self.read('call/eventfd2/'))
+        self.assertIn('<a href="../../../tr/?arch=x86&amp;kernel=v3.0#sys-v3.0%3A328%3Aeventfd2">i386</a>', self.read('tr/call/eventfd2/'))
 
     def test_introduction_version_is_rendered(self):
         self.assertIn('Introduced in Linux 1.0 (or earlier).', self.read('call/read/'))
