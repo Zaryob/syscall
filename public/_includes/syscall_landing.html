@@ -1,0 +1,147 @@
+{% assign locale = 0 %}{% assign edition_prefix = '' %}{% if page.lang == 'tr' %}{% assign locale = 1 %}{% assign edition_prefix = '/tr' %}{% endif %}
+{% assign labels = site.data.syscall_copy.syscall_landing %}
+<!-- SPDX-License-Identifier: GPL-2.0-only -->
+{% assign latest_kernel = site.data.syscall_release.latest %}
+{% assign latest_path = site.data.syscall_release.latest_path %}
+{% assign latest_table = '/data/' | append: latest_path | append: '/x64.json' %}
+{% assign latest_sources = '/data/' | append: latest_path | append: '/sources.json' %}
+  <div id="library">
+    <section class="console-hero console-hero--syscall" aria-labelledby="title">
+      <div class="console-hero__inner">
+        <div class="console-hero__copy">
+          <h1 id="title" class="console-hero__title"><span data-i18n="Linux System Call Reference">{{ labels["Linux System Call Reference"][locale] | escape }}</span></h1>
+          <p class="console-hero__lead"><span data-i18n="The small interface between your program and the kernel.">{{ labels["The small interface between your program and the kernel."][locale] | escape }}</span></p>
+          <p class="console-hero__more"><span data-i18n="System call numbers, C signatures, and calling conventions, collected directly from Linux source.">{{ labels["System call numbers, C signatures, and calling conventions, collected directly from Linux source."][locale] | escape }}</span><br class="wide-only"> <span data-i18n="Choose an architecture, look up a call, and follow it back to the kernel.">{{ labels["Choose an architecture, look up a call, and follow it back to the kernel."][locale] | escape }}</span></p>
+          <p class="index-line"><a href="?arch=x64#reference"><strong><span data-i18n="x86-64 Table →">{{ labels["x86-64 Table →"][locale] | escape }}</span></strong></a><span aria-hidden="true"> · </span><a href="?arch=arm64#reference"><strong><span data-i18n="ARM64 Table →">{{ labels["ARM64 Table →"][locale] | escape }}</span></strong></a><span aria-hidden="true"> · </span><a href="#architectures"><span data-i18n="All architectures ↓">{{ labels["All architectures ↓"][locale] | escape }}</span></a><span aria-hidden="true"> · </span><a href="#conventions"><span data-i18n="Calling conventions">{{ labels["Calling conventions"][locale] | escape }}</span></a><span aria-hidden="true"> · </span><a href="#sources"><span data-i18n="How this reference is made">{{ labels["How this reference is made"][locale] | escape }}</span></a></p>
+        </div>
+        <figure class="console-hero__panel">
+          <figcaption class="console-hero__panel-head"><span>x86-64</span><a href="{{ edition_prefix | append: '/arch/x64/' | relative_url }}" data-syscall-copy="heroTableLink">{{ labels["syscall.heroTableLink"][locale] }}</a></figcaption>
+<div class="console-hero__screen"><span class="h-dim"> nr  name    rdi      rsi      rdx</span>
+<span class="h-num">  0</span>  <a href="{{ edition_prefix | append: '/call/read/' | relative_url }}">read</a>    fd       buf      count
+<span class="h-num">  1</span>  <a href="{{ edition_prefix | append: '/call/write/' | relative_url }}">write</a>   fd       buf      count
+<span class="h-num">  9</span>  <a href="{{ edition_prefix | append: '/call/mmap/' | relative_url }}">mmap</a>    addr     len      prot
+<span class="h-num"> 59</span>  <a href="{{ edition_prefix | append: '/call/execve/' | relative_url }}">execve</a>  filename argv     envp
+<span class="h-num">257</span>  <a href="{{ edition_prefix | append: '/call/openat/' | relative_url }}">openat</a>  dfd      filename flags
+
+<span class="h-dim">mov</span>  eax, 257     <span class="h-dim">; openat</span>
+<span class="h-dim">syscall</span></div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="architectures" tabindex="-1" aria-labelledby="architectures-title">
+      <h2 id="architectures-title"><span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span></h2>
+      <ul id="architecture-links" class="architecture-links">{% for arch in site.data.syscall_release.architectures %}<li><a data-static-page="arch/{{ arch.id }}/" href="{{ edition_prefix | append: '/arch/' | append: arch.id | append: '/' | relative_url }}">{{ arch.label }}</a></li>{% endfor %}</ul>
+      <p id="library-error" class="error" role="alert" hidden></p>
+      <noscript><p><a href="{{ latest_table | relative_url }}"><span data-i18n="the x86-64 table as JSON">{{ labels["the x86-64 table as JSON"][locale] | escape }}</span></a></p></noscript>
+      {% comment %}Crawlable links to the pages scripts/static_pages.py generates; app.js points them at the reader's language.{% endcomment %}
+      <nav class="static-links" aria-label="System call index" data-syscall-copy-label="staticIndexLabel"><a data-static-page="call/" href="{{ edition_prefix | append: '/call/' | relative_url }}"><span data-syscall-copy="staticIndex">{{ labels["syscall.staticIndex"][locale] }}</span></a></nav>
+      <nav class="reference-links" aria-label='{{ labels["Reference sections"][locale] | escape }}' data-i18n-aria-label="Reference sections">
+        <a href="#conventions"><span data-i18n="Calling conventions">{{ labels["Calling conventions"][locale] | escape }}</span></a>
+        <a href="#api">JSON API</a>
+        <a href="{{ edition_prefix | append: '/errno/' | relative_url }}"><span data-i18n="errno values">{{ labels["errno values"][locale] | escape }}</span></a>
+        <a href="{{ edition_prefix | append: '/signals/' | relative_url }}"><span data-i18n="Signals">{{ labels["Signals"][locale] | escape }}</span></a>
+        <a href="{{ edition_prefix | append: '/ioctl/' | relative_url }}"><span data-i18n="ioctl requests">{{ labels["ioctl requests"][locale] | escape }}</span></a>
+      </nav>
+    </section>
+
+    <section id="conventions" tabindex="-1" class="documentation" aria-labelledby="conventions-title">
+      <div class="doc-heading">
+        <h2 id="conventions-title"><span data-i18n="Calling conventions">{{ labels["Calling conventions"][locale] | escape }}</span></h2>
+        <a href="#architectures"><span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span> ↑</a>
+      </div>
+      <ol class="convention-steps">
+        <li><span data-i18n="Put the syscall number in the NR register.">{{ labels["Put the syscall number in the NR register."][locale] | escape }}</span></li>
+        <li><span data-i18n="Pass the arguments in the listed locations and execute the entry instruction.">{{ labels["Pass the arguments in the listed locations and execute the entry instruction."][locale] | escape }}</span></li>
+        <li><span data-i18n="Read the return value from the RET register.">{{ labels["Read the return value from the RET register."][locale] | escape }}</span></li>
+      </ol>
+      <p><span data-i18n="These are the raw kernel conventions. The C library provides its own wrappers.">{{ labels["These are the raw kernel conventions. The C library provides its own wrappers."][locale] | escape }}</span></p>
+      <p class="small"><span data-i18n="The table is organized by the Linux userspace ABI. CPUs that run the same ABI share syscall numbers: Intel Core and AMD Ryzen running x86-64 Linux both use x64.">{{ labels["The table is organized by the Linux userspace ABI. CPUs that run the same ABI share syscall numbers: Intel Core and AMD Ryzen running x86-64 Linux both use x64."][locale] | escape }}</span></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["Calling conventions"][locale] | escape }}' data-i18n-aria-label="Calling conventions"><table class="conventions-table"><caption class="console-sr-only"><span data-i18n="Linux calling conventions by ABI">{{ labels["Linux calling conventions by ABI"][locale] | escape }}</span></caption><thead><tr><th scope="col"><span data-i18n="Architecture">{{ labels["Architecture"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Instruction">{{ labels["Instruction"][locale] | escape }}</span></th><th scope="col">NR</th><th scope="col">RET</th><th scope="col">RET2</th><th scope="col" data-syscall-copy="clobber">{{ labels["syscall.clobber"][locale] }}</th><th scope="col"><span data-i18n="Argument locations">{{ labels["Argument locations"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Error flag">{{ labels["Error flag"][locale] | escape }}</span></th></tr></thead><tbody id="convention-rows"></tbody></table></div>
+      <div class="small" data-syscall-copy="abiNotes">{{ labels["syscall.abiNotes"][locale] }}</div>
+      <p class="small"><span data-i18n="On ARM EABI, some 64-bit arguments require an aligned register pair. MIPS o32 passes argument slots 5 and 6 on the user stack. See the">{{ labels["On ARM EABI, some 64-bit arguments require an aligned register pair. MIPS o32 passes argument slots 5 and 6 on the user stack. See the"][locale] | escape }}</span> <a href="https://man7.org/linux/man-pages/man2/syscall.2.html#NOTES"><span data-i18n="architecture notes in syscall(2)">{{ labels["architecture notes in syscall(2)"][locale] | escape }}</span></a> <span data-i18n="before writing assembly.">{{ labels["before writing assembly."][locale] | escape }}</span></p>
+    </section>
+
+    <section id="api" tabindex="-1" class="documentation" aria-labelledby="api-title">
+      <div class="doc-heading">
+        <h2 id="api-title" data-syscall-copy="apiTitle">{{ labels["syscall.apiTitle"][locale] }}</h2>
+        <a href="#architectures"><span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span> ↑</a>
+      </div>
+      <p><span data-i18n="The same data is published as static JSON files. No account, key, or running API server is needed.">{{ labels["The same data is published as static JSON files. No account, key, or running API server is needed."][locale] | escape }}</span></p>
+      <pre><code id="api-example">curl '{{ latest_table | relative_url }}'</code></pre>
+      <dl class="api-list">
+        <dt><a href="{{ '/api/v1/index.json' | relative_url }}"><code>GET /api/v1/index.json</code></a></dt><dd><span data-i18n="API index, license information, and relative paths to each snapshot.">{{ labels["API index, license information, and relative paths to each snapshot."][locale] | escape }}</span></dd>
+        <dt><a href="{{ '/api/v1/architectures.json' | relative_url }}"><code>GET /api/v1/architectures.json</code></a></dt><dd><span data-i18n="Supported architectures and their calling conventions.">{{ labels["Supported architectures and their calling conventions."][locale] | escape }}</span></dd>
+        <dt><a href="{{ '/api/v1/versions.json' | relative_url }}"><code>GET /api/v1/versions.json</code></a></dt><dd><span data-i18n="Available kernel snapshots, newest first.">{{ labels["Available kernel snapshots, newest first."][locale] | escape }}</span></dd>
+        <dt><a href="{{ latest_table | relative_url }}"><code>GET /data/{version}/{arch}.json</code></a></dt><dd><span data-i18n="A complete table with C declarations, licensing, source locations, and file hashes.">{{ labels["A complete table with C declarations, licensing, source locations, and file hashes."][locale] | escape }}</span></dd>
+        <dt><a href="{{ latest_sources | relative_url }}"><code>GET /data/{version}/sources.json</code></a></dt><dd><span data-i18n="Input source files, original licenses, and checksums.">{{ labels["Input source files, original licenses, and checksums."][locale] | escape }}</span></dd>
+      </dl>
+      <p><span data-i18n="Search and release comparison run in your browser. For a single entry, open its details and choose “Download entry JSON”. Programs can filter the table locally, for example:">{{ labels["Search and release comparison run in your browser. For a single entry, open its details and choose “Download entry JSON”. Programs can filter the table locally, for example:"][locale] | escape }}</span></p>
+      <pre><code>curl '{{ latest_table | relative_url }}' | jq '.syscalls[] | select(.name == "read")'</code></pre>
+      <p><span data-i18n="Download">{{ labels["Download"][locale] | escape }}</span> <a href="{{ '/data/manifest.json' | relative_url }}"><span data-i18n="the manifest">{{ labels["the manifest"][locale] | escape }}</span></a> <span data-i18n="and">{{ labels["and"][locale] | escape }}</span> <a id="bulk-link" href="{{ latest_table | relative_url }}"><span data-i18n="the selected table">{{ labels["the selected table"][locale] | escape }}</span></a> <span data-i18n="for bulk use. Query parameters do not filter the static JSON files.">{{ labels["for bulk use. Query parameters do not filter the static JSON files."][locale] | escape }}</span></p>
+    </section>
+
+    <section id="sources" tabindex="-1" class="documentation" aria-labelledby="sources-title">
+      <div class="doc-heading">
+        <h2 id="sources-title" data-syscall-copy="sourcesTitle">{{ labels["syscall.sourcesTitle"][locale] }}</h2>
+        <a href="#architectures"><span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span> ↑</a>
+      </div>
+      <div class="source-intro" data-syscall-copy="sourceIntro">{{ labels["syscall.sourceIntro"][locale] }}</div>
+      <details class="source-notes"><summary data-syscall-copy="sourceDetails">{{ labels["syscall.sourceDetails"][locale] }}</summary>      <p><span data-i18n="The short explanations are maintained separately from the kernel tables. They describe typical uses; follow the manual and the selected kernel source for flags, limits and ABI differences.">{{ labels["The short explanations are maintained separately from the kernel tables. They describe typical uses; follow the manual and the selected kernel source for flags, limits and ABI differences."][locale] | escape }}</span></p>
+      <p><span data-i18n="The details panel shows arguments as a table and offers a downloadable C template. Call numbers and declarations come from the selected kernel snapshot; valid pointers, flags and object lifetimes cannot be inferred from prototypes alone. Templates for write and getpid provide hand-written usage examples; other supported 64-bit calls get a TODO skeleton. Unresolved signatures, unimplemented slots and 32-bit ABIs do not get speculative code.">{{ labels["The details panel shows arguments as a table and offers a downloadable C template. Call numbers and declarations come from the selected kernel snapshot; valid pointers, flags and object lifetimes cannot be inferred from prototypes alone. Templates for write and getpid provide hand-written usage examples; other supported 64-bit calls get a TODO skeleton. Unresolved signatures, unimplemented slots and 32-bit ABIs do not get speculative code."][locale] | escape }}</span></p>
+      <p><span data-i18n="Each release is a separate snapshot. Comparison marks differences between those snapshots; it does not claim the exact release in which a call first appeared. Configuration-dependent calls and assembly-only signatures require consulting the linked source. Related calls can share a manual page; some entries have no manual page.">{{ labels["Each release is a separate snapshot. Comparison marks differences between those snapshots; it does not claim the exact release in which a call first appeared. Configuration-dependent calls and assembly-only signatures require consulting the linked source. Related calls can share a manual page; some entries have no manual page."][locale] | escape }}</span></p>
+      <p class="small" data-syscall-copy="availability">{{ labels["syscall.availability"][locale] }}</p>
+      </details>
+      <p><a id="snapshot-sources" href="{{ latest_sources | relative_url }}"><span data-i18n="Source files and checksums">{{ labels["Source files and checksums"][locale] | escape }}</span></a></p>
+      <details><summary><span data-i18n="Updating from the kernel source">{{ labels["Updating from the kernel source"][locale] | escape }}</span></summary><p><span data-i18n="From this repository, run the importer with Python 3.9 or newer:">{{ labels["From this repository, run the importer with Python 3.9 or newer:"][locale] | escape }}</span></p><pre><code>python3 scripts/sync_kernel.py --refs {{ latest_kernel }}
+
+# Or read an existing Linux checkout, without network access:
+python3 scripts/sync_kernel.py --refs {{ latest_kernel }} --kernel-tree /path/to/linux</code></pre><p><span data-i18n="No kernel build is required. The repository includes ready-to-use snapshots, so ordinary browsing works offline.">{{ labels["No kernel build is required. The repository includes ready-to-use snapshots, so ordinary browsing works offline."][locale] | escape }}</span></p></details>
+    </section>
+  </div>
+
+    <section id="reference" hidden tabindex="-1" aria-labelledby="table-title">
+      <p class="table-back"><a id="back-to-architectures" href="{{ edition_prefix | append: '/' | relative_url }}#architectures">← <span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span></a></p>
+      <h1 id="table-title"><span data-i18n="The syscall tables">{{ labels["The syscall tables"][locale] | escape }}</span></h1>
+      <div class="lookup-bar">
+        <form id="search-form" role="search">
+          <label for="search"><span data-i18n="Find a system call">{{ labels["Find a system call"][locale] | escape }}</span></label>
+          <div class="search-line"><input id="search" type="search" placeholder='{{ labels["Name, number, or purpose…"][locale] | escape }}' data-i18n-placeholder="Name, number, or purpose…" autocomplete="off" spellcheck="false"><button type="button" id="clear"><span data-i18n="Clear">{{ labels["Clear"][locale] | escape }}</span></button></div>
+        </form>
+        <label class="release-field"><span data-i18n="Architecture">{{ labels["Architecture"][locale] | escape }}</span> <span class="console-select"><select id="architecture-picker" disabled aria-label='{{ labels["Architecture"][locale] | escape }}' data-i18n-aria-label="Architecture"></select></span></label>
+        <label class="release-field"><span data-i18n="Kernel release">{{ labels["Kernel release"][locale] | escape }}</span> <span class="console-select"><select id="kernel" aria-describedby="release-help" disabled aria-label='{{ labels["Kernel release"][locale] | escape }}' data-i18n-aria-label="Kernel release"></select></span></label>
+      </div>
+      <div class="table-actions"><p class="syntax-legend" data-syscall-copy="syntaxLegend">{{ labels["syscall.syntaxLegend"][locale] }}</p><a id="download" hidden href="{{ '/data/manifest.json' | relative_url }}" download><span data-i18n="Download JSON ↓">{{ labels["Download JSON ↓"][locale] | escape }}</span></a></div>
+      <details id="advanced-options" class="advanced-options"><summary data-syscall-copy="advancedOptions">{{ labels["syscall.advancedOptions"][locale] }}</summary><div class="advanced-options__body"><label class="release-field"><span data-i18n="Compare with">{{ labels["Compare with"][locale] | escape }}</span> <span class="console-select"><select id="compare" aria-describedby="compare-help" disabled aria-label='{{ labels["Compare with"][locale] | escape }}' data-i18n-aria-label="Compare with"><option value="" data-i18n="None">{{ labels["None"][locale] | escape }}</option></select></span></label>
+      <p id="compare-help" class="small" data-syscall-copy="compareHelp" hidden>{{ labels["syscall.compareHelp"][locale] }}</p>
+      <p id="release-help" class="small" data-syscall-copy="releaseHelp">{{ labels["syscall.releaseHelp"][locale] }}</p>
+      <div class="table-filters">
+        <label><input type="checkbox" id="hex"> <span data-i18n="Hex numbers">{{ labels["Hex numbers"][locale] | escape }}</span></label>
+        <label><input type="checkbox" id="show-unimplemented"> <span data-i18n="Include unimplemented">{{ labels["Include unimplemented"][locale] | escape }}</span></label>
+      </div>
+      </div></details>
+      <div class="convention-info">
+        <details class="small"><summary><span data-i18n="Calling conventions">{{ labels["Calling conventions"][locale] | escape }}</span></summary><div data-syscall-copy="abiNotes">{{ labels["syscall.abiNotes"][locale] }}</div></details>
+        <div id="convention-strip" class="convention-strip" hidden></div>
+      </div>
+      <div class="table-toolbar">
+        <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">{{ labels["Loading…"][locale] | escape }}</span></p>
+        <span id="scroll-hint" class="small" hidden><span data-i18n="Scroll for ARG1–ARG6 →">{{ labels["Scroll for ARG1–ARG6 →"][locale] | escape }}</span></span>
+      </div>
+      <p id="diff-note" class="notice" hidden></p>
+      <div id="compare-status" class="notice" hidden>
+        <span id="compare-message" role="status"></span>
+        <button id="retry-compare" type="button" class="text-button" hidden><span data-i18n="Retry comparison">{{ labels["Retry comparison"][locale] | escape }}</span></button>
+      </div>
+      <p id="abi-note" class="notice" hidden><span data-i18n="Arguments below are C prototype parameters, not a register-by-register assembly recipe. On 32-bit ABIs, 64-bit values may occupy multiple registers and require alignment; assembly wrappers may reorder them. See">{{ labels["Arguments below are C prototype parameters, not a register-by-register assembly recipe. On 32-bit ABIs, 64-bit values may occupy multiple registers and require alignment; assembly wrappers may reorder them. See"][locale] | escape }}</span> <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">syscall(2)</a>.</p>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div id="table-scroll" class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["System call table; scroll horizontally on narrow screens"][locale] | escape }}' data-i18n-aria-label="System call table; scroll horizontally on narrow screens">
+        <table id="syscall-table" data-view="args">
+          <caption class="console-sr-only"><span data-i18n="System calls for the selected architecture and kernel release">{{ labels["System calls for the selected architecture and kernel release"][locale] | escape }}</span></caption>
+          <thead><tr><th scope="col" aria-sort="ascending"><button id="sort-number"><span data-i18n="No.">No.</span> <span aria-hidden="true">↑</span></button></th><th scope="col"><button id="sort-number-narrow" class="narrow-sort"><span data-i18n="No.">No.</span></button><span class="narrow-sort" aria-hidden="true"> · </span><button id="sort-name"><span data-i18n="System call">{{ labels["System call"][locale] | escape }}</span></button></th><th scope="col" class="argument-heading">ARG1<code id="arg-register-0"></code></th><th scope="col" class="argument-heading">ARG2<code id="arg-register-1"></code></th><th scope="col" class="argument-heading">ARG3<code id="arg-register-2"></code></th><th scope="col" class="argument-heading">ARG4<code id="arg-register-3"></code></th><th scope="col" class="argument-heading">ARG5<code id="arg-register-4"></code></th><th scope="col" class="argument-heading">ARG6<code id="arg-register-5"></code></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No system calls match this search.">{{ labels["No system calls match this search."][locale] | escape }}</span> <button type="button" id="reset-search"><span data-i18n="Clear search">{{ labels["Clear search"][locale] | escape }}</span></button></p>
+      <p id="args-footnote" class="table-footnote"><span data-i18n="ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.">{{ labels["ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration."][locale] | escape }}</span></p>
+    </section>

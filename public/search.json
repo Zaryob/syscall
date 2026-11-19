@@ -6666,7 +6666,7 @@
   {
     "lang": "tr",
     "title": "EPERM",
-    "url": "errno/?q=EPERM#EPERM",
+    "url": "tr/errno/?q=EPERM#EPERM",
     "type": "syscall/",
     "description": "Operation not permitted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 1, Linux 7.3"
   },
@@ -6680,7 +6680,7 @@
   {
     "lang": "tr",
     "title": "ENOENT",
-    "url": "errno/?q=ENOENT#ENOENT",
+    "url": "tr/errno/?q=ENOENT#ENOENT",
     "type": "syscall/",
     "description": "No such file or directory — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 2, Linux 7.3"
   },
@@ -6694,7 +6694,7 @@
   {
     "lang": "tr",
     "title": "ESRCH",
-    "url": "errno/?q=ESRCH#ESRCH",
+    "url": "tr/errno/?q=ESRCH#ESRCH",
     "type": "syscall/",
     "description": "No such process — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 3, Linux 7.3"
   },
@@ -6708,7 +6708,7 @@
   {
     "lang": "tr",
     "title": "EINTR",
-    "url": "errno/?q=EINTR#EINTR",
+    "url": "tr/errno/?q=EINTR#EINTR",
     "type": "syscall/",
     "description": "Interrupted system call — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 4, Linux 7.3"
   },
@@ -6722,7 +6722,7 @@
   {
     "lang": "tr",
     "title": "EIO",
-    "url": "errno/?q=EIO#EIO",
+    "url": "tr/errno/?q=EIO#EIO",
     "type": "syscall/",
     "description": "I/O error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 5, Linux 7.3"
   },
@@ -6736,7 +6736,7 @@
   {
     "lang": "tr",
     "title": "ENXIO",
-    "url": "errno/?q=ENXIO#ENXIO",
+    "url": "tr/errno/?q=ENXIO#ENXIO",
     "type": "syscall/",
     "description": "No such device or address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 6, Linux 7.3"
   },
@@ -6750,7 +6750,7 @@
   {
     "lang": "tr",
     "title": "E2BIG",
-    "url": "errno/?q=E2BIG#E2BIG",
+    "url": "tr/errno/?q=E2BIG#E2BIG",
     "type": "syscall/",
     "description": "Argument list too long — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 7, Linux 7.3"
   },
@@ -6764,7 +6764,7 @@
   {
     "lang": "tr",
     "title": "ENOEXEC",
-    "url": "errno/?q=ENOEXEC#ENOEXEC",
+    "url": "tr/errno/?q=ENOEXEC#ENOEXEC",
     "type": "syscall/",
     "description": "Exec format error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 8, Linux 7.3"
   },
@@ -6778,7 +6778,7 @@
   {
     "lang": "tr",
     "title": "EBADF",
-    "url": "errno/?q=EBADF#EBADF",
+    "url": "tr/errno/?q=EBADF#EBADF",
     "type": "syscall/",
     "description": "Bad file number — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 9, Linux 7.3"
   },
@@ -6792,7 +6792,7 @@
   {
     "lang": "tr",
     "title": "ECHILD",
-    "url": "errno/?q=ECHILD#ECHILD",
+    "url": "tr/errno/?q=ECHILD#ECHILD",
     "type": "syscall/",
     "description": "No child processes — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 10, Linux 7.3"
   },
@@ -6806,7 +6806,7 @@
   {
     "lang": "tr",
     "title": "EAGAIN",
-    "url": "errno/?q=EAGAIN#EAGAIN",
+    "url": "tr/errno/?q=EAGAIN#EAGAIN",
     "type": "syscall/",
     "description": "Try again — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 11, Linux 7.3"
   },
@@ -6820,7 +6820,7 @@
   {
     "lang": "tr",
     "title": "ENOMEM",
-    "url": "errno/?q=ENOMEM#ENOMEM",
+    "url": "tr/errno/?q=ENOMEM#ENOMEM",
     "type": "syscall/",
     "description": "Out of memory — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 12, Linux 7.3"
   },
@@ -6834,7 +6834,7 @@
   {
     "lang": "tr",
     "title": "EACCES",
-    "url": "errno/?q=EACCES#EACCES",
+    "url": "tr/errno/?q=EACCES#EACCES",
     "type": "syscall/",
     "description": "Permission denied — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 13, Linux 7.3"
   },
@@ -6848,7 +6848,7 @@
   {
     "lang": "tr",
     "title": "EFAULT",
-    "url": "errno/?q=EFAULT#EFAULT",
+    "url": "tr/errno/?q=EFAULT#EFAULT",
     "type": "syscall/",
     "description": "Bad address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 14, Linux 7.3"
   },
@@ -6862,7 +6862,7 @@
   {
     "lang": "tr",
     "title": "ENOTBLK",
-    "url": "errno/?q=ENOTBLK#ENOTBLK",
+    "url": "tr/errno/?q=ENOTBLK#ENOTBLK",
     "type": "syscall/",
     "description": "Block device required — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 15, Linux 7.3"
   },
@@ -6876,7 +6876,7 @@
   {
     "lang": "tr",
     "title": "EBUSY",
-    "url": "errno/?q=EBUSY#EBUSY",
+    "url": "tr/errno/?q=EBUSY#EBUSY",
     "type": "syscall/",
     "description": "Device or resource busy — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 16, Linux 7.3"
   },
@@ -6890,7 +6890,7 @@
   {
     "lang": "tr",
     "title": "EEXIST",
-    "url": "errno/?q=EEXIST#EEXIST",
+    "url": "tr/errno/?q=EEXIST#EEXIST",
     "type": "syscall/",
     "description": "File exists — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 17, Linux 7.3"
   },
@@ -6904,7 +6904,7 @@
   {
     "lang": "tr",
     "title": "EXDEV",
-    "url": "errno/?q=EXDEV#EXDEV",
+    "url": "tr/errno/?q=EXDEV#EXDEV",
     "type": "syscall/",
     "description": "Cross-device link — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 18, Linux 7.3"
   },
@@ -6918,7 +6918,7 @@
   {
     "lang": "tr",
     "title": "ENODEV",
-    "url": "errno/?q=ENODEV#ENODEV",
+    "url": "tr/errno/?q=ENODEV#ENODEV",
     "type": "syscall/",
     "description": "No such device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 19, Linux 7.3"
   },
@@ -6932,7 +6932,7 @@
   {
     "lang": "tr",
     "title": "ENOTDIR",
-    "url": "errno/?q=ENOTDIR#ENOTDIR",
+    "url": "tr/errno/?q=ENOTDIR#ENOTDIR",
     "type": "syscall/",
     "description": "Not a directory — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 20, Linux 7.3"
   },
@@ -6946,7 +6946,7 @@
   {
     "lang": "tr",
     "title": "EISDIR",
-    "url": "errno/?q=EISDIR#EISDIR",
+    "url": "tr/errno/?q=EISDIR#EISDIR",
     "type": "syscall/",
     "description": "Is a directory — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 21, Linux 7.3"
   },
@@ -6960,7 +6960,7 @@
   {
     "lang": "tr",
     "title": "EINVAL",
-    "url": "errno/?q=EINVAL#EINVAL",
+    "url": "tr/errno/?q=EINVAL#EINVAL",
     "type": "syscall/",
     "description": "Invalid argument — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 22, Linux 7.3"
   },
@@ -6974,7 +6974,7 @@
   {
     "lang": "tr",
     "title": "ENFILE",
-    "url": "errno/?q=ENFILE#ENFILE",
+    "url": "tr/errno/?q=ENFILE#ENFILE",
     "type": "syscall/",
     "description": "File table overflow — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 23, Linux 7.3"
   },
@@ -6988,7 +6988,7 @@
   {
     "lang": "tr",
     "title": "EMFILE",
-    "url": "errno/?q=EMFILE#EMFILE",
+    "url": "tr/errno/?q=EMFILE#EMFILE",
     "type": "syscall/",
     "description": "Too many open files — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 24, Linux 7.3"
   },
@@ -7002,7 +7002,7 @@
   {
     "lang": "tr",
     "title": "ENOTTY",
-    "url": "errno/?q=ENOTTY#ENOTTY",
+    "url": "tr/errno/?q=ENOTTY#ENOTTY",
     "type": "syscall/",
     "description": "Not a typewriter — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 25, Linux 7.3"
   },
@@ -7016,7 +7016,7 @@
   {
     "lang": "tr",
     "title": "ETXTBSY",
-    "url": "errno/?q=ETXTBSY#ETXTBSY",
+    "url": "tr/errno/?q=ETXTBSY#ETXTBSY",
     "type": "syscall/",
     "description": "Text file busy — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 26, Linux 7.3"
   },
@@ -7030,7 +7030,7 @@
   {
     "lang": "tr",
     "title": "EFBIG",
-    "url": "errno/?q=EFBIG#EFBIG",
+    "url": "tr/errno/?q=EFBIG#EFBIG",
     "type": "syscall/",
     "description": "File too large — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 27, Linux 7.3"
   },
@@ -7044,7 +7044,7 @@
   {
     "lang": "tr",
     "title": "ENOSPC",
-    "url": "errno/?q=ENOSPC#ENOSPC",
+    "url": "tr/errno/?q=ENOSPC#ENOSPC",
     "type": "syscall/",
     "description": "No space left on device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 28, Linux 7.3"
   },
@@ -7058,7 +7058,7 @@
   {
     "lang": "tr",
     "title": "ESPIPE",
-    "url": "errno/?q=ESPIPE#ESPIPE",
+    "url": "tr/errno/?q=ESPIPE#ESPIPE",
     "type": "syscall/",
     "description": "Illegal seek — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 29, Linux 7.3"
   },
@@ -7072,7 +7072,7 @@
   {
     "lang": "tr",
     "title": "EROFS",
-    "url": "errno/?q=EROFS#EROFS",
+    "url": "tr/errno/?q=EROFS#EROFS",
     "type": "syscall/",
     "description": "Read-only file system — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 30, Linux 7.3"
   },
@@ -7086,7 +7086,7 @@
   {
     "lang": "tr",
     "title": "EMLINK",
-    "url": "errno/?q=EMLINK#EMLINK",
+    "url": "tr/errno/?q=EMLINK#EMLINK",
     "type": "syscall/",
     "description": "Too many links — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 31, Linux 7.3"
   },
@@ -7100,7 +7100,7 @@
   {
     "lang": "tr",
     "title": "EPIPE",
-    "url": "errno/?q=EPIPE#EPIPE",
+    "url": "tr/errno/?q=EPIPE#EPIPE",
     "type": "syscall/",
     "description": "Broken pipe — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 32, Linux 7.3"
   },
@@ -7114,7 +7114,7 @@
   {
     "lang": "tr",
     "title": "EDOM",
-    "url": "errno/?q=EDOM#EDOM",
+    "url": "tr/errno/?q=EDOM#EDOM",
     "type": "syscall/",
     "description": "Math argument out of domain of func — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 33, Linux 7.3"
   },
@@ -7128,7 +7128,7 @@
   {
     "lang": "tr",
     "title": "ERANGE",
-    "url": "errno/?q=ERANGE#ERANGE",
+    "url": "tr/errno/?q=ERANGE#ERANGE",
     "type": "syscall/",
     "description": "Math result not representable — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 34, Linux 7.3"
   },
@@ -7142,7 +7142,7 @@
   {
     "lang": "tr",
     "title": "EDEADLK",
-    "url": "errno/?q=EDEADLK#EDEADLK",
+    "url": "tr/errno/?q=EDEADLK#EDEADLK",
     "type": "syscall/",
     "description": "Resource deadlock would occur — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 35, Linux 7.3"
   },
@@ -7156,7 +7156,7 @@
   {
     "lang": "tr",
     "title": "ENAMETOOLONG",
-    "url": "errno/?q=ENAMETOOLONG#ENAMETOOLONG",
+    "url": "tr/errno/?q=ENAMETOOLONG#ENAMETOOLONG",
     "type": "syscall/",
     "description": "File name too long — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 36, Linux 7.3"
   },
@@ -7170,7 +7170,7 @@
   {
     "lang": "tr",
     "title": "ENOLCK",
-    "url": "errno/?q=ENOLCK#ENOLCK",
+    "url": "tr/errno/?q=ENOLCK#ENOLCK",
     "type": "syscall/",
     "description": "No record locks available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 37, Linux 7.3"
   },
@@ -7184,7 +7184,7 @@
   {
     "lang": "tr",
     "title": "ENOSYS",
-    "url": "errno/?q=ENOSYS#ENOSYS",
+    "url": "tr/errno/?q=ENOSYS#ENOSYS",
     "type": "syscall/",
     "description": "Invalid system call number — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 38, Linux 7.3"
   },
@@ -7198,7 +7198,7 @@
   {
     "lang": "tr",
     "title": "ENOTEMPTY",
-    "url": "errno/?q=ENOTEMPTY#ENOTEMPTY",
+    "url": "tr/errno/?q=ENOTEMPTY#ENOTEMPTY",
     "type": "syscall/",
     "description": "Directory not empty — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 39, Linux 7.3"
   },
@@ -7212,7 +7212,7 @@
   {
     "lang": "tr",
     "title": "ELOOP",
-    "url": "errno/?q=ELOOP#ELOOP",
+    "url": "tr/errno/?q=ELOOP#ELOOP",
     "type": "syscall/",
     "description": "Too many symbolic links encountered — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 40, Linux 7.3"
   },
@@ -7226,7 +7226,7 @@
   {
     "lang": "tr",
     "title": "EWOULDBLOCK",
-    "url": "errno/?q=EWOULDBLOCK#EWOULDBLOCK",
+    "url": "tr/errno/?q=EWOULDBLOCK#EWOULDBLOCK",
     "type": "syscall/",
     "description": "Operation would block — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 11, Linux 7.3"
   },
@@ -7240,7 +7240,7 @@
   {
     "lang": "tr",
     "title": "ENOMSG",
-    "url": "errno/?q=ENOMSG#ENOMSG",
+    "url": "tr/errno/?q=ENOMSG#ENOMSG",
     "type": "syscall/",
     "description": "No message of desired type — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 42, Linux 7.3"
   },
@@ -7254,7 +7254,7 @@
   {
     "lang": "tr",
     "title": "EIDRM",
-    "url": "errno/?q=EIDRM#EIDRM",
+    "url": "tr/errno/?q=EIDRM#EIDRM",
     "type": "syscall/",
     "description": "Identifier removed — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 43, Linux 7.3"
   },
@@ -7268,7 +7268,7 @@
   {
     "lang": "tr",
     "title": "ECHRNG",
-    "url": "errno/?q=ECHRNG#ECHRNG",
+    "url": "tr/errno/?q=ECHRNG#ECHRNG",
     "type": "syscall/",
     "description": "Channel number out of range — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 44, Linux 7.3"
   },
@@ -7282,7 +7282,7 @@
   {
     "lang": "tr",
     "title": "EL2NSYNC",
-    "url": "errno/?q=EL2NSYNC#EL2NSYNC",
+    "url": "tr/errno/?q=EL2NSYNC#EL2NSYNC",
     "type": "syscall/",
     "description": "Level 2 not synchronized — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 45, Linux 7.3"
   },
@@ -7296,7 +7296,7 @@
   {
     "lang": "tr",
     "title": "EL3HLT",
-    "url": "errno/?q=EL3HLT#EL3HLT",
+    "url": "tr/errno/?q=EL3HLT#EL3HLT",
     "type": "syscall/",
     "description": "Level 3 halted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 46, Linux 7.3"
   },
@@ -7310,7 +7310,7 @@
   {
     "lang": "tr",
     "title": "EL3RST",
-    "url": "errno/?q=EL3RST#EL3RST",
+    "url": "tr/errno/?q=EL3RST#EL3RST",
     "type": "syscall/",
     "description": "Level 3 reset — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 47, Linux 7.3"
   },
@@ -7324,7 +7324,7 @@
   {
     "lang": "tr",
     "title": "ELNRNG",
-    "url": "errno/?q=ELNRNG#ELNRNG",
+    "url": "tr/errno/?q=ELNRNG#ELNRNG",
     "type": "syscall/",
     "description": "Link number out of range — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 48, Linux 7.3"
   },
@@ -7338,7 +7338,7 @@
   {
     "lang": "tr",
     "title": "EUNATCH",
-    "url": "errno/?q=EUNATCH#EUNATCH",
+    "url": "tr/errno/?q=EUNATCH#EUNATCH",
     "type": "syscall/",
     "description": "Protocol driver not attached — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 49, Linux 7.3"
   },
@@ -7352,7 +7352,7 @@
   {
     "lang": "tr",
     "title": "ENOCSI",
-    "url": "errno/?q=ENOCSI#ENOCSI",
+    "url": "tr/errno/?q=ENOCSI#ENOCSI",
     "type": "syscall/",
     "description": "No CSI structure available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 50, Linux 7.3"
   },
@@ -7366,7 +7366,7 @@
   {
     "lang": "tr",
     "title": "EL2HLT",
-    "url": "errno/?q=EL2HLT#EL2HLT",
+    "url": "tr/errno/?q=EL2HLT#EL2HLT",
     "type": "syscall/",
     "description": "Level 2 halted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 51, Linux 7.3"
   },
@@ -7380,7 +7380,7 @@
   {
     "lang": "tr",
     "title": "EBADE",
-    "url": "errno/?q=EBADE#EBADE",
+    "url": "tr/errno/?q=EBADE#EBADE",
     "type": "syscall/",
     "description": "Invalid exchange — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 52, Linux 7.3"
   },
@@ -7394,7 +7394,7 @@
   {
     "lang": "tr",
     "title": "EBADR",
-    "url": "errno/?q=EBADR#EBADR",
+    "url": "tr/errno/?q=EBADR#EBADR",
     "type": "syscall/",
     "description": "Invalid request descriptor — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 53, Linux 7.3"
   },
@@ -7408,7 +7408,7 @@
   {
     "lang": "tr",
     "title": "EXFULL",
-    "url": "errno/?q=EXFULL#EXFULL",
+    "url": "tr/errno/?q=EXFULL#EXFULL",
     "type": "syscall/",
     "description": "Exchange full — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 54, Linux 7.3"
   },
@@ -7422,7 +7422,7 @@
   {
     "lang": "tr",
     "title": "ENOANO",
-    "url": "errno/?q=ENOANO#ENOANO",
+    "url": "tr/errno/?q=ENOANO#ENOANO",
     "type": "syscall/",
     "description": "No anode — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 55, Linux 7.3"
   },
@@ -7436,7 +7436,7 @@
   {
     "lang": "tr",
     "title": "EBADRQC",
-    "url": "errno/?q=EBADRQC#EBADRQC",
+    "url": "tr/errno/?q=EBADRQC#EBADRQC",
     "type": "syscall/",
     "description": "Invalid request code — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 56, Linux 7.3"
   },
@@ -7450,7 +7450,7 @@
   {
     "lang": "tr",
     "title": "EBADSLT",
-    "url": "errno/?q=EBADSLT#EBADSLT",
+    "url": "tr/errno/?q=EBADSLT#EBADSLT",
     "type": "syscall/",
     "description": "Invalid slot — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 57, Linux 7.3"
   },
@@ -7464,7 +7464,7 @@
   {
     "lang": "tr",
     "title": "EDEADLOCK",
-    "url": "errno/?q=EDEADLOCK#EDEADLOCK",
+    "url": "tr/errno/?q=EDEADLOCK#EDEADLOCK",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde errno 35, Linux 7.3"
   },
@@ -7478,7 +7478,7 @@
   {
     "lang": "tr",
     "title": "EBFONT",
-    "url": "errno/?q=EBFONT#EBFONT",
+    "url": "tr/errno/?q=EBFONT#EBFONT",
     "type": "syscall/",
     "description": "Bad font file format — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 59, Linux 7.3"
   },
@@ -7492,7 +7492,7 @@
   {
     "lang": "tr",
     "title": "ENOSTR",
-    "url": "errno/?q=ENOSTR#ENOSTR",
+    "url": "tr/errno/?q=ENOSTR#ENOSTR",
     "type": "syscall/",
     "description": "Device not a stream — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 60, Linux 7.3"
   },
@@ -7506,7 +7506,7 @@
   {
     "lang": "tr",
     "title": "ENODATA",
-    "url": "errno/?q=ENODATA#ENODATA",
+    "url": "tr/errno/?q=ENODATA#ENODATA",
     "type": "syscall/",
     "description": "No data available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 61, Linux 7.3"
   },
@@ -7520,7 +7520,7 @@
   {
     "lang": "tr",
     "title": "ETIME",
-    "url": "errno/?q=ETIME#ETIME",
+    "url": "tr/errno/?q=ETIME#ETIME",
     "type": "syscall/",
     "description": "Timer expired — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 62, Linux 7.3"
   },
@@ -7534,7 +7534,7 @@
   {
     "lang": "tr",
     "title": "ENOSR",
-    "url": "errno/?q=ENOSR#ENOSR",
+    "url": "tr/errno/?q=ENOSR#ENOSR",
     "type": "syscall/",
     "description": "Out of streams resources — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 63, Linux 7.3"
   },
@@ -7548,7 +7548,7 @@
   {
     "lang": "tr",
     "title": "ENONET",
-    "url": "errno/?q=ENONET#ENONET",
+    "url": "tr/errno/?q=ENONET#ENONET",
     "type": "syscall/",
     "description": "Machine is not on the network — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 64, Linux 7.3"
   },
@@ -7562,7 +7562,7 @@
   {
     "lang": "tr",
     "title": "ENOPKG",
-    "url": "errno/?q=ENOPKG#ENOPKG",
+    "url": "tr/errno/?q=ENOPKG#ENOPKG",
     "type": "syscall/",
     "description": "Package not installed — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 65, Linux 7.3"
   },
@@ -7576,7 +7576,7 @@
   {
     "lang": "tr",
     "title": "EREMOTE",
-    "url": "errno/?q=EREMOTE#EREMOTE",
+    "url": "tr/errno/?q=EREMOTE#EREMOTE",
     "type": "syscall/",
     "description": "Object is remote — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 66, Linux 7.3"
   },
@@ -7590,7 +7590,7 @@
   {
     "lang": "tr",
     "title": "ENOLINK",
-    "url": "errno/?q=ENOLINK#ENOLINK",
+    "url": "tr/errno/?q=ENOLINK#ENOLINK",
     "type": "syscall/",
     "description": "Link has been severed — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 67, Linux 7.3"
   },
@@ -7604,7 +7604,7 @@
   {
     "lang": "tr",
     "title": "EADV",
-    "url": "errno/?q=EADV#EADV",
+    "url": "tr/errno/?q=EADV#EADV",
     "type": "syscall/",
     "description": "Advertise error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 68, Linux 7.3"
   },
@@ -7618,7 +7618,7 @@
   {
     "lang": "tr",
     "title": "ESRMNT",
-    "url": "errno/?q=ESRMNT#ESRMNT",
+    "url": "tr/errno/?q=ESRMNT#ESRMNT",
     "type": "syscall/",
     "description": "Srmount error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 69, Linux 7.3"
   },
@@ -7632,7 +7632,7 @@
   {
     "lang": "tr",
     "title": "ECOMM",
-    "url": "errno/?q=ECOMM#ECOMM",
+    "url": "tr/errno/?q=ECOMM#ECOMM",
     "type": "syscall/",
     "description": "Communication error on send — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 70, Linux 7.3"
   },
@@ -7646,7 +7646,7 @@
   {
     "lang": "tr",
     "title": "EPROTO",
-    "url": "errno/?q=EPROTO#EPROTO",
+    "url": "tr/errno/?q=EPROTO#EPROTO",
     "type": "syscall/",
     "description": "Protocol error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 71, Linux 7.3"
   },
@@ -7660,7 +7660,7 @@
   {
     "lang": "tr",
     "title": "EMULTIHOP",
-    "url": "errno/?q=EMULTIHOP#EMULTIHOP",
+    "url": "tr/errno/?q=EMULTIHOP#EMULTIHOP",
     "type": "syscall/",
     "description": "Multihop attempted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 72, Linux 7.3"
   },
@@ -7674,7 +7674,7 @@
   {
     "lang": "tr",
     "title": "EDOTDOT",
-    "url": "errno/?q=EDOTDOT#EDOTDOT",
+    "url": "tr/errno/?q=EDOTDOT#EDOTDOT",
     "type": "syscall/",
     "description": "RFS specific error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde errno 73, Linux 7.3"
   },
@@ -7688,7 +7688,7 @@
   {
     "lang": "tr",
     "title": "EBADMSG",
-    "url": "errno/?q=EBADMSG#EBADMSG",
+    "url": "tr/errno/?q=EBADMSG#EBADMSG",
     "type": "syscall/",
     "description": "Not a data message — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 74, Linux 7.3"
   },
@@ -7702,7 +7702,7 @@
   {
     "lang": "tr",
     "title": "EFSBADCRC",
-    "url": "errno/?q=EFSBADCRC#EFSBADCRC",
+    "url": "tr/errno/?q=EFSBADCRC#EFSBADCRC",
     "type": "syscall/",
     "description": "Bad CRC detected — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 74, Linux 7.3"
   },
@@ -7716,7 +7716,7 @@
   {
     "lang": "tr",
     "title": "EOVERFLOW",
-    "url": "errno/?q=EOVERFLOW#EOVERFLOW",
+    "url": "tr/errno/?q=EOVERFLOW#EOVERFLOW",
     "type": "syscall/",
     "description": "Value too large for defined data type — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 75, Linux 7.3"
   },
@@ -7730,7 +7730,7 @@
   {
     "lang": "tr",
     "title": "ENOTUNIQ",
-    "url": "errno/?q=ENOTUNIQ#ENOTUNIQ",
+    "url": "tr/errno/?q=ENOTUNIQ#ENOTUNIQ",
     "type": "syscall/",
     "description": "Name not unique on network — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 76, Linux 7.3"
   },
@@ -7744,7 +7744,7 @@
   {
     "lang": "tr",
     "title": "EBADFD",
-    "url": "errno/?q=EBADFD#EBADFD",
+    "url": "tr/errno/?q=EBADFD#EBADFD",
     "type": "syscall/",
     "description": "File descriptor in bad state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 77, Linux 7.3"
   },
@@ -7758,7 +7758,7 @@
   {
     "lang": "tr",
     "title": "EREMCHG",
-    "url": "errno/?q=EREMCHG#EREMCHG",
+    "url": "tr/errno/?q=EREMCHG#EREMCHG",
     "type": "syscall/",
     "description": "Remote address changed — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 78, Linux 7.3"
   },
@@ -7772,7 +7772,7 @@
   {
     "lang": "tr",
     "title": "ELIBACC",
-    "url": "errno/?q=ELIBACC#ELIBACC",
+    "url": "tr/errno/?q=ELIBACC#ELIBACC",
     "type": "syscall/",
     "description": "Can not access a needed shared library — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 79, Linux 7.3"
   },
@@ -7786,7 +7786,7 @@
   {
     "lang": "tr",
     "title": "ELIBBAD",
-    "url": "errno/?q=ELIBBAD#ELIBBAD",
+    "url": "tr/errno/?q=ELIBBAD#ELIBBAD",
     "type": "syscall/",
     "description": "Accessing a corrupted shared library — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 80, Linux 7.3"
   },
@@ -7800,7 +7800,7 @@
   {
     "lang": "tr",
     "title": "ELIBSCN",
-    "url": "errno/?q=ELIBSCN#ELIBSCN",
+    "url": "tr/errno/?q=ELIBSCN#ELIBSCN",
     "type": "syscall/",
     "description": ".lib section in a.out corrupted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 81, Linux 7.3"
   },
@@ -7814,7 +7814,7 @@
   {
     "lang": "tr",
     "title": "ELIBMAX",
-    "url": "errno/?q=ELIBMAX#ELIBMAX",
+    "url": "tr/errno/?q=ELIBMAX#ELIBMAX",
     "type": "syscall/",
     "description": "Attempting to link in too many shared libraries — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 82, Linux 7.3"
   },
@@ -7828,7 +7828,7 @@
   {
     "lang": "tr",
     "title": "ELIBEXEC",
-    "url": "errno/?q=ELIBEXEC#ELIBEXEC",
+    "url": "tr/errno/?q=ELIBEXEC#ELIBEXEC",
     "type": "syscall/",
     "description": "Cannot exec a shared library directly — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 83, Linux 7.3"
   },
@@ -7842,7 +7842,7 @@
   {
     "lang": "tr",
     "title": "EILSEQ",
-    "url": "errno/?q=EILSEQ#EILSEQ",
+    "url": "tr/errno/?q=EILSEQ#EILSEQ",
     "type": "syscall/",
     "description": "Illegal byte sequence — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 84, Linux 7.3"
   },
@@ -7856,7 +7856,7 @@
   {
     "lang": "tr",
     "title": "ERESTART",
-    "url": "errno/?q=ERESTART#ERESTART",
+    "url": "tr/errno/?q=ERESTART#ERESTART",
     "type": "syscall/",
     "description": "Interrupted system call should be restarted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 85, Linux 7.3"
   },
@@ -7870,7 +7870,7 @@
   {
     "lang": "tr",
     "title": "ESTRPIPE",
-    "url": "errno/?q=ESTRPIPE#ESTRPIPE",
+    "url": "tr/errno/?q=ESTRPIPE#ESTRPIPE",
     "type": "syscall/",
     "description": "Streams pipe error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 86, Linux 7.3"
   },
@@ -7884,7 +7884,7 @@
   {
     "lang": "tr",
     "title": "EUSERS",
-    "url": "errno/?q=EUSERS#EUSERS",
+    "url": "tr/errno/?q=EUSERS#EUSERS",
     "type": "syscall/",
     "description": "Too many users — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 87, Linux 7.3"
   },
@@ -7898,7 +7898,7 @@
   {
     "lang": "tr",
     "title": "ENOTSOCK",
-    "url": "errno/?q=ENOTSOCK#ENOTSOCK",
+    "url": "tr/errno/?q=ENOTSOCK#ENOTSOCK",
     "type": "syscall/",
     "description": "Socket operation on non-socket — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 88, Linux 7.3"
   },
@@ -7912,7 +7912,7 @@
   {
     "lang": "tr",
     "title": "EDESTADDRREQ",
-    "url": "errno/?q=EDESTADDRREQ#EDESTADDRREQ",
+    "url": "tr/errno/?q=EDESTADDRREQ#EDESTADDRREQ",
     "type": "syscall/",
     "description": "Destination address required — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 89, Linux 7.3"
   },
@@ -7926,7 +7926,7 @@
   {
     "lang": "tr",
     "title": "EMSGSIZE",
-    "url": "errno/?q=EMSGSIZE#EMSGSIZE",
+    "url": "tr/errno/?q=EMSGSIZE#EMSGSIZE",
     "type": "syscall/",
     "description": "Message too long — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 90, Linux 7.3"
   },
@@ -7940,7 +7940,7 @@
   {
     "lang": "tr",
     "title": "EPROTOTYPE",
-    "url": "errno/?q=EPROTOTYPE#EPROTOTYPE",
+    "url": "tr/errno/?q=EPROTOTYPE#EPROTOTYPE",
     "type": "syscall/",
     "description": "Protocol wrong type for socket — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 91, Linux 7.3"
   },
@@ -7954,7 +7954,7 @@
   {
     "lang": "tr",
     "title": "ENOPROTOOPT",
-    "url": "errno/?q=ENOPROTOOPT#ENOPROTOOPT",
+    "url": "tr/errno/?q=ENOPROTOOPT#ENOPROTOOPT",
     "type": "syscall/",
     "description": "Protocol not available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 92, Linux 7.3"
   },
@@ -7968,7 +7968,7 @@
   {
     "lang": "tr",
     "title": "EPROTONOSUPPORT",
-    "url": "errno/?q=EPROTONOSUPPORT#EPROTONOSUPPORT",
+    "url": "tr/errno/?q=EPROTONOSUPPORT#EPROTONOSUPPORT",
     "type": "syscall/",
     "description": "Protocol not supported — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 93, Linux 7.3"
   },
@@ -7982,7 +7982,7 @@
   {
     "lang": "tr",
     "title": "ESOCKTNOSUPPORT",
-    "url": "errno/?q=ESOCKTNOSUPPORT#ESOCKTNOSUPPORT",
+    "url": "tr/errno/?q=ESOCKTNOSUPPORT#ESOCKTNOSUPPORT",
     "type": "syscall/",
     "description": "Socket type not supported — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 94, Linux 7.3"
   },
@@ -7996,7 +7996,7 @@
   {
     "lang": "tr",
     "title": "EOPNOTSUPP",
-    "url": "errno/?q=EOPNOTSUPP#EOPNOTSUPP",
+    "url": "tr/errno/?q=EOPNOTSUPP#EOPNOTSUPP",
     "type": "syscall/",
     "description": "Operation not supported on transport endpoint — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 95, Linux 7.3"
   },
@@ -8010,7 +8010,7 @@
   {
     "lang": "tr",
     "title": "EPFNOSUPPORT",
-    "url": "errno/?q=EPFNOSUPPORT#EPFNOSUPPORT",
+    "url": "tr/errno/?q=EPFNOSUPPORT#EPFNOSUPPORT",
     "type": "syscall/",
     "description": "Protocol family not supported — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 96, Linux 7.3"
   },
@@ -8024,7 +8024,7 @@
   {
     "lang": "tr",
     "title": "EAFNOSUPPORT",
-    "url": "errno/?q=EAFNOSUPPORT#EAFNOSUPPORT",
+    "url": "tr/errno/?q=EAFNOSUPPORT#EAFNOSUPPORT",
     "type": "syscall/",
     "description": "Address family not supported by protocol — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 97, Linux 7.3"
   },
@@ -8038,7 +8038,7 @@
   {
     "lang": "tr",
     "title": "EADDRINUSE",
-    "url": "errno/?q=EADDRINUSE#EADDRINUSE",
+    "url": "tr/errno/?q=EADDRINUSE#EADDRINUSE",
     "type": "syscall/",
     "description": "Address already in use — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 98, Linux 7.3"
   },
@@ -8052,7 +8052,7 @@
   {
     "lang": "tr",
     "title": "EADDRNOTAVAIL",
-    "url": "errno/?q=EADDRNOTAVAIL#EADDRNOTAVAIL",
+    "url": "tr/errno/?q=EADDRNOTAVAIL#EADDRNOTAVAIL",
     "type": "syscall/",
     "description": "Cannot assign requested address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 99, Linux 7.3"
   },
@@ -8066,7 +8066,7 @@
   {
     "lang": "tr",
     "title": "ENETDOWN",
-    "url": "errno/?q=ENETDOWN#ENETDOWN",
+    "url": "tr/errno/?q=ENETDOWN#ENETDOWN",
     "type": "syscall/",
     "description": "Network is down — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 100, Linux 7.3"
   },
@@ -8080,7 +8080,7 @@
   {
     "lang": "tr",
     "title": "ENETUNREACH",
-    "url": "errno/?q=ENETUNREACH#ENETUNREACH",
+    "url": "tr/errno/?q=ENETUNREACH#ENETUNREACH",
     "type": "syscall/",
     "description": "Network is unreachable — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 101, Linux 7.3"
   },
@@ -8094,7 +8094,7 @@
   {
     "lang": "tr",
     "title": "ENETRESET",
-    "url": "errno/?q=ENETRESET#ENETRESET",
+    "url": "tr/errno/?q=ENETRESET#ENETRESET",
     "type": "syscall/",
     "description": "Network dropped connection because of reset — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 102, Linux 7.3"
   },
@@ -8108,7 +8108,7 @@
   {
     "lang": "tr",
     "title": "ECONNABORTED",
-    "url": "errno/?q=ECONNABORTED#ECONNABORTED",
+    "url": "tr/errno/?q=ECONNABORTED#ECONNABORTED",
     "type": "syscall/",
     "description": "Software caused connection abort — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 103, Linux 7.3"
   },
@@ -8122,7 +8122,7 @@
   {
     "lang": "tr",
     "title": "ECONNRESET",
-    "url": "errno/?q=ECONNRESET#ECONNRESET",
+    "url": "tr/errno/?q=ECONNRESET#ECONNRESET",
     "type": "syscall/",
     "description": "Connection reset by peer — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 104, Linux 7.3"
   },
@@ -8136,7 +8136,7 @@
   {
     "lang": "tr",
     "title": "ENOBUFS",
-    "url": "errno/?q=ENOBUFS#ENOBUFS",
+    "url": "tr/errno/?q=ENOBUFS#ENOBUFS",
     "type": "syscall/",
     "description": "No buffer space available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 105, Linux 7.3"
   },
@@ -8150,7 +8150,7 @@
   {
     "lang": "tr",
     "title": "EISCONN",
-    "url": "errno/?q=EISCONN#EISCONN",
+    "url": "tr/errno/?q=EISCONN#EISCONN",
     "type": "syscall/",
     "description": "Transport endpoint is already connected — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 106, Linux 7.3"
   },
@@ -8164,7 +8164,7 @@
   {
     "lang": "tr",
     "title": "ENOTCONN",
-    "url": "errno/?q=ENOTCONN#ENOTCONN",
+    "url": "tr/errno/?q=ENOTCONN#ENOTCONN",
     "type": "syscall/",
     "description": "Transport endpoint is not connected — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 107, Linux 7.3"
   },
@@ -8178,7 +8178,7 @@
   {
     "lang": "tr",
     "title": "ESHUTDOWN",
-    "url": "errno/?q=ESHUTDOWN#ESHUTDOWN",
+    "url": "tr/errno/?q=ESHUTDOWN#ESHUTDOWN",
     "type": "syscall/",
     "description": "Cannot send after transport endpoint shutdown — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 108, Linux 7.3"
   },
@@ -8192,7 +8192,7 @@
   {
     "lang": "tr",
     "title": "ETOOMANYREFS",
-    "url": "errno/?q=ETOOMANYREFS#ETOOMANYREFS",
+    "url": "tr/errno/?q=ETOOMANYREFS#ETOOMANYREFS",
     "type": "syscall/",
     "description": "Too many references: cannot splice — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 109, Linux 7.3"
   },
@@ -8206,7 +8206,7 @@
   {
     "lang": "tr",
     "title": "ETIMEDOUT",
-    "url": "errno/?q=ETIMEDOUT#ETIMEDOUT",
+    "url": "tr/errno/?q=ETIMEDOUT#ETIMEDOUT",
     "type": "syscall/",
     "description": "Connection timed out — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 110, Linux 7.3"
   },
@@ -8220,7 +8220,7 @@
   {
     "lang": "tr",
     "title": "ECONNREFUSED",
-    "url": "errno/?q=ECONNREFUSED#ECONNREFUSED",
+    "url": "tr/errno/?q=ECONNREFUSED#ECONNREFUSED",
     "type": "syscall/",
     "description": "Connection refused — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 111, Linux 7.3"
   },
@@ -8234,7 +8234,7 @@
   {
     "lang": "tr",
     "title": "EHOSTDOWN",
-    "url": "errno/?q=EHOSTDOWN#EHOSTDOWN",
+    "url": "tr/errno/?q=EHOSTDOWN#EHOSTDOWN",
     "type": "syscall/",
     "description": "Host is down — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 112, Linux 7.3"
   },
@@ -8248,7 +8248,7 @@
   {
     "lang": "tr",
     "title": "EHOSTUNREACH",
-    "url": "errno/?q=EHOSTUNREACH#EHOSTUNREACH",
+    "url": "tr/errno/?q=EHOSTUNREACH#EHOSTUNREACH",
     "type": "syscall/",
     "description": "No route to host — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 113, Linux 7.3"
   },
@@ -8262,7 +8262,7 @@
   {
     "lang": "tr",
     "title": "EALREADY",
-    "url": "errno/?q=EALREADY#EALREADY",
+    "url": "tr/errno/?q=EALREADY#EALREADY",
     "type": "syscall/",
     "description": "Operation already in progress — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 114, Linux 7.3"
   },
@@ -8276,7 +8276,7 @@
   {
     "lang": "tr",
     "title": "EINPROGRESS",
-    "url": "errno/?q=EINPROGRESS#EINPROGRESS",
+    "url": "tr/errno/?q=EINPROGRESS#EINPROGRESS",
     "type": "syscall/",
     "description": "Operation now in progress — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 115, Linux 7.3"
   },
@@ -8290,7 +8290,7 @@
   {
     "lang": "tr",
     "title": "ESTALE",
-    "url": "errno/?q=ESTALE#ESTALE",
+    "url": "tr/errno/?q=ESTALE#ESTALE",
     "type": "syscall/",
     "description": "Stale file handle — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 116, Linux 7.3"
   },
@@ -8304,7 +8304,7 @@
   {
     "lang": "tr",
     "title": "EUCLEAN",
-    "url": "errno/?q=EUCLEAN#EUCLEAN",
+    "url": "tr/errno/?q=EUCLEAN#EUCLEAN",
     "type": "syscall/",
     "description": "Structure needs cleaning — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 117, Linux 7.3"
   },
@@ -8318,7 +8318,7 @@
   {
     "lang": "tr",
     "title": "EFSCORRUPTED",
-    "url": "errno/?q=EFSCORRUPTED#EFSCORRUPTED",
+    "url": "tr/errno/?q=EFSCORRUPTED#EFSCORRUPTED",
     "type": "syscall/",
     "description": "Filesystem is corrupted — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 117, Linux 7.3"
   },
@@ -8332,7 +8332,7 @@
   {
     "lang": "tr",
     "title": "ENOTNAM",
-    "url": "errno/?q=ENOTNAM#ENOTNAM",
+    "url": "tr/errno/?q=ENOTNAM#ENOTNAM",
     "type": "syscall/",
     "description": "Not a XENIX named type file — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 118, Linux 7.3"
   },
@@ -8346,7 +8346,7 @@
   {
     "lang": "tr",
     "title": "ENAVAIL",
-    "url": "errno/?q=ENAVAIL#ENAVAIL",
+    "url": "tr/errno/?q=ENAVAIL#ENAVAIL",
     "type": "syscall/",
     "description": "No XENIX semaphores available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 119, Linux 7.3"
   },
@@ -8360,7 +8360,7 @@
   {
     "lang": "tr",
     "title": "EISNAM",
-    "url": "errno/?q=EISNAM#EISNAM",
+    "url": "tr/errno/?q=EISNAM#EISNAM",
     "type": "syscall/",
     "description": "Is a named type file — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 120, Linux 7.3"
   },
@@ -8374,7 +8374,7 @@
   {
     "lang": "tr",
     "title": "EREMOTEIO",
-    "url": "errno/?q=EREMOTEIO#EREMOTEIO",
+    "url": "tr/errno/?q=EREMOTEIO#EREMOTEIO",
     "type": "syscall/",
     "description": "Remote I/O error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 121, Linux 7.3"
   },
@@ -8388,7 +8388,7 @@
   {
     "lang": "tr",
     "title": "EDQUOT",
-    "url": "errno/?q=EDQUOT#EDQUOT",
+    "url": "tr/errno/?q=EDQUOT#EDQUOT",
     "type": "syscall/",
     "description": "Quota exceeded — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 122, Linux 7.3"
   },
@@ -8402,7 +8402,7 @@
   {
     "lang": "tr",
     "title": "ENOMEDIUM",
-    "url": "errno/?q=ENOMEDIUM#ENOMEDIUM",
+    "url": "tr/errno/?q=ENOMEDIUM#ENOMEDIUM",
     "type": "syscall/",
     "description": "No medium found — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 123, Linux 7.3"
   },
@@ -8416,7 +8416,7 @@
   {
     "lang": "tr",
     "title": "EMEDIUMTYPE",
-    "url": "errno/?q=EMEDIUMTYPE#EMEDIUMTYPE",
+    "url": "tr/errno/?q=EMEDIUMTYPE#EMEDIUMTYPE",
     "type": "syscall/",
     "description": "Wrong medium type — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 124, Linux 7.3"
   },
@@ -8430,7 +8430,7 @@
   {
     "lang": "tr",
     "title": "ECANCELED",
-    "url": "errno/?q=ECANCELED#ECANCELED",
+    "url": "tr/errno/?q=ECANCELED#ECANCELED",
     "type": "syscall/",
     "description": "Operation Canceled — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 125, Linux 7.3"
   },
@@ -8444,7 +8444,7 @@
   {
     "lang": "tr",
     "title": "ENOKEY",
-    "url": "errno/?q=ENOKEY#ENOKEY",
+    "url": "tr/errno/?q=ENOKEY#ENOKEY",
     "type": "syscall/",
     "description": "Required key not available — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 126, Linux 7.3"
   },
@@ -8458,7 +8458,7 @@
   {
     "lang": "tr",
     "title": "EKEYEXPIRED",
-    "url": "errno/?q=EKEYEXPIRED#EKEYEXPIRED",
+    "url": "tr/errno/?q=EKEYEXPIRED#EKEYEXPIRED",
     "type": "syscall/",
     "description": "Key has expired — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 127, Linux 7.3"
   },
@@ -8472,7 +8472,7 @@
   {
     "lang": "tr",
     "title": "EKEYREVOKED",
-    "url": "errno/?q=EKEYREVOKED#EKEYREVOKED",
+    "url": "tr/errno/?q=EKEYREVOKED#EKEYREVOKED",
     "type": "syscall/",
     "description": "Key has been revoked — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 128, Linux 7.3"
   },
@@ -8486,7 +8486,7 @@
   {
     "lang": "tr",
     "title": "EKEYREJECTED",
-    "url": "errno/?q=EKEYREJECTED#EKEYREJECTED",
+    "url": "tr/errno/?q=EKEYREJECTED#EKEYREJECTED",
     "type": "syscall/",
     "description": "Key was rejected by service — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 129, Linux 7.3"
   },
@@ -8500,7 +8500,7 @@
   {
     "lang": "tr",
     "title": "EOWNERDEAD",
-    "url": "errno/?q=EOWNERDEAD#EOWNERDEAD",
+    "url": "tr/errno/?q=EOWNERDEAD#EOWNERDEAD",
     "type": "syscall/",
     "description": "Owner died — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 130, Linux 7.3"
   },
@@ -8514,7 +8514,7 @@
   {
     "lang": "tr",
     "title": "ENOTRECOVERABLE",
-    "url": "errno/?q=ENOTRECOVERABLE#ENOTRECOVERABLE",
+    "url": "tr/errno/?q=ENOTRECOVERABLE#ENOTRECOVERABLE",
     "type": "syscall/",
     "description": "State not recoverable — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 131, Linux 7.3"
   },
@@ -8528,7 +8528,7 @@
   {
     "lang": "tr",
     "title": "ERFKILL",
-    "url": "errno/?q=ERFKILL#ERFKILL",
+    "url": "tr/errno/?q=ERFKILL#ERFKILL",
     "type": "syscall/",
     "description": "Operation not possible due to RF-kill — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 132, Linux 7.3"
   },
@@ -8542,7 +8542,7 @@
   {
     "lang": "tr",
     "title": "EHWPOISON",
-    "url": "errno/?q=EHWPOISON#EHWPOISON",
+    "url": "tr/errno/?q=EHWPOISON#EHWPOISON",
     "type": "syscall/",
     "description": "Memory page has hardware error — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 133, Linux 7.3"
   },
@@ -8556,7 +8556,7 @@
   {
     "lang": "tr",
     "title": "EFTYPE",
-    "url": "errno/?q=EFTYPE#EFTYPE",
+    "url": "tr/errno/?q=EFTYPE#EFTYPE",
     "type": "syscall/",
     "description": "Wrong file type for the intended operation — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde errno 134, Linux 7.3"
   },
@@ -8570,7 +8570,7 @@
   {
     "lang": "tr",
     "title": "EINIT",
-    "url": "errno/?arch=mips-o32&q=EINIT#EINIT",
+    "url": "tr/errno/?arch=mips-o32&q=EINIT#EINIT",
     "type": "syscall/",
     "description": "Reserved — MIPS o32, MIPS n32, MIPS n64 üzerinde errno 141, Linux 7.3"
   },
@@ -8584,7 +8584,7 @@
   {
     "lang": "tr",
     "title": "EREMDEV",
-    "url": "errno/?arch=mips-o32&q=EREMDEV#EREMDEV",
+    "url": "tr/errno/?arch=mips-o32&q=EREMDEV#EREMDEV",
     "type": "syscall/",
     "description": "Error 142 — MIPS o32, MIPS n32, MIPS n64 üzerinde errno 142, Linux 7.3"
   },
@@ -8598,7 +8598,7 @@
   {
     "lang": "tr",
     "title": "SIGHUP",
-    "url": "signals/?q=SIGHUP#SIGHUP",
+    "url": "tr/signals/?q=SIGHUP#SIGHUP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 1, Linux 7.3"
   },
@@ -8612,7 +8612,7 @@
   {
     "lang": "tr",
     "title": "SIGINT",
-    "url": "signals/?q=SIGINT#SIGINT",
+    "url": "tr/signals/?q=SIGINT#SIGINT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 2, Linux 7.3"
   },
@@ -8626,7 +8626,7 @@
   {
     "lang": "tr",
     "title": "SIGQUIT",
-    "url": "signals/?q=SIGQUIT#SIGQUIT",
+    "url": "tr/signals/?q=SIGQUIT#SIGQUIT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 3, Linux 7.3"
   },
@@ -8640,7 +8640,7 @@
   {
     "lang": "tr",
     "title": "SIGILL",
-    "url": "signals/?q=SIGILL#SIGILL",
+    "url": "tr/signals/?q=SIGILL#SIGILL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 4, Linux 7.3"
   },
@@ -8654,7 +8654,7 @@
   {
     "lang": "tr",
     "title": "SIGTRAP",
-    "url": "signals/?q=SIGTRAP#SIGTRAP",
+    "url": "tr/signals/?q=SIGTRAP#SIGTRAP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 5, Linux 7.3"
   },
@@ -8668,7 +8668,7 @@
   {
     "lang": "tr",
     "title": "SIGABRT",
-    "url": "signals/?q=SIGABRT#SIGABRT",
+    "url": "tr/signals/?q=SIGABRT#SIGABRT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 6, Linux 7.3"
   },
@@ -8682,7 +8682,7 @@
   {
     "lang": "tr",
     "title": "SIGIOT",
-    "url": "signals/?q=SIGIOT#SIGIOT",
+    "url": "tr/signals/?q=SIGIOT#SIGIOT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 6, Linux 7.3"
   },
@@ -8696,7 +8696,7 @@
   {
     "lang": "tr",
     "title": "SIGBUS",
-    "url": "signals/?q=SIGBUS#SIGBUS",
+    "url": "tr/signals/?q=SIGBUS#SIGBUS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 7, Linux 7.3"
   },
@@ -8710,7 +8710,7 @@
   {
     "lang": "tr",
     "title": "SIGFPE",
-    "url": "signals/?q=SIGFPE#SIGFPE",
+    "url": "tr/signals/?q=SIGFPE#SIGFPE",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 8, Linux 7.3"
   },
@@ -8724,7 +8724,7 @@
   {
     "lang": "tr",
     "title": "SIGKILL",
-    "url": "signals/?q=SIGKILL#SIGKILL",
+    "url": "tr/signals/?q=SIGKILL#SIGKILL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 9, Linux 7.3"
   },
@@ -8738,7 +8738,7 @@
   {
     "lang": "tr",
     "title": "SIGUSR1",
-    "url": "signals/?q=SIGUSR1#SIGUSR1",
+    "url": "tr/signals/?q=SIGUSR1#SIGUSR1",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 10, Linux 7.3"
   },
@@ -8752,7 +8752,7 @@
   {
     "lang": "tr",
     "title": "SIGSEGV",
-    "url": "signals/?q=SIGSEGV#SIGSEGV",
+    "url": "tr/signals/?q=SIGSEGV#SIGSEGV",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 11, Linux 7.3"
   },
@@ -8766,7 +8766,7 @@
   {
     "lang": "tr",
     "title": "SIGUSR2",
-    "url": "signals/?q=SIGUSR2#SIGUSR2",
+    "url": "tr/signals/?q=SIGUSR2#SIGUSR2",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 12, Linux 7.3"
   },
@@ -8780,7 +8780,7 @@
   {
     "lang": "tr",
     "title": "SIGPIPE",
-    "url": "signals/?q=SIGPIPE#SIGPIPE",
+    "url": "tr/signals/?q=SIGPIPE#SIGPIPE",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 13, Linux 7.3"
   },
@@ -8794,7 +8794,7 @@
   {
     "lang": "tr",
     "title": "SIGALRM",
-    "url": "signals/?q=SIGALRM#SIGALRM",
+    "url": "tr/signals/?q=SIGALRM#SIGALRM",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 14, Linux 7.3"
   },
@@ -8808,7 +8808,7 @@
   {
     "lang": "tr",
     "title": "SIGTERM",
-    "url": "signals/?q=SIGTERM#SIGTERM",
+    "url": "tr/signals/?q=SIGTERM#SIGTERM",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 15, Linux 7.3"
   },
@@ -8822,7 +8822,7 @@
   {
     "lang": "tr",
     "title": "SIGSTKFLT",
-    "url": "signals/?q=SIGSTKFLT#SIGSTKFLT",
+    "url": "tr/signals/?q=SIGSTKFLT#SIGSTKFLT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 16, Linux 7.3"
   },
@@ -8836,7 +8836,7 @@
   {
     "lang": "tr",
     "title": "SIGCHLD",
-    "url": "signals/?q=SIGCHLD#SIGCHLD",
+    "url": "tr/signals/?q=SIGCHLD#SIGCHLD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 17, Linux 7.3"
   },
@@ -8850,7 +8850,7 @@
   {
     "lang": "tr",
     "title": "SIGCONT",
-    "url": "signals/?q=SIGCONT#SIGCONT",
+    "url": "tr/signals/?q=SIGCONT#SIGCONT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 18, Linux 7.3"
   },
@@ -8864,7 +8864,7 @@
   {
     "lang": "tr",
     "title": "SIGSTOP",
-    "url": "signals/?q=SIGSTOP#SIGSTOP",
+    "url": "tr/signals/?q=SIGSTOP#SIGSTOP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 19, Linux 7.3"
   },
@@ -8878,7 +8878,7 @@
   {
     "lang": "tr",
     "title": "SIGTSTP",
-    "url": "signals/?q=SIGTSTP#SIGTSTP",
+    "url": "tr/signals/?q=SIGTSTP#SIGTSTP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 20, Linux 7.3"
   },
@@ -8892,7 +8892,7 @@
   {
     "lang": "tr",
     "title": "SIGTTIN",
-    "url": "signals/?q=SIGTTIN#SIGTTIN",
+    "url": "tr/signals/?q=SIGTTIN#SIGTTIN",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 21, Linux 7.3"
   },
@@ -8906,7 +8906,7 @@
   {
     "lang": "tr",
     "title": "SIGTTOU",
-    "url": "signals/?q=SIGTTOU#SIGTTOU",
+    "url": "tr/signals/?q=SIGTTOU#SIGTTOU",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 22, Linux 7.3"
   },
@@ -8920,7 +8920,7 @@
   {
     "lang": "tr",
     "title": "SIGURG",
-    "url": "signals/?q=SIGURG#SIGURG",
+    "url": "tr/signals/?q=SIGURG#SIGURG",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 23, Linux 7.3"
   },
@@ -8934,7 +8934,7 @@
   {
     "lang": "tr",
     "title": "SIGXCPU",
-    "url": "signals/?q=SIGXCPU#SIGXCPU",
+    "url": "tr/signals/?q=SIGXCPU#SIGXCPU",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 24, Linux 7.3"
   },
@@ -8948,7 +8948,7 @@
   {
     "lang": "tr",
     "title": "SIGXFSZ",
-    "url": "signals/?q=SIGXFSZ#SIGXFSZ",
+    "url": "tr/signals/?q=SIGXFSZ#SIGXFSZ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 25, Linux 7.3"
   },
@@ -8962,7 +8962,7 @@
   {
     "lang": "tr",
     "title": "SIGVTALRM",
-    "url": "signals/?q=SIGVTALRM#SIGVTALRM",
+    "url": "tr/signals/?q=SIGVTALRM#SIGVTALRM",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 26, Linux 7.3"
   },
@@ -8976,7 +8976,7 @@
   {
     "lang": "tr",
     "title": "SIGPROF",
-    "url": "signals/?q=SIGPROF#SIGPROF",
+    "url": "tr/signals/?q=SIGPROF#SIGPROF",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 27, Linux 7.3"
   },
@@ -8990,7 +8990,7 @@
   {
     "lang": "tr",
     "title": "SIGWINCH",
-    "url": "signals/?q=SIGWINCH#SIGWINCH",
+    "url": "tr/signals/?q=SIGWINCH#SIGWINCH",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 28, Linux 7.3"
   },
@@ -9004,7 +9004,7 @@
   {
     "lang": "tr",
     "title": "SIGIO",
-    "url": "signals/?q=SIGIO#SIGIO",
+    "url": "tr/signals/?q=SIGIO#SIGIO",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 29, Linux 7.3"
   },
@@ -9018,7 +9018,7 @@
   {
     "lang": "tr",
     "title": "SIGPOLL",
-    "url": "signals/?q=SIGPOLL#SIGPOLL",
+    "url": "tr/signals/?q=SIGPOLL#SIGPOLL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 29, Linux 7.3"
   },
@@ -9032,7 +9032,7 @@
   {
     "lang": "tr",
     "title": "SIGPWR",
-    "url": "signals/?q=SIGPWR#SIGPWR",
+    "url": "tr/signals/?q=SIGPWR#SIGPWR",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 30, Linux 7.3"
   },
@@ -9046,7 +9046,7 @@
   {
     "lang": "tr",
     "title": "SIGSYS",
-    "url": "signals/?q=SIGSYS#SIGSYS",
+    "url": "tr/signals/?q=SIGSYS#SIGSYS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 31, Linux 7.3"
   },
@@ -9060,7 +9060,7 @@
   {
     "lang": "tr",
     "title": "SIGUNUSED",
-    "url": "signals/?q=SIGUNUSED#SIGUNUSED",
+    "url": "tr/signals/?q=SIGUNUSED#SIGUNUSED",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde sinyal 31, Linux 7.3"
   },
@@ -9074,7 +9074,7 @@
   {
     "lang": "tr",
     "title": "SIGSWI",
-    "url": "signals/?arch=arm&q=SIGSWI#SIGSWI",
+    "url": "tr/signals/?arch=arm&q=SIGSWI#SIGSWI",
     "type": "syscall/",
     "description": "ARM EABI üzerinde sinyal 32, Linux 7.3"
   },
@@ -9088,7 +9088,7 @@
   {
     "lang": "tr",
     "title": "SIGEMT",
-    "url": "signals/?arch=mips-o32&q=SIGEMT#SIGEMT",
+    "url": "tr/signals/?arch=mips-o32&q=SIGEMT#SIGEMT",
     "type": "syscall/",
     "description": "MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 7, Linux 7.3"
   },
@@ -9102,7 +9102,7 @@
   {
     "lang": "tr",
     "title": "SIGCLD",
-    "url": "signals/?arch=mips-o32&q=SIGCLD#SIGCLD",
+    "url": "tr/signals/?arch=mips-o32&q=SIGCLD#SIGCLD",
     "type": "syscall/",
     "description": "Same as SIGCHLD (System V). — MIPS o32, MIPS n32, MIPS n64 üzerinde sinyal 18, Linux 7.3"
   },
@@ -9116,7 +9116,7 @@
   {
     "lang": "tr",
     "title": "TCGETS",
-    "url": "ioctl/?q=TCGETS#TCGETS",
+    "url": "tr/ioctl/?q=TCGETS#TCGETS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5401, Linux 7.3"
   },
@@ -9130,7 +9130,7 @@
   {
     "lang": "tr",
     "title": "TCSETS",
-    "url": "ioctl/?q=TCSETS#TCSETS",
+    "url": "tr/ioctl/?q=TCSETS#TCSETS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5402, Linux 7.3"
   },
@@ -9144,7 +9144,7 @@
   {
     "lang": "tr",
     "title": "TCSETSW",
-    "url": "ioctl/?q=TCSETSW#TCSETSW",
+    "url": "tr/ioctl/?q=TCSETSW#TCSETSW",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5403, Linux 7.3"
   },
@@ -9158,7 +9158,7 @@
   {
     "lang": "tr",
     "title": "TCSETSF",
-    "url": "ioctl/?q=TCSETSF#TCSETSF",
+    "url": "tr/ioctl/?q=TCSETSF#TCSETSF",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5404, Linux 7.3"
   },
@@ -9172,7 +9172,7 @@
   {
     "lang": "tr",
     "title": "TCGETA",
-    "url": "ioctl/?q=TCGETA#TCGETA",
+    "url": "tr/ioctl/?q=TCGETA#TCGETA",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5405, Linux 7.3"
   },
@@ -9186,7 +9186,7 @@
   {
     "lang": "tr",
     "title": "TCSETA",
-    "url": "ioctl/?q=TCSETA#TCSETA",
+    "url": "tr/ioctl/?q=TCSETA#TCSETA",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5406, Linux 7.3"
   },
@@ -9200,7 +9200,7 @@
   {
     "lang": "tr",
     "title": "TCSETAW",
-    "url": "ioctl/?q=TCSETAW#TCSETAW",
+    "url": "tr/ioctl/?q=TCSETAW#TCSETAW",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5407, Linux 7.3"
   },
@@ -9214,7 +9214,7 @@
   {
     "lang": "tr",
     "title": "TCSETAF",
-    "url": "ioctl/?q=TCSETAF#TCSETAF",
+    "url": "tr/ioctl/?q=TCSETAF#TCSETAF",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5408, Linux 7.3"
   },
@@ -9228,7 +9228,7 @@
   {
     "lang": "tr",
     "title": "TCSBRK",
-    "url": "ioctl/?q=TCSBRK#TCSBRK",
+    "url": "tr/ioctl/?q=TCSBRK#TCSBRK",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5409, Linux 7.3"
   },
@@ -9242,7 +9242,7 @@
   {
     "lang": "tr",
     "title": "TCXONC",
-    "url": "ioctl/?q=TCXONC#TCXONC",
+    "url": "tr/ioctl/?q=TCXONC#TCXONC",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x540a, Linux 7.3"
   },
@@ -9256,7 +9256,7 @@
   {
     "lang": "tr",
     "title": "TCFLSH",
-    "url": "ioctl/?q=TCFLSH#TCFLSH",
+    "url": "tr/ioctl/?q=TCFLSH#TCFLSH",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x540b, Linux 7.3"
   },
@@ -9270,7 +9270,7 @@
   {
     "lang": "tr",
     "title": "TIOCEXCL",
-    "url": "ioctl/?q=TIOCEXCL#TIOCEXCL",
+    "url": "tr/ioctl/?q=TIOCEXCL#TIOCEXCL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x540c, Linux 7.3"
   },
@@ -9284,7 +9284,7 @@
   {
     "lang": "tr",
     "title": "TIOCNXCL",
-    "url": "ioctl/?q=TIOCNXCL#TIOCNXCL",
+    "url": "tr/ioctl/?q=TIOCNXCL#TIOCNXCL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x540d, Linux 7.3"
   },
@@ -9298,7 +9298,7 @@
   {
     "lang": "tr",
     "title": "TIOCSCTTY",
-    "url": "ioctl/?q=TIOCSCTTY#TIOCSCTTY",
+    "url": "tr/ioctl/?q=TIOCSCTTY#TIOCSCTTY",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x540e, Linux 7.3"
   },
@@ -9312,7 +9312,7 @@
   {
     "lang": "tr",
     "title": "TIOCGPGRP",
-    "url": "ioctl/?q=TIOCGPGRP#TIOCGPGRP",
+    "url": "tr/ioctl/?q=TIOCGPGRP#TIOCGPGRP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x540f, Linux 7.3"
   },
@@ -9326,7 +9326,7 @@
   {
     "lang": "tr",
     "title": "TIOCSPGRP",
-    "url": "ioctl/?q=TIOCSPGRP#TIOCSPGRP",
+    "url": "tr/ioctl/?q=TIOCSPGRP#TIOCSPGRP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5410, Linux 7.3"
   },
@@ -9340,7 +9340,7 @@
   {
     "lang": "tr",
     "title": "TIOCOUTQ",
-    "url": "ioctl/?q=TIOCOUTQ#TIOCOUTQ",
+    "url": "tr/ioctl/?q=TIOCOUTQ#TIOCOUTQ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5411, Linux 7.3"
   },
@@ -9354,7 +9354,7 @@
   {
     "lang": "tr",
     "title": "TIOCSTI",
-    "url": "ioctl/?q=TIOCSTI#TIOCSTI",
+    "url": "tr/ioctl/?q=TIOCSTI#TIOCSTI",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5412, Linux 7.3"
   },
@@ -9368,7 +9368,7 @@
   {
     "lang": "tr",
     "title": "TIOCGWINSZ",
-    "url": "ioctl/?q=TIOCGWINSZ#TIOCGWINSZ",
+    "url": "tr/ioctl/?q=TIOCGWINSZ#TIOCGWINSZ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5413, Linux 7.3"
   },
@@ -9382,7 +9382,7 @@
   {
     "lang": "tr",
     "title": "TIOCSWINSZ",
-    "url": "ioctl/?q=TIOCSWINSZ#TIOCSWINSZ",
+    "url": "tr/ioctl/?q=TIOCSWINSZ#TIOCSWINSZ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5414, Linux 7.3"
   },
@@ -9396,7 +9396,7 @@
   {
     "lang": "tr",
     "title": "TIOCMGET",
-    "url": "ioctl/?q=TIOCMGET#TIOCMGET",
+    "url": "tr/ioctl/?q=TIOCMGET#TIOCMGET",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5415, Linux 7.3"
   },
@@ -9410,7 +9410,7 @@
   {
     "lang": "tr",
     "title": "TIOCMBIS",
-    "url": "ioctl/?q=TIOCMBIS#TIOCMBIS",
+    "url": "tr/ioctl/?q=TIOCMBIS#TIOCMBIS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5416, Linux 7.3"
   },
@@ -9424,7 +9424,7 @@
   {
     "lang": "tr",
     "title": "TIOCMBIC",
-    "url": "ioctl/?q=TIOCMBIC#TIOCMBIC",
+    "url": "tr/ioctl/?q=TIOCMBIC#TIOCMBIC",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5417, Linux 7.3"
   },
@@ -9438,7 +9438,7 @@
   {
     "lang": "tr",
     "title": "TIOCMSET",
-    "url": "ioctl/?q=TIOCMSET#TIOCMSET",
+    "url": "tr/ioctl/?q=TIOCMSET#TIOCMSET",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5418, Linux 7.3"
   },
@@ -9452,7 +9452,7 @@
   {
     "lang": "tr",
     "title": "TIOCGSOFTCAR",
-    "url": "ioctl/?q=TIOCGSOFTCAR#TIOCGSOFTCAR",
+    "url": "tr/ioctl/?q=TIOCGSOFTCAR#TIOCGSOFTCAR",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5419, Linux 7.3"
   },
@@ -9466,7 +9466,7 @@
   {
     "lang": "tr",
     "title": "TIOCSSOFTCAR",
-    "url": "ioctl/?q=TIOCSSOFTCAR#TIOCSSOFTCAR",
+    "url": "tr/ioctl/?q=TIOCSSOFTCAR#TIOCSSOFTCAR",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x541a, Linux 7.3"
   },
@@ -9480,7 +9480,7 @@
   {
     "lang": "tr",
     "title": "FIONREAD",
-    "url": "ioctl/?q=FIONREAD#FIONREAD",
+    "url": "tr/ioctl/?q=FIONREAD#FIONREAD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x541b, Linux 7.3"
   },
@@ -9494,7 +9494,7 @@
   {
     "lang": "tr",
     "title": "TIOCINQ",
-    "url": "ioctl/?q=TIOCINQ#TIOCINQ",
+    "url": "tr/ioctl/?q=TIOCINQ#TIOCINQ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x541b, Linux 7.3"
   },
@@ -9508,7 +9508,7 @@
   {
     "lang": "tr",
     "title": "TIOCLINUX",
-    "url": "ioctl/?q=TIOCLINUX#TIOCLINUX",
+    "url": "tr/ioctl/?q=TIOCLINUX#TIOCLINUX",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x541c, Linux 7.3"
   },
@@ -9522,7 +9522,7 @@
   {
     "lang": "tr",
     "title": "TIOCCONS",
-    "url": "ioctl/?q=TIOCCONS#TIOCCONS",
+    "url": "tr/ioctl/?q=TIOCCONS#TIOCCONS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x541d, Linux 7.3"
   },
@@ -9536,7 +9536,7 @@
   {
     "lang": "tr",
     "title": "TIOCGSERIAL",
-    "url": "ioctl/?q=TIOCGSERIAL#TIOCGSERIAL",
+    "url": "tr/ioctl/?q=TIOCGSERIAL#TIOCGSERIAL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x541e, Linux 7.3"
   },
@@ -9550,7 +9550,7 @@
   {
     "lang": "tr",
     "title": "TIOCSSERIAL",
-    "url": "ioctl/?q=TIOCSSERIAL#TIOCSSERIAL",
+    "url": "tr/ioctl/?q=TIOCSSERIAL#TIOCSSERIAL",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x541f, Linux 7.3"
   },
@@ -9564,7 +9564,7 @@
   {
     "lang": "tr",
     "title": "TIOCPKT",
-    "url": "ioctl/?q=TIOCPKT#TIOCPKT",
+    "url": "tr/ioctl/?q=TIOCPKT#TIOCPKT",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5420, Linux 7.3"
   },
@@ -9578,7 +9578,7 @@
   {
     "lang": "tr",
     "title": "FIONBIO",
-    "url": "ioctl/?q=FIONBIO#FIONBIO",
+    "url": "tr/ioctl/?q=FIONBIO#FIONBIO",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5421, Linux 7.3"
   },
@@ -9592,7 +9592,7 @@
   {
     "lang": "tr",
     "title": "TIOCNOTTY",
-    "url": "ioctl/?q=TIOCNOTTY#TIOCNOTTY",
+    "url": "tr/ioctl/?q=TIOCNOTTY#TIOCNOTTY",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5422, Linux 7.3"
   },
@@ -9606,7 +9606,7 @@
   {
     "lang": "tr",
     "title": "TIOCSETD",
-    "url": "ioctl/?q=TIOCSETD#TIOCSETD",
+    "url": "tr/ioctl/?q=TIOCSETD#TIOCSETD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5423, Linux 7.3"
   },
@@ -9620,7 +9620,7 @@
   {
     "lang": "tr",
     "title": "TIOCGETD",
-    "url": "ioctl/?q=TIOCGETD#TIOCGETD",
+    "url": "tr/ioctl/?q=TIOCGETD#TIOCGETD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5424, Linux 7.3"
   },
@@ -9634,7 +9634,7 @@
   {
     "lang": "tr",
     "title": "TCSBRKP",
-    "url": "ioctl/?q=TCSBRKP#TCSBRKP",
+    "url": "tr/ioctl/?q=TCSBRKP#TCSBRKP",
     "type": "syscall/",
     "description": "Needed for POSIX tcsendbreak() — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5425, Linux 7.3"
   },
@@ -9648,7 +9648,7 @@
   {
     "lang": "tr",
     "title": "TIOCSBRK",
-    "url": "ioctl/?q=TIOCSBRK#TIOCSBRK",
+    "url": "tr/ioctl/?q=TIOCSBRK#TIOCSBRK",
     "type": "syscall/",
     "description": "BSD compatibility — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x5427, Linux 7.3"
   },
@@ -9662,7 +9662,7 @@
   {
     "lang": "tr",
     "title": "TIOCCBRK",
-    "url": "ioctl/?q=TIOCCBRK#TIOCCBRK",
+    "url": "tr/ioctl/?q=TIOCCBRK#TIOCCBRK",
     "type": "syscall/",
     "description": "BSD compatibility — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x5428, Linux 7.3"
   },
@@ -9676,7 +9676,7 @@
   {
     "lang": "tr",
     "title": "TIOCGSID",
-    "url": "ioctl/?q=TIOCGSID#TIOCGSID",
+    "url": "tr/ioctl/?q=TIOCGSID#TIOCGSID",
     "type": "syscall/",
     "description": "Return the session ID of FD — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5429, Linux 7.3"
   },
@@ -9690,7 +9690,7 @@
   {
     "lang": "tr",
     "title": "TCGETS2",
-    "url": "ioctl/?q=TCGETS2#TCGETS2",
+    "url": "tr/ioctl/?q=TCGETS2#TCGETS2",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9704,7 +9704,7 @@
   {
     "lang": "tr",
     "title": "TCSETS2",
-    "url": "ioctl/?q=TCSETS2#TCSETS2",
+    "url": "tr/ioctl/?q=TCSETS2#TCSETS2",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9718,7 +9718,7 @@
   {
     "lang": "tr",
     "title": "TCSETSW2",
-    "url": "ioctl/?q=TCSETSW2#TCSETSW2",
+    "url": "tr/ioctl/?q=TCSETSW2#TCSETSW2",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9732,7 +9732,7 @@
   {
     "lang": "tr",
     "title": "TCSETSF2",
-    "url": "ioctl/?q=TCSETSF2#TCSETSF2",
+    "url": "tr/ioctl/?q=TCSETSF2#TCSETSF2",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9746,7 +9746,7 @@
   {
     "lang": "tr",
     "title": "TIOCGRS485",
-    "url": "ioctl/?q=TIOCGRS485#TIOCGRS485",
+    "url": "tr/ioctl/?q=TIOCGRS485#TIOCGRS485",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x542e, Linux 7.3"
   },
@@ -9760,7 +9760,7 @@
   {
     "lang": "tr",
     "title": "TIOCSRS485",
-    "url": "ioctl/?q=TIOCSRS485#TIOCSRS485",
+    "url": "tr/ioctl/?q=TIOCSRS485#TIOCSRS485",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x542f, Linux 7.3"
   },
@@ -9774,7 +9774,7 @@
   {
     "lang": "tr",
     "title": "TIOCGPTN",
-    "url": "ioctl/?q=TIOCGPTN#TIOCGPTN",
+    "url": "tr/ioctl/?q=TIOCGPTN#TIOCGPTN",
     "type": "syscall/",
     "description": "Get Pty Number (of pty-mux device) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80045430, Linux 7.3"
   },
@@ -9788,7 +9788,7 @@
   {
     "lang": "tr",
     "title": "TIOCSPTLCK",
-    "url": "ioctl/?q=TIOCSPTLCK#TIOCSPTLCK",
+    "url": "tr/ioctl/?q=TIOCSPTLCK#TIOCSPTLCK",
     "type": "syscall/",
     "description": "Lock/unlock Pty — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x40045431, Linux 7.3"
   },
@@ -9802,7 +9802,7 @@
   {
     "lang": "tr",
     "title": "TIOCGDEV",
-    "url": "ioctl/?q=TIOCGDEV#TIOCGDEV",
+    "url": "tr/ioctl/?q=TIOCGDEV#TIOCGDEV",
     "type": "syscall/",
     "description": "Get primary device node of /dev/console — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80045432, Linux 7.3"
   },
@@ -9816,7 +9816,7 @@
   {
     "lang": "tr",
     "title": "TCGETX",
-    "url": "ioctl/?q=TCGETX#TCGETX",
+    "url": "tr/ioctl/?q=TCGETX#TCGETX",
     "type": "syscall/",
     "description": "SYS5 TCGETX compatibility — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5432, Linux 7.3"
   },
@@ -9830,7 +9830,7 @@
   {
     "lang": "tr",
     "title": "TCSETX",
-    "url": "ioctl/?q=TCSETX#TCSETX",
+    "url": "tr/ioctl/?q=TCSETX#TCSETX",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5433, Linux 7.3"
   },
@@ -9844,7 +9844,7 @@
   {
     "lang": "tr",
     "title": "TCSETXF",
-    "url": "ioctl/?q=TCSETXF#TCSETXF",
+    "url": "tr/ioctl/?q=TCSETXF#TCSETXF",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5434, Linux 7.3"
   },
@@ -9858,7 +9858,7 @@
   {
     "lang": "tr",
     "title": "TCSETXW",
-    "url": "ioctl/?q=TCSETXW#TCSETXW",
+    "url": "tr/ioctl/?q=TCSETXW#TCSETXW",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5435, Linux 7.3"
   },
@@ -9872,7 +9872,7 @@
   {
     "lang": "tr",
     "title": "TIOCSIG",
-    "url": "ioctl/?q=TIOCSIG#TIOCSIG",
+    "url": "tr/ioctl/?q=TIOCSIG#TIOCSIG",
     "type": "syscall/",
     "description": "pty: generate signal — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x40045436, Linux 7.3"
   },
@@ -9886,7 +9886,7 @@
   {
     "lang": "tr",
     "title": "TIOCVHANGUP",
-    "url": "ioctl/?q=TIOCVHANGUP#TIOCVHANGUP",
+    "url": "tr/ioctl/?q=TIOCVHANGUP#TIOCVHANGUP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x5437, Linux 7.3"
   },
@@ -9900,7 +9900,7 @@
   {
     "lang": "tr",
     "title": "TIOCGPKT",
-    "url": "ioctl/?q=TIOCGPKT#TIOCGPKT",
+    "url": "tr/ioctl/?q=TIOCGPKT#TIOCGPKT",
     "type": "syscall/",
     "description": "Get packet mode state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80045438, Linux 7.3"
   },
@@ -9914,7 +9914,7 @@
   {
     "lang": "tr",
     "title": "TIOCGPTLCK",
-    "url": "ioctl/?q=TIOCGPTLCK#TIOCGPTLCK",
+    "url": "tr/ioctl/?q=TIOCGPTLCK#TIOCGPTLCK",
     "type": "syscall/",
     "description": "Get Pty lock state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80045439, Linux 7.3"
   },
@@ -9928,7 +9928,7 @@
   {
     "lang": "tr",
     "title": "TIOCGEXCL",
-    "url": "ioctl/?q=TIOCGEXCL#TIOCGEXCL",
+    "url": "tr/ioctl/?q=TIOCGEXCL#TIOCGEXCL",
     "type": "syscall/",
     "description": "Get exclusive mode state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80045440, Linux 7.3"
   },
@@ -9942,7 +9942,7 @@
   {
     "lang": "tr",
     "title": "TIOCGPTPEER",
-    "url": "ioctl/?q=TIOCGPTPEER#TIOCGPTPEER",
+    "url": "tr/ioctl/?q=TIOCGPTPEER#TIOCGPTPEER",
     "type": "syscall/",
     "description": "Safely open the slave — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5441, Linux 7.3"
   },
@@ -9956,7 +9956,7 @@
   {
     "lang": "tr",
     "title": "TIOCGISO7816",
-    "url": "ioctl/?q=TIOCGISO7816#TIOCGISO7816",
+    "url": "tr/ioctl/?q=TIOCGISO7816#TIOCGISO7816",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9970,7 +9970,7 @@
   {
     "lang": "tr",
     "title": "TIOCSISO7816",
-    "url": "ioctl/?q=TIOCSISO7816#TIOCSISO7816",
+    "url": "tr/ioctl/?q=TIOCSISO7816#TIOCSISO7816",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -9984,7 +9984,7 @@
   {
     "lang": "tr",
     "title": "FIONCLEX",
-    "url": "ioctl/?q=FIONCLEX#FIONCLEX",
+    "url": "tr/ioctl/?q=FIONCLEX#FIONCLEX",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5450, Linux 7.3"
   },
@@ -9998,7 +9998,7 @@
   {
     "lang": "tr",
     "title": "FIOCLEX",
-    "url": "ioctl/?q=FIOCLEX#FIOCLEX",
+    "url": "tr/ioctl/?q=FIOCLEX#FIOCLEX",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5451, Linux 7.3"
   },
@@ -10012,7 +10012,7 @@
   {
     "lang": "tr",
     "title": "FIOASYNC",
-    "url": "ioctl/?q=FIOASYNC#FIOASYNC",
+    "url": "tr/ioctl/?q=FIOASYNC#FIOASYNC",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5452, Linux 7.3"
   },
@@ -10026,7 +10026,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERCONFIG",
-    "url": "ioctl/?q=TIOCSERCONFIG#TIOCSERCONFIG",
+    "url": "tr/ioctl/?q=TIOCSERCONFIG#TIOCSERCONFIG",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5453, Linux 7.3"
   },
@@ -10040,7 +10040,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERGWILD",
-    "url": "ioctl/?q=TIOCSERGWILD#TIOCSERGWILD",
+    "url": "tr/ioctl/?q=TIOCSERGWILD#TIOCSERGWILD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5454, Linux 7.3"
   },
@@ -10054,7 +10054,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERSWILD",
-    "url": "ioctl/?q=TIOCSERSWILD#TIOCSERSWILD",
+    "url": "tr/ioctl/?q=TIOCSERSWILD#TIOCSERSWILD",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5455, Linux 7.3"
   },
@@ -10068,7 +10068,7 @@
   {
     "lang": "tr",
     "title": "TIOCGLCKTRMIOS",
-    "url": "ioctl/?q=TIOCGLCKTRMIOS#TIOCGLCKTRMIOS",
+    "url": "tr/ioctl/?q=TIOCGLCKTRMIOS#TIOCGLCKTRMIOS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5456, Linux 7.3"
   },
@@ -10082,7 +10082,7 @@
   {
     "lang": "tr",
     "title": "TIOCSLCKTRMIOS",
-    "url": "ioctl/?q=TIOCSLCKTRMIOS#TIOCSLCKTRMIOS",
+    "url": "tr/ioctl/?q=TIOCSLCKTRMIOS#TIOCSLCKTRMIOS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5457, Linux 7.3"
   },
@@ -10096,7 +10096,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERGSTRUCT",
-    "url": "ioctl/?q=TIOCSERGSTRUCT#TIOCSERGSTRUCT",
+    "url": "tr/ioctl/?q=TIOCSERGSTRUCT#TIOCSERGSTRUCT",
     "type": "syscall/",
     "description": "For debugging only — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5458, Linux 7.3"
   },
@@ -10110,7 +10110,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERGETLSR",
-    "url": "ioctl/?q=TIOCSERGETLSR#TIOCSERGETLSR",
+    "url": "tr/ioctl/?q=TIOCSERGETLSR#TIOCSERGETLSR",
     "type": "syscall/",
     "description": "Get line status register — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x5459, Linux 7.3"
   },
@@ -10124,7 +10124,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERGETMULTI",
-    "url": "ioctl/?q=TIOCSERGETMULTI#TIOCSERGETMULTI",
+    "url": "tr/ioctl/?q=TIOCSERGETMULTI#TIOCSERGETMULTI",
     "type": "syscall/",
     "description": "Get multiport config — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x545a, Linux 7.3"
   },
@@ -10138,7 +10138,7 @@
   {
     "lang": "tr",
     "title": "TIOCSERSETMULTI",
-    "url": "ioctl/?q=TIOCSERSETMULTI#TIOCSERSETMULTI",
+    "url": "tr/ioctl/?q=TIOCSERSETMULTI#TIOCSERSETMULTI",
     "type": "syscall/",
     "description": "Set multiport config — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x545b, Linux 7.3"
   },
@@ -10152,7 +10152,7 @@
   {
     "lang": "tr",
     "title": "TIOCMIWAIT",
-    "url": "ioctl/?q=TIOCMIWAIT#TIOCMIWAIT",
+    "url": "tr/ioctl/?q=TIOCMIWAIT#TIOCMIWAIT",
     "type": "syscall/",
     "description": "wait for a change on serial input line(s) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x545c, Linux 7.3"
   },
@@ -10166,7 +10166,7 @@
   {
     "lang": "tr",
     "title": "TIOCGICOUNT",
-    "url": "ioctl/?q=TIOCGICOUNT#TIOCGICOUNT",
+    "url": "tr/ioctl/?q=TIOCGICOUNT#TIOCGICOUNT",
     "type": "syscall/",
     "description": "read serial port inline interrupt counts — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x545d, Linux 7.3"
   },
@@ -10180,7 +10180,7 @@
   {
     "lang": "tr",
     "title": "FIOQSIZE",
-    "url": "ioctl/?q=FIOQSIZE#FIOQSIZE",
+    "url": "tr/ioctl/?q=FIOQSIZE#FIOQSIZE",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, RISC-V 64, LoongArch 64 üzerinde ioctl komutu 0x5460, Linux 7.3"
   },
@@ -10194,7 +10194,7 @@
   {
     "lang": "tr",
     "title": "FIOSETOWN",
-    "url": "ioctl/?q=FIOSETOWN#FIOSETOWN",
+    "url": "tr/ioctl/?q=FIOSETOWN#FIOSETOWN",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x8901, Linux 7.3"
   },
@@ -10208,7 +10208,7 @@
   {
     "lang": "tr",
     "title": "SIOCSPGRP",
-    "url": "ioctl/?q=SIOCSPGRP#SIOCSPGRP",
+    "url": "tr/ioctl/?q=SIOCSPGRP#SIOCSPGRP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x8902, Linux 7.3"
   },
@@ -10222,7 +10222,7 @@
   {
     "lang": "tr",
     "title": "FIOGETOWN",
-    "url": "ioctl/?q=FIOGETOWN#FIOGETOWN",
+    "url": "tr/ioctl/?q=FIOGETOWN#FIOGETOWN",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x8903, Linux 7.3"
   },
@@ -10236,7 +10236,7 @@
   {
     "lang": "tr",
     "title": "SIOCGPGRP",
-    "url": "ioctl/?q=SIOCGPGRP#SIOCGPGRP",
+    "url": "tr/ioctl/?q=SIOCGPGRP#SIOCGPGRP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x8904, Linux 7.3"
   },
@@ -10250,7 +10250,7 @@
   {
     "lang": "tr",
     "title": "SIOCATMARK",
-    "url": "ioctl/?q=SIOCATMARK#SIOCATMARK",
+    "url": "tr/ioctl/?q=SIOCATMARK#SIOCATMARK",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x) üzerinde ioctl komutu 0x8905, Linux 7.3"
   },
@@ -10264,7 +10264,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMP_OLD",
-    "url": "ioctl/?q=SIOCGSTAMP_OLD#SIOCGSTAMP_OLD",
+    "url": "tr/ioctl/?q=SIOCGSTAMP_OLD#SIOCGSTAMP_OLD",
     "type": "syscall/",
     "description": "Get stamp (timeval) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8906, Linux 7.3"
   },
@@ -10278,7 +10278,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMPNS_OLD",
-    "url": "ioctl/?q=SIOCGSTAMPNS_OLD#SIOCGSTAMPNS_OLD",
+    "url": "tr/ioctl/?q=SIOCGSTAMPNS_OLD#SIOCGSTAMPNS_OLD",
     "type": "syscall/",
     "description": "Get stamp (timespec) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8907, Linux 7.3"
   },
@@ -10292,7 +10292,7 @@
   {
     "lang": "tr",
     "title": "SIOCINQ",
-    "url": "ioctl/?q=SIOCINQ#SIOCINQ",
+    "url": "tr/ioctl/?q=SIOCINQ#SIOCINQ",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x541b, Linux 7.3"
   },
@@ -10306,7 +10306,7 @@
   {
     "lang": "tr",
     "title": "SIOCOUTQ",
-    "url": "ioctl/?q=SIOCOUTQ#SIOCOUTQ",
+    "url": "tr/ioctl/?q=SIOCOUTQ#SIOCOUTQ",
     "type": "syscall/",
     "description": "output queue size (not sent + not acked) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x5411, Linux 7.3"
   },
@@ -10320,7 +10320,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMP_NEW",
-    "url": "ioctl/?q=SIOCGSTAMP_NEW#SIOCGSTAMP_NEW",
+    "url": "tr/ioctl/?q=SIOCGSTAMP_NEW#SIOCGSTAMP_NEW",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80108906, Linux 7.3"
   },
@@ -10334,7 +10334,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMPNS_NEW",
-    "url": "ioctl/?q=SIOCGSTAMPNS_NEW#SIOCGSTAMPNS_NEW",
+    "url": "tr/ioctl/?q=SIOCGSTAMPNS_NEW#SIOCGSTAMPNS_NEW",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, IBM Z (s390x) üzerinde ioctl komutu 0x80108907, Linux 7.3"
   },
@@ -10348,7 +10348,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMP",
-    "url": "ioctl/?q=SIOCGSTAMP#SIOCGSTAMP",
+    "url": "tr/ioctl/?q=SIOCGSTAMP#SIOCGSTAMP",
     "type": "syscall/",
     "description": "x86-64, AArch64, RISC-V 64, LoongArch 64, PowerPC 64, IBM Z (s390x), MIPS n64 üzerinde ioctl komutu 0x8906, Linux 7.3"
   },
@@ -10362,7 +10362,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSTAMPNS",
-    "url": "ioctl/?q=SIOCGSTAMPNS#SIOCGSTAMPNS",
+    "url": "tr/ioctl/?q=SIOCGSTAMPNS#SIOCGSTAMPNS",
     "type": "syscall/",
     "description": "x86-64, AArch64, RISC-V 64, LoongArch 64, PowerPC 64, IBM Z (s390x), MIPS n64 üzerinde ioctl komutu 0x8907, Linux 7.3"
   },
@@ -10376,7 +10376,7 @@
   {
     "lang": "tr",
     "title": "SIOCADDRT",
-    "url": "ioctl/?q=SIOCADDRT#SIOCADDRT",
+    "url": "tr/ioctl/?q=SIOCADDRT#SIOCADDRT",
     "type": "syscall/",
     "description": "add routing table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x890b, Linux 7.3"
   },
@@ -10390,7 +10390,7 @@
   {
     "lang": "tr",
     "title": "SIOCDELRT",
-    "url": "ioctl/?q=SIOCDELRT#SIOCDELRT",
+    "url": "tr/ioctl/?q=SIOCDELRT#SIOCDELRT",
     "type": "syscall/",
     "description": "delete routing table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x890c, Linux 7.3"
   },
@@ -10404,7 +10404,7 @@
   {
     "lang": "tr",
     "title": "SIOCRTMSG",
-    "url": "ioctl/?q=SIOCRTMSG#SIOCRTMSG",
+    "url": "tr/ioctl/?q=SIOCRTMSG#SIOCRTMSG",
     "type": "syscall/",
     "description": "unused — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x890d, Linux 7.3"
   },
@@ -10418,7 +10418,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFNAME",
-    "url": "ioctl/?q=SIOCGIFNAME#SIOCGIFNAME",
+    "url": "tr/ioctl/?q=SIOCGIFNAME#SIOCGIFNAME",
     "type": "syscall/",
     "description": "get iface name — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8910, Linux 7.3"
   },
@@ -10432,7 +10432,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFLINK",
-    "url": "ioctl/?q=SIOCSIFLINK#SIOCSIFLINK",
+    "url": "tr/ioctl/?q=SIOCSIFLINK#SIOCSIFLINK",
     "type": "syscall/",
     "description": "set iface channel — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8911, Linux 7.3"
   },
@@ -10446,7 +10446,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFCONF",
-    "url": "ioctl/?q=SIOCGIFCONF#SIOCGIFCONF",
+    "url": "tr/ioctl/?q=SIOCGIFCONF#SIOCGIFCONF",
     "type": "syscall/",
     "description": "get iface list — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8912, Linux 7.3"
   },
@@ -10460,7 +10460,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFFLAGS",
-    "url": "ioctl/?q=SIOCGIFFLAGS#SIOCGIFFLAGS",
+    "url": "tr/ioctl/?q=SIOCGIFFLAGS#SIOCGIFFLAGS",
     "type": "syscall/",
     "description": "get flags — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8913, Linux 7.3"
   },
@@ -10474,7 +10474,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFFLAGS",
-    "url": "ioctl/?q=SIOCSIFFLAGS#SIOCSIFFLAGS",
+    "url": "tr/ioctl/?q=SIOCSIFFLAGS#SIOCSIFFLAGS",
     "type": "syscall/",
     "description": "set flags — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8914, Linux 7.3"
   },
@@ -10488,7 +10488,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFADDR",
-    "url": "ioctl/?q=SIOCGIFADDR#SIOCGIFADDR",
+    "url": "tr/ioctl/?q=SIOCGIFADDR#SIOCGIFADDR",
     "type": "syscall/",
     "description": "get PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8915, Linux 7.3"
   },
@@ -10502,7 +10502,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFADDR",
-    "url": "ioctl/?q=SIOCSIFADDR#SIOCSIFADDR",
+    "url": "tr/ioctl/?q=SIOCSIFADDR#SIOCSIFADDR",
     "type": "syscall/",
     "description": "set PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8916, Linux 7.3"
   },
@@ -10516,7 +10516,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFDSTADDR",
-    "url": "ioctl/?q=SIOCGIFDSTADDR#SIOCGIFDSTADDR",
+    "url": "tr/ioctl/?q=SIOCGIFDSTADDR#SIOCGIFDSTADDR",
     "type": "syscall/",
     "description": "get remote PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8917, Linux 7.3"
   },
@@ -10530,7 +10530,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFDSTADDR",
-    "url": "ioctl/?q=SIOCSIFDSTADDR#SIOCSIFDSTADDR",
+    "url": "tr/ioctl/?q=SIOCSIFDSTADDR#SIOCSIFDSTADDR",
     "type": "syscall/",
     "description": "set remote PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8918, Linux 7.3"
   },
@@ -10544,7 +10544,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFBRDADDR",
-    "url": "ioctl/?q=SIOCGIFBRDADDR#SIOCGIFBRDADDR",
+    "url": "tr/ioctl/?q=SIOCGIFBRDADDR#SIOCGIFBRDADDR",
     "type": "syscall/",
     "description": "get broadcast PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8919, Linux 7.3"
   },
@@ -10558,7 +10558,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFBRDADDR",
-    "url": "ioctl/?q=SIOCSIFBRDADDR#SIOCSIFBRDADDR",
+    "url": "tr/ioctl/?q=SIOCSIFBRDADDR#SIOCSIFBRDADDR",
     "type": "syscall/",
     "description": "set broadcast PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891a, Linux 7.3"
   },
@@ -10572,7 +10572,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFNETMASK",
-    "url": "ioctl/?q=SIOCGIFNETMASK#SIOCGIFNETMASK",
+    "url": "tr/ioctl/?q=SIOCGIFNETMASK#SIOCGIFNETMASK",
     "type": "syscall/",
     "description": "get network PA mask — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891b, Linux 7.3"
   },
@@ -10586,7 +10586,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFNETMASK",
-    "url": "ioctl/?q=SIOCSIFNETMASK#SIOCSIFNETMASK",
+    "url": "tr/ioctl/?q=SIOCSIFNETMASK#SIOCSIFNETMASK",
     "type": "syscall/",
     "description": "set network PA mask — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891c, Linux 7.3"
   },
@@ -10600,7 +10600,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFMETRIC",
-    "url": "ioctl/?q=SIOCGIFMETRIC#SIOCGIFMETRIC",
+    "url": "tr/ioctl/?q=SIOCGIFMETRIC#SIOCGIFMETRIC",
     "type": "syscall/",
     "description": "get metric — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891d, Linux 7.3"
   },
@@ -10614,7 +10614,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFMETRIC",
-    "url": "ioctl/?q=SIOCSIFMETRIC#SIOCSIFMETRIC",
+    "url": "tr/ioctl/?q=SIOCSIFMETRIC#SIOCSIFMETRIC",
     "type": "syscall/",
     "description": "set metric — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891e, Linux 7.3"
   },
@@ -10628,7 +10628,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFMEM",
-    "url": "ioctl/?q=SIOCGIFMEM#SIOCGIFMEM",
+    "url": "tr/ioctl/?q=SIOCGIFMEM#SIOCGIFMEM",
     "type": "syscall/",
     "description": "get memory address (BSD) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x891f, Linux 7.3"
   },
@@ -10642,7 +10642,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFMEM",
-    "url": "ioctl/?q=SIOCSIFMEM#SIOCSIFMEM",
+    "url": "tr/ioctl/?q=SIOCSIFMEM#SIOCSIFMEM",
     "type": "syscall/",
     "description": "set memory address (BSD) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8920, Linux 7.3"
   },
@@ -10656,7 +10656,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFMTU",
-    "url": "ioctl/?q=SIOCGIFMTU#SIOCGIFMTU",
+    "url": "tr/ioctl/?q=SIOCGIFMTU#SIOCGIFMTU",
     "type": "syscall/",
     "description": "get MTU size — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8921, Linux 7.3"
   },
@@ -10670,7 +10670,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFMTU",
-    "url": "ioctl/?q=SIOCSIFMTU#SIOCSIFMTU",
+    "url": "tr/ioctl/?q=SIOCSIFMTU#SIOCSIFMTU",
     "type": "syscall/",
     "description": "set MTU size — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8922, Linux 7.3"
   },
@@ -10684,7 +10684,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFNAME",
-    "url": "ioctl/?q=SIOCSIFNAME#SIOCSIFNAME",
+    "url": "tr/ioctl/?q=SIOCSIFNAME#SIOCSIFNAME",
     "type": "syscall/",
     "description": "set interface name — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8923, Linux 7.3"
   },
@@ -10698,7 +10698,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFHWADDR",
-    "url": "ioctl/?q=SIOCSIFHWADDR#SIOCSIFHWADDR",
+    "url": "tr/ioctl/?q=SIOCSIFHWADDR#SIOCSIFHWADDR",
     "type": "syscall/",
     "description": "set hardware address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8924, Linux 7.3"
   },
@@ -10712,7 +10712,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFENCAP",
-    "url": "ioctl/?q=SIOCGIFENCAP#SIOCGIFENCAP",
+    "url": "tr/ioctl/?q=SIOCGIFENCAP#SIOCGIFENCAP",
     "type": "syscall/",
     "description": "get/set encapsulations — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8925, Linux 7.3"
   },
@@ -10726,7 +10726,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFENCAP",
-    "url": "ioctl/?q=SIOCSIFENCAP#SIOCSIFENCAP",
+    "url": "tr/ioctl/?q=SIOCSIFENCAP#SIOCSIFENCAP",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8926, Linux 7.3"
   },
@@ -10740,7 +10740,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFHWADDR",
-    "url": "ioctl/?q=SIOCGIFHWADDR#SIOCGIFHWADDR",
+    "url": "tr/ioctl/?q=SIOCGIFHWADDR#SIOCGIFHWADDR",
     "type": "syscall/",
     "description": "Get hardware address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8927, Linux 7.3"
   },
@@ -10754,7 +10754,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFSLAVE",
-    "url": "ioctl/?q=SIOCGIFSLAVE#SIOCGIFSLAVE",
+    "url": "tr/ioctl/?q=SIOCGIFSLAVE#SIOCGIFSLAVE",
     "type": "syscall/",
     "description": "Driver slaving support — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8929, Linux 7.3"
   },
@@ -10768,7 +10768,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFSLAVE",
-    "url": "ioctl/?q=SIOCSIFSLAVE#SIOCSIFSLAVE",
+    "url": "tr/ioctl/?q=SIOCSIFSLAVE#SIOCSIFSLAVE",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8930, Linux 7.3"
   },
@@ -10782,7 +10782,7 @@
   {
     "lang": "tr",
     "title": "SIOCADDMULTI",
-    "url": "ioctl/?q=SIOCADDMULTI#SIOCADDMULTI",
+    "url": "tr/ioctl/?q=SIOCADDMULTI#SIOCADDMULTI",
     "type": "syscall/",
     "description": "Multicast address lists — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8931, Linux 7.3"
   },
@@ -10796,7 +10796,7 @@
   {
     "lang": "tr",
     "title": "SIOCDELMULTI",
-    "url": "ioctl/?q=SIOCDELMULTI#SIOCDELMULTI",
+    "url": "tr/ioctl/?q=SIOCDELMULTI#SIOCDELMULTI",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8932, Linux 7.3"
   },
@@ -10810,7 +10810,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFINDEX",
-    "url": "ioctl/?q=SIOCGIFINDEX#SIOCGIFINDEX",
+    "url": "tr/ioctl/?q=SIOCGIFINDEX#SIOCGIFINDEX",
     "type": "syscall/",
     "description": "name -> if_index mapping — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8933, Linux 7.3"
   },
@@ -10824,7 +10824,7 @@
   {
     "lang": "tr",
     "title": "SIOGIFINDEX",
-    "url": "ioctl/?q=SIOGIFINDEX#SIOGIFINDEX",
+    "url": "tr/ioctl/?q=SIOGIFINDEX#SIOGIFINDEX",
     "type": "syscall/",
     "description": "misprint compatibility :-) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8933, Linux 7.3"
   },
@@ -10838,7 +10838,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFPFLAGS",
-    "url": "ioctl/?q=SIOCSIFPFLAGS#SIOCSIFPFLAGS",
+    "url": "tr/ioctl/?q=SIOCSIFPFLAGS#SIOCSIFPFLAGS",
     "type": "syscall/",
     "description": "set/get extended flags set — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8934, Linux 7.3"
   },
@@ -10852,7 +10852,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFPFLAGS",
-    "url": "ioctl/?q=SIOCGIFPFLAGS#SIOCGIFPFLAGS",
+    "url": "tr/ioctl/?q=SIOCGIFPFLAGS#SIOCGIFPFLAGS",
     "type": "syscall/",
     "description": "x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8935, Linux 7.3"
   },
@@ -10866,7 +10866,7 @@
   {
     "lang": "tr",
     "title": "SIOCDIFADDR",
-    "url": "ioctl/?q=SIOCDIFADDR#SIOCDIFADDR",
+    "url": "tr/ioctl/?q=SIOCDIFADDR#SIOCDIFADDR",
     "type": "syscall/",
     "description": "delete PA address — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8936, Linux 7.3"
   },
@@ -10880,7 +10880,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFHWBROADCAST",
-    "url": "ioctl/?q=SIOCSIFHWBROADCAST#SIOCSIFHWBROADCAST",
+    "url": "tr/ioctl/?q=SIOCSIFHWBROADCAST#SIOCSIFHWBROADCAST",
     "type": "syscall/",
     "description": "set hardware broadcast addr — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8937, Linux 7.3"
   },
@@ -10894,7 +10894,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFCOUNT",
-    "url": "ioctl/?q=SIOCGIFCOUNT#SIOCGIFCOUNT",
+    "url": "tr/ioctl/?q=SIOCGIFCOUNT#SIOCGIFCOUNT",
     "type": "syscall/",
     "description": "get number of devices — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8938, Linux 7.3"
   },
@@ -10908,7 +10908,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFBR",
-    "url": "ioctl/?q=SIOCGIFBR#SIOCGIFBR",
+    "url": "tr/ioctl/?q=SIOCGIFBR#SIOCGIFBR",
     "type": "syscall/",
     "description": "Bridging support — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8940, Linux 7.3"
   },
@@ -10922,7 +10922,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFBR",
-    "url": "ioctl/?q=SIOCSIFBR#SIOCSIFBR",
+    "url": "tr/ioctl/?q=SIOCSIFBR#SIOCSIFBR",
     "type": "syscall/",
     "description": "Set bridging options — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8941, Linux 7.3"
   },
@@ -10936,7 +10936,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFTXQLEN",
-    "url": "ioctl/?q=SIOCGIFTXQLEN#SIOCGIFTXQLEN",
+    "url": "tr/ioctl/?q=SIOCGIFTXQLEN#SIOCGIFTXQLEN",
     "type": "syscall/",
     "description": "Get the tx queue length — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8942, Linux 7.3"
   },
@@ -10950,7 +10950,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFTXQLEN",
-    "url": "ioctl/?q=SIOCSIFTXQLEN#SIOCSIFTXQLEN",
+    "url": "tr/ioctl/?q=SIOCSIFTXQLEN#SIOCSIFTXQLEN",
     "type": "syscall/",
     "description": "Set the tx queue length — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8943, Linux 7.3"
   },
@@ -10964,7 +10964,7 @@
   {
     "lang": "tr",
     "title": "SIOCETHTOOL",
-    "url": "ioctl/?q=SIOCETHTOOL#SIOCETHTOOL",
+    "url": "tr/ioctl/?q=SIOCETHTOOL#SIOCETHTOOL",
     "type": "syscall/",
     "description": "Ethtool interface — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8946, Linux 7.3"
   },
@@ -10978,7 +10978,7 @@
   {
     "lang": "tr",
     "title": "SIOCGMIIPHY",
-    "url": "ioctl/?q=SIOCGMIIPHY#SIOCGMIIPHY",
+    "url": "tr/ioctl/?q=SIOCGMIIPHY#SIOCGMIIPHY",
     "type": "syscall/",
     "description": "Get address of MII PHY in use. — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8947, Linux 7.3"
   },
@@ -10992,7 +10992,7 @@
   {
     "lang": "tr",
     "title": "SIOCGMIIREG",
-    "url": "ioctl/?q=SIOCGMIIREG#SIOCGMIIREG",
+    "url": "tr/ioctl/?q=SIOCGMIIREG#SIOCGMIIREG",
     "type": "syscall/",
     "description": "Read MII PHY register. — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8948, Linux 7.3"
   },
@@ -11006,7 +11006,7 @@
   {
     "lang": "tr",
     "title": "SIOCSMIIREG",
-    "url": "ioctl/?q=SIOCSMIIREG#SIOCSMIIREG",
+    "url": "tr/ioctl/?q=SIOCSMIIREG#SIOCSMIIREG",
     "type": "syscall/",
     "description": "Write MII PHY register. — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8949, Linux 7.3"
   },
@@ -11020,7 +11020,7 @@
   {
     "lang": "tr",
     "title": "SIOCWANDEV",
-    "url": "ioctl/?q=SIOCWANDEV#SIOCWANDEV",
+    "url": "tr/ioctl/?q=SIOCWANDEV#SIOCWANDEV",
     "type": "syscall/",
     "description": "get/set netdev parameters — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x894a, Linux 7.3"
   },
@@ -11034,7 +11034,7 @@
   {
     "lang": "tr",
     "title": "SIOCOUTQNSD",
-    "url": "ioctl/?q=SIOCOUTQNSD#SIOCOUTQNSD",
+    "url": "tr/ioctl/?q=SIOCOUTQNSD#SIOCOUTQNSD",
     "type": "syscall/",
     "description": "output queue size (not sent only) — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x894b, Linux 7.3"
   },
@@ -11048,7 +11048,7 @@
   {
     "lang": "tr",
     "title": "SIOCGSKNS",
-    "url": "ioctl/?q=SIOCGSKNS#SIOCGSKNS",
+    "url": "tr/ioctl/?q=SIOCGSKNS#SIOCGSKNS",
     "type": "syscall/",
     "description": "get socket network namespace — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x894c, Linux 7.3"
   },
@@ -11062,7 +11062,7 @@
   {
     "lang": "tr",
     "title": "SIOCDARP",
-    "url": "ioctl/?q=SIOCDARP#SIOCDARP",
+    "url": "tr/ioctl/?q=SIOCDARP#SIOCDARP",
     "type": "syscall/",
     "description": "delete ARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8953, Linux 7.3"
   },
@@ -11076,7 +11076,7 @@
   {
     "lang": "tr",
     "title": "SIOCGARP",
-    "url": "ioctl/?q=SIOCGARP#SIOCGARP",
+    "url": "tr/ioctl/?q=SIOCGARP#SIOCGARP",
     "type": "syscall/",
     "description": "get ARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8954, Linux 7.3"
   },
@@ -11090,7 +11090,7 @@
   {
     "lang": "tr",
     "title": "SIOCSARP",
-    "url": "ioctl/?q=SIOCSARP#SIOCSARP",
+    "url": "tr/ioctl/?q=SIOCSARP#SIOCSARP",
     "type": "syscall/",
     "description": "set ARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8955, Linux 7.3"
   },
@@ -11104,7 +11104,7 @@
   {
     "lang": "tr",
     "title": "SIOCDRARP",
-    "url": "ioctl/?q=SIOCDRARP#SIOCDRARP",
+    "url": "tr/ioctl/?q=SIOCDRARP#SIOCDRARP",
     "type": "syscall/",
     "description": "delete RARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8960, Linux 7.3"
   },
@@ -11118,7 +11118,7 @@
   {
     "lang": "tr",
     "title": "SIOCGRARP",
-    "url": "ioctl/?q=SIOCGRARP#SIOCGRARP",
+    "url": "tr/ioctl/?q=SIOCGRARP#SIOCGRARP",
     "type": "syscall/",
     "description": "get RARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8961, Linux 7.3"
   },
@@ -11132,7 +11132,7 @@
   {
     "lang": "tr",
     "title": "SIOCSRARP",
-    "url": "ioctl/?q=SIOCSRARP#SIOCSRARP",
+    "url": "tr/ioctl/?q=SIOCSRARP#SIOCSRARP",
     "type": "syscall/",
     "description": "set RARP table entry — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8962, Linux 7.3"
   },
@@ -11146,7 +11146,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFMAP",
-    "url": "ioctl/?q=SIOCGIFMAP#SIOCGIFMAP",
+    "url": "tr/ioctl/?q=SIOCGIFMAP#SIOCGIFMAP",
     "type": "syscall/",
     "description": "Get device parameters — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8970, Linux 7.3"
   },
@@ -11160,7 +11160,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFMAP",
-    "url": "ioctl/?q=SIOCSIFMAP#SIOCSIFMAP",
+    "url": "tr/ioctl/?q=SIOCSIFMAP#SIOCSIFMAP",
     "type": "syscall/",
     "description": "Set device parameters — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8971, Linux 7.3"
   },
@@ -11174,7 +11174,7 @@
   {
     "lang": "tr",
     "title": "SIOCADDDLCI",
-    "url": "ioctl/?q=SIOCADDDLCI#SIOCADDDLCI",
+    "url": "tr/ioctl/?q=SIOCADDDLCI#SIOCADDDLCI",
     "type": "syscall/",
     "description": "Create new DLCI device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8980, Linux 7.3"
   },
@@ -11188,7 +11188,7 @@
   {
     "lang": "tr",
     "title": "SIOCDELDLCI",
-    "url": "ioctl/?q=SIOCDELDLCI#SIOCDELDLCI",
+    "url": "tr/ioctl/?q=SIOCDELDLCI#SIOCDELDLCI",
     "type": "syscall/",
     "description": "Delete DLCI device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8981, Linux 7.3"
   },
@@ -11202,7 +11202,7 @@
   {
     "lang": "tr",
     "title": "SIOCGIFVLAN",
-    "url": "ioctl/?q=SIOCGIFVLAN#SIOCGIFVLAN",
+    "url": "tr/ioctl/?q=SIOCGIFVLAN#SIOCGIFVLAN",
     "type": "syscall/",
     "description": "802.1Q VLAN support — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8982, Linux 7.3"
   },
@@ -11216,7 +11216,7 @@
   {
     "lang": "tr",
     "title": "SIOCSIFVLAN",
-    "url": "ioctl/?q=SIOCSIFVLAN#SIOCSIFVLAN",
+    "url": "tr/ioctl/?q=SIOCSIFVLAN#SIOCSIFVLAN",
     "type": "syscall/",
     "description": "Set 802.1Q VLAN options — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8983, Linux 7.3"
   },
@@ -11230,7 +11230,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDENSLAVE",
-    "url": "ioctl/?q=SIOCBONDENSLAVE#SIOCBONDENSLAVE",
+    "url": "tr/ioctl/?q=SIOCBONDENSLAVE#SIOCBONDENSLAVE",
     "type": "syscall/",
     "description": "enslave a device to the bond — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8990, Linux 7.3"
   },
@@ -11244,7 +11244,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDRELEASE",
-    "url": "ioctl/?q=SIOCBONDRELEASE#SIOCBONDRELEASE",
+    "url": "tr/ioctl/?q=SIOCBONDRELEASE#SIOCBONDRELEASE",
     "type": "syscall/",
     "description": "release a slave from the bond — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8991, Linux 7.3"
   },
@@ -11258,7 +11258,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDSETHWADDR",
-    "url": "ioctl/?q=SIOCBONDSETHWADDR#SIOCBONDSETHWADDR",
+    "url": "tr/ioctl/?q=SIOCBONDSETHWADDR#SIOCBONDSETHWADDR",
     "type": "syscall/",
     "description": "set the hw addr of the bond — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8992, Linux 7.3"
   },
@@ -11272,7 +11272,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDSLAVEINFOQUERY",
-    "url": "ioctl/?q=SIOCBONDSLAVEINFOQUERY#SIOCBONDSLAVEINFOQUERY",
+    "url": "tr/ioctl/?q=SIOCBONDSLAVEINFOQUERY#SIOCBONDSLAVEINFOQUERY",
     "type": "syscall/",
     "description": "rtn info about slave state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8993, Linux 7.3"
   },
@@ -11286,7 +11286,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDINFOQUERY",
-    "url": "ioctl/?q=SIOCBONDINFOQUERY#SIOCBONDINFOQUERY",
+    "url": "tr/ioctl/?q=SIOCBONDINFOQUERY#SIOCBONDINFOQUERY",
     "type": "syscall/",
     "description": "rtn info about bond state — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8994, Linux 7.3"
   },
@@ -11300,7 +11300,7 @@
   {
     "lang": "tr",
     "title": "SIOCBONDCHANGEACTIVE",
-    "url": "ioctl/?q=SIOCBONDCHANGEACTIVE#SIOCBONDCHANGEACTIVE",
+    "url": "tr/ioctl/?q=SIOCBONDCHANGEACTIVE#SIOCBONDCHANGEACTIVE",
     "type": "syscall/",
     "description": "update to a new active slave — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x8995, Linux 7.3"
   },
@@ -11314,7 +11314,7 @@
   {
     "lang": "tr",
     "title": "SIOCBRADDBR",
-    "url": "ioctl/?q=SIOCBRADDBR#SIOCBRADDBR",
+    "url": "tr/ioctl/?q=SIOCBRADDBR#SIOCBRADDBR",
     "type": "syscall/",
     "description": "create new bridge device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89a0, Linux 7.3"
   },
@@ -11328,7 +11328,7 @@
   {
     "lang": "tr",
     "title": "SIOCBRDELBR",
-    "url": "ioctl/?q=SIOCBRDELBR#SIOCBRDELBR",
+    "url": "tr/ioctl/?q=SIOCBRDELBR#SIOCBRDELBR",
     "type": "syscall/",
     "description": "remove bridge device — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89a1, Linux 7.3"
   },
@@ -11342,7 +11342,7 @@
   {
     "lang": "tr",
     "title": "SIOCBRADDIF",
-    "url": "ioctl/?q=SIOCBRADDIF#SIOCBRADDIF",
+    "url": "tr/ioctl/?q=SIOCBRADDIF#SIOCBRADDIF",
     "type": "syscall/",
     "description": "add interface to bridge — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89a2, Linux 7.3"
   },
@@ -11356,7 +11356,7 @@
   {
     "lang": "tr",
     "title": "SIOCBRDELIF",
-    "url": "ioctl/?q=SIOCBRDELIF#SIOCBRDELIF",
+    "url": "tr/ioctl/?q=SIOCBRDELIF#SIOCBRDELIF",
     "type": "syscall/",
     "description": "remove interface from bridge — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89a3, Linux 7.3"
   },
@@ -11370,7 +11370,7 @@
   {
     "lang": "tr",
     "title": "SIOCSHWTSTAMP",
-    "url": "ioctl/?q=SIOCSHWTSTAMP#SIOCSHWTSTAMP",
+    "url": "tr/ioctl/?q=SIOCSHWTSTAMP#SIOCSHWTSTAMP",
     "type": "syscall/",
     "description": "set and get config — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89b0, Linux 7.3"
   },
@@ -11384,7 +11384,7 @@
   {
     "lang": "tr",
     "title": "SIOCGHWTSTAMP",
-    "url": "ioctl/?q=SIOCGHWTSTAMP#SIOCGHWTSTAMP",
+    "url": "tr/ioctl/?q=SIOCGHWTSTAMP#SIOCGHWTSTAMP",
     "type": "syscall/",
     "description": "get config — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89b1, Linux 7.3"
   },
@@ -11398,7 +11398,7 @@
   {
     "lang": "tr",
     "title": "SIOCDEVPRIVATE",
-    "url": "ioctl/?q=SIOCDEVPRIVATE#SIOCDEVPRIVATE",
+    "url": "tr/ioctl/?q=SIOCDEVPRIVATE#SIOCDEVPRIVATE",
     "type": "syscall/",
     "description": "to 89FF — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89f0, Linux 7.3"
   },
@@ -11412,7 +11412,7 @@
   {
     "lang": "tr",
     "title": "SIOCPROTOPRIVATE",
-    "url": "ioctl/?q=SIOCPROTOPRIVATE#SIOCPROTOPRIVATE",
+    "url": "tr/ioctl/?q=SIOCPROTOPRIVATE#SIOCPROTOPRIVATE",
     "type": "syscall/",
     "description": "to 89EF — x86-64, i386, AArch64, ARM EABI, RISC-V 64, LoongArch 64, PowerPC 64, PowerPC 32, IBM Z (s390x), MIPS o32, MIPS n32, MIPS n64 üzerinde ioctl komutu 0x89e0, Linux 7.3"
   },
@@ -11426,7 +11426,7 @@
   {
     "lang": "tr",
     "title": "TIOCGETP",
-    "url": "ioctl/?arch=ppc64&q=TIOCGETP#TIOCGETP",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCGETP#TIOCGETP",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11440,7 +11440,7 @@
   {
     "lang": "tr",
     "title": "TIOCSETP",
-    "url": "ioctl/?arch=ppc64&q=TIOCSETP#TIOCSETP",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSETP#TIOCSETP",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11454,7 +11454,7 @@
   {
     "lang": "tr",
     "title": "TIOCSETN",
-    "url": "ioctl/?arch=ppc64&q=TIOCSETN#TIOCSETN",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSETN#TIOCSETN",
     "type": "syscall/",
     "description": "TIOCSETP wo flush — PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11468,7 +11468,7 @@
   {
     "lang": "tr",
     "title": "TIOCSETC",
-    "url": "ioctl/?arch=ppc64&q=TIOCSETC#TIOCSETC",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSETC#TIOCSETC",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11482,7 +11482,7 @@
   {
     "lang": "tr",
     "title": "TIOCGETC",
-    "url": "ioctl/?arch=ppc64&q=TIOCGETC#TIOCGETC",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCGETC#TIOCGETC",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11496,7 +11496,7 @@
   {
     "lang": "tr",
     "title": "TIOCSTART",
-    "url": "ioctl/?arch=ppc64&q=TIOCSTART#TIOCSTART",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSTART#TIOCSTART",
     "type": "syscall/",
     "description": "start output, like ^Q — PowerPC 64, PowerPC 32 üzerinde ioctl komutu 0x2000746e, Linux 7.3"
   },
@@ -11510,7 +11510,7 @@
   {
     "lang": "tr",
     "title": "TIOCSTOP",
-    "url": "ioctl/?arch=ppc64&q=TIOCSTOP#TIOCSTOP",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSTOP#TIOCSTOP",
     "type": "syscall/",
     "description": "stop output, like ^S — PowerPC 64, PowerPC 32 üzerinde ioctl komutu 0x2000746f, Linux 7.3"
   },
@@ -11524,7 +11524,7 @@
   {
     "lang": "tr",
     "title": "TIOCGLTC",
-    "url": "ioctl/?arch=ppc64&q=TIOCGLTC#TIOCGLTC",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCGLTC#TIOCGLTC",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },
@@ -11538,7 +11538,7 @@
   {
     "lang": "tr",
     "title": "TIOCSLTC",
-    "url": "ioctl/?arch=ppc64&q=TIOCSLTC#TIOCSLTC",
+    "url": "tr/ioctl/?arch=ppc64&q=TIOCSLTC#TIOCSLTC",
     "type": "syscall/",
     "description": "PowerPC 64, PowerPC 32 üzerinde ioctl komutu boyuta bağlı bir makroyla tanımlı, Linux 7.3"
   },

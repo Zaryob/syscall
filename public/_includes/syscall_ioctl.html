@@ -1,0 +1,97 @@
+{% assign locale = 0 %}{% assign edition_prefix = '' %}{% if page.lang == 'tr' %}{% assign locale = 1 %}{% assign edition_prefix = '/tr' %}{% endif %}
+{% assign labels = site.data.syscall_copy.syscall_ioctl %}
+<!-- SPDX-License-Identifier: GPL-2.0-only -->
+{% assign abi_release = site.data.syscall_release.abi_latest %}
+{% assign abi_document = '/data/abi/' | append: abi_release | append: '/ioctl.json' %}
+{% assign abi_registry = '/data/abi/' | append: abi_release | append: '/ioctl-numbers.json' %}
+    <section id="reference" data-abi-page="ioctl" tabindex="-1" aria-labelledby="table-title">
+      <p class="table-back"><a href="{{ edition_prefix | append: '/' | relative_url }}#architectures" data-abi-link>← <span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span></a></p>
+      <h1 id="table-title"><span data-i18n="Linux ioctl requests">{{ labels["Linux ioctl requests"][locale] | escape }}</span></h1>
+      {% include abi-nav.html current='ioctl' %}
+      <p class="abi-lede" data-abi-copy="ioctlLede">{{ labels["abi.ioctlLede"][locale] }}</p>
+      <nav class="reference-links" aria-label='{{ labels["On this page"][locale] | escape }}' data-i18n-aria-label="On this page">
+        <a href="#layout"><span data-i18n="Request-number layout">{{ labels["Request-number layout"][locale] | escape }}</span></a>
+        <a href="#decoder"><span data-i18n="Decode a request number">{{ labels["Decode a request number"][locale] | escape }}</span></a>
+        <a href="#commands"><span data-i18n="Terminal and socket commands">{{ labels["Terminal and socket commands"][locale] | escape }}</span></a>
+        <a href="#magic"><span data-i18n="Registered magic numbers">{{ labels["Registered magic numbers"][locale] | escape }}</span></a>
+      </nav>
+      {% include abi-lookup.html label='Find a command' %}
+      <div id="error" class="error" role="alert" hidden></div>
+      <noscript><p><a href="{{ abi_document | relative_url }}"><span data-i18n="the ioctl tables as JSON">{{ labels["the ioctl tables as JSON"][locale] | escape }}</span></a></p></noscript>
+    </section>
+
+    <section id="layout" tabindex="-1" class="documentation" aria-labelledby="layout-title">
+      <div class="doc-heading">
+        <h2 id="layout-title"><span data-i18n="Request-number layout">{{ labels["Request-number layout"][locale] | escape }}</span></h2>
+        <a href="#main"><span data-i18n="Back to top ↑">{{ labels["Back to top ↑"][locale] | escape }}</span></a>
+      </div>
+      <p id="layout-intro"></p>
+      <div id="bit-layout" class="bit-layout" aria-hidden="true"></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["Request-number layout"][locale] | escape }}' data-i18n-aria-label="Request-number layout">
+        <table class="abi-table layout-table">
+          <caption class="console-sr-only"><span data-i18n="Request-number layout">{{ labels["Request-number layout"][locale] | escape }}</span></caption>
+          <thead><tr><th scope="col"><span data-i18n="Field">{{ labels["Field"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Width in bits">{{ labels["Width in bits"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Position">{{ labels["Position"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Source">{{ labels["Source"][locale] | escape }}</span></th></tr></thead>
+          <tbody id="layout-rows"></tbody>
+        </table>
+      </div>
+      <p id="direction-values" class="small"></p>
+      <p class="small" data-abi-copy="legacy">{{ labels["abi.legacy"][locale] }}</p>
+    </section>
+
+    <section id="decoder" tabindex="-1" class="documentation" aria-labelledby="decoder-title">
+      <div class="doc-heading">
+        <h2 id="decoder-title"><span data-i18n="Decode a request number">{{ labels["Decode a request number"][locale] | escape }}</span></h2>
+        <a href="#main"><span data-i18n="Back to top ↑">{{ labels["Back to top ↑"][locale] | escape }}</span></a>
+      </div>
+      <form id="decoder-form" class="decoder-form">
+        <label for="request"><span data-i18n="Request number">{{ labels["Request number"][locale] | escape }}</span></label>
+        <div class="search-line"><input id="request" type="text" inputmode="text" placeholder="0x5401" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="decoder-help"><button type="submit"><span data-i18n="Decode">{{ labels["Decode"][locale] | escape }}</span></button></div>
+        <p id="decoder-help" class="small"><span data-i18n="Hexadecimal with 0x, or decimal. The architecture selected above decides the layout.">{{ labels["Hexadecimal with 0x, or decimal. The architecture selected above decides the layout."][locale] | escape }}</span></p>
+      </form>
+      <div id="decoder-result" class="decoder-result" tabindex="-1" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="commands" tabindex="-1" class="documentation" aria-labelledby="commands-title">
+      <div class="doc-heading">
+        <h2 id="commands-title"><span data-i18n="Terminal and socket commands">{{ labels["Terminal and socket commands"][locale] | escape }}</span></h2>
+        <a href="#main"><span data-i18n="Back to top ↑">{{ labels["Back to top ↑"][locale] | escape }}</span></a>
+      </div>
+      <p data-abi-copy="commandsNote">{{ labels["abi.commandsNote"][locale] }}</p>
+      <div class="table-toolbar">
+        <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">{{ labels["Loading…"][locale] | escape }}</span></p>
+        <div class="table-actions"><a id="download" hidden href="{{ abi_document | relative_url }}" download><span data-i18n="Download JSON ↓">{{ labels["Download JSON ↓"][locale] | escape }}</span></a></div>
+      </div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["ioctl commands for the selected architecture"][locale] | escape }}' data-i18n-aria-label="ioctl commands for the selected architecture">
+        <table class="abi-table">
+          <caption class="console-sr-only"><span data-i18n="ioctl commands for the selected architecture">{{ labels["ioctl commands for the selected architecture"][locale] | escape }}</span></caption>
+          <thead><tr><th scope="col"><span data-i18n="Name">{{ labels["Name"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Value">{{ labels["Value"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Definition">{{ labels["Definition"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Group">{{ labels["Group"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Kernel comment">{{ labels["Kernel comment"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Source">{{ labels["Source"][locale] | escape }}</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No entries match this search.">{{ labels["No entries match this search."][locale] | escape }}</span> <button type="button" id="reset-search"><span data-i18n="Clear search">{{ labels["Clear search"][locale] | escape }}</span></button></p>
+    </section>
+
+    <section id="magic" tabindex="-1" class="documentation" aria-labelledby="magic-title">
+      <div class="doc-heading">
+        <h2 id="magic-title"><span data-i18n="Registered magic numbers">{{ labels["Registered magic numbers"][locale] | escape }}</span></h2>
+        <a href="#main"><span data-i18n="Back to top ↑">{{ labels["Back to top ↑"][locale] | escape }}</span></a>
+      </div>
+      <p><span data-abi-copy="registryNote">{{ labels["abi.registryNote"][locale] }}</span> <span id="registry-source"></span></p>
+      <form id="magic-form" class="decoder-form" role="search">
+        <label for="magic-search"><span data-i18n="Find a magic number">{{ labels["Find a magic number"][locale] | escape }}</span></label>
+        <div class="search-line"><input id="magic-search" type="search" placeholder='{{ labels["Code, file, or text…"][locale] | escape }}' data-i18n-placeholder="Code, file, or text…" autocomplete="off" spellcheck="false"></div>
+      </form>
+      <div class="table-toolbar">
+        <p id="magic-results" role="status" aria-live="polite"></p>
+        <div class="table-actions"><a href="{{ abi_registry | relative_url }}" download><span data-i18n="Download JSON ↓">{{ labels["Download JSON ↓"][locale] | escape }}</span></a></div>
+      </div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["Registered magic numbers"][locale] | escape }}' data-i18n-aria-label="Registered magic numbers">
+        <table class="abi-table">
+          <caption class="console-sr-only"><span data-i18n="Registered magic numbers">{{ labels["Registered magic numbers"][locale] | escape }}</span></caption>
+          <thead><tr><th scope="col"><span data-i18n="Code">{{ labels["Code"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Sequence">{{ labels["Sequence"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Include file">{{ labels["Include file"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Comments">{{ labels["Comments"][locale] | escape }}</span></th></tr></thead>
+          <tbody id="magic-rows"></tbody>
+        </table>
+      </div>
+      <p id="magic-empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No entries match this search.">{{ labels["No entries match this search."][locale] | escape }}</span> <button type="button" id="magic-reset"><span data-i18n="Clear search">{{ labels["Clear search"][locale] | escape }}</span></button></p>
+    </section>
+    {% include abi-about.html %}

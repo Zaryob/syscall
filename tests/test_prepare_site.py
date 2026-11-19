@@ -75,7 +75,7 @@ class PrepareTests(unittest.TestCase):
         self.assertEqual(parse_qs(urlsplit(by_key[('SIGEMT', 'en')]['url']).query)['arch'], ['mips-o32'])
         self.assertTrue(by_key[('SIGEMT', 'en')]['url'].startswith('signals/?'))
         self.assertIn('0x5401', by_key[('TCGETS', 'en')]['description'])
-        self.assertTrue(by_key[('TCGETS', 'tr')]['url'].startswith('ioctl/?'))
+        self.assertTrue(by_key[('TCGETS', 'tr')]['url'].startswith('tr/ioctl/?'))
         for name in generic:
             self.assertIn((name, 'tr'), by_key)
 

@@ -78,7 +78,7 @@ def abi_search_entries(abi):
                     text = templates[kind][lang].format(number=number, scope=', '.join(same), release=release)
                     entries.append({
                         'lang': lang, 'title': name,
-                        'url': page + '?' + urlencode({**({} if arch == 'x64' else {'arch': arch}), 'q': name}) + '#' + name,
+                        'url': ('tr/' if lang == 'tr' else '') + page + '?' + urlencode({**({} if arch == 'x64' else {'arch': arch}), 'q': name}) + '#' + name,
                         'type': 'syscall/',
                         'description': ' — '.join(part for part in [entry.get('comment'), text] if part),
                     })
@@ -175,7 +175,7 @@ def prepare():
         if any(p in {'__pycache__', 'downloads'} or p.startswith('.') and p not in {'.github', '.gitignore', '.ruby-version'} for p in relative.parts):
             continue
         # Reproducible from scripts/static_pages.py and the bundled data.
-        if relative.parts[0] == 'public' and relative.parts[1] in static_pages.OUTPUT_DIRS:
+        if relative.parts[0] == 'public' and (relative.parts[1] in static_pages.OUTPUT_DIRS or '/'.join(relative.parts[1:3]) in static_pages.OUTPUT_DIRS):
             continue
         if path.suffix in {'.pyc', '.pem', '.key'} or path.name.startswith('.env'):
             continue

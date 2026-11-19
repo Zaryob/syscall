@@ -394,10 +394,12 @@ test('an open call names the tab and links to its permanent page in the reader\'
   assert.equal(await page.title(), 'openat (56) · AArch64 · Linux 7.3 · Sistem Çağrıları Referansı');
   assert.equal(await page.locator('.detail-row a[href$="/tr/call/openat/"]').count(), 1);
   await page.goto(`${base}?lang=tr`);
-  await page.waitForFunction(() => document.querySelector('[data-static-page="call/"]').getAttribute('href') === '/syscall-test/tr/call/');
+  await page.waitForURL(`${base}tr/`);
+  await page.waitForFunction(() => [...document.querySelectorAll('#architecture-links a')].some(link => link.href.includes('arch=arm64')));
   const architecture=new URL(await page.locator('#architecture-links a').filter({hasText:'AArch64'}).getAttribute('href'),base);
   assert.equal(architecture.searchParams.get('arch'),'arm64');
-  assert.equal(architecture.searchParams.get('lang'),'tr');
+  assert.equal(architecture.pathname, '/syscall-test/tr/');
+  assert.equal(architecture.searchParams.has('lang'), false);
 });
 
 test('generated pages are readable without JavaScript and fit a phone', async t => {
@@ -407,6 +409,11 @@ test('generated pages are readable without JavaScript and fit a phone', async t 
   assert.equal(await page.locator('#architecture-links a[href="/syscall-test/arch/x64/"]').count(), 1);
   assert.equal(await page.locator('.static-links a[href="/syscall-test/call/"]').count(), 1);
   assert.equal(await page.locator('#architecture-links a, .static-links a').count(), 13);
+
+  await page.goto(`${base}tr/`);
+  assert.match(await page.locator('h1').first().textContent(), /Linux Sistem Çağrıları Referansı/);
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://zaryob.github.io/syscall/tr/');
+  assert.equal(await page.locator('a[href="/syscall-test/tr/errno/"]').count(), 1);
 
   await page.goto(`${base}call/openat/`);
   assert.equal(await page.title(), 'openat — Linux system call numbers by architecture (Linux 7.3)');

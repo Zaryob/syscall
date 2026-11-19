@@ -159,7 +159,7 @@ test('both languages define the same copy, and every UI key of the new pages is 
   const dictionary = await readFile(file('assets/console/i18n.js'), 'utf8');
   const translated = new Set([...dictionary.matchAll(/^  "((?:[^"\\]|\\.)*)":/gm)].map(match => JSON.parse(`"${match[1]}"`)));
   const decode = text => text.replace(/&amp;/g, '&');
-  const pages = ['errno/index.html', 'signals/index.html', 'ioctl/index.html',
+  const pages = ['_includes/syscall_errno.html', '_includes/syscall_signals.html', '_includes/syscall_ioctl.html',
     ...(await readdir(file('_includes'))).filter(name => name.startsWith('abi-')).map(name => `_includes/${name}`)];
   const used = new Set(['Find an error number', 'Find a signal', 'Find a command']);
   for (const page of pages) {
@@ -172,6 +172,6 @@ test('both languages define the same copy, and every UI key of the new pages is 
   assert.ok(used.size > 40);
   for (const key of used) assert.ok(translated.has(key), `Missing Turkish UI string: ${key}`);
   // The landing page leads to every section once, from the navigation under the architecture list.
-  const landing = await readFile(file('index.html'), 'utf8');
-  for (const section of ['errno', 'signals', 'ioctl']) assert.equal(landing.split(`{{ '/${section}/' | relative_url }}`).length - 1, 1, section);
+  const landing = await readFile(file('_includes/syscall_landing.html'), 'utf8');
+  for (const section of ['errno', 'signals', 'ioctl']) assert.equal(landing.split(`{{ edition_prefix | append: '/${section}/' | relative_url }}`).length - 1, 1, section);
 });

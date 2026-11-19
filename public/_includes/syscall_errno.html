@@ -1,0 +1,28 @@
+{% assign locale = 0 %}{% assign edition_prefix = '' %}{% if page.lang == 'tr' %}{% assign locale = 1 %}{% assign edition_prefix = '/tr' %}{% endif %}
+{% assign labels = site.data.syscall_copy.syscall_errno %}
+<!-- SPDX-License-Identifier: GPL-2.0-only -->
+{% assign abi_release = site.data.syscall_release.abi_latest %}
+{% assign abi_document = '/data/abi/' | append: abi_release | append: '/errno.json' %}
+    <section id="reference" data-abi-page="errno" tabindex="-1" aria-labelledby="table-title">
+      <p class="table-back"><a href="{{ edition_prefix | append: '/' | relative_url }}#architectures" data-abi-link>← <span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span></a></p>
+      <h1 id="table-title"><span data-i18n="Linux errno values">{{ labels["Linux errno values"][locale] | escape }}</span></h1>
+      {% include abi-nav.html current='errno' %}
+      <p class="abi-lede" data-abi-copy="errnoLede">{{ labels["abi.errnoLede"][locale] }}</p>
+      {% include abi-lookup.html label='Find an error number' %}
+      <p id="arch-note" class="small"></p>
+      <div class="table-toolbar">
+        <p id="results" role="status" aria-live="polite"><span data-i18n="Loading…">{{ labels["Loading…"][locale] | escape }}</span></p>
+        <div class="table-actions"><a id="download" hidden href="{{ abi_document | relative_url }}" download><span data-i18n="Download JSON ↓">{{ labels["Download JSON ↓"][locale] | escape }}</span></a></div>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <noscript><p><a href="{{ abi_document | relative_url }}"><span data-i18n="the errno tables as JSON">{{ labels["the errno tables as JSON"][locale] | escape }}</span></a></p></noscript>
+      <div class="table-scroll" tabindex="0" role="region" aria-label='{{ labels["errno values for the selected architecture"][locale] | escape }}' data-i18n-aria-label="errno values for the selected architecture">
+        <table class="abi-table">
+          <caption class="console-sr-only"><span data-i18n="errno values for the selected architecture">{{ labels["errno values for the selected architecture"][locale] | escape }}</span></caption>
+          <thead><tr><th scope="col"><span data-i18n="No.">No.</span></th><th scope="col"><span data-i18n="Name">{{ labels["Name"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Kernel comment">{{ labels["Kernel comment"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Other architectures">{{ labels["Other architectures"][locale] | escape }}</span></th><th scope="col"><span data-i18n="Source">{{ labels["Source"][locale] | escape }}</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" role="status" aria-live="polite" hidden><span data-i18n="No entries match this search.">{{ labels["No entries match this search."][locale] | escape }}</span> <button type="button" id="reset-search"><span data-i18n="Clear search">{{ labels["Clear search"][locale] | escape }}</span></button></p>
+    </section>
+    {% include abi-about.html %}

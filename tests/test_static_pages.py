@@ -122,7 +122,7 @@ class StaticPageTests(unittest.TestCase):
                     self.assertIn(register, row[6])
             self.assertIn('asmlinkage long sys_openat(int dfd, const char __user *filename, int flags, umode_t mode);', text)
             self.assertIn('https://man7.org/linux/man-pages/man2/openat.2.html', text)
-            self.assertIn('?arch=arm64&amp;kernel={}{}#sys-{}%3A56%3Aopenat'.format(self.latest, '&amp;lang=tr' if lang == 'tr' else '', self.latest), text)
+            self.assertIn('{}?arch=arm64&amp;kernel={}#sys-{}%3A56%3Aopenat'.format('tr/' if lang == 'tr' else '', self.latest, self.latest), text)
         front = front_matter(self.read('call/openat/'))
         self.assertIn('x86-64 257', front['description'])
         self.assertIn(prepare.editorial_notes()['openat']['en'], front['description'])

@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- SPDX-License-Identifier: GPL-2.0-only -->
-<html lang="{{ page.lang | default: 'en' }}">
+{% assign document_lang = page.lang | default: 'en' %}
+<html lang="{{ document_lang }}"{% if page.edition or page.alternates %} data-route-language="{{ document_lang }}"{% endif %}{% if page.edition %} data-replace-language="true"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
@@ -16,7 +17,13 @@
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ page_canonical }}">
   {% comment %}Generated pages (scripts/static_pages.py) exist once per language and name each other.{% endcomment %}
-  {% for alternate in page.alternates %}<link rel="alternate" hreflang="{{ alternate.lang }}" href="https://zaryob.github.io/syscall{{ alternate.url }}">
+  {% if page.edition %}
+  {% assign tr_edition = page.edition | prepend: '/tr' %}
+  <link rel="alternate" hreflang="en" href="https://zaryob.github.io/syscall{{ page.edition }}" data-language-route="{{ page.edition | relative_url }}">
+  <link rel="alternate" hreflang="tr" href="https://zaryob.github.io/syscall{{ tr_edition }}" data-language-route="{{ tr_edition | relative_url }}">
+  <link rel="alternate" hreflang="x-default" href="https://zaryob.github.io/syscall{{ page.edition }}">
+  {% endif %}
+  {% for alternate in page.alternates %}<link rel="alternate" hreflang="{{ alternate.lang }}" href="https://zaryob.github.io/syscall{{ alternate.url }}" data-language-route="{{ alternate.url | relative_url }}">
   {% if alternate.lang == 'en' %}<link rel="alternate" hreflang="x-default" href="https://zaryob.github.io/syscall{{ alternate.url }}">
   {% endif %}{% endfor %}
   <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
@@ -71,7 +78,7 @@
   {% endif %}
 </head>
 <body class="console-site console-syscall">
-  <a class="skip-link" href="#main"><span data-i18n="Skip to content">Skip to content</span></a>
+  <a class="skip-link" href="#main"><span data-i18n="Skip to content">{% if document_lang == 'tr' %}İçeriğe geç{% else %}Skip to content{% endif %}</span></a>
   {% include console-header.html %}
   <main id="main" tabindex="-1">
 {{ content }}

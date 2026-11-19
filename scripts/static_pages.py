@@ -19,7 +19,7 @@ from urllib.parse import quote
 
 LANGUAGES = ['en', 'tr']
 # Directories this script owns under public/; each is removed and rewritten.
-OUTPUT_DIRS = ['arch', 'call', 'tr']
+OUTPUT_DIRS = ['arch', 'call', 'tr/arch', 'tr/call']
 SAFE_NAME = re.compile(r'[A-Za-z0-9_]+')
 
 TEXT = {
@@ -318,13 +318,12 @@ class Writer:
 
     def interactive(self, root, lang, arch, row=None):
         query = 'arch={}&kernel={}'.format(quote(arch, safe=''), quote(self.latest, safe=''))
-        if lang == 'tr':
-            query += '&lang=tr'
+        home = root + ('tr/' if lang == 'tr' else '')
         if row is None:
-            return root + '?' + query + '#reference'
+            return home + '?' + query + '#reference'
         if not defined(row):
             query += '&all=1'
-        return root + '?' + query + '#sys-' + quote('{}:{}:{}'.format(self.latest, row['number'], row['name']), safe='')
+        return home + '?' + query + '#sys-' + quote('{}:{}:{}'.format(self.latest, row['number'], row['name']), safe='')
 
     def write(self, lang, path, title, description, crumbs, body):
         """One Jekyll document. JSON strings are valid YAML; Liquid is off for the generated body."""
@@ -335,17 +334,15 @@ class Writer:
         depth = path.count('/')
         root = '../' * depth
         home = root + ('tr/' if lang == 'tr' else '')
-        # An empty target is the interactive landing page, which both languages share.
-        landing = root + ('?lang=tr' if lang == 'tr' else '')
         trail = ''.join(
-            '<li><a href="{}">{}</a></li>'.format(escape(home + target if target else landing), escape(name))
+            '<li><a href="{}">{}</a></li>'.format(escape(home + target), escape(name))
             for name, target in crumbs[:-1]
         ) + '<li aria-current="page">{}</li>'.format(escape(crumbs[-1][0]))
         front = {
             'layout': 'default', 'permalink': '/' + path, 'title': title, 'description': description, 'lang': lang,
             'static_page': True, 'sitemap': True, 'render_with_liquid': False,
             'alternates': [{'lang': code, 'url': urls[code]} for code in LANGUAGES],
-            'breadcrumbs': [{'name': name, 'url': ('/tr/' if lang == 'tr' and target else '/') + target} for name, target in crumbs],
+            'breadcrumbs': [{'name': name, 'url': ('/tr/' if lang == 'tr' else '/') + target} for name, target in crumbs],
         }
         # data-translation-lang: console/i18n.js opens this link when the reader selects that language.
         text = '---\n' + ''.join('{}: {}\n'.format(key, json.dumps(value, ensure_ascii=False)) for key, value in front.items()) + '---\n' + \
@@ -354,7 +351,7 @@ class Writer:
             '<div class="static-top"><nav class="static-crumbs" aria-label="{}"><ol>{}</ol></nav>'.format(escape(t['breadcrumb']), trail) + \
             '<a class="static-language" data-translation-lang="{}" href="{}" hreflang="{}" lang="{}">{}</a></div>\n'.format(
                 other, escape(root + urls[other][1:]), other, other, escape(t['other_language'])) + \
-            body + self.sections(root, home, lang) + '</article>\n'
+            body + self.sections(home, lang) + '</article>\n'
         target = self.output / source_file(path)
         target.parent.mkdir(parents=True, exist_ok=True)
         encoded = text.encode()
@@ -362,13 +359,12 @@ class Writer:
         self.count += 1
         self.bytes += len(encoded)
 
-    def sections(self, root, home, lang):
+    def sections(self, home, lang):
         t = TEXT[lang]
-        suffix = '?lang=tr' if lang == 'tr' else ''
         return '<nav class="reference-links static-sections" aria-label="{}">'.format(escape(t['sections'])) + ''.join(
             '<a href="{}">{}</a>'.format(escape(href), escape(label)) for href, label in [
-                (root + suffix + '#architectures', t['tables']), (home + 'call/', t['index_crumb']),
-                (root + 'errno/' + suffix, t['errno']), (root + 'signals/' + suffix, t['signals']), (root + 'ioctl/' + suffix, t['ioctl']),
+                (home + '#architectures', t['tables']), (home + 'call/', t['index_crumb']),
+                (home + 'errno/', t['errno']), (home + 'signals/', t['signals']), (home + 'ioctl/', t['ioctl']),
             ]) + '</nav>\n'
 
     def arguments(self, row, lang):
@@ -404,7 +400,7 @@ class Writer:
         body.append('<section aria-labelledby="convention-title"><h2 id="convention-title">{}</h2>\n<dl class="static-facts">{}</dl>\n'.format(
             escape(t['convention']), ''.join('<div><dt>{}</dt><dd><code>{}</code></dd></div>'.format(escape(name), escape(value)) for name, value in convention if value)))
         body.append('<p class="small">{} <a href="{}#conventions">{}</a>.{}</p></section>\n'.format(
-            escape(t['raw']), escape(root + ('?lang=tr' if lang == 'tr' else '')), escape(t['convention_more']),
+            escape(t['raw']), escape(home), escape(t['convention_more']),
             ' {} <a href="https://man7.org/linux/man-pages/man2/syscall.2.html">syscall(2)</a>.'.format(escape(t['bits32'])) if c.get('bits') == 32 else ''))
         caption = t['table_caption'].format(label=label, release=self.release)
         body.append('<section aria-labelledby="table-heading"><h2 id="table-heading">{}</h2>\n'.format(escape(caption)))
