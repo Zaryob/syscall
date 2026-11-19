@@ -177,7 +177,7 @@ def check(site, baseurl):
     with tarfile.open(site / 'downloads/syscall-reference-source.tar.gz') as archive:
         members = archive.getmembers()
         names = {m.name for m in members}
-        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/sync_abi.py', 'scripts/prepare_site.py', 'public/data/abi/manifest.json', 'sources/manual-pages.json', 'public/_layouts/default.html']:
+        for required in ['LICENSE', 'LICENSING.md', 'Gemfile.lock', '_config.yml', 'scripts/sync_kernel.py', 'scripts/sync_abi.py', 'scripts/prepare_site.py', 'public/data/abi/manifest.json', 'sources/manual-pages.json', 'sources/introductions.json', 'public/_layouts/default.html']:
             assert 'syscall-reference/' + required in names, 'Source archive missing ' + required
         for member in members:
             assert member.isfile(), 'Archive contains a non-file entry'

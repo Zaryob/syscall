@@ -195,8 +195,8 @@ rather than via npm.
 `prepare_site.py` also runs `scripts/static_pages.py`, which writes one Jekyll
 document per ABI (`/arch/<abi>/`), one per syscall name (`/call/<name>/`) and an
 index (`/call/`), in English and again under `/tr/` in Turkish. Everything on
-them comes from `public/data/` and `notes.mjs`: the ABI pages show the latest
-release, and a syscall page also lists which bundled releases define the name.
+them comes from `public/data/`, `notes.mjs` and `sources/introductions.json`: the ABI pages show the latest
+release, and a syscall page also shows the kernel version in which the call first appeared and lists which bundled releases define the name.
 A name that only an earlier release defines, or that is only a reserved slot,
 gets a page that says so. The output (`public/arch/`, `public/call/`,
 `public/tr/`) is build output like `public/api/`: ignored by Git, left out of

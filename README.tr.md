@@ -279,9 +279,10 @@ görelidir. npm yerine Jekyll'i doğrudan çalıştırırken önce hazırlama be
 `prepare_site.py`, `scripts/static_pages.py` betiğini de çalıştırır. Bu betik her
 ABI için bir sayfa (`/arch/<abi>/`), her sistem çağrısı adı için bir sayfa
 (`/call/<ad>/`) ve bir dizin (`/call/`) üretir; aynı sayfalar `/tr/` altında
-Türkçe olarak da üretilir. İçeriğin tamamı `public/data/` ve `notes.mjs`
-dosyalarından gelir: ABI sayfaları en yeni kayıtlı sürümü gösterir, çağrı sayfası
-ayrıca adın hangi kayıtlı sürümlerde tanımlı olduğunu listeler. Yalnız eski bir
+Türkçe olarak da üretilir. İçeriğin tamamı `public/data/`, `notes.mjs` ve
+`sources/introductions.json` dosyalarından gelir: ABI sayfaları en yeni kayıtlı
+sürümü gösterir, çağrı sayfası ayrıca çağrının ilk kez hangi çekirdek sürümünde
+eklendiğini belirtir ve adın hangi kayıtlı sürümlerde tanımlı olduğunu listeler. Yalnız eski bir
 sürümde tanımlı olan veya yalnız ayrılmış yuva olan adların sayfası bunu açıkça
 belirtir. Çıktı (`public/arch/`, `public/call/`, `public/tr/`) `public/api/` gibi
 derleme çıktısıdır: Git yok sayar, kaynak arşivine girmez ve her çalıştırmada

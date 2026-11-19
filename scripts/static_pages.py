@@ -111,7 +111,11 @@ TEXT = {
         'defined_on': 'Defined in the table of',
         'all': 'all {count}',
         'none': 'none',
+        'first_appeared': 'First appeared:',
+        'introduced_summary': 'Introduced in {version}.',
+        'version_1_0_or_earlier': 'Linux 1.0 (or earlier)',
         'releases_note': 'Each release is a separate snapshot, and older releases bundle fewer ABIs. This table does not claim the release in which the call first appeared. Numbers are listed where a release differs from Linux {release}.',
+        'releases_note_introduced': 'Each release is a separate snapshot, and older releases bundle fewer ABIs. Numbers are listed where a release differs from Linux {release}.',
         'manual': 'Manual page',
         'no_manual': 'No manual link is available for this entry.',
         'index_title': 'Linux system calls A–Z — {count} calls on {abis} ABIs (Linux {release})',
@@ -213,7 +217,11 @@ TEXT = {
         'defined_on': 'Tablosunda tanımlı olduğu ABI’ler',
         'all': 'tümü ({count})',
         'none': 'yok',
+        'first_appeared': 'İlk kez eklendiği sürüm:',
+        'introduced_summary': 'İlk olarak {version} sürümünde eklendi.',
+        'version_1_0_or_earlier': 'Linux 1.0 (veya öncesi)',
         'releases_note': 'Her sürüm ayrı bir veri kümesidir ve eski sürümlerde daha az ABI kayıtlıdır. Bu tablo, çağrının ilk kez hangi sürümde eklendiğini iddia etmez. Numaralar, sürümün Linux {release} ile farklılaştığı yerlerde yazılır.',
+        'releases_note_introduced': 'Her sürüm ayrı bir veri kümesidir ve eski sürümlerde daha az ABI kayıtlıdır. Numaralar, sürümün Linux {release} ile farklılaştığı yerlerde yazılır.',
         'manual': 'Kılavuz sayfası',
         'no_manual': 'Bu girdi için man sayfası bağlantısı yok.',
         'index_title': 'A’dan Z’ye Linux sistem çağrıları — {abis} ABI, {count} çağrı (Linux {release})',
@@ -287,13 +295,28 @@ def source_file(path):
 
 
 class Writer:
-    def __init__(self, data, notes, output):
+    def __init__(self, data, notes, output, introductions=None):
         self.data, self.notes, self.output = data, notes, output
+        self.introductions = introductions or {}
         self.latest = data['latest']
         self.release = self.latest[1:]
         self.labels = {arch['id']: arch.get('label', arch['id']) for arch in data['manifest']['architectures']}
         self.count = 0
         self.bytes = 0
+
+    def format_introduced(self, name, lang):
+        intro = self.introductions.get(name)
+        if not intro or not intro.get('version'):
+            return None
+        version = intro['version']
+        note = intro.get('note_tr' if lang == 'tr' else 'note')
+        if version == '1.0':
+            label = TEXT[lang]['version_1_0_or_earlier']
+        else:
+            label = f'Linux {version}'
+        if note:
+            return f'{label} ({note})'
+        return label
 
     # --- helpers -------------------------------------------------------
     def convention(self, arch):
@@ -508,6 +531,7 @@ class Writer:
         reserved = [arch for arch in architectures if current.get(arch) and arch not in implemented]
         missing = [arch for arch in architectures if not current.get(arch)]
         note = self.notes.get(name, {}).get(lang) if implemented else None
+        intro_text = self.format_introduced(name, lang)
         values = {'name': name, 'release': self.release, 'total': len(architectures), 'count': len(implemented)}
         names = lambda ids: ', '.join(self.labels[arch] for arch in ids)
         summary = [t['summary'].format(**{**values, 'name': '\0'})]
@@ -515,6 +539,8 @@ class Writer:
             summary.append(t['summary_missing'].format(list=names(missing)))
         if reserved:
             summary.append(t['summary_reserved'].format(list=names(reserved)))
+        if intro_text:
+            summary.append(t['introduced_summary'].format(version=intro_text))
         if implemented:
             title = t['call_title'].format(**values)
             pairs = ['{} {}'.format(self.labels[arch], next(row['number'] for row in current[arch] if defined(row))) for arch in implemented]
@@ -582,10 +608,13 @@ class Writer:
 
         caption = t['releases_caption'].format(**values)
         body.append('<section aria-labelledby="releases-title"><h2 id="releases-title">{}</h2>\n'.format(escape(t['releases'])))
+        if intro_text:
+            body.append('<p class="static-introduced"><strong>{}</strong> {}</p>\n'.format(escape(t['first_appeared']), escape(intro_text)))
         body.append('<div class="table-scroll static-scroll" tabindex="0" role="region" aria-label="{}"><table class="abi-table static-table static-releases"><caption class="console-sr-only">{}</caption>'.format(escape(caption), escape(caption)))
         body.append('<thead><tr>' + ''.join('<th scope="col">{}</th>'.format(escape(t[key])) for key in ['release', 'bundled', 'defined_on']) + '</tr></thead>\n<tbody>\n')
         body.append(self.release_rows(lang, name))
-        body.append('</tbody></table></div>\n<p class="small">{}</p></section>\n'.format(escape(t['releases_note'].format(release=self.release))))
+        note_template = t['releases_note_introduced'] if intro_text else t['releases_note']
+        body.append('</tbody></table></div>\n<p class="small">{}</p></section>\n'.format(escape(note_template.format(release=self.release))))
         self.write(lang, path, title, description, [(t['site'], ''), (t['index_crumb'], 'call/'), (name, 'call/{}/'.format(name))], ''.join(body))
 
     # --- index ---------------------------------------------------------
@@ -625,14 +654,28 @@ class Writer:
                    [(t['site'], ''), (t['index_crumb'], 'call/')], ''.join(body))
 
 
-def generate(public, notes, output=None):
+def load_introductions(root=None):
+    candidates = []
+    if root is not None:
+        candidates.append(Path(root) / 'sources/introductions.json')
+    candidates.append(Path(__file__).resolve().parents[1] / 'sources/introductions.json')
+    for path in candidates:
+        if path.is_file():
+            data = json.loads(path.read_bytes())
+            return data.get('introductions', data)
+    return {}
+
+
+def generate(public, notes, output=None, introductions=None):
     """Write every page under output (default: public) and return what was written."""
     public = Path(public)
     output = Path(output) if output else public
     data = load(public)
+    if introductions is None:
+        introductions = load_introductions(public.parent)
     for folder in OUTPUT_DIRS:
         shutil.rmtree(output / folder, ignore_errors=True)
-    writer = Writer(data, notes, output)
+    writer = Writer(data, notes, output, introductions)
     for lang in LANGUAGES:
         writer.index_page(lang)
         for arch in data['architectures']:

@@ -127,6 +127,21 @@ class StaticPageTests(unittest.TestCase):
         self.assertIn('x86-64 257', front['description'])
         self.assertIn(prepare.editorial_notes()['openat']['en'], front['description'])
         self.assertIn(prepare.editorial_notes()['openat']['tr'], self.read('tr/call/openat/'))
+        self.assertIn('Introduced in Linux 2.6.16.', self.read('call/openat/'))
+        self.assertIn('<strong>First appeared:</strong> Linux 2.6.16', self.read('call/openat/'))
+        self.assertIn('İlk olarak Linux 2.6.16 sürümünde eklendi.', self.read('tr/call/openat/'))
+        self.assertIn('<strong>İlk kez eklendiği sürüm:</strong> Linux 2.6.16', self.read('tr/call/openat/'))
+
+    def test_introduction_version_is_rendered(self):
+        self.assertIn('Introduced in Linux 1.0 (or earlier).', self.read('call/read/'))
+        self.assertIn('İlk olarak Linux 1.0 (veya öncesi) sürümünde eklendi.', self.read('tr/call/read/'))
+        self.assertIn('Introduced in Linux 5.3.', self.read('call/clone3/'))
+        self.assertIn('<strong>First appeared:</strong> Linux 5.3', self.read('call/clone3/'))
+        self.assertIn('İlk olarak Linux 5.3 sürümünde eklendi.', self.read('tr/call/clone3/'))
+        self.assertIn('<strong>İlk kez eklendiği sürüm:</strong> Linux 5.3', self.read('tr/call/clone3/'))
+        self.assertIn('First appeared:</strong> Linux 2.6 (x86-64; i386 since 4.12)', self.read('call/arch_prctl/'))
+        self.assertIn('İlk kez eklendiği sürüm:</strong> Linux 2.6 (x86-64; i386 için 4.12 sürümünden beri)', self.read('tr/call/arch_prctl/'))
+        self.assertNotIn('First appeared:', self.read('call/reserved82/'))
 
     def test_a_call_absent_from_an_abi_says_so(self):
         absent = [arch for arch, table in self.tables.items() if not any(row['name'] == 'open' for row in table['syscalls'])]

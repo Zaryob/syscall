@@ -1,0 +1,1567 @@
+{
+  "schema_version": 1,
+  "source": "https://man7.org/linux/man-pages/man2/syscalls.2.html",
+  "introductions": {
+    "_llseek": {
+      "version": "1.2"
+    },
+    "_newselect": {
+      "version": "2.0"
+    },
+    "_sysctl": {
+      "version": "2.0"
+    },
+    "accept": {
+      "version": "2.0"
+    },
+    "accept4": {
+      "version": "2.6.28"
+    },
+    "access": {
+      "version": "1.0"
+    },
+    "acct": {
+      "version": "1.0"
+    },
+    "add_key": {
+      "version": "2.6.10"
+    },
+    "adjtimex": {
+      "version": "1.0"
+    },
+    "afs_syscall": {
+      "version": "1.0",
+      "note": "Reserved slot",
+      "note_tr": "Ayrılmış yuva"
+    },
+    "alarm": {
+      "version": "1.0"
+    },
+    "arch_prctl": {
+      "version": "2.6",
+      "note": "x86-64; i386 since 4.12",
+      "note_tr": "x86-64; i386 için 4.12 sürümünden beri"
+    },
+    "arm_fadvise64_64": {
+      "version": "2.6.14",
+      "note": "ARM only",
+      "note_tr": "Yalnızca ARM"
+    },
+    "arm_sync_file_range": {
+      "version": "2.6.20",
+      "note": "ARM only",
+      "note_tr": "Yalnızca ARM"
+    },
+    "bdflush": {
+      "version": "1.2"
+    },
+    "bind": {
+      "version": "2.0"
+    },
+    "bpf": {
+      "version": "3.18"
+    },
+    "break": {
+      "version": "1.0"
+    },
+    "brk": {
+      "version": "1.0"
+    },
+    "cachectl": {
+      "version": "2.6.0",
+      "note": "MIPS only",
+      "note_tr": "Yalnızca MIPS"
+    },
+    "cacheflush": {
+      "version": "1.2"
+    },
+    "cachestat": {
+      "version": "6.5"
+    },
+    "capget": {
+      "version": "2.2"
+    },
+    "capset": {
+      "version": "2.2"
+    },
+    "chdir": {
+      "version": "1.0"
+    },
+    "chmod": {
+      "version": "1.0"
+    },
+    "chown": {
+      "version": "2.2"
+    },
+    "chown32": {
+      "version": "2.4"
+    },
+    "chroot": {
+      "version": "1.0"
+    },
+    "clock_adjtime": {
+      "version": "2.6.39"
+    },
+    "clock_adjtime64": {
+      "version": "5.1"
+    },
+    "clock_getres": {
+      "version": "2.6"
+    },
+    "clock_getres_time64": {
+      "version": "5.1"
+    },
+    "clock_gettime": {
+      "version": "2.6"
+    },
+    "clock_gettime64": {
+      "version": "5.1"
+    },
+    "clock_nanosleep": {
+      "version": "2.6"
+    },
+    "clock_nanosleep_time64": {
+      "version": "5.1"
+    },
+    "clock_settime": {
+      "version": "2.6"
+    },
+    "clock_settime64": {
+      "version": "5.1"
+    },
+    "clone": {
+      "version": "1.0"
+    },
+    "clone3": {
+      "version": "5.3"
+    },
+    "close": {
+      "version": "1.0"
+    },
+    "close_range": {
+      "version": "5.9"
+    },
+    "connect": {
+      "version": "2.0"
+    },
+    "copy_file_range": {
+      "version": "4.5"
+    },
+    "creat": {
+      "version": "1.0"
+    },
+    "create_module": {
+      "version": "1.0"
+    },
+    "delete_module": {
+      "version": "1.0"
+    },
+    "dup": {
+      "version": "1.0"
+    },
+    "dup2": {
+      "version": "1.0"
+    },
+    "dup3": {
+      "version": "2.6.27"
+    },
+    "epoll_create": {
+      "version": "2.6"
+    },
+    "epoll_create1": {
+      "version": "2.6.27"
+    },
+    "epoll_ctl": {
+      "version": "2.6"
+    },
+    "epoll_ctl_old": {
+      "version": "2.6.0",
+      "note": "Deprecated 2.6.0 epoll ABI",
+      "note_tr": "Kullanımdan kaldırılan 2.6.0 epoll ABI’si"
+    },
+    "epoll_pwait": {
+      "version": "2.6.19"
+    },
+    "epoll_pwait2": {
+      "version": "5.11"
+    },
+    "epoll_wait": {
+      "version": "2.6"
+    },
+    "epoll_wait_old": {
+      "version": "2.6.0",
+      "note": "Deprecated 2.6.0 epoll ABI",
+      "note_tr": "Kullanımdan kaldırılan 2.6.0 epoll ABI’si"
+    },
+    "eventfd": {
+      "version": "2.6.22"
+    },
+    "eventfd2": {
+      "version": "2.6.27"
+    },
+    "execve": {
+      "version": "1.0"
+    },
+    "execveat": {
+      "version": "3.19"
+    },
+    "exit": {
+      "version": "1.0"
+    },
+    "exit_group": {
+      "version": "2.6"
+    },
+    "faccessat": {
+      "version": "2.6.16"
+    },
+    "faccessat2": {
+      "version": "5.8"
+    },
+    "fadvise64": {
+      "version": "2.6"
+    },
+    "fadvise64_64": {
+      "version": "2.6"
+    },
+    "fallocate": {
+      "version": "2.6.23"
+    },
+    "fanotify_init": {
+      "version": "2.6.37"
+    },
+    "fanotify_mark": {
+      "version": "2.6.37"
+    },
+    "fchdir": {
+      "version": "1.0"
+    },
+    "fchmod": {
+      "version": "1.0"
+    },
+    "fchmodat": {
+      "version": "2.6.16"
+    },
+    "fchmodat2": {
+      "version": "6.6"
+    },
+    "fchown": {
+      "version": "1.0"
+    },
+    "fchown32": {
+      "version": "2.4"
+    },
+    "fchownat": {
+      "version": "2.6.16"
+    },
+    "fchroot": {
+      "version": "7.3"
+    },
+    "fcntl": {
+      "version": "1.0"
+    },
+    "fcntl64": {
+      "version": "2.4"
+    },
+    "fdatasync": {
+      "version": "2.0"
+    },
+    "fgetxattr": {
+      "version": "2.6"
+    },
+    "file_getattr": {
+      "version": "6.17"
+    },
+    "file_setattr": {
+      "version": "6.17"
+    },
+    "finit_module": {
+      "version": "3.8"
+    },
+    "flistxattr": {
+      "version": "2.6"
+    },
+    "flock": {
+      "version": "2.0"
+    },
+    "fork": {
+      "version": "1.0"
+    },
+    "fremovexattr": {
+      "version": "2.6"
+    },
+    "fsconfig": {
+      "version": "5.2"
+    },
+    "fsetxattr": {
+      "version": "2.6"
+    },
+    "fsmount": {
+      "version": "5.2"
+    },
+    "fsopen": {
+      "version": "5.2"
+    },
+    "fspick": {
+      "version": "5.2"
+    },
+    "fstat": {
+      "version": "1.0"
+    },
+    "fstat64": {
+      "version": "2.4"
+    },
+    "fstatat64": {
+      "version": "2.6.16"
+    },
+    "fstatfs": {
+      "version": "1.0"
+    },
+    "fstatfs64": {
+      "version": "2.6"
+    },
+    "fsync": {
+      "version": "1.0"
+    },
+    "ftime": {
+      "version": "1.0"
+    },
+    "ftruncate": {
+      "version": "1.0"
+    },
+    "ftruncate64": {
+      "version": "2.4"
+    },
+    "futex": {
+      "version": "2.6"
+    },
+    "futex_requeue": {
+      "version": "6.7"
+    },
+    "futex_time64": {
+      "version": "5.1"
+    },
+    "futex_wait": {
+      "version": "6.7"
+    },
+    "futex_waitv": {
+      "version": "5.16"
+    },
+    "futex_wake": {
+      "version": "6.7"
+    },
+    "futimesat": {
+      "version": "2.6.16"
+    },
+    "get_kernel_syms": {
+      "version": "1.0"
+    },
+    "get_mempolicy": {
+      "version": "2.6.6"
+    },
+    "get_robust_list": {
+      "version": "2.6.17"
+    },
+    "get_thread_area": {
+      "version": "2.6"
+    },
+    "getcpu": {
+      "version": "2.6.19"
+    },
+    "getcwd": {
+      "version": "2.2"
+    },
+    "getdents": {
+      "version": "2.0"
+    },
+    "getdents64": {
+      "version": "2.4"
+    },
+    "getegid": {
+      "version": "1.0"
+    },
+    "getegid32": {
+      "version": "2.4"
+    },
+    "geteuid": {
+      "version": "1.0"
+    },
+    "geteuid32": {
+      "version": "2.4"
+    },
+    "getgid": {
+      "version": "1.0"
+    },
+    "getgid32": {
+      "version": "2.4"
+    },
+    "getgroups": {
+      "version": "1.0"
+    },
+    "getgroups32": {
+      "version": "2.4"
+    },
+    "getitimer": {
+      "version": "1.0"
+    },
+    "getpeername": {
+      "version": "2.0"
+    },
+    "getpgid": {
+      "version": "1.0"
+    },
+    "getpgrp": {
+      "version": "1.0"
+    },
+    "getpid": {
+      "version": "1.0"
+    },
+    "getpmsg": {
+      "version": "2.4.0",
+      "note": "Unimplemented STREAMS slot",
+      "note_tr": "Gerçeklenmemiş STREAMS yuvası"
+    },
+    "getppid": {
+      "version": "1.0"
+    },
+    "getpriority": {
+      "version": "1.0"
+    },
+    "getrandom": {
+      "version": "3.17"
+    },
+    "getresgid": {
+      "version": "2.2"
+    },
+    "getresgid32": {
+      "version": "2.4"
+    },
+    "getresuid": {
+      "version": "2.2"
+    },
+    "getresuid32": {
+      "version": "2.4"
+    },
+    "getrlimit": {
+      "version": "1.0"
+    },
+    "getrusage": {
+      "version": "1.0"
+    },
+    "getsid": {
+      "version": "2.0"
+    },
+    "getsockname": {
+      "version": "2.0"
+    },
+    "getsockopt": {
+      "version": "2.0"
+    },
+    "gettid": {
+      "version": "2.4.11"
+    },
+    "gettimeofday": {
+      "version": "1.0"
+    },
+    "getuid": {
+      "version": "1.0"
+    },
+    "getuid32": {
+      "version": "2.4"
+    },
+    "getxattr": {
+      "version": "2.6"
+    },
+    "getxattrat": {
+      "version": "6.13"
+    },
+    "gtty": {
+      "version": "1.0"
+    },
+    "idle": {
+      "version": "1.0"
+    },
+    "init_module": {
+      "version": "1.0"
+    },
+    "inotify_add_watch": {
+      "version": "2.6.13"
+    },
+    "inotify_init": {
+      "version": "2.6.13"
+    },
+    "inotify_init1": {
+      "version": "2.6.27"
+    },
+    "inotify_rm_watch": {
+      "version": "2.6.13"
+    },
+    "io_cancel": {
+      "version": "2.6"
+    },
+    "io_destroy": {
+      "version": "2.6"
+    },
+    "io_getevents": {
+      "version": "2.6"
+    },
+    "io_pgetevents": {
+      "version": "4.18"
+    },
+    "io_pgetevents_time64": {
+      "version": "5.1"
+    },
+    "io_setup": {
+      "version": "2.6"
+    },
+    "io_submit": {
+      "version": "2.6"
+    },
+    "io_uring_enter": {
+      "version": "5.1"
+    },
+    "io_uring_register": {
+      "version": "5.1"
+    },
+    "io_uring_setup": {
+      "version": "5.1"
+    },
+    "ioctl": {
+      "version": "1.0"
+    },
+    "ioperm": {
+      "version": "1.0"
+    },
+    "iopl": {
+      "version": "1.0"
+    },
+    "ioprio_get": {
+      "version": "2.6.13"
+    },
+    "ioprio_set": {
+      "version": "2.6.13"
+    },
+    "ipc": {
+      "version": "1.0"
+    },
+    "kcmp": {
+      "version": "3.5"
+    },
+    "kexec_file_load": {
+      "version": "3.17"
+    },
+    "kexec_load": {
+      "version": "2.6.13"
+    },
+    "keyctl": {
+      "version": "2.6.10"
+    },
+    "kill": {
+      "version": "1.0"
+    },
+    "landlock_add_rule": {
+      "version": "5.13"
+    },
+    "landlock_create_ruleset": {
+      "version": "5.13"
+    },
+    "landlock_restrict_self": {
+      "version": "5.13"
+    },
+    "lchown": {
+      "version": "1.0"
+    },
+    "lchown32": {
+      "version": "2.4"
+    },
+    "lgetxattr": {
+      "version": "2.6"
+    },
+    "link": {
+      "version": "1.0"
+    },
+    "linkat": {
+      "version": "2.6.16"
+    },
+    "listen": {
+      "version": "2.0"
+    },
+    "listmount": {
+      "version": "6.8"
+    },
+    "listns": {
+      "version": "6.19"
+    },
+    "listxattr": {
+      "version": "2.6"
+    },
+    "listxattrat": {
+      "version": "6.13"
+    },
+    "llistxattr": {
+      "version": "2.6"
+    },
+    "lock": {
+      "version": "1.0"
+    },
+    "lookup_dcookie": {
+      "version": "2.6"
+    },
+    "lremovexattr": {
+      "version": "2.6"
+    },
+    "lseek": {
+      "version": "1.0"
+    },
+    "lsetxattr": {
+      "version": "2.6"
+    },
+    "lsm_get_self_attr": {
+      "version": "6.8"
+    },
+    "lsm_list_modules": {
+      "version": "6.8"
+    },
+    "lsm_set_self_attr": {
+      "version": "6.8"
+    },
+    "lstat": {
+      "version": "1.0"
+    },
+    "lstat64": {
+      "version": "2.4"
+    },
+    "madvise": {
+      "version": "2.4"
+    },
+    "madvise1": {
+      "version": "2.4.0",
+      "note": "i386 sys_madvise slot",
+      "note_tr": "i386 sys_madvise yuvası"
+    },
+    "map_shadow_stack": {
+      "version": "6.6"
+    },
+    "mbind": {
+      "version": "2.6.6"
+    },
+    "membarrier": {
+      "version": "3.17"
+    },
+    "memfd_create": {
+      "version": "3.17"
+    },
+    "memfd_secret": {
+      "version": "5.14"
+    },
+    "migrate_pages": {
+      "version": "2.6.16"
+    },
+    "mincore": {
+      "version": "2.4"
+    },
+    "mkdir": {
+      "version": "1.0"
+    },
+    "mkdirat": {
+      "version": "2.6.16"
+    },
+    "mknod": {
+      "version": "1.0"
+    },
+    "mknodat": {
+      "version": "2.6.16"
+    },
+    "mlock": {
+      "version": "2.0"
+    },
+    "mlock2": {
+      "version": "4.4"
+    },
+    "mlockall": {
+      "version": "2.0"
+    },
+    "mmap": {
+      "version": "1.0"
+    },
+    "mmap2": {
+      "version": "2.4"
+    },
+    "modify_ldt": {
+      "version": "1.0"
+    },
+    "mount": {
+      "version": "1.0"
+    },
+    "mount_setattr": {
+      "version": "5.12"
+    },
+    "move_mount": {
+      "version": "5.2"
+    },
+    "move_pages": {
+      "version": "2.6.18"
+    },
+    "mprotect": {
+      "version": "1.0"
+    },
+    "mpx": {
+      "version": "1.0"
+    },
+    "mq_getsetattr": {
+      "version": "2.6.6"
+    },
+    "mq_notify": {
+      "version": "2.6.6"
+    },
+    "mq_open": {
+      "version": "2.6.6"
+    },
+    "mq_timedreceive": {
+      "version": "2.6.6"
+    },
+    "mq_timedreceive_time64": {
+      "version": "5.1"
+    },
+    "mq_timedsend": {
+      "version": "2.6.6"
+    },
+    "mq_timedsend_time64": {
+      "version": "5.1"
+    },
+    "mq_unlink": {
+      "version": "2.6.6"
+    },
+    "mremap": {
+      "version": "2.0"
+    },
+    "mseal": {
+      "version": "6.10"
+    },
+    "msgctl": {
+      "version": "2.0"
+    },
+    "msgget": {
+      "version": "2.0"
+    },
+    "msgrcv": {
+      "version": "2.0"
+    },
+    "msgsnd": {
+      "version": "2.0"
+    },
+    "msync": {
+      "version": "2.0"
+    },
+    "multiplexer": {
+      "version": "2.6.0",
+      "note": "Unimplemented PowerPC slot",
+      "note_tr": "Gerçeklenmemiş PowerPC yuvası"
+    },
+    "munlock": {
+      "version": "2.0"
+    },
+    "munlockall": {
+      "version": "2.0"
+    },
+    "munmap": {
+      "version": "1.0"
+    },
+    "name_to_handle_at": {
+      "version": "2.6.39"
+    },
+    "nanosleep": {
+      "version": "2.0"
+    },
+    "newfstatat": {
+      "version": "2.6.16"
+    },
+    "nfsservctl": {
+      "version": "2.2"
+    },
+    "nice": {
+      "version": "1.0"
+    },
+    "oldfstat": {
+      "version": "1.0"
+    },
+    "oldlstat": {
+      "version": "1.0"
+    },
+    "oldolduname": {
+      "version": "1.0"
+    },
+    "oldstat": {
+      "version": "1.0"
+    },
+    "olduname": {
+      "version": "1.0"
+    },
+    "open": {
+      "version": "1.0"
+    },
+    "open_by_handle_at": {
+      "version": "2.6.39"
+    },
+    "open_tree": {
+      "version": "5.2"
+    },
+    "open_tree_attr": {
+      "version": "6.15"
+    },
+    "openat": {
+      "version": "2.6.16"
+    },
+    "openat2": {
+      "version": "5.6"
+    },
+    "pause": {
+      "version": "1.0"
+    },
+    "pciconfig_iobase": {
+      "version": "2.2.15"
+    },
+    "pciconfig_read": {
+      "version": "2.0.26"
+    },
+    "pciconfig_write": {
+      "version": "2.0.26"
+    },
+    "perf_event_open": {
+      "version": "2.6.31"
+    },
+    "personality": {
+      "version": "1.2"
+    },
+    "phys": {
+      "version": "1.0"
+    },
+    "pidfd_getfd": {
+      "version": "5.6"
+    },
+    "pidfd_open": {
+      "version": "5.3"
+    },
+    "pidfd_send_signal": {
+      "version": "5.1"
+    },
+    "pipe": {
+      "version": "1.0"
+    },
+    "pipe2": {
+      "version": "2.6.27"
+    },
+    "pivot_root": {
+      "version": "2.4"
+    },
+    "pkey_alloc": {
+      "version": "4.8"
+    },
+    "pkey_free": {
+      "version": "4.8"
+    },
+    "pkey_mprotect": {
+      "version": "4.8"
+    },
+    "poll": {
+      "version": "2.0.36"
+    },
+    "ppoll": {
+      "version": "2.6.16"
+    },
+    "ppoll_time64": {
+      "version": "5.1"
+    },
+    "prctl": {
+      "version": "2.2"
+    },
+    "pread64": {
+      "version": "2.6",
+      "note": "Added as pread in 2.2; renamed pread64 in 2.6",
+      "note_tr": "2.2 sürümünde pread adıyla eklendi; 2.6 sürümünde pread64 olarak yeniden adlandırıldı"
+    },
+    "preadv": {
+      "version": "2.6.30"
+    },
+    "preadv2": {
+      "version": "4.6"
+    },
+    "prlimit64": {
+      "version": "2.6.36"
+    },
+    "process_madvise": {
+      "version": "5.10"
+    },
+    "process_mrelease": {
+      "version": "5.15"
+    },
+    "process_vm_readv": {
+      "version": "3.2"
+    },
+    "process_vm_writev": {
+      "version": "3.2"
+    },
+    "prof": {
+      "version": "1.0"
+    },
+    "profil": {
+      "version": "1.0"
+    },
+    "pselect6": {
+      "version": "2.6.16"
+    },
+    "pselect6_time64": {
+      "version": "5.1"
+    },
+    "ptrace": {
+      "version": "1.0"
+    },
+    "putpmsg": {
+      "version": "2.4.0",
+      "note": "Unimplemented STREAMS slot",
+      "note_tr": "Gerçeklenmemiş STREAMS yuvası"
+    },
+    "pwrite64": {
+      "version": "2.6",
+      "note": "Added as pwrite in 2.2; renamed pwrite64 in 2.6",
+      "note_tr": "2.2 sürümünde pwrite adıyla eklendi; 2.6 sürümünde pwrite64 olarak yeniden adlandırıldı"
+    },
+    "pwritev": {
+      "version": "2.6.30"
+    },
+    "pwritev2": {
+      "version": "4.6"
+    },
+    "query_module": {
+      "version": "2.2"
+    },
+    "quotactl": {
+      "version": "1.0"
+    },
+    "quotactl_fd": {
+      "version": "5.14"
+    },
+    "read": {
+      "version": "1.0"
+    },
+    "readahead": {
+      "version": "2.4.13"
+    },
+    "readdir": {
+      "version": "1.0"
+    },
+    "readlink": {
+      "version": "1.0"
+    },
+    "readlinkat": {
+      "version": "2.6.16"
+    },
+    "readv": {
+      "version": "2.0"
+    },
+    "reboot": {
+      "version": "1.0"
+    },
+    "recv": {
+      "version": "2.0"
+    },
+    "recvfrom": {
+      "version": "2.0"
+    },
+    "recvmmsg": {
+      "version": "2.6.33"
+    },
+    "recvmmsg_time64": {
+      "version": "5.1"
+    },
+    "recvmsg": {
+      "version": "2.0"
+    },
+    "remap_file_pages": {
+      "version": "2.6"
+    },
+    "removexattr": {
+      "version": "2.6"
+    },
+    "removexattrat": {
+      "version": "6.13"
+    },
+    "rename": {
+      "version": "1.0"
+    },
+    "renameat": {
+      "version": "2.6.16"
+    },
+    "renameat2": {
+      "version": "3.15"
+    },
+    "request_key": {
+      "version": "2.6.10"
+    },
+    "restart_syscall": {
+      "version": "2.6"
+    },
+    "riscv_flush_icache": {
+      "version": "4.15"
+    },
+    "riscv_hwprobe": {
+      "version": "6.4"
+    },
+    "rmdir": {
+      "version": "1.0"
+    },
+    "rseq": {
+      "version": "4.18"
+    },
+    "rseq_slice_yield": {
+      "version": "7.0"
+    },
+    "rt_sigaction": {
+      "version": "2.2"
+    },
+    "rt_sigpending": {
+      "version": "2.2"
+    },
+    "rt_sigprocmask": {
+      "version": "2.2"
+    },
+    "rt_sigqueueinfo": {
+      "version": "2.2"
+    },
+    "rt_sigreturn": {
+      "version": "2.2"
+    },
+    "rt_sigsuspend": {
+      "version": "2.2"
+    },
+    "rt_sigtimedwait": {
+      "version": "2.2"
+    },
+    "rt_sigtimedwait_time64": {
+      "version": "5.1"
+    },
+    "rt_tgsigqueueinfo": {
+      "version": "2.6.31"
+    },
+    "rtas": {
+      "version": "2.6.2"
+    },
+    "s390_guarded_storage": {
+      "version": "4.12"
+    },
+    "s390_pci_mmio_read": {
+      "version": "3.19"
+    },
+    "s390_pci_mmio_write": {
+      "version": "3.19"
+    },
+    "s390_runtime_instr": {
+      "version": "3.7"
+    },
+    "s390_sthyi": {
+      "version": "4.15"
+    },
+    "sched_get_priority_max": {
+      "version": "2.0"
+    },
+    "sched_get_priority_min": {
+      "version": "2.0"
+    },
+    "sched_getaffinity": {
+      "version": "2.6"
+    },
+    "sched_getattr": {
+      "version": "3.14"
+    },
+    "sched_getparam": {
+      "version": "2.0"
+    },
+    "sched_getscheduler": {
+      "version": "2.0"
+    },
+    "sched_rr_get_interval": {
+      "version": "2.0"
+    },
+    "sched_rr_get_interval_time64": {
+      "version": "5.1"
+    },
+    "sched_setaffinity": {
+      "version": "2.6"
+    },
+    "sched_setattr": {
+      "version": "3.14"
+    },
+    "sched_setparam": {
+      "version": "2.0"
+    },
+    "sched_setscheduler": {
+      "version": "2.0"
+    },
+    "sched_yield": {
+      "version": "2.0"
+    },
+    "seccomp": {
+      "version": "3.17"
+    },
+    "security": {
+      "version": "2.6.0",
+      "note": "Unimplemented security slot",
+      "note_tr": "Gerçeklenmemiş güvenlik yuvası"
+    },
+    "select": {
+      "version": "1.0"
+    },
+    "semctl": {
+      "version": "2.0"
+    },
+    "semget": {
+      "version": "2.0"
+    },
+    "semop": {
+      "version": "2.0"
+    },
+    "semtimedop": {
+      "version": "2.6"
+    },
+    "semtimedop_time64": {
+      "version": "5.1"
+    },
+    "send": {
+      "version": "2.0"
+    },
+    "sendfile": {
+      "version": "2.2"
+    },
+    "sendfile64": {
+      "version": "2.6"
+    },
+    "sendmmsg": {
+      "version": "3.0"
+    },
+    "sendmsg": {
+      "version": "2.0"
+    },
+    "sendto": {
+      "version": "2.0"
+    },
+    "set_mempolicy": {
+      "version": "2.6.6"
+    },
+    "set_mempolicy_home_node": {
+      "version": "5.17"
+    },
+    "set_robust_list": {
+      "version": "2.6.17"
+    },
+    "set_thread_area": {
+      "version": "2.6"
+    },
+    "set_tid_address": {
+      "version": "2.6"
+    },
+    "setdomainname": {
+      "version": "1.0"
+    },
+    "setfsgid": {
+      "version": "1.2"
+    },
+    "setfsgid32": {
+      "version": "2.4"
+    },
+    "setfsuid": {
+      "version": "1.2"
+    },
+    "setfsuid32": {
+      "version": "2.4"
+    },
+    "setgid": {
+      "version": "1.0"
+    },
+    "setgid32": {
+      "version": "2.4"
+    },
+    "setgroups": {
+      "version": "1.0"
+    },
+    "setgroups32": {
+      "version": "2.4"
+    },
+    "sethostname": {
+      "version": "1.0"
+    },
+    "setitimer": {
+      "version": "1.0"
+    },
+    "setns": {
+      "version": "3.0"
+    },
+    "setpgid": {
+      "version": "1.0"
+    },
+    "setpriority": {
+      "version": "1.0"
+    },
+    "setregid": {
+      "version": "1.0"
+    },
+    "setregid32": {
+      "version": "2.4"
+    },
+    "setresgid": {
+      "version": "2.2"
+    },
+    "setresgid32": {
+      "version": "2.4"
+    },
+    "setresuid": {
+      "version": "2.2"
+    },
+    "setresuid32": {
+      "version": "2.4"
+    },
+    "setreuid": {
+      "version": "1.0"
+    },
+    "setreuid32": {
+      "version": "2.4"
+    },
+    "setrlimit": {
+      "version": "1.0"
+    },
+    "setsid": {
+      "version": "1.0"
+    },
+    "setsockopt": {
+      "version": "2.0"
+    },
+    "settimeofday": {
+      "version": "1.0"
+    },
+    "setuid": {
+      "version": "1.0"
+    },
+    "setuid32": {
+      "version": "2.4"
+    },
+    "setup": {
+      "version": "1.0"
+    },
+    "setxattr": {
+      "version": "2.6"
+    },
+    "setxattrat": {
+      "version": "6.13"
+    },
+    "sgetmask": {
+      "version": "1.0"
+    },
+    "shmat": {
+      "version": "2.0"
+    },
+    "shmctl": {
+      "version": "2.0"
+    },
+    "shmdt": {
+      "version": "2.0"
+    },
+    "shmget": {
+      "version": "2.0"
+    },
+    "shutdown": {
+      "version": "2.0"
+    },
+    "sigaction": {
+      "version": "1.0"
+    },
+    "sigaltstack": {
+      "version": "2.2"
+    },
+    "signal": {
+      "version": "1.0"
+    },
+    "signalfd": {
+      "version": "2.6.22"
+    },
+    "signalfd4": {
+      "version": "2.6.27"
+    },
+    "sigpending": {
+      "version": "1.0"
+    },
+    "sigprocmask": {
+      "version": "1.0"
+    },
+    "sigreturn": {
+      "version": "1.0"
+    },
+    "sigsuspend": {
+      "version": "1.0"
+    },
+    "socket": {
+      "version": "2.0"
+    },
+    "socketcall": {
+      "version": "1.0"
+    },
+    "socketpair": {
+      "version": "2.0"
+    },
+    "splice": {
+      "version": "2.6.17"
+    },
+    "spu_create": {
+      "version": "2.6.16"
+    },
+    "spu_run": {
+      "version": "2.6.16"
+    },
+    "ssetmask": {
+      "version": "1.0"
+    },
+    "stat": {
+      "version": "1.0"
+    },
+    "stat64": {
+      "version": "2.4"
+    },
+    "statfs": {
+      "version": "1.0"
+    },
+    "statfs64": {
+      "version": "2.6"
+    },
+    "statmount": {
+      "version": "6.8"
+    },
+    "statx": {
+      "version": "4.11"
+    },
+    "stime": {
+      "version": "1.0"
+    },
+    "stty": {
+      "version": "1.0"
+    },
+    "subpage_prot": {
+      "version": "2.6.25"
+    },
+    "swapcontext": {
+      "version": "2.6.3"
+    },
+    "swapoff": {
+      "version": "1.0"
+    },
+    "swapon": {
+      "version": "1.0"
+    },
+    "switch_endian": {
+      "version": "4.1"
+    },
+    "symlink": {
+      "version": "1.0"
+    },
+    "symlinkat": {
+      "version": "2.6.16"
+    },
+    "sync": {
+      "version": "1.0"
+    },
+    "sync_file_range": {
+      "version": "2.6.17"
+    },
+    "sync_file_range2": {
+      "version": "2.6.22"
+    },
+    "syncfs": {
+      "version": "2.6.39"
+    },
+    "sys_debug_setcontext": {
+      "version": "2.6.11"
+    },
+    "sys_kexec_load": {
+      "version": "2.6.13",
+      "note": "ARM kexec_load entry",
+      "note_tr": "ARM kexec_load girişi"
+    },
+    "syscall": {
+      "version": "1.0"
+    },
+    "sysfs": {
+      "version": "1.2"
+    },
+    "sysinfo": {
+      "version": "1.0"
+    },
+    "syslog": {
+      "version": "1.0"
+    },
+    "sysmips": {
+      "version": "2.6.0"
+    },
+    "tee": {
+      "version": "2.6.17"
+    },
+    "tgkill": {
+      "version": "2.6"
+    },
+    "time": {
+      "version": "1.0"
+    },
+    "timer_create": {
+      "version": "2.6"
+    },
+    "timer_delete": {
+      "version": "2.6"
+    },
+    "timer_getoverrun": {
+      "version": "2.6"
+    },
+    "timer_gettime": {
+      "version": "2.6"
+    },
+    "timer_gettime64": {
+      "version": "5.1"
+    },
+    "timer_settime": {
+      "version": "2.6"
+    },
+    "timer_settime64": {
+      "version": "5.1"
+    },
+    "timerfd": {
+      "version": "2.6.22",
+      "note": "Replaced by timerfd_create in 2.6.25",
+      "note_tr": "2.6.25 sürümünde yerini timerfd_create aldı"
+    },
+    "timerfd_create": {
+      "version": "2.6.25"
+    },
+    "timerfd_gettime": {
+      "version": "2.6.25"
+    },
+    "timerfd_gettime64": {
+      "version": "5.1"
+    },
+    "timerfd_settime": {
+      "version": "2.6.25"
+    },
+    "timerfd_settime64": {
+      "version": "5.1"
+    },
+    "times": {
+      "version": "1.0"
+    },
+    "tkill": {
+      "version": "2.6"
+    },
+    "truncate": {
+      "version": "1.0"
+    },
+    "truncate64": {
+      "version": "2.4"
+    },
+    "tuxcall": {
+      "version": "2.4.0",
+      "note": "Unimplemented TUX slot",
+      "note_tr": "Gerçeklenmemiş TUX yuvası"
+    },
+    "ugetrlimit": {
+      "version": "2.4"
+    },
+    "ulimit": {
+      "version": "1.0"
+    },
+    "umask": {
+      "version": "1.0"
+    },
+    "umount": {
+      "version": "1.0"
+    },
+    "umount2": {
+      "version": "2.2"
+    },
+    "uname": {
+      "version": "1.0"
+    },
+    "unlink": {
+      "version": "1.0"
+    },
+    "unlinkat": {
+      "version": "2.6.16"
+    },
+    "unshare": {
+      "version": "2.6.16"
+    },
+    "unused109": {
+      "version": "1.0",
+      "note": "MIPS uname entry",
+      "note_tr": "MIPS uname girişi"
+    },
+    "unused59": {
+      "version": "1.0",
+      "note": "MIPS olduname entry",
+      "note_tr": "MIPS olduname girişi"
+    },
+    "uprobe": {
+      "version": "6.18"
+    },
+    "uretprobe": {
+      "version": "6.11"
+    },
+    "uselib": {
+      "version": "1.0"
+    },
+    "userfaultfd": {
+      "version": "4.3"
+    },
+    "ustat": {
+      "version": "1.0"
+    },
+    "utime": {
+      "version": "1.0"
+    },
+    "utimensat": {
+      "version": "2.6.22"
+    },
+    "utimensat_time64": {
+      "version": "5.1"
+    },
+    "utimes": {
+      "version": "2.2"
+    },
+    "vfork": {
+      "version": "2.2"
+    },
+    "vhangup": {
+      "version": "1.0"
+    },
+    "vm86": {
+      "version": "2.0.28"
+    },
+    "vm86old": {
+      "version": "1.0"
+    },
+    "vmsplice": {
+      "version": "2.6.17"
+    },
+    "vserver": {
+      "version": "2.4.0",
+      "note": "Unimplemented Linux-VServer slot",
+      "note_tr": "Gerçeklenmemiş Linux-VServer yuvası"
+    },
+    "wait4": {
+      "version": "1.0"
+    },
+    "waitid": {
+      "version": "2.6.10"
+    },
+    "waitpid": {
+      "version": "1.0"
+    },
+    "write": {
+      "version": "1.0"
+    },
+    "writev": {
+      "version": "2.0"
+    }
+  }
+}
