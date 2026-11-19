@@ -131,6 +131,11 @@ class StaticPageTests(unittest.TestCase):
         self.assertIn('<strong>First appeared:</strong> Linux 2.6.16', self.read('call/openat/'))
         self.assertIn('İlk olarak Linux 2.6.16 sürümünde eklendi.', self.read('tr/call/openat/'))
         self.assertIn('<strong>İlk kez eklendiği sürüm:</strong> Linux 2.6.16', self.read('tr/call/openat/'))
+        self.assertIn('x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64 · LoongArch 64 · PowerPC 64 · PowerPC 32 · IBM Z (s390x) · MIPS o32 · MIPS n32 · MIPS n64', self.read('call/openat/'))
+        self.assertIn('x86-64 · i386 · AArch64 · ARM EABI · RISC-V 64', self.read('call/openat/'))
+        self.assertIn('x86-64 · i386', self.read('call/openat/'))
+        self.assertNotIn('all 12', self.read('call/openat/'))
+        self.assertNotIn('tümü (12)', self.read('tr/call/openat/'))
 
     def test_introduction_version_is_rendered(self):
         self.assertIn('Introduced in Linux 1.0 (or earlier).', self.read('call/read/'))

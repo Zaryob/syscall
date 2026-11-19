@@ -510,8 +510,6 @@ class Writer:
             present = self.data['history'].get(name, {}).get(version, {})
             if not present:
                 cell = '<span class="muted">{}</span>'.format(escape(t['none']))
-            elif len(present) == len(bundled) and all(present[arch] == current.get(arch) for arch in bundled):
-                cell = escape(t['all'].format(count=len(bundled)))
             else:
                 cell = ' · '.join(
                     escape(self.labels[arch]) + ('' if present[arch] == current.get(arch) else ' <code>{}</code>'.format(', '.join(str(number) for number in present[arch])))
