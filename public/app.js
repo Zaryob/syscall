@@ -506,6 +506,8 @@ function renderLibrary() {
   const download = datasetPath(manifest.latest, 'x64.json');
   $('bulk-link').href = download;
   $('api-example').textContent = `curl '${location.origin}${download}'`;
+  const jqExample = $('api-jq-example');
+  if (jqExample) jqExample.textContent = `curl '${location.origin}${download}' | jq '.syscalls[] | select(.name == "read")'`;
   $('snapshot-sources').href = datasetPath(manifest.latest, 'sources.json');
 }
 window.addEventListener('zaryob:language', () => {

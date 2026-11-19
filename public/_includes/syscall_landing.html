@@ -5,6 +5,13 @@
 {% assign latest_path = site.data.syscall_release.latest_path %}
 {% assign latest_table = '/data/' | append: latest_path | append: '/x64.json' %}
 {% assign latest_sources = '/data/' | append: latest_path | append: '/sources.json' %}
+{% assign site_origin = site.suite_url | default: 'https://zaryob.github.io' %}
+{% assign api_base = '' %}
+{% if site.baseurl == nil or site.baseurl == '' %}
+  {% assign api_base = '/syscall' %}
+{% endif %}
+{% assign latest_table_relative = latest_table | relative_url %}
+{% assign latest_table_url = site_origin | append: api_base | append: latest_table_relative %}
   <div id="library">
     <section class="console-hero console-hero--syscall" aria-labelledby="title">
       <div class="console-hero__inner">
@@ -68,7 +75,7 @@
         <a href="#architectures"><span data-i18n="Architectures">{{ labels["Architectures"][locale] | escape }}</span> ↑</a>
       </div>
       <p><span data-i18n="The same data is published as static JSON files. No account, key, or running API server is needed.">{{ labels["The same data is published as static JSON files. No account, key, or running API server is needed."][locale] | escape }}</span></p>
-      <pre><code id="api-example">curl '{{ latest_table | relative_url }}'</code></pre>
+      <pre><code id="api-example">curl '{{ latest_table_url }}'</code></pre>
       <dl class="api-list">
         <dt><a href="{{ '/api/v1/index.json' | relative_url }}"><code>GET /api/v1/index.json</code></a></dt><dd><span data-i18n="API index, license information, and relative paths to each snapshot.">{{ labels["API index, license information, and relative paths to each snapshot."][locale] | escape }}</span></dd>
         <dt><a href="{{ '/api/v1/architectures.json' | relative_url }}"><code>GET /api/v1/architectures.json</code></a></dt><dd><span data-i18n="Supported architectures and their calling conventions.">{{ labels["Supported architectures and their calling conventions."][locale] | escape }}</span></dd>
@@ -77,7 +84,7 @@
         <dt><a href="{{ latest_sources | relative_url }}"><code>GET /data/{version}/sources.json</code></a></dt><dd><span data-i18n="Input source files, original licenses, and checksums.">{{ labels["Input source files, original licenses, and checksums."][locale] | escape }}</span></dd>
       </dl>
       <p><span data-i18n="Search and release comparison run in your browser. For a single entry, open its details and choose “Download entry JSON”. Programs can filter the table locally, for example:">{{ labels["Search and release comparison run in your browser. For a single entry, open its details and choose “Download entry JSON”. Programs can filter the table locally, for example:"][locale] | escape }}</span></p>
-      <pre><code>curl '{{ latest_table | relative_url }}' | jq '.syscalls[] | select(.name == "read")'</code></pre>
+      <pre><code id="api-jq-example">curl '{{ latest_table_url }}' | jq '.syscalls[] | select(.name == "read")'</code></pre>
       <p><span data-i18n="Download">{{ labels["Download"][locale] | escape }}</span> <a href="{{ '/data/manifest.json' | relative_url }}"><span data-i18n="the manifest">{{ labels["the manifest"][locale] | escape }}</span></a> <span data-i18n="and">{{ labels["and"][locale] | escape }}</span> <a id="bulk-link" href="{{ latest_table | relative_url }}"><span data-i18n="the selected table">{{ labels["the selected table"][locale] | escape }}</span></a> <span data-i18n="for bulk use. Query parameters do not filter the static JSON files.">{{ labels["for bulk use. Query parameters do not filter the static JSON files."][locale] | escape }}</span></p>
     </section>
 
