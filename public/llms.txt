@@ -1,0 +1,32 @@
+# Linux System Call Reference
+
+> Comprehensive, kernel-verified reference to Linux system calls across 12 processor ABIs.
+
+Find what any Linux system call does, inspect its argument registers (ARG1–ARG6), C function signatures, kernel entry points, return values, errno definitions, signals, and ioctl operations. Data is sourced directly from kernel headers and verified snapshots.
+
+## Key Sections
+
+- [Reference Homepage](https://zaryob.github.io/syscall/): Interactive multi-architecture system call explorer with bilingual search, register conventions, and release diffs.
+- [All Calls Index](https://zaryob.github.io/syscall/call/): Static index of all documented Linux system calls with dedicated pages per call.
+- [Turkish Reference (Türkçe)](https://zaryob.github.io/syscall/tr/): Sistem çağrıları rehberinin Türkçe arayüzü ve açıklamaları.
+- [Errno Numbers](https://zaryob.github.io/syscall/errno/): Linux error codes, symbolic names, descriptions, and architecture-specific divergence tables.
+- [Signals](https://zaryob.github.io/syscall/signals/): POSIX/Linux signals, default actions, numbers, and architecture-specific variants.
+- [Ioctl Decoder](https://zaryob.github.io/syscall/ioctl/): Linux ioctl request code breakdown (direction, type/magic, sequence, size) and command lists.
+
+## Architecture ABI Tables (Static HTML)
+
+- [x86-64 System Calls](https://zaryob.github.io/syscall/arch/x86_64/): Syscall numbers, entry points, and registers (%rax, %rdi, %rsi, %rdx, %r10, %r8, %r9).
+- [AArch64 (ARM64) System Calls](https://zaryob.github.io/syscall/arch/arm64/): Syscall numbers (w8) and argument registers (x0-x5).
+- [RISC-V 64 System Calls](https://zaryob.github.io/syscall/arch/riscv64/): Syscall numbers (a7) and argument registers (a0-a5).
+- [i386 System Calls](https://zaryob.github.io/syscall/arch/i386/): 32-bit x86 syscall table (%eax, %ebx, %ecx, %edx, %esi, %edi, %ebp).
+- [ARM EABI System Calls](https://zaryob.github.io/syscall/arch/arm/): 32-bit ARM EABI syscall numbers (r7) and registers (r0-r5).
+- [LoongArch 64 System Calls](https://zaryob.github.io/syscall/arch/loongarch64/): Syscall numbers (a7) and registers (a0-a5).
+- [PowerPC 64 System Calls](https://zaryob.github.io/syscall/arch/ppc64/): 64-bit PowerPC syscall numbers (r0) and registers (r3-r8).
+- [PowerPC 32 System Calls](https://zaryob.github.io/syscall/arch/ppc32/): 32-bit PowerPC syscall numbers (r0) and registers (r3-r8).
+- [s390x (IBM Z) System Calls](https://zaryob.github.io/syscall/arch/s390x/): s390x syscall numbers (svc / %r1) and registers (%r2-%r6).
+- [MIPS (o32, n32, n64) System Calls](https://zaryob.github.io/syscall/arch/mips_n64/): MIPS 64-bit and 32-bit ABI tables.
+
+## Machine-Readable Data Endpoints
+
+- [Data Manifest](https://zaryob.github.io/syscall/data/manifest.json): Full JSON manifest of supported kernel versions, ABIs, and data snapshots.
+- [JSON API Endpoint](https://zaryob.github.io/syscall/api/v1/): Machine-readable JSON descriptions for system calls, arguments, and architectures.
