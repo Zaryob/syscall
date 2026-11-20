@@ -49,9 +49,9 @@ const en = {
 };
 
 const tr = {
-  errnoLede: 'Sistem çağrılarının döndürdüğü hata numaraları; çekirdeğin UAPI başlıklarında tanımlandığı biçimde. Mimarilerin çoğu aynı tabloyu kullanır; MIPS ve PowerPC kullanmaz.',
-  signalsLede: 'Çekirdeğin UAPI başlıklarında tanımlanan sinyal numaraları ve çekirdeğin her sinyal için belgelediği varsayılan eylem.',
-  ioctlLede: 'Bir ioctl istek numarasının nasıl oluşturulduğu, numarayı çözen bir araç, çekirdek belgelerinde kayıtlı sihirli sayılar ve terminal ile soket komutları.',
+  errnoLede: 'Çekirdeğin UAPI başlıklarında tanımlanan sistem çağrısı hata numaraları. Çoğu mimari ortak tabloyu kullanır. MIPS ve PowerPC’nin kendi tabloları vardır.',
+  signalsLede: 'Çekirdeğin UAPI başlıklarındaki sinyal numaraları ve her sinyal için belgelenen varsayılan işlem.',
+  ioctlLede: 'ioctl istek numarasının alanlarını çözümleyin. Çekirdek belgelerinde kayıtlı tür değerlerine ve terminal ile soket komutlarına bakın.',
   coverage: version => `Yalnızca Linux ${version} kaynağından üretilmiştir. Sistem çağrısı tablolarındaki eski sürümler burada yer almaz.`,
   ownHeader: (arch, header, path) => `${arch} mimarisinin kendi ${code(`&lt;asm/${header}&gt;`)} başlığı var: ${path}.`,
   genericHeader: (arch, header, path, rule, kbuild) => `${arch} mimarisinin kendi ${code(`&lt;asm/${header}&gt;`)} başlığı yok. ${kbuild} dosyası bu başlığı ${code(rule)} altında listeler; bu yüzden ${path} kullanılır.`,
@@ -62,7 +62,7 @@ const tr = {
   noComment: 'başlıkta açıklama yok',
   actions: { terminate: 'sonlandır', ignore: 'yok say', coredump: 'bellek dökümü', stop: 'durdur' },
   noAction: 'çekirdeğin tablosunda yok',
-  actionLegend: 'Çekirdekteki açıklamanın varsayılan eylemler için söyledikleri:',
+  actionLegend: 'Çekirdek belgelerine göre varsayılan işlemler',
   actionSource: 'Varsayılan eylemler şu dosyadaki açıklama tablosundan okunur:',
   realtime: (min, max) => `Gerçek zamanlı sinyaller ${code('SIGRTMIN')} = ${min} ile ${code('SIGRTMAX')} = ${max} arasındadır. Çekirdek başlığı, kullanıcı programlarının bunları sabit saymaması gerektiğini belirtir.`,
   realtimeAction: action => `Varsayılan eylemleri: “${action}”.`,
@@ -74,8 +74,8 @@ const tr = {
   layoutIntro: (arch, bits) => `${arch} mimarisinde istek numarası ${bits.dir} yön biti, ${bits.size} boyut biti, ${bits.type} tür biti ve ${bits.nr} numara bitinden oluşur.`,
   directionValues: 'Yön değerleri:',
   bitRange: (high, low) => high === low ? `bit ${high}` : `bit ${high}–${low}`,
-  invalidRequest: '32 bitlik istek numarasını onaltılık (0x5401) veya onluk olarak girin.',
-  decodePrompt: 'Alanlarını görmek için bir istek numarası girin.',
+  invalidRequest: '32 bitlik istek numarasını onaltılı (0x5401) ya da onluk olarak girin.',
+  decodePrompt: 'İstek numarasını girerek alanlarını görün.',
   decoded: value => `${value} numarasının alanları`,
   legacy: '0x54xx aralığındaki terminal komutları gibi birçok eski komut, _IO makrolarıyla oluşturulmamış düz sayılardır. Bu komutlarda yön ve boyut alanları argüman hakkında bilgi vermez.',
   noCommandMatch: 'Terminal ve soket başlıklarında, bu mimaride bu değere sahip bir komut yok.',

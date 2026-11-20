@@ -1,4 +1,7 @@
 {
+  "site": {
+    "syscall.analytics": ["This page loads the third-party Umami Cloud and Google Analytics scripts and sends visit analytics; Google Analytics sets cookies. Syscall search runs in your browser. <a href=\"https://docs.umami.is/docs/collect-data\">Umami data collection</a> · <a href=\"https://policies.google.com/technologies/partner-sites\">How Google uses data</a>.","Bu sayfa üçüncü taraf Umami Cloud ve Google Analytics betiklerini yükler ve ziyaret analitiği gönderir; Google Analytics çerez kullanır. Sistem çağrısı araması tarayıcıda yapılır. <a href=\"https://docs.umami.is/docs/collect-data\">Umami veri toplama açıklaması</a> · <a href=\"https://policies.google.com/technologies/partner-sites?hl=tr\">Google verileri nasıl kullanır</a>."]
+  },
   "syscall_landing": {
     "Linux System Call Reference": ["Linux System Call Reference", "Linux Sistem Çağrıları Referansı"],
     "The small interface between your program and the kernel.": ["The small interface between your program and the kernel.", "Programınız ile çekirdek arasındaki küçük arayüz."],
@@ -67,14 +70,17 @@
     "Reference sections": ["Reference sections", "Referans bölümleri"],
     "Name, number, or purpose…": ["Name, number, or purpose…", "Ad, numara veya işlev…"],
     "System call table; scroll horizontally on narrow screens": ["System call table; scroll horizontally on narrow screens", "Sistem çağrısı tablosu; dar ekranda yatay kaydırın"],
-    "syscall.heroTableLink": ["syscall table →", "syscall tablosu →"],
+    "syscall.architectureTables": ["Tables by architecture", "Mimariye göre tablolar"],
+    "syscall.heroTableLink": ["Open table →", "Tabloyu aç →"],
     "syscall.staticIndex": ["All system calls A–Z", "A’dan Z’ye tüm sistem çağrıları"],
     "syscall.clobber": ["Clobber", "Bozulan"],
     "syscall.abiNotes": ["<p>NR uses the 64-bit register names rax/x8; x86-64 takes the low 32 bits (eax), and AArch64 uses w8. RET2 applies only to calls using a second result; “—” means no second register is listed. Clobber lists only the x86-64 syscall instruction’s rcx/r11 effects, not the full register preservation contract for other ABIs. <a href=\"https://man7.org/linux/man-pages/man2/syscall.2.html\">syscall(2)</a>.</p><p>PPC32 and PPC64 sc report errors with cr0.SO=1 and positive errno in r3. Since Linux 5.9, PPC64 can use scv 0 when AT_HWCAP2 advertises PPC_FEATURE2_SCV; errors are -4095…-1 in r3, without cr0.SO as an error indicator. scv has different register preservation rules from sc. <a href=\"https://docs.kernel.org/arch/powerpc/syscall64-abi.html\">PPC64 ABI</a> · <a href=\"https://github.com/torvalds/linux/blob/v7.3/arch/powerpc/kernel/interrupt.c\">PPC error return</a>.</p>", "<p>NR için rax/x8, yazmacın 64 bit görünümüdür; x86-64 numarayı alt 32 bitten alır (eax), AArch64 ise w8 kullanır. RET2 yalnız ikinci sonuç kullanan çağrılar içindir; “—” listelenmiş ikinci yazmaç olmadığını belirtir. Bozulan sütunu yalnız x86-64 syscall komutunun rcx/r11 etkisini listeler; diğer ABI’ler için tam yazmaç koruma sözleşmesi değildir. <a href=\"https://man7.org/linux/man-pages/man2/syscall.2.html\">syscall(2)</a>.</p><p>PPC32 ve PPC64 sc girişinde hata: cr0.SO=1 ve r3 pozitif errno. PPC64, Linux 5.9’dan beri AT_HWCAP2 içinde PPC_FEATURE2_SCV varsa scv 0 kullanabilir; hata r3 içinde -4095…-1’dir, cr0.SO hata göstergesi değildir. scv, sc ile farklı yazmaç koruma kurallarına sahiptir. <a href=\"https://docs.kernel.org/arch/powerpc/syscall64-abi.html\">PPC64 ABI</a> · <a href=\"https://github.com/torvalds/linux/blob/v7.3/arch/powerpc/kernel/interrupt.c\">PPC hata dönüşü</a>.</p>"],
     "syscall.apiTitle": ["JSON reference", "JSON başvurusu"],
     "syscall.sourcesTitle": ["Sources and method", "Kaynaklar ve yöntem"],
+    "syscall.sourceSummary": ["The tables are compiled from Linux kernel source. The source files and checksums identify the inputs used for each snapshot.", "Tablolar Linux çekirdeğinin kaynak kodundan üretilir. Dosya listesi ve sağlama toplamları, her sürüm için kullanılan kaynakları doğrulamaya yarar."],
+    "syscall.sourceMethod": ["How are the tables made?", "Tablolar nasıl hazırlanıyor?"],
     "syscall.sourceIntro": ["<p>The tables are generated from the <a href=\"https://github.com/torvalds/linux\">Linux kernel source</a>. Architecture-specific <code>.tbl</code> files supply call numbers and entry points.</p><p>C declarations come from <code>include/linux/syscalls.h</code>, <code>compat.h</code>, and architecture headers. ABI selection follows the kernel’s <code>Makefile.syscalls</code>. Register conventions are documented in <a href=\"https://man7.org/linux/man-pages/man2/syscall.2.html\">Linux man-pages</a>.</p>", "<p>Tablolar <a href=\"https://github.com/torvalds/linux\">Linux çekirdeğinin kaynak kodundan</a> üretilir. Mimariye özgü <code>.tbl</code> dosyaları çağrı numaralarını ve giriş noktalarını sağlar.</p><p>C bildirimleri <code>include/linux/syscalls.h</code>, <code>compat.h</code> ve mimariye özgü başlık dosyalarından alınır. ABI seçimi çekirdekteki <code>Makefile.syscalls</code> dosyasını izler. Yazmaç kuralları <a href=\"https://man7.org/linux/man-pages/man2/syscall.2.html\">Linux man-pages</a> belgelerinde açıklanır.</p>"],
-    "syscall.sourceDetails": ["Scope and limits of these snapshots", "Anlık görüntülerin kapsamı ve sınırları"],
+    "syscall.sourceDetails": ["Scope and limits of these snapshots", "Sürüm verilerinin kapsamı ve sınırları"],
     "syscall.availability": ["A table entry does not mean the call exists in every kernel: most optional calls return ENOSYS when the matching configuration option or architecture support is not built.", "Tabloda yer almak, çağrının her çekirdekte bulunduğu anlamına gelmez: isteğe bağlı çağrıların çoğu, ilgili yapılandırma seçeneği veya mimari desteği derlenmemişse ENOSYS döner."],
     "syscall.syntaxLegend": ["<span class=\"c-type\">C type</span> · <span class=\"c-name\">parameter</span>", "<span class=\"c-type\">C türü</span> · <span class=\"c-name\">parametre</span>"],
     "syscall.advancedOptions": ["More filters and release notes", "Diğer filtreler ve sürüm notları"],
@@ -94,7 +100,7 @@
     "Source": ["Source", "Kaynak"],
     "No entries match this search.": ["No entries match this search.", "Aramayla eşleşen girdi yok."],
     "Clear search": ["Clear search", "Aramayı temizle"],
-    "abi.errnoLede": ["Error numbers a system call returns, as the kernel’s UAPI headers define them. Most architectures share one table; MIPS and PowerPC do not.", "Sistem çağrılarının döndürdüğü hata numaraları; çekirdeğin UAPI başlıklarında tanımlandığı biçimde. Mimarilerin çoğu aynı tabloyu kullanır; MIPS ve PowerPC kullanmaz."]
+    "abi.errnoLede": ["Error numbers a system call returns, as the kernel’s UAPI headers define them. Most architectures share one table; MIPS and PowerPC do not.", "Çekirdeğin UAPI başlıklarında tanımlanan sistem çağrısı hata numaraları. Çoğu mimari ortak tabloyu kullanır. MIPS ve PowerPC’nin kendi tabloları vardır."]
   },
   "syscall_ioctl": {
     "Architectures": ["Architectures", "Mimariler"],
@@ -129,7 +135,7 @@
     "Comments": ["Comments", "Açıklamalar"],
     "On this page": ["On this page", "Bu sayfada"],
     "Code, file, or text…": ["Code, file, or text…", "Kod, dosya veya metin…"],
-    "abi.ioctlLede": ["How an ioctl request number is put together, a decoder for it, the magic numbers registered in the kernel documentation, and the terminal and socket commands.", "Bir ioctl istek numarasının nasıl oluşturulduğu, numarayı çözen bir araç, çekirdek belgelerinde kayıtlı sihirli sayılar ve terminal ile soket komutları."],
+    "abi.ioctlLede": ["How an ioctl request number is put together, a decoder for it, the magic numbers registered in the kernel documentation, and the terminal and socket commands.", "ioctl istek numarasının alanlarını çözümleyin. Çekirdek belgelerinde kayıtlı tür değerlerine ve terminal ile soket komutlarına bakın."],
     "abi.legacy": ["Many old commands, such as the terminal ones in the 0x54xx range, are plain numbers that were never built with the _IO macros. Their direction and size fields then say nothing about the argument.", "0x54xx aralığındaki terminal komutları gibi birçok eski komut, _IO makrolarıyla oluşturulmamış düz sayılardır. Bu komutlarda yön ve boyut alanları argüman hakkında bilgi vermez."],
     "abi.commandsNote": ["This is not a list of every ioctl. It covers the commands in asm/ioctls.h and linux/sockios.h. A value is shown only where these headers fix it; where it depends on the size of a structure, the macro is shown instead.", "Bu, bütün ioctl komutlarının listesi değildir; asm/ioctls.h ve linux/sockios.h içindeki komutları kapsar. Değer, yalnızca bu başlıklar onu kesin olarak belirliyorsa gösterilir; bir yapının boyutuna bağlıysa onun yerine makro gösterilir."],
     "abi.registryNote": ["The table from the kernel’s ioctl-number.rst, as written there. It lists which header uses which type byte and number range; entries can overlap, and the document marks known conflicts.", "Çekirdekteki ioctl-number.rst belgesindeki tablo, orada yazıldığı gibi. Hangi başlığın hangi tür baytını ve numara aralığını kullandığını listeler; girdiler çakışabilir ve belge bilinen çakışmaları işaretler."]
@@ -150,6 +156,6 @@
     "Clear search": ["Clear search", "Aramayı temizle"],
     "Default actions": ["Default actions", "Varsayılan eylemler"],
     "Back to top ↑": ["Back to top ↑", "Başa dön ↑"],
-    "abi.signalsLede": ["Signal numbers as the kernel’s UAPI headers define them, with the default action the kernel documents for each signal.", "Çekirdeğin UAPI başlıklarında tanımlanan sinyal numaraları ve çekirdeğin her sinyal için belgelediği varsayılan eylem."]
+    "abi.signalsLede": ["Signal numbers as the kernel’s UAPI headers define them, with the default action the kernel documents for each signal.", "Çekirdeğin UAPI başlıklarındaki sinyal numaraları ve her sinyal için belgelenen varsayılan işlem."]
   }
 }

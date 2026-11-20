@@ -8,6 +8,7 @@ import {
   matchingMagic, normalizeArch, parseNumber, parseRequest, readAbiRoute, searchRows, sourceURL, tableRows,
 } from '../public/abi.mjs';
 import { abiCopy } from '../public/abi-copy.mjs';
+import { referenceCopy } from '../public/reference.mjs';
 
 const file = path => new URL('../public/' + path, import.meta.url);
 const json = async path => JSON.parse(await readFile(file(path), 'utf8'));
@@ -157,7 +158,17 @@ test('both languages define the same copy, and every UI key of the new pages is 
   assert.deepEqual(Object.keys(tr).sort(), Object.keys(en).sort());
   for (const key of Object.keys(en)) assert.deepEqual(shape(tr[key]), shape(en[key]), key);
   const dictionary = await readFile(file('assets/console/i18n.js'), 'utf8');
-  const translated = new Set([...dictionary.matchAll(/^  "((?:[^"\\]|\\.)*)":/gm)].map(match => JSON.parse(`"${match[1]}"`)));
+  const translated = new Map([...dictionary.matchAll(/^\s*("(?:[^"\\]|\\.)*"):\s*("(?:[^"\\]|\\.)*")/gm)]
+    .map(([, source, translation]) => [JSON.parse(source), JSON.parse(translation)]));
+  const liquidCopy = await json('_data/syscall_copy.json');
+  for (const [page, labels] of Object.entries(liquidCopy)) {
+    for (const [key, values] of Object.entries(labels)) {
+      const [family, name] = key.split('.');
+      const runtime = family === 'abi' ? abiCopy : family === 'syscall' ? referenceCopy : null;
+      const expected = runtime ? ['en', 'tr'].map(language => runtime(language)[name]) : [key, translated.get(key)];
+      assert.deepEqual(values, expected, `${page}: ${key} must match the browser copy`);
+    }
+  }
   const decode = text => text.replace(/&amp;/g, '&');
   const pages = ['_includes/syscall_errno.html', '_includes/syscall_signals.html', '_includes/syscall_ioctl.html',
     ...(await readdir(file('_includes'))).filter(name => name.startsWith('abi-')).map(name => `_includes/${name}`)];

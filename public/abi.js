@@ -47,9 +47,15 @@ function renderCopy() {
     coverage: release ? text.coverage(release.slice(1)) : '',
     about: data ? text.about(release.slice(1), data.licensing.generator) : '',
   };
-  document.querySelectorAll('[data-abi-copy]').forEach(node => { node.innerHTML = values[node.dataset.abiCopy] ?? ''; });
+  document.querySelectorAll('[data-abi-copy]').forEach(node => {
+    const value = values[node.dataset.abiCopy];
+    if (typeof value === 'string') node.innerHTML = value;
+  });
   const shared = referenceCopy(window.ZaryobI18n.language);
-  document.querySelectorAll('[data-syscall-copy]').forEach(node => { node.innerHTML = shared[node.dataset.syscallCopy] ?? ''; });
+  document.querySelectorAll('[data-syscall-copy]').forEach(node => {
+    const value = shared[node.dataset.syscallCopy];
+    if (typeof value === 'string') node.innerHTML = value;
+  });
 }
 
 // Links between the sections keep the selected architecture and an explicit language.
@@ -258,8 +264,9 @@ window.addEventListener('popstate', () => {
   if (!data) return;
   restoring = true;
   try {
-    const language = new URLSearchParams(location.search).get('lang');
-    if (language) window.ZaryobLanguage.set(language, { persist: false, updateUrl: false });
+    const requested = new URLSearchParams(location.search).get('lang');
+    const language = window.ZaryobLanguage.supported.includes(requested) ? requested : document.documentElement.lang;
+    window.ZaryobLanguage.set(language, { persist: false, updateUrl: false });
     Object.assign(state, readAbiRoute(location.href));
     state.arch = normalizeArch(data, state.arch);
     restoreControls();

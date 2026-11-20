@@ -11,13 +11,53 @@
 .console-syscall .introduction .lede { margin-bottom: 17px; color: var(--muted); font-size: var(--text-base); }
 .console-syscall .introduction > p:not(.eyebrow,.lede) { margin-bottom: 16px; font-size: var(--text-base); }
 
-.console-syscall #architectures { padding-top: 16px; border-top: 1px solid var(--line); }
-.console-syscall #architectures h2 { margin-bottom: 12px; }
+.console-syscall .library-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(46%, 31rem));
+  align-items: center;
+  gap: 20px clamp(24px, 4vw, 56px);
+  padding-block: clamp(24px, 4vw, 48px) 24px;
+}
+.console-syscall .library-intro h1 {
+  margin-bottom: 12px;
+  font: 600 clamp(1.75rem, 3.5vw, 2.75rem)/1.15 var(--font-prose);
+}
+.console-syscall .library-intro__copy > p { max-width: 58ch; margin-bottom: 14px; color: var(--muted); font: var(--text-prose)/1.55 var(--font-prose); }
+.console-syscall .library-intro .console-hero__panel-head a { color: var(--accent); }
+@media (max-width: 760px) {
+  .console-syscall .library-intro { grid-template-columns: minmax(0, 1fr); }
+  .console-syscall .library-intro .console-hero__panel { width: 100%; max-width: 31rem; }
+}
+.console-syscall .static-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 6px 14px;
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  background: var(--surface);
+  font: 600 var(--text-sm)/1.4 var(--font-prose);
+}
+.console-syscall .static-links a:hover { background: var(--selection); }
+.console-syscall .reference-directory {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 16rem);
+  gap: 24px clamp(24px, 5vw, 64px);
+  max-width: 64rem;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.console-syscall .reference-directory h2 {
+  margin-bottom: 8px;
+  font: 600 var(--text-h3)/1.35 var(--font-prose);
+}
+.console-syscall .library-navigation ul { margin: 0; padding: 0; list-style: none; }
+.console-syscall .library-navigation a { display: inline-flex; align-items: center; min-height: 36px; font: var(--text-base)/1.4 var(--font-prose); }
 .console-syscall .architecture-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
-  gap: 0 20px;
-  margin: 0 0 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+  gap: 0 16px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -27,8 +67,14 @@
   min-height: 44px;
   border-bottom: 1px solid var(--line);
   font-size: var(--text-base);
+  text-decoration: none;
 }
-.console-syscall .architecture-links a:hover { background: var(--surface); }
+.console-syscall .architecture-links a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .console-syscall .reference-directory { grid-template-columns: minmax(0, 1fr); }
+  .console-syscall .library-navigation ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: 0 12px; }
+  .console-syscall .library-navigation a { min-height: 44px; }
+}
 
 .console-syscall #reference { padding-top: 24px; }
 .console-syscall .table-back { margin-bottom: 10px; font-size: var(--text-sm); }
@@ -389,17 +435,8 @@
 }
 /* Symbol names (EOWNERDEAD, SIGHUP) stay on one line; the table scrolls instead. */
 .console-syscall .abi-table tbody th > code { white-space: nowrap; overflow-wrap: normal; }
-/* Landing hero (shared console-hero component) */
-.console-syscall .console-hero__more { margin: 14px 0 0; max-width: 62ch; font-size: var(--text-base); }
-.console-syscall .console-hero .index-line { margin: 20px 0 0; font-size: var(--text-sm); }
-.console-syscall .console-hero__panel-head a { color: var(--accent); }
-.console-syscall .console-hero__inner { padding-inline: 0; }
-.console-syscall .console-hero .console-hero__lead { margin: 16px 0 0; }
-
-.console-syscall .architecture-links li { display: grid; grid-template-columns: minmax(0,1fr); align-items: center; border-bottom: 1px solid var(--line); }
-.console-syscall .architecture-links a { border: 0; }
 .console-syscall .advanced-options { margin: 0 0 12px; border-block: 1px solid var(--line); }
-.console-syscall .advanced-options > summary, .source-notes > summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--accent); font-size: var(--text-sm); }
+.console-syscall .advanced-options > summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--accent); font-size: var(--text-sm); }
 .console-syscall .advanced-options__body { padding: 8px 0 12px; }
 .console-syscall .advanced-options .release-field { max-width: 20rem; margin-bottom: 16px; }
 .console-syscall :is(.advanced-options, .convention-info) p { font-family: var(--font-prose); font-size: var(--text-base); line-height: var(--line-prose); }
@@ -412,11 +449,19 @@
   .console-syscall .lookup-bar .release-field:first-of-type { grid-column: auto; }
 }
 
-.console-syscall .architecture-links { grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); column-gap: 28px; }
-.console-syscall .architecture-links a { text-decoration: none; }
-.console-syscall .architecture-links a:hover { background: transparent; color: var(--info); text-decoration: underline; }
-.console-syscall .source-intro { max-width: 75ch; font: var(--text-prose)/var(--line-prose) var(--font-prose); }
-.console-syscall .static-links { margin-block: 16px 22px; font-size: var(--text-sm); }
+.console-syscall #sources { max-width: 68ch; }
+.console-syscall #sources h2 { margin-bottom: 10px; font-family: var(--font-prose); }
+.console-syscall #sources > p { margin-bottom: 12px; }
+.console-syscall .documentation .source-notes { margin: 0; border-top: 1px solid var(--line); }
+.console-syscall .source-notes > summary {
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+.console-syscall .source-notes > summary:hover { text-decoration: underline; }
+.console-syscall .source-notes p { font: var(--text-base)/1.6 var(--font-prose); }
 .console-syscall .table-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-bottom: 12px; font-size: var(--text-sm); }
 .console-syscall .syntax-legend { margin: 0; font-size: var(--text-xs); }
 .console-syscall .c-type { color: var(--info); }

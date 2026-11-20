@@ -114,9 +114,13 @@ function saveURL(updateDetail = false, mode = 'replace') {
 function renderReferenceCopy() {
   const copy = referenceCopy(window.ZaryobI18n.language);
   document.querySelectorAll('[data-syscall-copy]').forEach(node => {
-    node.innerHTML = copy[node.dataset.syscallCopy];
+    const value = copy[node.dataset.syscallCopy];
+    if (typeof value === 'string') node.innerHTML = value;
   });
-  document.querySelectorAll('[data-syscall-copy-label]').forEach(node => node.setAttribute('aria-label', copy[node.dataset.syscallCopyLabel]));
+  document.querySelectorAll('[data-syscall-copy-label]').forEach(node => {
+    const value = copy[node.dataset.syscallCopyLabel];
+    if (typeof value === 'string') node.setAttribute('aria-label', value);
+  });
 }
 function renderConventions() {
   $('scroll-hint').hidden = !snapshot;
@@ -540,8 +544,9 @@ async function restoreFromURL() {
   Object.assign(state, route.state);
   restoringHistory = true;
   try {
-    const lang = new URLSearchParams(location.search).get('lang');
-    if (lang) window.ZaryobLanguage.set(lang, { persist: false, updateUrl: false });
+    const requested = new URLSearchParams(location.search).get('lang');
+    const language = window.ZaryobLanguage.supported.includes(requested) ? requested : document.documentElement.lang;
+    window.ZaryobLanguage.set(language, { persist: false, updateUrl: false });
     $('library').hidden = tableView;
     $('reference').hidden = !tableView;
     renderReferenceCopy();
